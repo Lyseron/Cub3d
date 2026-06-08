@@ -20,6 +20,7 @@
 # include <fcntl.h>
 # include <stdlib.h>
 # include <X11/keysym.h>
+# include <stdbool.h>
 
 # define OK 0
 # define ERROR 1
