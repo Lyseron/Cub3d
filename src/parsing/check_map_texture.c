@@ -1,22 +1,14 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   check_map_texture.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mvignes <mvignes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/06/08 13:48:23 by lyaberge          #+#    #+#             */
-/*   Updated: 2026/06/08 17:18:40 by mvignes          ###   ########.fr       */
+/*   Created: 2026/06/08 17:05:45 by mvignes           #+#    #+#             */
+/*   Updated: 2026/06/08 17:06:16 by mvignes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cube.h"
+#include "../../includes/cube.h"
 
-int main(int ac, char **av)
-{
-	// if (ac != 2)
-	// 	return (print_error("Wrong number of args", 2))
-	Map	maps;
-	ft_memset(&maps, 0, sizeof(Map));
-	extract_data(av[1]);
-}
