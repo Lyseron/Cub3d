@@ -12,23 +12,25 @@
 
 #include "cube.h"
 
-char	*return_value(char *line, char *find)
+char	*extract_value(char *line, char *to_find)
 {
+	char	*extract_line;
+	char	*value;
 
+	extract_line = ft_strtrim(line, to_find);
+	value = ft_strtrim(extract_line, " ");
+	// free(extract_line);
+	return (value);
 }
 
-void	sort_value(char *line, Map *map)
+char	*sort_value(char *line, char *to_find)
 {
-	char *value = ft_strnstr(line, "NO", ft_strlen(line));
-	if (value_check() == OK)
-		
-	map->texture.SO = return_value(line, "SO");
+	char 	*complete_line;
+	char	*value;
 
-	value = ft_strnstr(line, "NO", ft_strlen(line));
-	if (value)
-		return ;
-	value = ft_strnstr(line, "SO", ft_strlen(line));
-
+	complete_line = ft_strnstr(line, to_find, ft_strlen(line));
+	value = extract_value(complete_line, to_find);
+	return (value);
 }
 
 bool extract_data(char *map_name, Map *map)
@@ -38,24 +40,29 @@ bool extract_data(char *map_name, Map *map)
 
 	fd = open(map_name, O_RDONLY);
 	if (fd == -1)
-		return (ft_putstr_fd("Error open map", 2), ERROR);
+		return (ft_putstr_fd("Error open map\n", 2), ERROR);
 	while (1)
 	{
 		line = get_next_line(fd);
 		if (!line)
 			break;
-		sort_value(line, map);
+		map->texture.NO = sort_value(line, "NO");
+		printf("%s", map->texture.NO);
+		// map->texture.EA = sort_value(line, "EA");
+		// map->texture.SO = sort_value(line, "SO");
+		// map->texture.WE = sort_value(line, "WE");
 	}
-	if (verif_init_value(map) == false)
-		return (false);
+	// if (verif_init_value(map) == false)
+		// return (false);
 	return (true);
 }
 
 int main(int ac, char **av)
 {
-	// if (ac != 2)
-	// 	return (print_error("Wrong number of args", 2))
+	if (ac != 2)
+		return (ft_putstr_fd("Wrong number of args\n", 2), ERROR);
 	Map	maps;
-	ft_memset(&maps, 0, sizeof(Map));
+	// ft_memset(&maps, 0, sizeof(Map));
 	extract_data(av[1], &maps);
+	printf("%s", maps.texture.EA);
 }

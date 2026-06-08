@@ -18,6 +18,8 @@
 # include <stdlib.h>
 # include <unistd.h>
 
+# define BUFFER_SIZE 1
+
 //                    Classique libf                    //
 
 // Char checking functions
@@ -95,6 +97,11 @@ void	ft_lstadd_front(t_list **lst, t_list *new);
 void	ft_lstiter(t_list *lst, void (*f)(void *));
 int		ft_lstsize(t_list *lst);
 
-char	get_next_line(int fd);
+char	*get_next_line(int fd);
+char	*ft_substr_gnl(char const *s, unsigned int start, size_t len);
+char	*ft_strjoin_gnl(char *s1, char *s2);
+char	*ft_strchr_gnl(const char *s, int c);
+size_t	ft_strlen_i(const char *str);
+size_t	ft_strlen_gnl(const char *str);
 
 #endif

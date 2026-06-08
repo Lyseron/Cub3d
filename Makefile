@@ -8,7 +8,9 @@ LIBFT_DIR  = libft
 
 LIBFT      = $(LIBFT_DIR)/libft.a
 
-SRCS    = main.c
+SRCS_DIR   = src/
+
+SRCS    = $(SRCS_DIR)main.c
 
 OBJS    = $(SRCS:%.c=%.o)
 RM      = rm -f
