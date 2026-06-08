@@ -6,7 +6,7 @@
 /*   By: mvignes <mvignes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/08 13:38:07 by lyaberge          #+#    #+#             */
-/*   Updated: 2026/06/08 16:38:30 by mvignes          ###   ########.fr       */
+/*   Updated: 2026/06/08 17:17:08 by mvignes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,15 +31,24 @@ typedef struct s_player
 
 }	player;
 
+typedef	struct s_texture
+{
+	char	*NO;
+	char	*SO;
+	char	*WE;
+	char	*EA;
+}	Texture;
 
 typedef struct s_map
 {
-
-}	map;
+	Texture	texture;
+	int		*Floor;
+	int		*Ceiling;
+}	Map;
 
 typedef struct s_key
 {
 
-}	key;
+}	Key;
 
 #endif

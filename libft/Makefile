@@ -12,7 +12,8 @@ ft_putchar_fd.c ft_putstr_fd.c ft_putendl_fd.c ft_putnbr_fd.c \
 ft_itoa.c ft_add_str_in_dba.c ft_contain_char.c ft_dba_dup.c \
 ft_dba_len.c ft_extract_var_path.c ft_free_before_i.c \
 ft_free_dba.c ft_rm_str_in_dba.c ft_skip_space.c ft_iswhitespace.c \
-ft_lstadd_front.c ft_isonly_space.c ft_lstiter.c ft_lstsize.c ft_strcmp.c 
+ft_lstadd_front.c ft_isonly_space.c ft_lstiter.c ft_lstsize.c ft_strcmp.c\
+get_next_line.c get_next_line_utils.c
 
 OBJ_DIR = obj/
 OBJS    = $(addprefix $(OBJ_DIR), $(SRCS:%.c=%.o))
