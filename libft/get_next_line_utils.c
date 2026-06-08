@@ -6,11 +6,11 @@
 /*   By: mvignes <mvignes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/26 21:32:18 by mvignes           #+#    #+#             */
-/*   Updated: 2026/01/30 13:52:05 by mvignes          ###   ########.fr       */
+/*   Updated: 2026/06/08 18:09:11 by mvignes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/libft.h"
+#include "libft.h"
 
 size_t	ft_strlen_gnl(const char *str)
 {

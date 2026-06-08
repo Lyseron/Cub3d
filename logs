@@ -1,0 +1,1980 @@
+./maps/invalid/C_after_map.cub
+
+PRINT TEXTURE
+./sprites/wall_brick0.xpm
+./sprites/wall_brick1.xpm
+./sprites/wall_brick2.xpm
+./sprites/wall_brick3.xpm
+
+PRINT COLOR
+floor i = 42
+floor i = 42
+floor i = 42
+Ceiling i = 20
+Ceiling i = 20
+Ceiling i = 20
+0
+./maps/invalid/doube_WE.cub
+
+PRINT TEXTURE
+./sprites/wall_brick0.xpm
+./sprites/wall_brick1.xpm
+./sprites/wall_lab0.xpm
+./sprites/wall_brick3.xpm
+
+PRINT COLOR
+floor i = 42
+floor i = 42
+floor i = 42
+Ceiling i = 20
+Ceiling i = 20
+Ceiling i = 20
+0
+./maps/invalid/double_C.cub
+
+PRINT TEXTURE
+./sprites/wall_brick0.xpm
+./sprites/wall_brick1.xpm
+./sprites/wall_brick2.xpm
+./sprites/wall_brick3.xpm
+
+PRINT COLOR
+floor i = 42
+floor i = 42
+floor i = 42
+Ceiling i = 42
+Ceiling i = 42
+Ceiling i = 42
+0
+./maps/invalid/double_EA.cub
+
+PRINT TEXTURE
+./sprites/wall_brick0.xpm
+./sprites/wall_brick1.xpm
+./sprites/wall_brick2.xpm
+./sprites/wall_lab0.xpm
+
+PRINT COLOR
+floor i = 42
+floor i = 42
+floor i = 42
+Ceiling i = 20
+Ceiling i = 20
+Ceiling i = 20
+0
+./maps/invalid/double_F.cub
+
+PRINT TEXTURE
+./sprites/wall_brick0.xpm
+./sprites/wall_brick1.xpm
+./sprites/wall_brick2.xpm
+./sprites/wall_brick3.xpm
+
+PRINT COLOR
+floor i = 10
+floor i = 10
+floor i = 10
+Ceiling i = 20
+Ceiling i = 20
+Ceiling i = 20
+0
+./maps/invalid/double_NO.cub
+
+PRINT TEXTURE
+./sprites/wall_lab0.xpm
+./sprites/wall_brick1.xpm
+./sprites/wall_brick2.xpm
+./sprites/wall_brick3.xpm
+
+PRINT COLOR
+floor i = 42
+floor i = 42
+floor i = 42
+Ceiling i = 20
+Ceiling i = 20
+Ceiling i = 20
+0
+./maps/invalid/double_SO.cub
+
+PRINT TEXTURE
+./sprites/wall_brick0.xpm
+./sprites/wall_lab0.xpm
+./sprites/wall_brick2.xpm
+./sprites/wall_brick3.xpm
+
+PRINT COLOR
+floor i = 42
+floor i = 42
+floor i = 42
+Ceiling i = 20
+Ceiling i = 20
+Ceiling i = 20
+0
+./maps/invalid/EA_after_map.cub
+
+PRINT TEXTURE
+./sprites/wall_brick0.xpm
+./sprites/wall_brick1.xpm
+./sprites/wall_brick2.xpm
+./sprites/wall_brick3.xpm
+
+PRINT COLOR
+floor i = 42
+floor i = 42
+floor i = 42
+Ceiling i = 20
+Ceiling i = 20
+Ceiling i = 20
+0
+./maps/invalid/extra_C_element.cub
+verif dit c'est pas bon
+0
+./maps/invalid/extra_F_element.cub
+verif dit c'est pas bon
+0
+./maps/invalid/F_after_map.cub
+
+PRINT TEXTURE
+./sprites/wall_brick0.xpm
+./sprites/wall_brick1.xpm
+./sprites/wall_brick2.xpm
+./sprites/wall_brick3.xpm
+
+PRINT COLOR
+floor i = 42
+floor i = 42
+floor i = 42
+Ceiling i = 20
+Ceiling i = 20
+Ceiling i = 20
+0
+./maps/invalid/invalid_EA_texture.cub
+
+PRINT TEXTURE
+./sprites/wall_brick1.xpm
+./sprites/wall_brick0.xpm
+./sprites/wall_brick2.xpm
+/norminet
+
+PRINT COLOR
+floor i = 42
+floor i = 42
+floor i = 42
+Ceiling i = 20
+Ceiling i = 20
+Ceiling i = 20
+0
+./maps/invalid/invalid_NO_texture.cub
+
+PRINT TEXTURE
+/norminet
+./sprites/wall_brick1.xpm
+./sprites/wall_brick2.xpm
+./sprites/wall_brick3.xpm
+
+PRINT COLOR
+floor i = 42
+floor i = 42
+floor i = 42
+Ceiling i = 20
+Ceiling i = 20
+Ceiling i = 20
+0
+./maps/invalid/invalid_SO_texture.cub
+
+PRINT TEXTURE
+./sprites/wall_brick1.xpm
+/norminet
+./sprites/wall_brick2.xpm
+./sprites/wall_brick3.xpm
+
+PRINT COLOR
+floor i = 42
+floor i = 42
+floor i = 42
+Ceiling i = 20
+Ceiling i = 20
+Ceiling i = 20
+0
+./maps/invalid/invalid_WE_texture.cub
+
+PRINT TEXTURE
+./sprites/wall_brick1.xpm
+./sprites/wall_brick2.xpm
+/norminet
+./sprites/wall_brick3.xpm
+
+PRINT COLOR
+floor i = 42
+floor i = 42
+floor i = 42
+Ceiling i = 20
+Ceiling i = 20
+Ceiling i = 20
+0
+./maps/invalid/lowercase_EA.cub
+verif dit c'est pas bon
+0
+./maps/invalid/lowercase_NO.cub
+verif dit c'est pas bon
+0
+./maps/invalid/lowercase_SO.cub
+verif dit c'est pas bon
+0
+./maps/invalid/lowercase_WE.cub
+verif dit c'est pas bon
+0
+./maps/invalid/map_has_no_player.cub
+
+PRINT TEXTURE
+./sprites/wall_brick0.xpm
+./sprites/wall_brick1.xpm
+./sprites/wall_brick2.xpm
+./sprites/wall_brick3.xpm
+
+PRINT COLOR
+floor i = 42
+floor i = 42
+floor i = 42
+Ceiling i = 20
+Ceiling i = 20
+Ceiling i = 20
+0
+./maps/invalid/map_has_two_players.cub
+
+PRINT TEXTURE
+./sprites/wall_brick0.xpm
+./sprites/wall_brick1.xpm
+./sprites/wall_brick2.xpm
+./sprites/wall_brick3.xpm
+
+PRINT COLOR
+floor i = 42
+floor i = 42
+floor i = 42
+Ceiling i = 20
+Ceiling i = 20
+Ceiling i = 20
+0
+./maps/invalid/map_has_unknown_character.cub
+
+PRINT TEXTURE
+./sprites/wall_brick0.xpm
+./sprites/wall_brick1.xpm
+./sprites/wall_brick2.xpm
+./sprites/wall_brick3.xpm
+
+PRINT COLOR
+floor i = 42
+floor i = 42
+floor i = 42
+Ceiling i = 20
+Ceiling i = 20
+Ceiling i = 20
+0
+./maps/invalid/map_has_void_in_the_middle.cub
+
+PRINT TEXTURE
+./sprites/wall_brick0.xpm
+./sprites/wall_brick1.xpm
+./sprites/wall_brick2.xpm
+./sprites/wall_brick3.xpm
+
+PRINT COLOR
+floor i = 42
+floor i = 42
+floor i = 42
+Ceiling i = 20
+Ceiling i = 20
+Ceiling i = 20
+0
+./maps/invalid/map_is_only_floor.cub
+
+PRINT TEXTURE
+./sprites/wall_brick0.xpm
+./sprites/wall_brick1.xpm
+./sprites/wall_brick2.xpm
+./sprites/wall_brick3.xpm
+
+PRINT COLOR
+floor i = 42
+floor i = 42
+floor i = 42
+Ceiling i = 20
+Ceiling i = 20
+Ceiling i = 20
+0
+./maps/invalid/map_is_only_player_east.cub
+
+PRINT TEXTURE
+./sprites/wall_brick0.xpm
+./sprites/wall_brick1.xpm
+./sprites/wall_brick2.xpm
+./sprites/wall_brick3.xpm
+
+PRINT COLOR
+floor i = 42
+floor i = 42
+floor i = 42
+Ceiling i = 20
+Ceiling i = 20
+Ceiling i = 20
+0
+./maps/invalid/map_is_only_player_north.cub
+
+PRINT TEXTURE
+./sprites/wall_brick0.xpm
+./sprites/wall_brick1.xpm
+./sprites/wall_brick2.xpm
+./sprites/wall_brick3.xpm
+
+PRINT COLOR
+floor i = 42
+floor i = 42
+floor i = 42
+Ceiling i = 20
+Ceiling i = 20
+Ceiling i = 20
+0
+./maps/invalid/map_is_only_player_south.cub
+
+PRINT TEXTURE
+./sprites/wall_brick0.xpm
+./sprites/wall_brick1.xpm
+./sprites/wall_brick2.xpm
+./sprites/wall_brick3.xpm
+
+PRINT COLOR
+floor i = 42
+floor i = 42
+floor i = 42
+Ceiling i = 20
+Ceiling i = 20
+Ceiling i = 20
+0
+./maps/invalid/map_is_only_player_west.cub
+
+PRINT TEXTURE
+./sprites/wall_brick0.xpm
+./sprites/wall_brick1.xpm
+./sprites/wall_brick2.xpm
+./sprites/wall_brick3.xpm
+
+PRINT COLOR
+floor i = 42
+floor i = 42
+floor i = 42
+Ceiling i = 20
+Ceiling i = 20
+Ceiling i = 20
+0
+./maps/invalid/map_is_only_walls.cub
+
+PRINT TEXTURE
+./sprites/wall_brick0.xpm
+./sprites/wall_brick1.xpm
+./sprites/wall_brick2.xpm
+./sprites/wall_brick3.xpm
+
+PRINT COLOR
+floor i = 42
+floor i = 42
+floor i = 42
+Ceiling i = 20
+Ceiling i = 20
+Ceiling i = 20
+0
+./maps/invalid/map_is_open.cub
+
+PRINT TEXTURE
+./sprites/wall_brick0.xpm
+./sprites/wall_brick1.xpm
+./sprites/wall_brick2.xpm
+./sprites/wall_brick3.xpm
+
+PRINT COLOR
+floor i = 42
+floor i = 42
+floor i = 42
+Ceiling i = 20
+Ceiling i = 20
+Ceiling i = 20
+0
+./maps/invalid/map_is_void.cub
+
+PRINT TEXTURE
+./sprites/wall_brick0.xpm
+./sprites/wall_brick1.xpm
+./sprites/wall_brick2.xpm
+./sprites/wall_brick3.xpm
+
+PRINT COLOR
+floor i = 42
+floor i = 42
+floor i = 42
+Ceiling i = 20
+Ceiling i = 20
+Ceiling i = 20
+0
+./maps/invalid/missing_C_blue.cub
+
+PRINT TEXTURE
+./sprites/wall_brick0.xpm
+./sprites/wall_brick1.xpm
+./sprites/wall_brick2.xpm
+./sprites/wall_brick3.xpm
+
+PRINT COLOR
+floor i = 42
+floor i = 42
+floor i = 42
+Ceiling i = 20
+Ceiling i = 20
+0
+./maps/invalid/missing_C.cub
+verif dit c'est pas bon
+0
+./maps/invalid/missing_C_green.cub
+
+PRINT TEXTURE
+./sprites/wall_brick0.xpm
+./sprites/wall_brick1.xpm
+./sprites/wall_brick2.xpm
+./sprites/wall_brick3.xpm
+
+PRINT COLOR
+floor i = 42
+floor i = 42
+floor i = 42
+Ceiling i = 20
+Ceiling i = 20
+0
+./maps/invalid/missing_C_red.cub
+
+PRINT TEXTURE
+./sprites/wall_brick0.xpm
+./sprites/wall_brick1.xpm
+./sprites/wall_brick2.xpm
+./sprites/wall_brick3.xpm
+
+PRINT COLOR
+floor i = 42
+floor i = 42
+floor i = 42
+0
+./maps/invalid/missing_C_rgb.cub
+
+PRINT TEXTURE
+./sprites/wall_brick0.xpm
+./sprites/wall_brick1.xpm
+./sprites/wall_brick2.xpm
+./sprites/wall_brick3.xpm
+
+PRINT COLOR
+floor i = 42
+floor i = 42
+floor i = 42
+0
+./maps/invalid/missing_EA.cub
+verif dit c'est pas bon
+0
+./maps/invalid/missing_EA_path.cub
+
+PRINT TEXTURE
+./sprites/wall_brick1.xpm
+./sprites/wall_brick2.xpm
+./sprites/wall_brick3.xpm
+
+PRINT COLOR
+floor i = 42
+floor i = 42
+floor i = 42
+Ceiling i = 20
+Ceiling i = 20
+Ceiling i = 20
+0
+./maps/invalid/missing_F_blue.cub
+
+PRINT TEXTURE
+./sprites/wall_brick0.xpm
+./sprites/wall_brick1.xpm
+./sprites/wall_brick2.xpm
+./sprites/wall_brick3.xpm
+
+PRINT COLOR
+floor i = 42
+floor i = 42
+Ceiling i = 20
+Ceiling i = 20
+Ceiling i = 20
+0
+./maps/invalid/missing_F.cub
+verif dit c'est pas bon
+0
+./maps/invalid/missing_F_green.cub
+
+PRINT TEXTURE
+./sprites/wall_brick0.xpm
+./sprites/wall_brick1.xpm
+./sprites/wall_brick2.xpm
+./sprites/wall_brick3.xpm
+
+PRINT COLOR
+floor i = 42
+floor i = 42
+Ceiling i = 20
+Ceiling i = 20
+Ceiling i = 20
+0
+./maps/invalid/missing_F_red.cub
+
+PRINT TEXTURE
+./sprites/wall_brick0.xpm
+./sprites/wall_brick1.xpm
+./sprites/wall_brick2.xpm
+./sprites/wall_brick3.xpm
+
+PRINT COLOR
+Ceiling i = 20
+Ceiling i = 20
+Ceiling i = 20
+0
+./maps/invalid/missing_F_rgb.cub
+
+PRINT TEXTURE
+./sprites/wall_brick0.xpm
+./sprites/wall_brick1.xpm
+./sprites/wall_brick2.xpm
+./sprites/wall_brick3.xpm
+
+PRINT COLOR
+Ceiling i = 20
+Ceiling i = 20
+Ceiling i = 20
+0
+./maps/invalid/missing_map.cub
+
+PRINT TEXTURE
+./sprites/wall_brick0.xpm
+./sprites/wall_brick1.xpm
+./sprites/wall_brick2.xpm
+./sprites/wall_brick3.xpm
+
+PRINT COLOR
+floor i = 42
+floor i = 42
+floor i = 42
+Ceiling i = 20
+Ceiling i = 20
+Ceiling i = 20
+0
+./maps/invalid/missing_NO.cub
+verif dit c'est pas bon
+0
+./maps/invalid/missing_NO_path.cub
+
+PRINT TEXTURE
+./sprites/wall_brick1.xpm
+./sprites/wall_brick2.xpm
+./sprites/wall_brick3.xpm
+
+PRINT COLOR
+floor i = 42
+floor i = 42
+floor i = 42
+Ceiling i = 20
+Ceiling i = 20
+Ceiling i = 20
+0
+./maps/invalid/missing_SO.cub
+verif dit c'est pas bon
+0
+./maps/invalid/missing_SO_path.cub
+
+PRINT TEXTURE
+./sprites/wall_brick1.xpm
+./sprites/wall_brick2.xpm
+./sprites/wall_brick3.xpm
+
+PRINT COLOR
+floor i = 42
+floor i = 42
+floor i = 42
+Ceiling i = 20
+Ceiling i = 20
+Ceiling i = 20
+0
+./maps/invalid/missing_WE.cub
+verif dit c'est pas bon
+0
+./maps/invalid/missing_WE_path.cub
+
+PRINT TEXTURE
+./sprites/wall_brick1.xpm
+./sprites/wall_brick2.xpm
+./sprites/wall_brick3.xpm
+
+PRINT COLOR
+floor i = 42
+floor i = 42
+floor i = 42
+Ceiling i = 20
+Ceiling i = 20
+Ceiling i = 20
+0
+./maps/invalid/negative_C_blue.cub
+verif dit c'est pas bon
+0
+./maps/invalid/negative_C_green.cub
+verif dit c'est pas bon
+0
+./maps/invalid/negative_C_red.cub
+verif dit c'est pas bon
+0
+./maps/invalid/negative_F_blue.cub
+verif dit c'est pas bon
+0
+./maps/invalid/negative_F_green.cub
+verif dit c'est pas bon
+0
+./maps/invalid/negative_F_red.cub
+verif dit c'est pas bon
+0
+./maps/invalid/NO_after_map.cub
+
+PRINT TEXTURE
+./sprites/wall_brick0.xpm
+./sprites/wall_brick1.xpm
+./sprites/wall_brick2.xpm
+./sprites/wall_brick3.xpm
+
+PRINT COLOR
+floor i = 42
+floor i = 42
+floor i = 42
+Ceiling i = 20
+Ceiling i = 20
+Ceiling i = 20
+0
+./maps/invalid/no_read_perm_on_EA_texture.cub
+
+PRINT TEXTURE
+./sprites/wall_brick1.xpm
+./sprites/wall_brick2.xpm
+./sprites/wall_brick3.xpm
+./sprites/no_read.xpm
+
+PRINT COLOR
+floor i = 42
+floor i = 42
+floor i = 42
+Ceiling i = 20
+Ceiling i = 20
+Ceiling i = 20
+0
+./maps/invalid/no_read_perm_on_NO_texture.cub
+
+PRINT TEXTURE
+./sprites/no_read.xpm
+./sprites/wall_brick1.xpm
+./sprites/wall_brick2.xpm
+./sprites/wall_brick3.xpm
+
+PRINT COLOR
+floor i = 42
+floor i = 42
+floor i = 42
+Ceiling i = 20
+Ceiling i = 20
+Ceiling i = 20
+0
+./maps/invalid/no_read_perm_on_SO_texture.cub
+
+PRINT TEXTURE
+./sprites/wall_brick1.xpm
+./sprites/no_read.xpm
+./sprites/wall_brick2.xpm
+./sprites/wall_brick3.xpm
+
+PRINT COLOR
+floor i = 42
+floor i = 42
+floor i = 42
+Ceiling i = 20
+Ceiling i = 20
+Ceiling i = 20
+0
+./maps/invalid/no_read_perm_on_WE_texture.cub
+
+PRINT TEXTURE
+./sprites/wall_brick1.xpm
+./sprites/wall_brick2.xpm
+./sprites/no_read.xpm
+./sprites/wall_brick3.xpm
+
+PRINT COLOR
+floor i = 42
+floor i = 42
+floor i = 42
+Ceiling i = 20
+Ceiling i = 20
+Ceiling i = 20
+0
+./maps/invalid/player_is_outside.cub
+
+PRINT TEXTURE
+./sprites/wall_brick0.xpm
+./sprites/wall_brick1.xpm
+./sprites/wall_brick2.xpm
+./sprites/wall_brick3.xpm
+
+PRINT COLOR
+floor i = 42
+floor i = 42
+floor i = 42
+Ceiling i = 20
+Ceiling i = 20
+Ceiling i = 20
+0
+./maps/invalid/SO_after_map.cub
+
+PRINT TEXTURE
+./sprites/wall_brick0.xpm
+./sprites/wall_brick1.xpm
+./sprites/wall_brick2.xpm
+./sprites/wall_brick3.xpm
+
+PRINT COLOR
+floor i = 42
+floor i = 42
+floor i = 42
+Ceiling i = 20
+Ceiling i = 20
+Ceiling i = 20
+0
+./maps/invalid/too_large_C_blue.cub
+
+PRINT TEXTURE
+./sprites/wall_brick0.xpm
+./sprites/wall_brick1.xpm
+./sprites/wall_brick2.xpm
+./sprites/wall_brick3.xpm
+
+PRINT COLOR
+floor i = 42
+floor i = 42
+floor i = 42
+Ceiling i = 20
+Ceiling i = 20
+Ceiling i = 26
+0
+./maps/invalid/too_large_C_green.cub
+
+PRINT TEXTURE
+./sprites/wall_brick0.xpm
+./sprites/wall_brick1.xpm
+./sprites/wall_brick2.xpm
+./sprites/wall_brick3.xpm
+
+PRINT COLOR
+floor i = 42
+floor i = 42
+floor i = 42
+Ceiling i = 20
+Ceiling i = 26
+Ceiling i = 20
+0
+./maps/invalid/too_large_C_red.cub
+
+PRINT TEXTURE
+./sprites/wall_brick0.xpm
+./sprites/wall_brick1.xpm
+./sprites/wall_brick2.xpm
+./sprites/wall_brick3.xpm
+
+PRINT COLOR
+floor i = 42
+floor i = 42
+floor i = 42
+Ceiling i = 26
+Ceiling i = 20
+Ceiling i = 20
+0
+./maps/invalid/too_large_F_blue.cub
+
+PRINT TEXTURE
+./sprites/wall_brick0.xpm
+./sprites/wall_brick1.xpm
+./sprites/wall_brick2.xpm
+./sprites/wall_brick3.xpm
+
+PRINT COLOR
+floor i = 42
+floor i = 42
+floor i = 26
+Ceiling i = 20
+Ceiling i = 20
+Ceiling i = 20
+0
+./maps/invalid/too_large_F_green.cub
+
+PRINT TEXTURE
+./sprites/wall_brick0.xpm
+./sprites/wall_brick1.xpm
+./sprites/wall_brick2.xpm
+./sprites/wall_brick3.xpm
+
+PRINT COLOR
+floor i = 42
+floor i = 26
+floor i = 42
+Ceiling i = 20
+Ceiling i = 20
+Ceiling i = 20
+0
+./maps/invalid/too_large_F_red.cub
+
+PRINT TEXTURE
+./sprites/wall_brick0.xpm
+./sprites/wall_brick1.xpm
+./sprites/wall_brick2.xpm
+./sprites/wall_brick3.xpm
+
+PRINT COLOR
+floor i = 26
+floor i = 42
+floor i = 42
+Ceiling i = 20
+Ceiling i = 20
+Ceiling i = 20
+0
+./maps/invalid/unknown_directive.cub
+
+PRINT TEXTURE
+./sprites/wall_brick0.xpm
+./sprites/wall_brick1.xpm
+./sprites/wall_brick2.xpm
+./sprites/wall_brick3.xpm
+
+PRINT COLOR
+floor i = 42
+floor i = 42
+floor i = 42
+Ceiling i = 20
+Ceiling i = 20
+Ceiling i = 20
+0
+./maps/invalid/WE_after_map.cub
+
+PRINT TEXTURE
+./sprites/wall_brick0.xpm
+./sprites/wall_brick1.xpm
+./sprites/wall_brick2.xpm
+./sprites/wall_brick3.xpm
+
+PRINT COLOR
+floor i = 42
+floor i = 42
+floor i = 42
+Ceiling i = 20
+Ceiling i = 20
+Ceiling i = 20
+0
+./maps/invalid/wrong_C_separator.cub
+
+PRINT TEXTURE
+./sprites/wall_brick0.xpm
+./sprites/wall_brick1.xpm
+./sprites/wall_brick2.xpm
+./sprites/wall_brick3.xpm
+
+PRINT COLOR
+floor i = 42
+floor i = 42
+floor i = 42
+Ceiling i = 20
+0
+./maps/invalid/wrong_EA_texture_ext.cub
+
+PRINT TEXTURE
+./sprites/wall_brick1.xpm
+./sprites/wall_brick3.xpm
+./sprites/wall_brick2.xpm
+./sprites/malicious_xpm
+
+PRINT COLOR
+floor i = 42
+floor i = 42
+floor i = 42
+Ceiling i = 20
+Ceiling i = 20
+Ceiling i = 20
+0
+./maps/invalid/wrong_ext.ccub
+
+PRINT TEXTURE
+./sprites/wall_brick0.xpm
+./sprites/wall_brick1.xpm
+./sprites/wall_brick2.xpm
+./sprites/wall_brick3.xpm
+
+PRINT COLOR
+floor i = 42
+floor i = 42
+floor i = 42
+Ceiling i = 20
+Ceiling i = 20
+Ceiling i = 20
+0
+./maps/invalid/wrong_F_separator.cub
+
+PRINT TEXTURE
+./sprites/wall_brick0.xpm
+./sprites/wall_brick1.xpm
+./sprites/wall_brick2.xpm
+./sprites/wall_brick3.xpm
+
+PRINT COLOR
+floor i = 42
+Ceiling i = 20
+Ceiling i = 20
+Ceiling i = 20
+0
+./maps/invalid/wrong_NO_texture_ext.cub
+
+PRINT TEXTURE
+./sprites/malicious_xpm
+./sprites/wall_brick1.xpm
+./sprites/wall_brick2.xpm
+./sprites/wall_brick3.xpm
+
+PRINT COLOR
+floor i = 42
+floor i = 42
+floor i = 42
+Ceiling i = 20
+Ceiling i = 20
+Ceiling i = 20
+0
+./maps/invalid/wrong_SO_texture_ext.cub
+
+PRINT TEXTURE
+./sprites/wall_brick1.xpm
+./sprites/malicious_xpm
+./sprites/wall_brick2.xpm
+./sprites/wall_brick3.xpm
+
+PRINT COLOR
+floor i = 42
+floor i = 42
+floor i = 42
+Ceiling i = 20
+Ceiling i = 20
+Ceiling i = 20
+0
+./maps/invalid/wrong_WE_texture_ext.cub
+
+PRINT TEXTURE
+./sprites/wall_brick1.xpm
+./sprites/wall_brick2.xpm
+./sprites/malicious_xpm
+./sprites/wall_brick3.xpm
+
+PRINT COLOR
+floor i = 42
+floor i = 42
+floor i = 42
+Ceiling i = 20
+Ceiling i = 20
+Ceiling i = 20
+0
+./maps/invalid/C_after_map.cub
+
+PRINT TEXTURE
+./sprites/wall_brick0.xpm
+./sprites/wall_brick1.xpm
+./sprites/wall_brick2.xpm
+./sprites/wall_brick3.xpm
+
+PRINT COLOR
+floor i = 42
+floor i = 42
+floor i = 42
+Ceiling i = 20
+Ceiling i = 20
+Ceiling i = 20
+0
+./maps/invalid/doube_WE.cub
+
+PRINT TEXTURE
+./sprites/wall_brick0.xpm
+./sprites/wall_brick1.xpm
+./sprites/wall_lab0.xpm
+./sprites/wall_brick3.xpm
+
+PRINT COLOR
+floor i = 42
+floor i = 42
+floor i = 42
+Ceiling i = 20
+Ceiling i = 20
+Ceiling i = 20
+0
+./maps/invalid/double_C.cub
+
+PRINT TEXTURE
+./sprites/wall_brick0.xpm
+./sprites/wall_brick1.xpm
+./sprites/wall_brick2.xpm
+./sprites/wall_brick3.xpm
+
+PRINT COLOR
+floor i = 42
+floor i = 42
+floor i = 42
+Ceiling i = 42
+Ceiling i = 42
+Ceiling i = 42
+0
+./maps/invalid/double_EA.cub
+
+PRINT TEXTURE
+./sprites/wall_brick0.xpm
+./sprites/wall_brick1.xpm
+./sprites/wall_brick2.xpm
+./sprites/wall_lab0.xpm
+
+PRINT COLOR
+floor i = 42
+floor i = 42
+floor i = 42
+Ceiling i = 20
+Ceiling i = 20
+Ceiling i = 20
+0
+./maps/invalid/double_F.cub
+
+PRINT TEXTURE
+./sprites/wall_brick0.xpm
+./sprites/wall_brick1.xpm
+./sprites/wall_brick2.xpm
+./sprites/wall_brick3.xpm
+
+PRINT COLOR
+floor i = 10
+floor i = 10
+floor i = 10
+Ceiling i = 20
+Ceiling i = 20
+Ceiling i = 20
+0
+./maps/invalid/double_NO.cub
+
+PRINT TEXTURE
+./sprites/wall_brick0.xpm
+./sprites/wall_brick1.xpm
+./sprites/wall_brick2.xpm
+./sprites/wall_brick3.xpm
+
+PRINT COLOR
+floor i = 42
+floor i = 42
+floor i = 42
+Ceiling i = 20
+Ceiling i = 20
+Ceiling i = 20
+0
+./maps/invalid/double_SO.cub
+
+PRINT TEXTURE
+./sprites/wall_brick0.xpm
+./sprites/wall_lab0.xpm
+./sprites/wall_brick2.xpm
+./sprites/wall_brick3.xpm
+
+PRINT COLOR
+floor i = 42
+floor i = 42
+floor i = 42
+Ceiling i = 20
+Ceiling i = 20
+Ceiling i = 20
+0
+./maps/invalid/EA_after_map.cub
+
+PRINT TEXTURE
+./sprites/wall_brick0.xpm
+./sprites/wall_brick1.xpm
+./sprites/wall_brick2.xpm
+./sprites/wall_brick3.xpm
+
+PRINT COLOR
+floor i = 42
+floor i = 42
+floor i = 42
+Ceiling i = 20
+Ceiling i = 20
+Ceiling i = 20
+0
+./maps/invalid/extra_C_element.cub
+verif dit c'est pas bon
+0
+./maps/invalid/extra_F_element.cub
+verif dit c'est pas bon
+0
+./maps/invalid/F_after_map.cub
+
+PRINT TEXTURE
+./sprites/wall_brick0.xpm
+./sprites/wall_brick1.xpm
+./sprites/wall_brick2.xpm
+./sprites/wall_brick3.xpm
+
+PRINT COLOR
+floor i = 42
+floor i = 42
+floor i = 42
+Ceiling i = 20
+Ceiling i = 20
+Ceiling i = 20
+0
+./maps/invalid/invalid_EA_texture.cub
+
+PRINT TEXTURE
+./sprites/wall_brick1.xpm
+./sprites/wall_brick0.xpm
+./sprites/wall_brick2.xpm
+/norminet
+
+PRINT COLOR
+floor i = 42
+floor i = 42
+floor i = 42
+Ceiling i = 20
+Ceiling i = 20
+Ceiling i = 20
+0
+./maps/invalid/invalid_NO_texture.cub
+
+PRINT TEXTURE
+/norminet
+./sprites/wall_brick1.xpm
+./sprites/wall_brick2.xpm
+./sprites/wall_brick3.xpm
+
+PRINT COLOR
+floor i = 42
+floor i = 42
+floor i = 42
+Ceiling i = 20
+Ceiling i = 20
+Ceiling i = 20
+0
+./maps/invalid/invalid_SO_texture.cub
+
+PRINT TEXTURE
+./sprites/wall_brick1.xpm
+/norminet
+./sprites/wall_brick2.xpm
+./sprites/wall_brick3.xpm
+
+PRINT COLOR
+floor i = 42
+floor i = 42
+floor i = 42
+Ceiling i = 20
+Ceiling i = 20
+Ceiling i = 20
+0
+./maps/invalid/invalid_WE_texture.cub
+
+PRINT TEXTURE
+./sprites/wall_brick1.xpm
+./sprites/wall_brick2.xpm
+/norminet
+./sprites/wall_brick3.xpm
+
+PRINT COLOR
+floor i = 42
+floor i = 42
+floor i = 42
+Ceiling i = 20
+Ceiling i = 20
+Ceiling i = 20
+0
+./maps/invalid/lowercase_EA.cub
+verif dit c'est pas bon
+0
+./maps/invalid/lowercase_NO.cub
+verif dit c'est pas bon
+0
+./maps/invalid/lowercase_SO.cub
+verif dit c'est pas bon
+0
+./maps/invalid/lowercase_WE.cub
+verif dit c'est pas bon
+0
+./maps/invalid/map_has_no_player.cub
+
+PRINT TEXTURE
+./sprites/wall_brick0.xpm
+./sprites/wall_brick1.xpm
+./sprites/wall_brick2.xpm
+./sprites/wall_brick3.xpm
+
+PRINT COLOR
+floor i = 42
+floor i = 42
+floor i = 42
+Ceiling i = 20
+Ceiling i = 20
+Ceiling i = 20
+0
+./maps/invalid/map_has_two_players.cub
+
+PRINT TEXTURE
+./sprites/wall_brick0.xpm
+./sprites/wall_brick1.xpm
+./sprites/wall_brick2.xpm
+./sprites/wall_brick3.xpm
+
+PRINT COLOR
+floor i = 42
+floor i = 42
+floor i = 42
+Ceiling i = 20
+Ceiling i = 20
+Ceiling i = 20
+0
+./maps/invalid/map_has_unknown_character.cub
+
+PRINT TEXTURE
+./sprites/wall_brick0.xpm
+./sprites/wall_brick1.xpm
+./sprites/wall_brick2.xpm
+./sprites/wall_brick3.xpm
+
+PRINT COLOR
+floor i = 42
+floor i = 42
+floor i = 42
+Ceiling i = 20
+Ceiling i = 20
+Ceiling i = 20
+0
+./maps/invalid/map_has_void_in_the_middle.cub
+
+PRINT TEXTURE
+./sprites/wall_brick0.xpm
+./sprites/wall_brick1.xpm
+./sprites/wall_brick2.xpm
+./sprites/wall_brick3.xpm
+
+PRINT COLOR
+floor i = 42
+floor i = 42
+floor i = 42
+Ceiling i = 20
+Ceiling i = 20
+Ceiling i = 20
+0
+./maps/invalid/map_is_only_floor.cub
+
+PRINT TEXTURE
+./sprites/wall_brick0.xpm
+./sprites/wall_brick1.xpm
+./sprites/wall_brick2.xpm
+./sprites/wall_brick3.xpm
+
+PRINT COLOR
+floor i = 42
+floor i = 42
+floor i = 42
+Ceiling i = 20
+Ceiling i = 20
+Ceiling i = 20
+0
+./maps/invalid/map_is_only_player_east.cub
+
+PRINT TEXTURE
+./sprites/wall_brick0.xpm
+./sprites/wall_brick1.xpm
+./sprites/wall_brick2.xpm
+./sprites/wall_brick3.xpm
+
+PRINT COLOR
+floor i = 42
+floor i = 42
+floor i = 42
+Ceiling i = 20
+Ceiling i = 20
+Ceiling i = 20
+0
+./maps/invalid/map_is_only_player_north.cub
+
+PRINT TEXTURE
+./sprites/wall_brick0.xpm
+./sprites/wall_brick1.xpm
+./sprites/wall_brick2.xpm
+./sprites/wall_brick3.xpm
+
+PRINT COLOR
+floor i = 42
+floor i = 42
+floor i = 42
+Ceiling i = 20
+Ceiling i = 20
+Ceiling i = 20
+0
+./maps/invalid/map_is_only_player_south.cub
+
+PRINT TEXTURE
+./sprites/wall_brick0.xpm
+./sprites/wall_brick1.xpm
+./sprites/wall_brick2.xpm
+./sprites/wall_brick3.xpm
+
+PRINT COLOR
+floor i = 42
+floor i = 42
+floor i = 42
+Ceiling i = 20
+Ceiling i = 20
+Ceiling i = 20
+0
+./maps/invalid/map_is_only_player_west.cub
+
+PRINT TEXTURE
+./sprites/wall_brick0.xpm
+./sprites/wall_brick1.xpm
+./sprites/wall_brick2.xpm
+./sprites/wall_brick3.xpm
+
+PRINT COLOR
+floor i = 42
+floor i = 42
+floor i = 42
+Ceiling i = 20
+Ceiling i = 20
+Ceiling i = 20
+0
+./maps/invalid/map_is_only_walls.cub
+
+PRINT TEXTURE
+./sprites/wall_brick0.xpm
+./sprites/wall_brick1.xpm
+./sprites/wall_brick2.xpm
+./sprites/wall_brick3.xpm
+
+PRINT COLOR
+floor i = 42
+floor i = 42
+floor i = 42
+Ceiling i = 20
+Ceiling i = 20
+Ceiling i = 20
+0
+./maps/invalid/map_is_open.cub
+
+PRINT TEXTURE
+./sprites/wall_brick0.xpm
+./sprites/wall_brick1.xpm
+./sprites/wall_brick2.xpm
+./sprites/wall_brick3.xpm
+
+PRINT COLOR
+floor i = 42
+floor i = 42
+floor i = 42
+Ceiling i = 20
+Ceiling i = 20
+Ceiling i = 20
+0
+./maps/invalid/map_is_void.cub
+
+PRINT TEXTURE
+./sprites/wall_brick0.xpm
+./sprites/wall_brick1.xpm
+./sprites/wall_brick2.xpm
+./sprites/wall_brick3.xpm
+
+PRINT COLOR
+floor i = 42
+floor i = 42
+floor i = 42
+Ceiling i = 20
+Ceiling i = 20
+Ceiling i = 20
+0
+./maps/invalid/missing_C_blue.cub
+
+PRINT TEXTURE
+./sprites/wall_brick0.xpm
+./sprites/wall_brick1.xpm
+./sprites/wall_brick2.xpm
+./sprites/wall_brick3.xpm
+
+PRINT COLOR
+floor i = 42
+floor i = 42
+floor i = 42
+Ceiling i = 20
+Ceiling i = 20
+0
+./maps/invalid/missing_C.cub
+verif dit c'est pas bon
+0
+./maps/invalid/missing_C_green.cub
+
+PRINT TEXTURE
+./sprites/wall_brick0.xpm
+./sprites/wall_brick1.xpm
+./sprites/wall_brick2.xpm
+./sprites/wall_brick3.xpm
+
+PRINT COLOR
+floor i = 42
+floor i = 42
+floor i = 42
+Ceiling i = 20
+Ceiling i = 20
+0
+./maps/invalid/missing_C_red.cub
+
+PRINT TEXTURE
+./sprites/wall_brick0.xpm
+./sprites/wall_brick1.xpm
+./sprites/wall_brick2.xpm
+./sprites/wall_brick3.xpm
+
+PRINT COLOR
+floor i = 42
+floor i = 42
+floor i = 42
+0
+./maps/invalid/missing_C_rgb.cub
+
+PRINT TEXTURE
+./sprites/wall_brick0.xpm
+./sprites/wall_brick1.xpm
+./sprites/wall_brick2.xpm
+./sprites/wall_brick3.xpm
+
+PRINT COLOR
+floor i = 42
+floor i = 42
+floor i = 42
+0
+./maps/invalid/missing_EA.cub
+verif dit c'est pas bon
+0
+./maps/invalid/missing_EA_path.cub
+
+PRINT TEXTURE
+./sprites/wall_brick1.xpm
+./sprites/wall_brick2.xpm
+./sprites/wall_brick3.xpm
+
+PRINT COLOR
+floor i = 42
+floor i = 42
+floor i = 42
+Ceiling i = 20
+Ceiling i = 20
+Ceiling i = 20
+0
+./maps/invalid/missing_F_blue.cub
+
+PRINT TEXTURE
+./sprites/wall_brick0.xpm
+./sprites/wall_brick1.xpm
+./sprites/wall_brick2.xpm
+./sprites/wall_brick3.xpm
+
+PRINT COLOR
+floor i = 42
+floor i = 42
+Ceiling i = 20
+Ceiling i = 20
+Ceiling i = 20
+0
+./maps/invalid/missing_F.cub
+verif dit c'est pas bon
+0
+./maps/invalid/missing_F_green.cub
+
+PRINT TEXTURE
+./sprites/wall_brick0.xpm
+./sprites/wall_brick1.xpm
+./sprites/wall_brick2.xpm
+./sprites/wall_brick3.xpm
+
+PRINT COLOR
+floor i = 42
+floor i = 42
+Ceiling i = 20
+Ceiling i = 20
+Ceiling i = 20
+0
+./maps/invalid/missing_F_red.cub
+
+PRINT TEXTURE
+./sprites/wall_brick0.xpm
+./sprites/wall_brick1.xpm
+./sprites/wall_brick2.xpm
+./sprites/wall_brick3.xpm
+
+PRINT COLOR
+Ceiling i = 20
+Ceiling i = 20
+Ceiling i = 20
+0
+./maps/invalid/missing_F_rgb.cub
+
+PRINT TEXTURE
+./sprites/wall_brick0.xpm
+./sprites/wall_brick1.xpm
+./sprites/wall_brick2.xpm
+./sprites/wall_brick3.xpm
+
+PRINT COLOR
+Ceiling i = 20
+Ceiling i = 20
+Ceiling i = 20
+0
+./maps/invalid/missing_map.cub
+
+PRINT TEXTURE
+./sprites/wall_brick0.xpm
+./sprites/wall_brick1.xpm
+./sprites/wall_brick2.xpm
+./sprites/wall_brick3.xpm
+
+PRINT COLOR
+floor i = 42
+floor i = 42
+floor i = 42
+Ceiling i = 20
+Ceiling i = 20
+Ceiling i = 20
+0
+./maps/invalid/missing_NO.cub
+verif dit c'est pas bon
+0
+./maps/invalid/missing_NO_path.cub
+
+PRINT TEXTURE
+./sprites/wall_brick1.xpm
+./sprites/wall_brick2.xpm
+./sprites/wall_brick3.xpm
+
+PRINT COLOR
+floor i = 42
+floor i = 42
+floor i = 42
+Ceiling i = 20
+Ceiling i = 20
+Ceiling i = 20
+0
+./maps/invalid/missing_SO.cub
+verif dit c'est pas bon
+0
+./maps/invalid/missing_SO_path.cub
+
+PRINT TEXTURE
+./sprites/wall_brick1.xpm
+./sprites/wall_brick2.xpm
+./sprites/wall_brick3.xpm
+
+PRINT COLOR
+floor i = 42
+floor i = 42
+floor i = 42
+Ceiling i = 20
+Ceiling i = 20
+Ceiling i = 20
+0
+./maps/invalid/missing_WE.cub
+verif dit c'est pas bon
+0
+./maps/invalid/missing_WE_path.cub
+
+PRINT TEXTURE
+./sprites/wall_brick1.xpm
+./sprites/wall_brick2.xpm
+./sprites/wall_brick3.xpm
+
+PRINT COLOR
+floor i = 42
+floor i = 42
+floor i = 42
+Ceiling i = 20
+Ceiling i = 20
+Ceiling i = 20
+0
+./maps/invalid/negative_C_blue.cub
+verif dit c'est pas bon
+0
+./maps/invalid/negative_C_green.cub
+verif dit c'est pas bon
+0
+./maps/invalid/negative_C_red.cub
+verif dit c'est pas bon
+0
+./maps/invalid/negative_F_blue.cub
+verif dit c'est pas bon
+0
+./maps/invalid/negative_F_green.cub
+verif dit c'est pas bon
+0
+./maps/invalid/negative_F_red.cub
+verif dit c'est pas bon
+0
+./maps/invalid/NO_after_map.cub
+
+PRINT TEXTURE
+./sprites/wall_brick0.xpm
+./sprites/wall_brick1.xpm
+./sprites/wall_brick2.xpm
+./sprites/wall_brick3.xpm
+
+PRINT COLOR
+floor i = 42
+floor i = 42
+floor i = 42
+Ceiling i = 20
+Ceiling i = 20
+Ceiling i = 20
+0
+./maps/invalid/no_read_perm_on_EA_texture.cub
+
+PRINT TEXTURE
+./sprites/wall_brick1.xpm
+./sprites/wall_brick2.xpm
+./sprites/wall_brick3.xpm
+./sprites/no_read.xpm
+
+PRINT COLOR
+floor i = 42
+floor i = 42
+floor i = 42
+Ceiling i = 20
+Ceiling i = 20
+Ceiling i = 20
+0
+./maps/invalid/no_read_perm_on_NO_texture.cub
+
+PRINT TEXTURE
+./sprites/no_read.xpm
+./sprites/wall_brick1.xpm
+./sprites/wall_brick2.xpm
+./sprites/wall_brick3.xpm
+
+PRINT COLOR
+floor i = 42
+floor i = 42
+floor i = 42
+Ceiling i = 20
+Ceiling i = 20
+Ceiling i = 20
+0
+./maps/invalid/no_read_perm_on_SO_texture.cub
+
+PRINT TEXTURE
+./sprites/wall_brick1.xpm
+./sprites/no_read.xpm
+./sprites/wall_brick2.xpm
+./sprites/wall_brick3.xpm
+
+PRINT COLOR
+floor i = 42
+floor i = 42
+floor i = 42
+Ceiling i = 20
+Ceiling i = 20
+Ceiling i = 20
+0
+./maps/invalid/no_read_perm_on_WE_texture.cub
+
+PRINT TEXTURE
+./sprites/wall_brick1.xpm
+./sprites/wall_brick2.xpm
+./sprites/no_read.xpm
+./sprites/wall_brick3.xpm
+
+PRINT COLOR
+floor i = 42
+floor i = 42
+floor i = 42
+Ceiling i = 20
+Ceiling i = 20
+Ceiling i = 20
+0
+./maps/invalid/player_is_outside.cub
+
+PRINT TEXTURE
+./sprites/wall_brick0.xpm
+./sprites/wall_brick1.xpm
+./sprites/wall_brick2.xpm
+./sprites/wall_brick3.xpm
+
+PRINT COLOR
+floor i = 42
+floor i = 42
+floor i = 42
+Ceiling i = 20
+Ceiling i = 20
+Ceiling i = 20
+0
+./maps/invalid/SO_after_map.cub
+
+PRINT TEXTURE
+./sprites/wall_brick0.xpm
+./sprites/wall_brick1.xpm
+./sprites/wall_brick2.xpm
+./sprites/wall_brick3.xpm
+
+PRINT COLOR
+floor i = 42
+floor i = 42
+floor i = 42
+Ceiling i = 20
+Ceiling i = 20
+Ceiling i = 20
+0
+./maps/invalid/too_large_C_blue.cub
+
+PRINT TEXTURE
+./sprites/wall_brick0.xpm
+./sprites/wall_brick1.xpm
+./sprites/wall_brick2.xpm
+./sprites/wall_brick3.xpm
+
+PRINT COLOR
+floor i = 42
+floor i = 42
+floor i = 42
+Ceiling i = 20
+Ceiling i = 20
+Ceiling i = 26
+0
+./maps/invalid/too_large_C_green.cub
+
+PRINT TEXTURE
+./sprites/wall_brick0.xpm
+./sprites/wall_brick1.xpm
+./sprites/wall_brick2.xpm
+./sprites/wall_brick3.xpm
+
+PRINT COLOR
+floor i = 42
+floor i = 42
+floor i = 42
+Ceiling i = 20
+Ceiling i = 26
+Ceiling i = 20
+0
+./maps/invalid/too_large_C_red.cub
+
+PRINT TEXTURE
+./sprites/wall_brick0.xpm
+./sprites/wall_brick1.xpm
+./sprites/wall_brick2.xpm
+./sprites/wall_brick3.xpm
+
+PRINT COLOR
+floor i = 42
+floor i = 42
+floor i = 42
+Ceiling i = 26
+Ceiling i = 20
+Ceiling i = 20
+0
+./maps/invalid/too_large_F_blue.cub
+
+PRINT TEXTURE
+./sprites/wall_brick0.xpm
+./sprites/wall_brick1.xpm
+./sprites/wall_brick2.xpm
+./sprites/wall_brick3.xpm
+
+PRINT COLOR
+floor i = 42
+floor i = 42
+floor i = 26
+Ceiling i = 20
+Ceiling i = 20
+Ceiling i = 20
+0
+./maps/invalid/too_large_F_green.cub
+
+PRINT TEXTURE
+./sprites/wall_brick0.xpm
+./sprites/wall_brick1.xpm
+./sprites/wall_brick2.xpm
+./sprites/wall_brick3.xpm
+
+PRINT COLOR
+floor i = 42
+floor i = 26
+floor i = 42
+Ceiling i = 20
+Ceiling i = 20
+Ceiling i = 20
+0
+./maps/invalid/too_large_F_red.cub
+
+PRINT TEXTURE
+./sprites/wall_brick0.xpm
+./sprites/wall_brick1.xpm
+./sprites/wall_brick2.xpm
+./sprites/wall_brick3.xpm
+
+PRINT COLOR
+floor i = 26
+floor i = 42
+floor i = 42
+Ceiling i = 20
+Ceiling i = 20
+Ceiling i = 20
+0
+./maps/invalid/unknown_directive.cub
+
+PRINT TEXTURE
+./sprites/wall_brick0.xpm
+./sprites/wall_brick1.xpm
+./sprites/wall_brick2.xpm
+./sprites/wall_brick3.xpm
+
+PRINT COLOR
+floor i = 42
+floor i = 42
+floor i = 42
+Ceiling i = 20
+Ceiling i = 20
+Ceiling i = 20
+0
+./maps/invalid/WE_after_map.cub
+
+PRINT TEXTURE
+./sprites/wall_brick0.xpm
+./sprites/wall_brick1.xpm
+./sprites/wall_brick2.xpm
+./sprites/wall_brick3.xpm
+
+PRINT COLOR
+floor i = 42
+floor i = 42
+floor i = 42
+Ceiling i = 20
+Ceiling i = 20
+Ceiling i = 20
+0
+./maps/invalid/wrong_C_separator.cub
+
+PRINT TEXTURE
+./sprites/wall_brick0.xpm
+./sprites/wall_brick1.xpm
+./sprites/wall_brick2.xpm
+./sprites/wall_brick3.xpm
+
+PRINT COLOR
+floor i = 42
+floor i = 42
+floor i = 42
+Ceiling i = 20
+0
+./maps/invalid/wrong_EA_texture_ext.cub
+
+PRINT TEXTURE
+./sprites/wall_brick1.xpm
+./sprites/wall_brick3.xpm
+./sprites/wall_brick2.xpm
+./sprites/malicious_xpm
+
+PRINT COLOR
+floor i = 42
+floor i = 42
+floor i = 42
+Ceiling i = 20
+Ceiling i = 20
+Ceiling i = 20
+0
+./maps/invalid/wrong_ext.ccub
+
+PRINT TEXTURE
+./sprites/wall_brick0.xpm
+./sprites/wall_brick1.xpm
+./sprites/wall_brick2.xpm
+./sprites/wall_brick3.xpm
+
+PRINT COLOR
+floor i = 42
+floor i = 42
+floor i = 42
+Ceiling i = 20
+Ceiling i = 20
+Ceiling i = 20
+0
+./maps/invalid/wrong_F_separator.cub
+
+PRINT TEXTURE
+./sprites/wall_brick0.xpm
+./sprites/wall_brick1.xpm
+./sprites/wall_brick2.xpm
+./sprites/wall_brick3.xpm
+
+PRINT COLOR
+floor i = 42
+Ceiling i = 20
+Ceiling i = 20
+Ceiling i = 20
+0
+./maps/invalid/wrong_NO_texture_ext.cub
+
+PRINT TEXTURE
+./sprites/malicious_xpm
+./sprites/wall_brick1.xpm
+./sprites/wall_brick2.xpm
+./sprites/wall_brick3.xpm
+
+PRINT COLOR
+floor i = 42
+floor i = 42
+floor i = 42
+Ceiling i = 20
+Ceiling i = 20
+Ceiling i = 20
+0
+./maps/invalid/wrong_SO_texture_ext.cub
+
+PRINT TEXTURE
+./sprites/wall_brick1.xpm
+./sprites/malicious_xpm
+./sprites/wall_brick2.xpm
+./sprites/wall_brick3.xpm
+
+PRINT COLOR
+floor i = 42
+floor i = 42
+floor i = 42
+Ceiling i = 20
+Ceiling i = 20
+Ceiling i = 20
+0
+./maps/invalid/wrong_WE_texture_ext.cub
+
+PRINT TEXTURE
+./sprites/wall_brick1.xpm
+./sprites/wall_brick2.xpm
+./sprites/malicious_xpm
+./sprites/wall_brick3.xpm
+
+PRINT COLOR
+floor i = 42
+floor i = 42
+floor i = 42
+Ceiling i = 20
+Ceiling i = 20
+Ceiling i = 20
+0

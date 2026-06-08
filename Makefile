@@ -1,18 +1,18 @@
-NAME       = so_long
-CC         = cc
-CFLAGS     = -Wall -Wextra -Werror -g
+NAME		= cub3D
+CC			= cc
+CFLAGS		= -Wall -Wextra -Werror -g
 
-INCS	   = -I. -I$(LIBFT_DIR)
+INCS		= -I. -I$(LIBFT_DIR)
 
-LIBFT_DIR  = libft
+LIBFT_DIR	= libft
 
-LIBFT      = $(LIBFT_DIR)/libft.a
+LIBFT		= $(LIBFT_DIR)/libft.a
 
-SRCS    = main.c
+SRCS		= ./src/main.c
 
-OBJS    = $(SRCS:%.c=%.o)
-RM      = rm -f
-UNAME_S := $(shell uname)
+OBJS		= $(SRCS:%.c=%.o)
+RM			= rm -f
+UNAME_S		:= $(shell uname)
 
 ifeq ($(UNAME_S),Darwin)
 	MLX_DIR = mlx_macos

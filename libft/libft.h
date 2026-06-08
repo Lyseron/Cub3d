@@ -6,7 +6,7 @@
 /*   By: mvignes <mvignes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/12 12:00:00 by lyseron           #+#    #+#             */
-/*   Updated: 2026/06/08 17:10:00 by mvignes          ###   ########.fr       */
+/*   Updated: 2026/06/08 18:09:32 by mvignes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@
 # include <stddef.h>
 # include <stdlib.h>
 # include <unistd.h>
+
+# define BUFFER_SIZE 42
 
 //                    Classique libf                    //
 
@@ -95,6 +97,11 @@ void	ft_lstadd_front(t_list **lst, t_list *new);
 void	ft_lstiter(t_list *lst, void (*f)(void *));
 int		ft_lstsize(t_list *lst);
 
-char	get_next_line(int fd);
+char	*get_next_line(int fd);
+size_t	ft_strlen_gnl(const char *str);
+size_t	ft_strlen_i(const char *str);
+char	*ft_strchr_gnl(const char *s, int c);
+char	*ft_strjoin_gnl(char *s1, char *s2);
+char	*ft_substr_gnl(char const *s, unsigned int start, size_t len);
 
 #endif

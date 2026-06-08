@@ -6,11 +6,11 @@
 /*   By: mvignes <mvignes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/26 21:27:52 by mvignes           #+#    #+#             */
-/*   Updated: 2026/01/30 13:52:07 by mvignes          ###   ########.fr       */
+/*   Updated: 2026/06/08 18:07:57 by mvignes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/libft.h"
+#include "libft.h"
 
 char	*ft_read_and_stash(int fd, char *stash)
 {
