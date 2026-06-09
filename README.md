@@ -1,4 +1,32 @@
-# Cub3d
+*This project has been created as part of the 42 curriculum by [lyaberge], [mvignes]*
+
+# CUB3D
+
+## Description
+
+
+## Instruction
+
+To create the executable ./minishell->
+``` bash
+	make 
+```
+Then to compile ->
+``` bash
+	./cub3d maps/map.cub
+```
+
+## Ressources
+
+Minilibx Doc/tutorial:
+- https://harm-smits.github.io/42docs/libs/minilibx
+
+
+### AI uses :
+
+Thank you.
+
+
 branche lily
 
 Check main
@@ -12,3 +40,5 @@ Checklist Parsing
 - map en dernier
 - permission de map 
 - enlever env
+
+

@@ -12,50 +12,39 @@
 
 #include "../includes/cube.h"
 #include "../includes/parsing.h"
+#include "../includes/clean_exit.h"
 
-int	found_pos_player(char **map, int *x, int *y)
+void	draw_pixel(Game *game, int x, int y, unsigned int color)
 {
-	*y = 0;
-	while (map[*y])
+	if (x < 0 || x >= WIDTH || y < 0 || y >= HEIGHT)
+		return ;
+	int pos_pixel = (y * game->img.size_line + x * (game->img.bits_per_pixel / 8));
+	char *pixel = game->img.img_addr + pos_pixel;
+	*(unsigned int *)pixel = color;
+}
+
+int	create_img(Game *game)
+{
+	game->img.img_ptr = mlx_new_image(game->mlx, WIDTH, HEIGHT);
+	if (!game->img.img_ptr)
+		return (ERROR);
+	game->img.img_addr= mlx_get_data_addr(game->img.img_ptr,
+		&game->img.bits_per_pixel, &game->img.size_line, &game->img.endian);
+	if (!game->img.img_addr)
+		return (ERROR);
+	int y = 0;
+	int x;
+	while (y < HEIGHT)
 	{
-		*x = 0;
-		while (map[*y][*x])
+		x = 0;
+		while (x < WIDTH)
 		{
-			if (is_player(map[*y][*x]) == true)
-				return (OK);
-			(*x)++;
+			draw_pixel(game, x, y, 0xFF0000);
+			x++;
 		}
-		(*y)++;
+		y++;
 	}
-	return (ERROR);
-}
-
-int	fill_struct_player(Player *player, char **map)
-{
-	int	x;
-	int	y;
-
-	x = 0;
-	y = 0;
-	if (found_pos_player(map, &x, &y) == ERROR)
-		return (ERROR);
-	player->pos_x = (double)x;
-	player->pos_y = (double)y;
-	// if (found_dir_player(map, &x, &y) == ERROR)
-	// 	return (ERROR);
-	// player->dir_x = x;
-	// player->dir_y = y;
-	return (OK);
-}
-
-int	init_mlx(Game *game)
-{
-	game->mlx = mlx_init();
-	if (!game->mlx)
-		return (ERROR);
-	game->win = mlx_new_window(game->mlx, 20, 20, "Cub3d");
-	if (!game->win)
-		return (ERROR);
+	mlx_put_image_to_window(game->mlx, game->win, game->img.img_ptr, 0, 0);
 	return (OK);
 }
 
@@ -63,10 +52,7 @@ int main(int ac, char **av)
 {
 	(void)av;
 	(void)ac;
-	// Map	maps;
-	// Player player;
 	Game	game;
-
 	char *map_tab[] = {
 		"    111111",
 		"    100101",
@@ -84,6 +70,9 @@ int main(int ac, char **av)
 		return (ERROR);
 	if (init_mlx(&game) == ERROR)
 		return (ERROR);
-	// printf("%f\n", player.pos_x);
-	// printf("%f\n", player.pos_y);
+	create_img(&game);
+	mlx_hook(game.win, 2, 1L << 0, key, &game);
+	mlx_hook(game.win, 17, 0, exit_game, &game);
+	mlx_loop(game.mlx);
+	return (OK);
 }

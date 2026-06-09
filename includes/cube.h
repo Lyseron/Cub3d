@@ -23,6 +23,8 @@
 
 # define OK 0
 # define ERROR 1
+# define HEIGHT 600
+# define WIDTH 600
 
 /*------------------------------------------------------------------ STRUCT ---------------------------------------------------------*/
 
@@ -55,12 +57,25 @@ typedef struct s_key
 
 }	Key;
 
+typedef struct	s_img
+{
+	int		width;
+	int		height;
+	void	*img_ptr;
+	int		bits_per_pixel;
+	int		size_line;
+	int		endian;
+	char	*img_addr;
+} Img;
+
+
 typedef struct s_game
 {
 	Map		map;
 	Player	player;
 	void	*mlx;
 	void	*win;
+	Img		img;
 }	Game;
 
 #endif

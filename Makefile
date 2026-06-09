@@ -9,14 +9,24 @@ LIBFT_DIR  = libft
 LIBFT      = $(LIBFT_DIR)/libft.a
 
 SRCS_DIR   = src
+
 PARS_DIR   = $(SRCS_DIR)/parsing
+CLEAN_DIR  = $(SRCS_DIR)/clean_exit
+
 
 PARS_SRC   = \
 	$(PARS_DIR)/check_valid_map.c \
-	$(PARS_DIR)/check_valid_map_utils.c
+	$(PARS_DIR)/check_valid_map_utils.c \
+	$(PARS_DIR)/check_map_cub.c \
+	$(PARS_DIR)/init_player.c \
+	$(PARS_DIR)/init_mlx.c
+
+CLEAN_SRC  = \
+	$(CLEAN_DIR)/clean_mlx.c
 
 SRCS    = \
 	$(PARS_SRC) \
+	$(CLEAN_SRC) \
 	$(SRCS_DIR)/main.c
 
 
