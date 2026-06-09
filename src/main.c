@@ -14,40 +14,6 @@
 #include "../includes/parsing.h"
 #include "../includes/clean_exit.h"
 
-void	draw_pixel(Game *game, int x, int y, unsigned int color)
-{
-	if (x < 0 || x >= WIDTH || y < 0 || y >= HEIGHT)
-		return ;
-	int pos_pixel = (y * game->img.size_line + x * (game->img.bits_per_pixel / 8));
-	char *pixel = game->img.img_addr + pos_pixel;
-	*(unsigned int *)pixel = color;
-}
-
-int	create_img(Game *game)
-{
-	game->img.img_ptr = mlx_new_image(game->mlx, WIDTH, HEIGHT);
-	if (!game->img.img_ptr)
-		return (ERROR);
-	game->img.img_addr= mlx_get_data_addr(game->img.img_ptr,
-		&game->img.bits_per_pixel, &game->img.size_line, &game->img.endian);
-	if (!game->img.img_addr)
-		return (ERROR);
-	int y = 0;
-	int x;
-	while (y < HEIGHT)
-	{
-		x = 0;
-		while (x < WIDTH)
-		{
-			draw_pixel(game, x, y, 0xFF0000);
-			x++;
-		}
-		y++;
-	}
-	mlx_put_image_to_window(game->mlx, game->win, game->img.img_ptr, 0, 0);
-	return (OK);
-}
-
 int main(int ac, char **av)
 {
 	(void)av;

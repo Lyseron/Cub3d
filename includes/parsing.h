@@ -32,4 +32,7 @@ int		fill_struct_player(Player *player, char **map);
 int		key(int key_choice, Game *game);
 int		init_mlx(Game *game);
 
+/* ------------------- create_img.c ------------------------ */
+int		create_img(Game *game);
+
 #endif

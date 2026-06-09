@@ -19,7 +19,8 @@ PARS_SRC   = \
 	$(PARS_DIR)/check_valid_map_utils.c \
 	$(PARS_DIR)/check_map_cub.c \
 	$(PARS_DIR)/init_player.c \
-	$(PARS_DIR)/init_mlx.c
+	$(PARS_DIR)/init_mlx.c \
+	$(PARS_DIR)/create_img.c
 
 CLEAN_SRC  = \
 	$(CLEAN_DIR)/clean_mlx.c
