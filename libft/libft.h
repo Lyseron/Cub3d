@@ -6,7 +6,7 @@
 /*   By: mvignes <mvignes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/12 12:00:00 by lyseron           #+#    #+#             */
-/*   Updated: 2026/06/08 18:09:32 by mvignes          ###   ########.fr       */
+/*   Updated: 2026/06/09 18:49:57 by mvignes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,5 +103,11 @@ size_t	ft_strlen_i(const char *str);
 char	*ft_strchr_gnl(const char *s, int c);
 char	*ft_strjoin_gnl(char *s1, char *s2);
 char	*ft_substr_gnl(char const *s, unsigned int start, size_t len);
+void	ft_lstclear(t_list **lst, void (*del)(void *));
+void	ft_lstdelone(t_list *lst, void (*del)(void *));
+t_list	*ft_lstnew(void *content);
+void	ft_lstadd_back(t_list **lst, t_list *new);
+t_list	*ft_lstlast(t_list *lst);
+// void	ft_free_ba(int *tab);
 
 #endif

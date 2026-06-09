@@ -1,21 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstdelone.c                                     :+:      :+:    :+:   */
+/*   ft_free_ba_int.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mvignes <mvignes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/03/17 01:55:54 by lyaberge          #+#    #+#             */
-/*   Updated: 2026/06/09 16:28:55 by mvignes          ###   ########.fr       */
+/*   Created: 2026/03/13 19:25:36 by lyaberge          #+#    #+#             */
+/*   Updated: 2026/06/09 18:50:04 by mvignes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_lstdelone(t_list *lst, void (*del)(void *))
-{
-	if (lst->content)
-		del(lst->content);
-	if (lst)
-		del(lst);
-}
+// void	ft_free_ba(int *tab)
+// {
+// 	int	i;
+
+// 	if (!tab)
+// 		return ;
+// 	i = 0;
+// 	while (tab[i])
+// 	{
+// 		free(tab[i]);
+// 		i++;
+// 	}
+// 	free(tab);
+// }

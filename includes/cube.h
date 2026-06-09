@@ -6,7 +6,7 @@
 /*   By: mvignes <mvignes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/08 13:38:07 by lyaberge          #+#    #+#             */
-/*   Updated: 2026/06/09 14:23:52 by mvignes          ###   ########.fr       */
+/*   Updated: 2026/06/09 16:06:56 by mvignes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,11 +48,19 @@ typedef	struct s_texture
 
 typedef struct s_map
 {
-	bool	error_doublon;
+	char	*map_name;
+	int		map_fd;
+
+	char	**grid;
+	int		map_x;
+	int		map_y;
+
 	Texture	texture;
 	int		*Floor;
 	int		*Ceiling;
-	char	**map;
+
+	t_list	*extract;
+	bool	error_doublon;
 }	Map;
 
 typedef struct s_key

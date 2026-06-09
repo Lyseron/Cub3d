@@ -10,12 +10,12 @@ Check main
 
 Checklist Parsing 
 
-- .cub
+<!-- - .cub -->
 - entourer de 1 (mur)
-- element a avoir : F C, nb de valeur 
-- texture de chaque cote N/S/E/O, double direction
+<!-- - element a avoir : F C, nb de valeur  -->
+<!-- - texture de chaque cote N/S/E/O, double direction -->
 - Player (1 seul)
-- check texture
-- map en dernier
-- permission de map 
+- check texture <---------- a faire quand on init les images
+<!-- - map en dernier -->
+- permission de map
 - enlever env
