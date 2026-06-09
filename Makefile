@@ -8,7 +8,10 @@ LIBFT_DIR	= libft
 
 LIBFT		= $(LIBFT_DIR)/libft.a
 
-SRCS		= ./src/main.c
+SRCS		= ./src/main.c\
+			./src/parsing/extract.c\
+			./src/parsing/extract_map.c\
+			./src/parsing/extract_texture_and_color.c\
 
 OBJS		= $(SRCS:%.c=%.o)
 RM			= rm -f

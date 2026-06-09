@@ -6,7 +6,7 @@
 /*   By: mvignes <mvignes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/08 13:38:07 by lyaberge          #+#    #+#             */
-/*   Updated: 2026/06/08 19:32:10 by mvignes          ###   ########.fr       */
+/*   Updated: 2026/06/09 14:23:52 by mvignes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@
 # include <stdlib.h>
 # include <X11/keysym.h>
 # include <stdbool.h>
+
+# include "parsing.h"
 
 # define OK 0
 # define ERROR 1
@@ -50,6 +52,7 @@ typedef struct s_map
 	Texture	texture;
 	int		*Floor;
 	int		*Ceiling;
+	char	**map;
 }	Map;
 
 typedef struct s_key
