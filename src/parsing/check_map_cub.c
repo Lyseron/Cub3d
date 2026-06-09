@@ -84,13 +84,13 @@ static int	ft_check_extension_map2(char *av1)
 	if (len_av1 <= 4)
 		return (1);
 	i = len_av1 - 1;
-	if (av1[i] != 'r')
-		return (1);
-	i--;
-	if (av1[i] != 'e')
-		return (1);
-	i--;
 	if (av1[i] != 'b')
+		return (1);
+	i--;
+	if (av1[i] != 'u')
+		return (1);
+	i--;
+	if (av1[i] != 'c')
 		return (1);
 	i--;
 	if (av1[i] != '.')

@@ -19,7 +19,6 @@
 # include <stdio.h>
 # include <fcntl.h>
 # include <stdlib.h>
-# include <X11/keysym.h>
 # include <stdbool.h>
 
 # define OK 0
@@ -29,8 +28,11 @@
 
 typedef struct s_player
 {
-
-}	player;
+	double	pos_x;
+	double	pos_y;
+	int		dir_x;
+	int		dir_y;
+}	Player;
 
 typedef	struct s_texture
 {
@@ -42,6 +44,7 @@ typedef	struct s_texture
 
 typedef struct s_map
 {
+	char	**map;
 	Texture	texture;
 	int		*Floor;
 	int		*Ceiling;
@@ -51,5 +54,13 @@ typedef struct s_key
 {
 
 }	Key;
+
+typedef struct s_game
+{
+	Map		map;
+	Player	player;
+	void	*mlx;
+	void	*win;
+}	Game;
 
 #endif

@@ -10,59 +10,80 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cube.h"
+#include "../includes/cube.h"
+#include "../includes/parsing.h"
 
-char	*extract_value(char *line, char *to_find)
+int	found_pos_player(char **map, int *x, int *y)
 {
-	char	*extract_line;
-	char	*value;
-
-	extract_line = ft_strtrim(line, to_find);
-	value = ft_strtrim(extract_line, " ");
-	// free(extract_line);
-	return (value);
-}
-
-char	*sort_value(char *line, char *to_find)
-{
-	char 	*complete_line;
-	char	*value;
-
-	complete_line = ft_strnstr(line, to_find, ft_strlen(line));
-	value = extract_value(complete_line, to_find);
-	return (value);
-}
-
-bool extract_data(char *map_name, Map *map)
-{
-	int		fd;
-	char	*line;
-
-	fd = open(map_name, O_RDONLY);
-	if (fd == -1)
-		return (ft_putstr_fd("Error open map\n", 2), ERROR);
-	while (1)
+	*y = 0;
+	while (map[*y])
 	{
-		line = get_next_line(fd);
-		if (!line)
-			break;
-		map->texture.NO = sort_value(line, "NO");
-		printf("%s", map->texture.NO);
-		// map->texture.EA = sort_value(line, "EA");
-		// map->texture.SO = sort_value(line, "SO");
-		// map->texture.WE = sort_value(line, "WE");
+		*x = 0;
+		while (map[*y][*x])
+		{
+			if (is_player(map[*y][*x]) == true)
+				return (OK);
+			(*x)++;
+		}
+		(*y)++;
 	}
-	// if (verif_init_value(map) == false)
-		// return (false);
-	return (true);
+	return (ERROR);
+}
+
+int	fill_struct_player(Player *player, char **map)
+{
+	int	x;
+	int	y;
+
+	x = 0;
+	y = 0;
+	if (found_pos_player(map, &x, &y) == ERROR)
+		return (ERROR);
+	player->pos_x = (double)x;
+	player->pos_y = (double)y;
+	// if (found_dir_player(map, &x, &y) == ERROR)
+	// 	return (ERROR);
+	// player->dir_x = x;
+	// player->dir_y = y;
+	return (OK);
+}
+
+int	init_mlx(Game *game)
+{
+	game->mlx = mlx_init();
+	if (!game->mlx)
+		return (ERROR);
+	game->win = mlx_new_window(game->mlx, 20, 20, "Cub3d");
+	if (!game->win)
+		return (ERROR);
+	return (OK);
 }
 
 int main(int ac, char **av)
 {
-	if (ac != 2)
-		return (ft_putstr_fd("Wrong number of args\n", 2), ERROR);
-	Map	maps;
-	// ft_memset(&maps, 0, sizeof(Map));
-	extract_data(av[1], &maps);
-	printf("%s", maps.texture.EA);
+	(void)av;
+	(void)ac;
+	// Map	maps;
+	// Player player;
+	Game	game;
+
+	char *map_tab[] = {
+		"    111111",
+		"    100101",
+		"111111N101",
+		"1000001001",
+		"1111111111",
+		NULL
+	};
+	// if (ac != 2)
+	// 	return (ft_putstr_fd("Error: Wrong number of args\n", 2), ERROR);
+	game.map.map = map_tab;
+	if (check_map(&game.map) == ERROR)
+		return (ft_putstr_fd("Error: Wrong map\n", 2), ERROR);
+	if (fill_struct_player(&game.player, game.map.map) == ERROR)
+		return (ERROR);
+	if (init_mlx(&game) == ERROR)
+		return (ERROR);
+	// printf("%f\n", player.pos_x);
+	// printf("%f\n", player.pos_y);
 }
