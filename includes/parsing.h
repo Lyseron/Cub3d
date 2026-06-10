@@ -13,8 +13,30 @@
 #ifndef PARSING_H
 # define PARSING_H
 
-/*------------------------------------------------------------------ STRUCT ---------------------------------------------------------*/
+# include "cube.h"
 
+/* ------------------- Check_valid_map_utils.c ------------- */
+bool	is_player(char c);
+bool	is_valid_component(char c);
 
+/* ------------------- Check_valid_map.c ------------------- */
+int		check_map(Map *maps);
+
+/* ------------------- Check_map_cub.c --------------------- */
+int		ft_decide(char *av);
+
+/* ------------------- init_player.c ----------------------- */
+int		fill_struct_player(Player *player, char **map);
+
+/* ------------------- init_mlx.c -------------------------- */
+int		key(int key_choice, Game *game);
+int		init_mlx(Game *game);
+
+/* ------------------- create_img.c ------------------------ */
+int		create_img(Game *game);
+int		draw_pixel(Game *game, int x, int y, unsigned int color);
+
+/* ------------------- mini_map.c -------------------------- */
+int		draw_tiny_map(Game *game);
 
 #endif

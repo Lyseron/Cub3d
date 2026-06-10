@@ -1,13 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check_map_texture.c                                :+:      :+:    :+:   */
+/*   clean_mlx.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mvignes <mvignes@student.42.fr>            +#+  +:+       +#+        */
+/*   By: lyaberge <lyaberge@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/06/08 17:05:45 by mvignes           #+#    #+#             */
-/*   Updated: 2026/06/08 17:06:16 by mvignes          ###   ########.fr       */
+/*   Created: 2026/06/09 16:55:55 by lyaberge          #+#    #+#             */
+/*   Updated: 2026/06/09 16:55:55 by lyaberge         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/cube.h"
+#include "../includes/cube.h"
+#include "../includes/parsing.h"
+
+int	exit_game(Game *game)
+{
+	(void)game;
+	exit(OK);
+	return (OK);
+}
