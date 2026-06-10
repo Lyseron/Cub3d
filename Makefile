@@ -57,7 +57,7 @@ $(LIBFT):
 	make -C $(LIBFT_DIR)
 
 clean:
-	$(RM) $(OBJS) .last_colors vgcore.*
+	$(RM) $(OBJS) .last_colors vgcore.* logs
 	make -C $(LIBFT_DIR) clean
 	make -C $(MLX_DIR) clean
 

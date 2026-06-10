@@ -6,7 +6,7 @@
 /*   By: mvignes <mvignes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/09 19:47:20 by mvignes           #+#    #+#             */
-/*   Updated: 2026/06/10 18:20:50 by mvignes          ###   ########.fr       */
+/*   Updated: 2026/06/10 20:24:00 by mvignes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,6 @@
 
 bool	check_no_double_data(char *line, Map *map)
 {
-	// if (!line)
-	// 	return (free(line), ERROR);
 	if (!line || ft_strnstr(line, "NO", ft_strlen(line))
 		|| ft_strnstr(line, "SO", ft_strlen(line))
 		|| ft_strnstr(line, "WE", ft_strlen(line))
@@ -34,9 +32,6 @@ int	read_map(char *line, Map *map)
 {
 	t_list	*new;
 
-	// if (check_no_double_data(line, map))
-	// 	return (ERROR);
-	// free(line);
 	while (1 || map->error_doublon)
 	{
 		line = get_next_line(map->map_fd);

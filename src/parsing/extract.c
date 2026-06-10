@@ -6,7 +6,7 @@
 /*   By: mvignes <mvignes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/09 14:48:48 by mvignes           #+#    #+#             */
-/*   Updated: 2026/06/10 20:17:49 by mvignes          ###   ########.fr       */
+/*   Updated: 2026/06/10 20:40:08 by mvignes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,14 +99,7 @@ static bool	all_info_grab(Map *map)
 {
 	if (map->texture.NO && map->texture.SO && map->texture.WE && map->texture.EA
 		&& map->Ceiling && map->Floor)
-	{
-		// free(line);
 		return (true);
-	}
-	// else if (ft_strnstr(line, "0", ft_strlen(line)) || ft_strnstr(line, "1", ft_strlen(line))
-	// 		|| ft_strnstr(line, "S", ft_strlen(line)) || ft_strnstr(line, "E", ft_strlen(line))
-	// 		|| ft_strnstr(line, "N", ft_strlen(line)) || ft_strnstr(line, "W", ft_strlen(line)))
-	// 			return (true);
 	return (false);
 }
 
@@ -123,19 +116,15 @@ bool extract_data(Map *map)
 		if (!line)
 			break;
 		if (sort_value(line, map))
-		{
-			free(line);
-			line = NULL;
-			get_next_line(-1);
-			return (print_error("Error: Value not correct", map, ERROR));
-		}
+			return (free_line_and_gnl(line),
+			print_error("Error: Value not correct", map, ERROR));
 		free(line);
 		if (all_info_grab(map))
 			break;
 	}
 	if (verif_init_value(map) == false)
-		return (get_next_line(-1), print_error("Error: Value not correct", map, ERROR));
+		return (get_next_line(-1), print_error("Value not correct", map, ERROR));
 	if (extract_map(line, map))
-		return (print_error("in fd", map, ERROR), ERROR);
+		return (print_error(NULL, map, ERROR), ERROR);
 	return (false);
 }

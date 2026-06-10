@@ -6,7 +6,7 @@
 /*   By: mvignes <mvignes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/08 13:35:57 by lyaberge          #+#    #+#             */
-/*   Updated: 2026/06/10 20:15:36 by mvignes          ###   ########.fr       */
+/*   Updated: 2026/06/10 20:26:04 by mvignes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,5 +33,6 @@ int		ft_decide_name_texture(char *av);
 
 int		print_error(char *str, Map *map, int r);
 void	free_data_fd(Map *map);
+void	free_line_and_gnl(char *line);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: mvignes <mvignes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/09 18:23:50 by mvignes           #+#    #+#             */
-/*   Updated: 2026/06/10 13:51:10 by mvignes          ###   ########.fr       */
+/*   Updated: 2026/06/10 20:25:36 by mvignes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,13 @@ int	print_error(char *str, Map *map, int r)
 	ft_putendl_fd(str, 2);
 	free_data_fd(map);
 	return (r);
+}
+
+void	free_line_and_gnl(char *line)
+{
+	free(line);
+	line = NULL;
+	get_next_line(-1);
 }
 
 void	free_and_null(void **data)
