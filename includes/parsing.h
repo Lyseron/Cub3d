@@ -6,14 +6,14 @@
 /*   By: mvignes <mvignes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/08 13:35:57 by lyaberge          #+#    #+#             */
-/*   Updated: 2026/06/10 20:26:04 by mvignes          ###   ########.fr       */
+/*   Updated: 2026/06/10 21:42:02 by mvignes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PARSING_H
 # define PARSING_H
 
-/*------------------------------------------------------------------ STRUCT ---------------------------------------------------------*/
+# include "cube.h"
 
 typedef struct s_player		Player;		// pas encore utile ici
 typedef	struct s_texture	Texture;	// pas encore utile ici
@@ -34,5 +34,28 @@ int		ft_decide_name_texture(char *av);
 int		print_error(char *str, Map *map, int r);
 void	free_data_fd(Map *map);
 void	free_line_and_gnl(char *line);
+/* ------------------- Check_valid_map_utils.c ------------- */
+bool	is_player(char c);
+bool	is_valid_component(char c);
+
+/* ------------------- Check_valid_map.c ------------------- */
+int		check_map(Map *maps);
+
+/* ------------------- Check_map_cub.c --------------------- */
+int		ft_decide(char *av);
+
+/* ------------------- init_player.c ----------------------- */
+int		fill_struct_player(Player *player, char **map);
+
+/* ------------------- init_mlx.c -------------------------- */
+int		key(int key_choice, Game *game);
+int		init_mlx(Game *game);
+
+/* ------------------- create_img.c ------------------------ */
+int		create_img(Game *game);
+int		draw_pixel(Game *game, int x, int y, unsigned int color);
+
+/* ------------------- mini_map.c -------------------------- */
+int		draw_tiny_map(Game *game);
 
 #endif

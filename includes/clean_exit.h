@@ -1,25 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstclear.c                                      :+:      :+:    :+:   */
+/*   clean_exit.h                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mvignes <mvignes@student.42.fr>            +#+  +:+       +#+        */
+/*   By: lyaberge <lyaberge@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/15 15:41:49 by mvignes           #+#    #+#             */
-/*   Updated: 2026/06/10 21:42:12 by mvignes          ###   ########.fr       */
+/*   Created: 2026/06/09 16:56:44 by lyaberge          #+#    #+#             */
+/*   Updated: 2026/06/09 16:56:44 by lyaberge         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
 
-void	ft_lstclear(t_list **lst, void (*del)(void *))
-{
-	t_list	*tmp;
+#ifndef CLEAN_EXIT_H
+# define CLEAN_EXIT_H
 
-	while (*lst)
-	{
-		tmp = (*lst)->next;
-		ft_lstdelone(*lst, del);
-		*lst = tmp;
-	}
-}
+# include "cube.h"
+
+/* ------------------- clean_mlx.c ------------- */
+int		exit_game(Game *game);
+
+#endif

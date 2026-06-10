@@ -1,25 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstclear.c                                      :+:      :+:    :+:   */
+/*   clean_mlx.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mvignes <mvignes@student.42.fr>            +#+  +:+       +#+        */
+/*   By: lyaberge <lyaberge@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/15 15:41:49 by mvignes           #+#    #+#             */
-/*   Updated: 2026/06/10 21:42:12 by mvignes          ###   ########.fr       */
+/*   Created: 2026/06/09 16:55:55 by lyaberge          #+#    #+#             */
+/*   Updated: 2026/06/09 16:55:55 by lyaberge         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../includes/cube.h"
+#include "../includes/parsing.h"
 
-void	ft_lstclear(t_list **lst, void (*del)(void *))
+int	exit_game(Game *game)
 {
-	t_list	*tmp;
-
-	while (*lst)
-	{
-		tmp = (*lst)->next;
-		ft_lstdelone(*lst, del);
-		*lst = tmp;
-	}
+	(void)game;
+	exit(OK);
+	return (OK);
 }
