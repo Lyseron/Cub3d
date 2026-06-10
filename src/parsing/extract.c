@@ -6,7 +6,7 @@
 /*   By: mvignes <mvignes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/09 14:48:48 by mvignes           #+#    #+#             */
-/*   Updated: 2026/06/10 18:21:13 by mvignes          ###   ########.fr       */
+/*   Updated: 2026/06/10 20:17:49 by mvignes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,18 +43,28 @@ bool	good_len_color(int *Ceiling, int *Floor)
 		i++;
 	if (i >= 3)
 		return (false);
-	if (i != 3)
-		while (i < 3)
-			Ceiling[i] = 0;
+	// if (i != 3)
+	// 	while (i < 3)
+	// 		Ceiling[i] = 0;
 	i = 0;
 	while (Floor[i])
 		i++;
 	if (i >= 3)
 		return (false);
-	if (i != 3)
-		while (i < 3)
-			Floor[i] = 0;
+	// if (i != 3)
+	// 	while (i < 3)
+	// 		Floor[i] = 0;
 	return (true);
+}
+
+bool	verif_name_texture(Map *map)
+{
+	if (ft_decide_name_texture(map->texture.NO)
+		|| ft_decide_name_texture(map->texture.SO)
+		|| ft_decide_name_texture(map->texture.WE)
+		|| ft_decide_name_texture(map->texture.EA))
+		return (true);
+	return (false);
 }
 
 bool	verif_init_value(Map *map)
@@ -62,11 +72,10 @@ bool	verif_init_value(Map *map)
 	int	i;
 
 	i = 0;
-	if (!map->texture.NO || !map->texture.SO || !map->texture.WE || !map->texture.EA
-		|| !map->Ceiling || !map->Floor || map->error_doublon)
+	if (!map->texture.NO || !map->texture.SO || !map->texture.WE
+		|| !map->texture.EA || !map->Ceiling || !map->Floor
+		|| map->error_doublon || verif_name_texture(map))
 		return (false);
-	// printf("map->Ceiling, map->Floor = %i, %i\n", map->Ceiling[1], map->Floor[1]);
-	// if (map->Ceiling[3] != -1 || map->Floor[3] != -1)
 	if (good_len_color(map->Ceiling, map->Floor))
 		return (false);
 	i = 0;
@@ -111,11 +120,12 @@ bool extract_data(Map *map)
 	while (1)
 	{
 		line = get_next_line(map->map_fd);
-		if (!line/* || line_not_parasite(line, map)*/)
+		if (!line)
 			break;
 		if (sort_value(line, map))
 		{
 			free(line);
+			line = NULL;
 			get_next_line(-1);
 			return (print_error("Error: Value not correct", map, ERROR));
 		}
@@ -124,7 +134,7 @@ bool extract_data(Map *map)
 			break;
 	}
 	if (verif_init_value(map) == false)
-		return (free(line), line = NULL, print_error("Error: Value not correct", map, ERROR));
+		return (get_next_line(-1), print_error("Error: Value not correct", map, ERROR));
 	if (extract_map(line, map))
 		return (print_error("in fd", map, ERROR), ERROR);
 	return (false);

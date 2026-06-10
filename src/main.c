@@ -6,7 +6,7 @@
 /*   By: mvignes <mvignes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/09 14:48:41 by mvignes           #+#    #+#             */
-/*   Updated: 2026/06/09 20:56:30 by mvignes          ###   ########.fr       */
+/*   Updated: 2026/06/10 19:22:38 by mvignes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,13 +16,13 @@ void	print_data(Map *map)
 {
 	printf("\nPRINT TEXTURE\n");
 	if (map->texture.NO)
-		printf(map->texture.NO);
+		printf("%s\n", map->texture.NO);
 	if (map->texture.SO)
-		printf(map->texture.SO);
+		printf("%s\n", map->texture.SO);
 	if (map->texture.WE)
-		printf(map->texture.WE);
+		printf("%s\n", map->texture.WE);
 	if (map->texture.EA)
-		printf(map->texture.EA);
+		printf("%s\n", map->texture.EA);
 
 	printf("\nPRINT COLOR\n");
 	if (map->Floor)

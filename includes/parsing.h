@@ -6,7 +6,7 @@
 /*   By: mvignes <mvignes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/08 13:35:57 by lyaberge          #+#    #+#             */
-/*   Updated: 2026/06/10 15:44:39 by mvignes          ###   ########.fr       */
+/*   Updated: 2026/06/10 20:15:36 by mvignes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ int		sort_value(char *line, Map *map);
 int		read_map(char *line, Map *map);
 bool	verif_init_value(Map *map);
 int		sort_color(char *line, Map *map);
+int		ft_decide_name_texture(char *av);
 
 int		print_error(char *str, Map *map, int r);
 void	free_data_fd(Map *map);
