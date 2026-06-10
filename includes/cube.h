@@ -6,7 +6,7 @@
 /*   By: mvignes <mvignes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/08 13:38:07 by lyaberge          #+#    #+#             */
-/*   Updated: 2026/06/10 17:00:09 by mvignes          ###   ########.fr       */
+/*   Updated: 2026/06/10 21:44:29 by mvignes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,14 +33,10 @@
 
 typedef struct s_player
 {
-<<<<<<< HEAD
-
-=======
 	double	pos_x;
 	double	pos_y;
 	double	dir_x;
 	double	dir_y;
->>>>>>> main
 }	Player;
 
 typedef	struct s_texture
@@ -57,7 +53,6 @@ typedef	struct s_texture
 
 typedef struct s_map
 {
-<<<<<<< HEAD
 	char	*map_name;
 	int		map_fd;
 
@@ -65,9 +60,6 @@ typedef struct s_map
 	int		map_x;
 	int		map_y;
 
-=======
-	char	**grid;
->>>>>>> main
 	Texture	texture;
 	int		*Floor;
 	bool	extract_floor;
@@ -83,7 +75,6 @@ typedef struct s_key
 
 }	Key;
 
-<<<<<<< HEAD
 typedef struct s_cub
 {
 	bool	error_doublon;
@@ -91,7 +82,7 @@ typedef struct s_cub
 	Player	*player;
 	Texture	*texture;
 } Cub;
-=======
+
 typedef struct	s_img
 {
 	int		width;
@@ -122,6 +113,5 @@ typedef struct s_game
 	Img			img;
 	Mini_map	mini_map;
 }	Game;
->>>>>>> main
 
 #endif
