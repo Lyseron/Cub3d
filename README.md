@@ -7,7 +7,7 @@
 
 ## Instruction
 
-To create the executable ./minishell->
+To create the executable ./cub3d ->
 ``` bash
 	make 
 ```
