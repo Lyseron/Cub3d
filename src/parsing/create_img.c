@@ -15,14 +15,17 @@
 
 static int	draw_pixel(Game *game, int x, int y, unsigned int color)
 {
+	int		pos_pixel;
+	char	*pixel;
+
 	if (x < 0 || x >= WIDTH || y < 0 || y >= HEIGHT)
 		return (ERROR);
 	if (game->img.size_line < 0 || game->img.bits_per_pixel < 0)
-			return (ERROR);
-	int pos_pixel = (y * game->img.size_line + x * (game->img.bits_per_pixel / 8));
+		return (ERROR);
+	pos_pixel = (y * game->img.size_line + x * (game->img.bits_per_pixel / 8));
 	if (pos_pixel < 0)
 		return (ERROR);
-	char *pixel = game->img.img_addr + pos_pixel;
+	pixel = game->img.img_addr + pos_pixel;
 	if (pixel == NULL)
 		return (ERROR);
 	*(unsigned int *)pixel = color;
@@ -31,7 +34,7 @@ static int	draw_pixel(Game *game, int x, int y, unsigned int color)
 
 int	write_lily(Game *game)
 {
-	int x = 34;
+	int	x = 34;
 	int y = 25;
 	while (y < 100)
 	{
@@ -97,13 +100,12 @@ int	create_img(Game *game)
 	game->img.img_ptr = mlx_new_image(game->mlx, WIDTH, HEIGHT);
 	if (!game->img.img_ptr)
 		return (ERROR);
-	game->img.img_addr= mlx_get_data_addr(game->img.img_ptr,
-		&game->img.bits_per_pixel, &game->img.size_line, &game->img.endian);
+	game->img.img_addr = mlx_get_data_addr(game->img.img_ptr,
+			&game->img.bits_per_pixel, &game->img.size_line, &game->img.endian);
 	if (!game->img.img_addr)
 		return (ERROR);
 	if (write_lily(game) == ERROR)
 		return (ERROR);
-	
 	// int y = 0;
 	// int x;
 	// while (y < HEIGHT)

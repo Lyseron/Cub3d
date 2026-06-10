@@ -33,4 +33,3 @@ int	key(int key_choice, Game *game)
 	}
 	return (OK);
 }
-

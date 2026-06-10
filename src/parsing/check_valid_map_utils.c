@@ -25,4 +25,3 @@ bool	is_valid_component(char c)
 		return (true);
 	return (false);
 }
-

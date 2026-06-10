@@ -16,7 +16,7 @@
 
 int	parsing(Game *game, char **av, int ac)
 {
-	char *map_tab[] = {
+	char	*map_tab[] = {
 		"    111111",
 		"    100101",
 		"111111N101",
@@ -39,7 +39,7 @@ int	parsing(Game *game, char **av, int ac)
 	return (OK);
 }
 
-int main(int ac, char **av)
+int	main(int ac, char **av)
 {
 	Game	game;
 
