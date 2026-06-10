@@ -102,11 +102,11 @@ static bool	is_valid_map(char **map)
 
 int	check_map(Map *maps)
 {
-	if (maps->map == NULL)
+	if (maps->grid == NULL)
 		return (ft_putstr_fd("Error: No map\n", 2), ERROR);
-	if (has_good_component(maps->map) == false)
+	if (has_good_component(maps->grid) == false)
 		return (ft_putstr_fd("Error: Wrong map component\n", 2), ERROR);
-	if (is_valid_map(maps->map) == false)
+	if (is_valid_map(maps->grid) == false)
 		return (ft_putstr_fd("Error: Wrong map\n", 2), ERROR);
 	return (OK);
 }

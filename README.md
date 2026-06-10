@@ -21,6 +21,9 @@ Then to compile ->
 Minilibx Doc/tutorial:
 - https://harm-smits.github.io/42docs/libs/minilibx
 
+To draw a square for the minimap:
+- https://aurelienbrabant.fr/blog/pixel-drawing-with-the-minilibx
+
 
 ### AI uses :
 

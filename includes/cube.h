@@ -25,6 +25,7 @@
 # define ERROR 1
 # define HEIGHT 400
 # define WIDTH 600
+# define SIZE_SQUARE 10
 
 /*------------------------------------------------------------------ STRUCT ---------------------------------------------------------*/
 
@@ -32,8 +33,8 @@ typedef struct s_player
 {
 	double	pos_x;
 	double	pos_y;
-	int		dir_x;
-	int		dir_y;
+	double	dir_x;
+	double	dir_y;
 }	Player;
 
 typedef	struct s_texture
@@ -46,7 +47,7 @@ typedef	struct s_texture
 
 typedef struct s_map
 {
-	char	**map;
+	char	**grid;
 	Texture	texture;
 	int		*Floor;
 	int		*Ceiling;
@@ -68,14 +69,24 @@ typedef struct	s_img
 	char	*img_addr;
 } Img;
 
+typedef struct	s_mini_map_coordonate
+{
+	int	win_x;
+	int	win_y;
+	int	start_y;
+	int	start_x;
+	int	end_y;
+	int	end_x;
+}	Mini_map;
 
 typedef struct s_game
 {
-	Map		map;
-	Player	player;
-	void	*mlx;
-	void	*win;
-	Img		img;
+	Map			map;
+	Player		player;
+	void		*mlx;
+	void		*win;
+	Img			img;
+	Mini_map	mini_map;
 }	Game;
 
 #endif

@@ -34,5 +34,9 @@ int		init_mlx(Game *game);
 
 /* ------------------- create_img.c ------------------------ */
 int		create_img(Game *game);
+int		draw_pixel(Game *game, int x, int y, unsigned int color);
+
+/* ------------------- mini_map.c -------------------------- */
+int		draw_tiny_map(Game *game);
 
 #endif

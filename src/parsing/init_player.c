@@ -41,9 +41,5 @@ int	fill_struct_player(Player *player, char **map)
 		return (ERROR);
 	player->pos_x = (double)x;
 	player->pos_y = (double)y;
-	// if (found_dir_player(map, &x, &y) == ERROR)
-	// 	return (ERROR);
-	// player->dir_x = x;
-	// player->dir_y = y;
 	return (OK);
 }
