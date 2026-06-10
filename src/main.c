@@ -5,12 +5,41 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mvignes <mvignes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/06/08 13:48:23 by lyaberge          #+#    #+#             */
-/*   Updated: 2026/06/08 17:18:40 by mvignes          ###   ########.fr       */
+/*   Created: 2026/06/09 14:48:41 by mvignes           #+#    #+#             */
+/*   Updated: 2026/06/10 19:22:38 by mvignes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/cube.h"
+<<<<<<< HEAD
+
+void	print_data(Map *map)
+{
+	printf("\nPRINT TEXTURE\n");
+	if (map->texture.NO)
+		printf("%s\n", map->texture.NO);
+	if (map->texture.SO)
+		printf("%s\n", map->texture.SO);
+	if (map->texture.WE)
+		printf("%s\n", map->texture.WE);
+	if (map->texture.EA)
+		printf("%s\n", map->texture.EA);
+
+	printf("\nPRINT COLOR\n");
+	if (map->Floor)
+		for (int i = 0; i < 3;i++)
+			printf("floor i = %i\n", map->Floor[i]);
+	if (map->Ceiling)
+		for (int i = 0; i < 3;i++)
+			printf("Ceiling i = %i\n", map->Ceiling[i]);
+	
+	printf("\nPRINT MAP\n");
+	for (int i = 0; i < map->map_y;i++)
+	{
+		for (int j = 0; j < map->map_x; j++)
+			printf("%c", map->grid[i][j]);
+	}
+=======
 #include "../includes/parsing.h"
 #include "../includes/clean_exit.h"
 
@@ -31,10 +60,27 @@ void	fill_map(Game *game, char **map_tab)
 		y++;
 	}
 	game->map.grid[i] = NULL;
+>>>>>>> main
 }
 
 int	parsing(Game *game, char **av, int ac)
 {
+<<<<<<< HEAD
+	(void)ac;
+	// if (ac != 2)
+	// 	return (print_error("Wrong number of args", NULL, 2));
+	Map	maps;
+	ft_memset(&maps, 0, sizeof(Map));
+	// Cub	cub;
+	// ft_memset(&cub, 0, sizeof(Cub));
+	// cub.map = &map;
+	maps.map_name = av[1];
+	if (extract_data(&maps))
+		return (1);
+	print_data(&maps);
+	free_data_fd(&maps);
+}
+=======
 	char	*map_tab[] = {
 		"    111111",
 		"    100001",
@@ -73,3 +119,4 @@ int	main(int ac, char **av)
 	mlx_loop(game.mlx);
 	return (OK);
 }
+>>>>>>> main
