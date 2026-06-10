@@ -19,3 +19,8 @@ Checklist Parsing
 <!-- - map en dernier -->
 - permission de map
 - enlever env
+
+
+si NO texture puis espace, je met les espaces dans la chaine de caractere donc il y aura une error lors du lancement de la texture, derangeant ou on le defent ?
+
+

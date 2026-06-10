@@ -6,7 +6,7 @@
 /*   By: mvignes <mvignes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/09 18:23:50 by mvignes           #+#    #+#             */
-/*   Updated: 2026/06/09 19:56:13 by mvignes          ###   ########.fr       */
+/*   Updated: 2026/06/10 13:51:10 by mvignes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,16 @@
 
 int	print_error(char *str, Map *map, int r)
 {
-	ft_putstr_fd(str, 2);
+	map->error_doublon = true;
+	ft_putendl_fd(str, 2);
 	free_data_fd(map);
 	return (r);
+}
+
+void	free_and_null(void **data)
+{
+	free(*data);
+	*data = NULL;
 }
 
 void	free_data_fd(Map *map)
@@ -27,17 +34,17 @@ void	free_data_fd(Map *map)
 	if (map->map_fd)
 		close(map->map_fd);
 	if (map->texture.NO)
-		free(map->texture.NO);
+		free_and_null((void *)&map->texture.NO);
 	if (map->texture.SO)
-		free(map->texture.SO);
+		free_and_null((void *)&map->texture.SO);
 	if (map->texture.WE)
-		free(map->texture.WE);
+		free_and_null((void *)&map->texture.WE);
 	if (map->texture.EA)
-		free(map->texture.EA);
+		free_and_null((void *)&map->texture.EA);
 	if (map->Floor)
-		free(map->Floor);
+		free_and_null((void *)&map->Floor);
 	if (map->Ceiling)
-		free(map->Ceiling);
+		free_and_null((void *)&map->Ceiling);
 	if (map->extract)
 		ft_lstclear(&(map->extract), free);
 	if (map->grid)

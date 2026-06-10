@@ -6,7 +6,7 @@
 /*   By: mvignes <mvignes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/26 21:27:52 by mvignes           #+#    #+#             */
-/*   Updated: 2026/06/08 18:07:57 by mvignes          ###   ########.fr       */
+/*   Updated: 2026/06/10 13:54:29 by mvignes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@ char	*get_next_line(int fd)
 	char		*line;
 
 	if (fd < 0 || BUFFER_SIZE <= 0)
-		return (NULL);
+		return (free(stash), stash = NULL, NULL);
 	stash = ft_read_and_stash(fd, stash);
 	if (!stash || stash[0] == '\0')
 		return (free(stash), stash = NULL, NULL);

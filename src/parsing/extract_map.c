@@ -6,7 +6,7 @@
 /*   By: mvignes <mvignes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/09 14:48:05 by mvignes           #+#    #+#             */
-/*   Updated: 2026/06/09 19:47:54 by mvignes          ###   ########.fr       */
+/*   Updated: 2026/06/10 18:41:27 by mvignes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,15 +28,17 @@ static bool	good_value_map(char *line)
 	return (false);
 }
 
-void	get_dimenssion(Map *map)
+static bool	get_dimenssion(Map *map)
 {
 	int		i;
 	t_list	*tmp;
 	char	*tmp_char;
 
 	tmp = map->extract;
-	while (!good_value_map(tmp->content))
+	while (tmp && !good_value_map(tmp->content))
 		tmp = tmp->next;
+	if (!tmp)
+		return (ERROR);
 	while (tmp)
 	{
 		if (!good_value_map(tmp->content))
@@ -50,6 +52,7 @@ void	get_dimenssion(Map *map)
 		tmp = tmp->next;
 		map->map_y++;
 	}
+	return (OK);
 }
 
 void	allow_memory_grid(Map *map)
@@ -96,12 +99,18 @@ void	write_map(Map *map)
 bool	extract_map(char *line, Map *map)
 {
 	if (read_map(line, map))
-		return (print_error("Error donblon data", map, ERROR));
+	{
+		get_next_line(-1);
+		return (ft_putendl_fd("Error donblon data", 2), ERROR);
+	}
 	map->map_fd = open(map->map_name, O_RDONLY);
 	if (map->map_fd == -1)
 		return (print_error("Error open map", map, ERROR));
-	get_dimenssion(map);
+	if (get_dimenssion(map))
+		return (ft_putendl_fd("void map", 2), ERROR);
 	allow_memory_grid(map);
 	write_map(map);
+	// if (verif_init_value(map) == false)
+	// 	return (print_error("Error: Value not correct", map, ERROR));
 	return (OK);
 }

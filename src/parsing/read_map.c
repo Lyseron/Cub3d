@@ -6,15 +6,17 @@
 /*   By: mvignes <mvignes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/09 19:47:20 by mvignes           #+#    #+#             */
-/*   Updated: 2026/06/09 20:01:24 by mvignes          ###   ########.fr       */
+/*   Updated: 2026/06/10 18:20:50 by mvignes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/cube.h"
 
-static bool	check_no_double_data(char *line, Map *map)
+bool	check_no_double_data(char *line, Map *map)
 {
-	if (ft_strnstr(line, "NO", ft_strlen(line))
+	// if (!line)
+	// 	return (free(line), ERROR);
+	if (!line || ft_strnstr(line, "NO", ft_strlen(line))
 		|| ft_strnstr(line, "SO", ft_strlen(line))
 		|| ft_strnstr(line, "WE", ft_strlen(line))
 		|| ft_strnstr(line, "EA", ft_strlen(line))
@@ -22,7 +24,7 @@ static bool	check_no_double_data(char *line, Map *map)
 		|| ft_strnstr(line, "F", ft_strlen(line)))
 	{
 		map->error_doublon = true;
-		free(line);
+		// free(line);
 		return (true);
 	}
 	return (false);
@@ -32,7 +34,10 @@ int	read_map(char *line, Map *map)
 {
 	t_list	*new;
 
-	while (1)
+	// if (check_no_double_data(line, map))
+	// 	return (ERROR);
+	// free(line);
+	while (1 || map->error_doublon)
 	{
 		line = get_next_line(map->map_fd);
 		if (!line || !line[0] || check_no_double_data(line, map))
@@ -44,6 +49,6 @@ int	read_map(char *line, Map *map)
 	}
 	close(map->map_fd);
 	if (map->error_doublon)
-		return (print_error("Error: Data doublon in fd", map, ERROR));
+		return (free(line), print_error("Error: Data doublon in fd", map, ERROR));
 	return(OK);
 }

@@ -21,6 +21,7 @@ LIBFT		= $(LIBFT_DIR)/libft.a
 SRCS		= ./src/main.c\
 			./src/parsing/extract.c\
 			./src/parsing/extract_map.c\
+			./src/parsing/extract_color.c\
 			./src/parsing/read_map.c\
 			./src/parsing/extract_texture_and_color.c\
 			./src/parsing/free.c\
@@ -55,7 +56,7 @@ $(LIBFT):
 	make -C $(LIBFT_DIR)
 
 clean:
-	$(RM) $(OBJS) .last_colors
+	$(RM) $(OBJS) .last_colors vgcore.*
 	make -C $(LIBFT_DIR) clean
 	make -C $(MLX_DIR) clean
 

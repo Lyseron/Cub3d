@@ -6,11 +6,30 @@
 /*   By: mvignes <mvignes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/08 17:05:45 by mvignes           #+#    #+#             */
-/*   Updated: 2026/06/09 20:00:36 by mvignes          ###   ########.fr       */
+/*   Updated: 2026/06/10 18:44:06 by mvignes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/cube.h"
+
+static bool	good_value_not_map(char *line, Map *map)
+{
+	if (!map->texture.NO || !map->texture.SO || !map->texture.WE || !map->texture.EA
+		|| !map->Ceiling || !map->Floor || map->error_doublon)
+	{
+		if (ft_strnstr(line, "01", ft_strlen(line)) || ft_strnstr(line, "11", ft_strlen(line))
+			||ft_strnstr(line, "00", ft_strlen(line)) || ft_strnstr(line, "10", ft_strlen(line))
+			|| ft_strnstr(line, "S1", ft_strlen(line)) || ft_strnstr(line, "E1", ft_strlen(line))
+			|| ft_strnstr(line, "N1", ft_strlen(line)) || ft_strnstr(line, "W1", ft_strlen(line))
+			|| ft_strnstr(line, "S0", ft_strlen(line)) || ft_strnstr(line, "E0", ft_strlen(line))
+			|| ft_strnstr(line, "N0", ft_strlen(line)) || ft_strnstr(line, "W0", ft_strlen(line)))
+			{
+				// printf("line = %s\n", line);
+				return (true);
+			}
+	}
+	return (false);
+}
 
 static char	*add_texture(char *line, char *find)
 {
@@ -24,47 +43,29 @@ static char	*add_texture(char *line, char *find)
 	return (&value[i]);
 }
 
-static int	*add_color(char *line, char *find)
-{
-	char	**tab_char;
-	int		*tab_int;
-	int		i;
-	char	*value;
-
-	value = ft_strnstr(line, find, ft_strlen(line));
-	value = &value[1];
-	tab_char = ft_split(value, ',');
-	i = 0;
-	tab_int = malloc(sizeof(int *) * (ft_dba_len(tab_char) + 1));							// proubleme invalid read
-	if (!tab_int)
-		return (print_error("Error: Malloc tab_int for add_color crash",
-			NULL, ERROR), NULL);
-	while (tab_char[i])
-	{
-		tab_int[i] = ft_atoi(tab_char[i]);
-		i++;
-	}
-	ft_free_dba(tab_char);
-	return (tab_int);
-}
-
 static int	add_value_or_check_doublon(char *line, Map *map,
 	char *find, char **texture)
 {
+	char	*tmp;
 
 	if (*texture)
 		map->error_doublon = true;
 	else
 	{
-		*texture = ft_strdup(add_texture(line, find));
+		tmp = ft_strdup(add_texture(line, find));
+		if (!tmp)
+			return (print_error("Error: Malloc *texture for add_texture crash",
+				map, ERROR));
+		*texture = ft_strtrim(tmp, " 	\n");
 		if (!*texture)
 			return (print_error("Error: Malloc *texture for add_texture crash",
-				NULL, ERROR));
+				map, ERROR));
+		free(tmp);
 	}
 	return (0);
 }
 
-void	sort_value(char *line, Map *map)
+int	sort_value(char *line, Map *map)
 {
 	if (ft_strnstr(line, "NO", ft_strlen(line)))
 		add_value_or_check_doublon(line, map, "NO", &map->texture.NO);
@@ -74,8 +75,10 @@ void	sort_value(char *line, Map *map)
 		add_value_or_check_doublon(line, map, "WE", &map->texture.WE);
 	if (ft_strnstr(line, "EA", ft_strlen(line)))
 		add_value_or_check_doublon(line, map, "EA", &map->texture.EA);
-	if (ft_strnstr(line, "C", ft_strlen(line)))
-		map->Ceiling = add_color(line, "C");
-	if (ft_strnstr(line, "F", ft_strlen(line)))
-		map->Floor = add_color(line, "F");
+	if (ft_strnstr(line, "C", ft_strlen(line)) || ft_strnstr(line, "F", ft_strlen(line)))
+		if (sort_color(line, map))
+			return (ERROR);
+	if (good_value_not_map(line, map))
+		return (map->error_doublon = true, ERROR);
+	return (OK);
 }

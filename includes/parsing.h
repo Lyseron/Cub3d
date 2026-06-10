@@ -6,7 +6,7 @@
 /*   By: mvignes <mvignes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/08 13:35:57 by lyaberge          #+#    #+#             */
-/*   Updated: 2026/06/09 19:47:43 by mvignes          ###   ########.fr       */
+/*   Updated: 2026/06/10 15:44:39 by mvignes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,10 @@ typedef struct s_cub		Cub;		// pas encore utile ici
 
 bool	extract_map(char *line, Map *map);
 bool	extract_data(Map *map);
-void	sort_value(char *line, Map *map);
+int		sort_value(char *line, Map *map);
 int		read_map(char *line, Map *map);
+bool	verif_init_value(Map *map);
+int		sort_color(char *line, Map *map);
 
 int		print_error(char *str, Map *map, int r);
 void	free_data_fd(Map *map);

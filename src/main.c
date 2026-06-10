@@ -6,7 +6,7 @@
 /*   By: mvignes <mvignes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/09 14:48:41 by mvignes           #+#    #+#             */
-/*   Updated: 2026/06/09 18:59:37 by mvignes          ###   ########.fr       */
+/*   Updated: 2026/06/09 20:56:30 by mvignes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,16 +26,16 @@ void	print_data(Map *map)
 
 	printf("\nPRINT COLOR\n");
 	if (map->Floor)
-		for (int i = 0; map->Floor[i];i++)
+		for (int i = 0; i < 3;i++)
 			printf("floor i = %i\n", map->Floor[i]);
 	if (map->Ceiling)
-		for (int i = 0; map->Ceiling[i];i++)
+		for (int i = 0; i < 3;i++)
 			printf("Ceiling i = %i\n", map->Ceiling[i]);
 	
 	printf("\nPRINT MAP\n");
-	for (int i = 0; map->grid[i];i++)
+	for (int i = 0; i < map->map_y;i++)
 	{
-		for (int j = 0; map->grid[i][j];j++)
+		for (int j = 0; j < map->map_x; j++)
 			printf("%c", map->grid[i][j]);
 	}
 }

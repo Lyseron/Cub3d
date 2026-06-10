@@ -6,7 +6,7 @@
 /*   By: mvignes <mvignes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/08 13:38:07 by lyaberge          #+#    #+#             */
-/*   Updated: 2026/06/09 16:06:56 by mvignes          ###   ########.fr       */
+/*   Updated: 2026/06/10 17:00:09 by mvignes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,9 @@ typedef struct s_map
 
 	Texture	texture;
 	int		*Floor;
+	bool	extract_floor;
 	int		*Ceiling;
+	bool	extract_ceiling;
 
 	t_list	*extract;
 	bool	error_doublon;
