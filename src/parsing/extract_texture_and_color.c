@@ -6,7 +6,7 @@
 /*   By: mvignes <mvignes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/08 17:05:45 by mvignes           #+#    #+#             */
-/*   Updated: 2026/06/10 18:44:06 by mvignes          ###   ########.fr       */
+/*   Updated: 2026/06/10 21:24:02 by mvignes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,10 +23,7 @@ static bool	good_value_not_map(char *line, Map *map)
 			|| ft_strnstr(line, "N1", ft_strlen(line)) || ft_strnstr(line, "W1", ft_strlen(line))
 			|| ft_strnstr(line, "S0", ft_strlen(line)) || ft_strnstr(line, "E0", ft_strlen(line))
 			|| ft_strnstr(line, "N0", ft_strlen(line)) || ft_strnstr(line, "W0", ft_strlen(line)))
-			{
-				// printf("line = %s\n", line);
 				return (true);
-			}
 	}
 	return (false);
 }
