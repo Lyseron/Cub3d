@@ -13,7 +13,6 @@ SRCS_DIR   = src
 PARS_DIR   = $(SRCS_DIR)/parsing
 CLEAN_DIR  = $(SRCS_DIR)/clean_exit
 
-
 PARS_SRC   = \
 	$(PARS_DIR)/check_valid_map.c \
 	$(PARS_DIR)/check_valid_map_utils.c \

@@ -33,7 +33,7 @@ void	fill_map(Game *game, char **map_tab)
 	game->map.grid[i] = NULL;
 }
 
-int	parsing(Game *game, char **av, int ac)
+int	parsing(Game *game, char **av)
 {
 	char	*map_tab[] = {
 		"    111111",
@@ -65,7 +65,7 @@ int	main(int ac, char **av)
 	if (ac != 2)
 		return (ft_putstr_fd("Error: Wrong number of args\n", 2), ERROR);
 	ft_memset(&game, 0, sizeof(game));
-	if (parsing(&game, av, ac) == ERROR)
+	if (parsing(&game, av) == ERROR)
 		return (ERROR);
 	create_img(&game);
 	mlx_hook(game.win, 2, 1L << 0, key, &game);
