@@ -32,6 +32,7 @@
 
 // Square size for the mini_map
 # define SIZE_SQUARE 10
+# define SIZE_PLAYER 6
 
 // Keypress Mac
 // UP = W ; LEFT = A ; RIGHT = D ; DOWN = S

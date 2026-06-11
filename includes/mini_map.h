@@ -13,7 +13,10 @@
 #ifndef MINI_MAP_H
 # define MINI_MAP_H
 
-/* ------------------- mini_map.c -------------------------- */
+/* ------------------- Mini_map.c -------------------------- */
 int		draw_tiny_map(t_game *game);
+
+/* ------------------- Gameplay.c -------------------------- */
+int		key(int key_choice, t_game *game);
 
 #endif

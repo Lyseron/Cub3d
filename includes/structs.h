@@ -20,6 +20,7 @@
 
 typedef struct s_player
 {
+	char	where_look;
 	double	pos_x;
 	double	pos_y;
 	double	dir_x;
@@ -67,33 +68,44 @@ typedef struct s_cub
 
 typedef struct	s_img
 {
-	int		width;
-	int		height;
-	void	*img_ptr;
-	int		bits_per_pixel;
-	int		size_line;
-	int		endian;
-	char	*img_addr;
+	int				width;
+	int				height;
+	void			*img_ptr;
+	int				bits_per_pixel;
+	int				size_line;
+	int				endian;
+	char			*img_addr;
 } t_img;
 
 typedef struct	s_mini_map_coordonate
 {
-	int	win_x;
-	int	win_y;
-	int	start_y;
-	int	start_x;
-	int	end_y;
-	int	end_x;
+	int				win_x;
+	int				win_y;
+	int				start_y;
+	int				start_x;
+	int				end_y;
+	int				end_x;
 }	t_mini_map;
+
+typedef struct s_mini_map_player
+{
+	double			start_y;
+	double			start_x;
+	double			end_y;
+	double			end_x;
+	double			player_pixel_y;
+	double			player_pixel_x;
+} t_mini_player;
 
 typedef struct s_game
 {
-	t_map		map;
-	t_player	player;
-	void		*mlx;
-	void		*win;
+	t_map			map;
+	t_player		player;
+	void			*mlx;
+	void			*win;
 	t_img			img;
-	t_mini_map	mini_map;
+	t_mini_map		mini_map;
+	t_mini_player	mini_player;
 }	t_game;
 
 
