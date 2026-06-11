@@ -20,7 +20,7 @@
 # include <fcntl.h>
 # include <stdlib.h>
 # include <stdbool.h>
-# include <X11/keysym.h>
+// # include <X11/keysym.h>
 
 # include "parsing.h"
 #include "clean_exit.h"
