@@ -1,6 +1,6 @@
 NAME		= cub3D
 CC			= cc
-CFLAGS		= -Wall -Wextra -Werror -g
+CFLAGS		= -Wall -Wextra -g #-Werror
 MAKEFLAGS	+= --no-print-directory
 
 INCS		= -I. -I$(LIBFT_DIR)
@@ -43,7 +43,15 @@ PARS_SRC   = \
 	$(PARS_DIR)/init_player.c \
 	$(PARS_DIR)/init_mlx.c \
 	$(PARS_DIR)/mini_map.c \
-	$(PARS_DIR)/create_img.c
+	$(PARS_DIR)/create_img.c \
+	$(PARS_DIR)/extract.c\
+	$(PARS_DIR)/extract_map.c\
+	$(PARS_DIR)/extract_color.c\
+	$(PARS_DIR)/check_name_texture.c\
+	$(PARS_DIR)/read_map.c\
+	$(PARS_DIR)/extract_texture_and_color.c\
+	$(PARS_DIR)/free.c\
+
 
 CLEAN_SRC  = \
 	$(CLEAN_DIR)/clean_mlx.c

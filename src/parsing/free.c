@@ -6,7 +6,7 @@
 /*   By: mvignes <mvignes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/09 18:23:50 by mvignes           #+#    #+#             */
-/*   Updated: 2026/06/10 20:25:36 by mvignes          ###   ########.fr       */
+/*   Updated: 2026/06/11 13:33:21 by mvignes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,6 @@ void	free_data_fd(Map *map)
 		free_and_null((void *)&map->Ceiling);
 	if (map->extract)
 		ft_lstclear(&(map->extract), free);
-	if (map->grid)
-		ft_free_dba(map->grid);
+	// if (map->grid)
+	// 	ft_free_dba(map->grid);
 }

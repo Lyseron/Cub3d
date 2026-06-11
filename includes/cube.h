@@ -6,7 +6,7 @@
 /*   By: mvignes <mvignes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/08 13:38:07 by lyaberge          #+#    #+#             */
-/*   Updated: 2026/06/10 21:44:29 by mvignes          ###   ########.fr       */
+/*   Updated: 2026/06/10 22:17:01 by mvignes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,10 @@
 # include <fcntl.h>
 # include <stdlib.h>
 # include <stdbool.h>
+# include <X11/keysym.h>
 
 # include "parsing.h"
+#include "clean_exit.h"
 
 # define OK 0
 # define ERROR 1
