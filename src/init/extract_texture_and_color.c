@@ -10,9 +10,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/cube.h"
+#include "cube.h"
 
-static bool	good_value_not_map(char *line, Map *map)
+static bool	good_value_not_map(char *line, t_map *map)
 {
 	if (!map->texture.NO || !map->texture.SO || !map->texture.WE || !map->texture.EA
 		|| !map->Ceiling || !map->Floor || map->error_doublon)
@@ -40,7 +40,7 @@ static char	*add_texture(char *line, char *find)
 	return (&value[i]);
 }
 
-static int	add_value_or_check_doublon(char *line, Map *map,
+static int	add_value_or_check_doublon(char *line, t_map *map,
 	char *find, char **texture)
 {
 	char	*tmp;
@@ -62,7 +62,7 @@ static int	add_value_or_check_doublon(char *line, Map *map,
 	return (0);
 }
 
-int	sort_value(char *line, Map *map)
+int	sort_value(char *line, t_map *map)
 {
 	if (ft_strnstr(line, "NO", ft_strlen(line)))
 		add_value_or_check_doublon(line, map, "NO", &map->texture.NO);

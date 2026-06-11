@@ -10,9 +10,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/cube.h"
+#include "cube.h"
 
-int	init_mlx(Game *game)
+int	init_mlx(t_game *game)
 {
 	game->mlx = mlx_init();
 	if (!game->mlx)
@@ -23,7 +23,7 @@ int	init_mlx(Game *game)
 	return (OK);
 }
 
-int	key(int key_choice, Game *game)
+int	key(int key_choice, t_game *game)
 {
 	(void)game;
 	if (key_choice == 53 || key_choice == 65307)

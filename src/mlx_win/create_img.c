@@ -10,10 +10,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/cube.h"
-#include "../includes/parsing.h"
+#include "cube.h"
 
-int	draw_pixel(Game *game, int x, int y, unsigned int color)
+int	draw_pixel(t_game *game, int x, int y, unsigned int color)
 {
 	int		pos_pixel;
 	char	*pixel;
@@ -34,7 +33,7 @@ int	draw_pixel(Game *game, int x, int y, unsigned int color)
 	return (OK);
 }
 
-int	create_img(Game *game)
+int	create_img(t_game *game)
 {
 	if (!game || !game->mlx || !game->win)
 		return (ERROR);

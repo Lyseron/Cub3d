@@ -10,8 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/cube.h"
-#include "../includes/parsing.h"
+#include "cube.h"
 
 static int	found_pos_player(char **map, int *x, int *y)
 {
@@ -72,7 +71,7 @@ static int	found_dir_player(char **map, int *x, int *y)
 	return (OK);
 }
 
-int	fill_struct_player(Player *player, char **map)
+int	fill_struct_player(t_player *player, char **map)
 {
 	int	x;
 	int	y;

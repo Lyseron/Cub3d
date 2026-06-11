@@ -1,20 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   clean_mlx.c                                        :+:      :+:    :+:   */
+/*   mini_map.h                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lyaberge <lyaberge@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/06/09 16:55:55 by lyaberge          #+#    #+#             */
-/*   Updated: 2026/06/09 16:55:55 by lyaberge         ###   ########.fr       */
+/*   Created: 2026/06/11 16:57:51 by lyaberge          #+#    #+#             */
+/*   Updated: 2026/06/11 16:57:51 by lyaberge         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cube.h"
+#ifndef MINI_MAP_H
+# define MINI_MAP_H
 
-int	exit_game(t_game *game)
-{
-	(void)game;
-	exit(OK);
-	return (OK);
-}
+/* ------------------- mini_map.c -------------------------- */
+int		draw_tiny_map(t_game *game);
+
+#endif

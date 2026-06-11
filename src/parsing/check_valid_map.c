@@ -10,8 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/cube.h"
-#include "../includes/parsing.h"
+#include "cube.h"
 
 static bool	has_good_component(char **map)
 {
@@ -100,7 +99,7 @@ static bool	is_valid_map(char **map)
 	return (true);
 }
 
-int	check_map(Map *maps)
+int	check_map(t_map *maps)
 {
 	if (maps->grid == NULL)
 		return (ft_putstr_fd("Error: No map\n", 2), ERROR);

@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/cube.h"
+#include "cube.h"
 
 static bool	good_value_map(char *line)
 {
@@ -28,7 +28,7 @@ static bool	good_value_map(char *line)
 	return (false);
 }
 
-static bool	get_dimenssion(Map *map)
+static bool	get_dimenssion(t_map *map)
 {
 	int		i;
 	t_list	*tmp;
@@ -55,7 +55,7 @@ static bool	get_dimenssion(Map *map)
 	return (OK);
 }
 
-void	allow_memory_grid(Map *map)
+void	allow_memory_grid(t_map *map)
 {
 	int	i;
 
@@ -68,7 +68,7 @@ void	allow_memory_grid(Map *map)
 	}
 }
 
-void	write_map(Map *map)
+void	write_map(t_map *map)
 {
 	int		i;
 	int		j;
@@ -96,7 +96,7 @@ void	write_map(Map *map)
 	map->grid[i] = NULL;
 }
 
-bool	extract_map(char *line, Map *map)
+bool	extract_map(char *line, t_map *map)
 {
 	if (read_map(line, map))
 	{
