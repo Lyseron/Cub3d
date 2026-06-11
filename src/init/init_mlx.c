@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/cube.h"
+#include "cube.h"
 
 int	init_mlx(t_game *game)
 {

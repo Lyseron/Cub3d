@@ -10,8 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/cube.h"
-#include "../includes/parsing.h"
+#include "cube.h"
 
 static bool	has_good_component(char **map)
 {

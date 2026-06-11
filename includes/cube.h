@@ -13,6 +13,7 @@
 #ifndef CUBE_H
 # define CUBE_H
 
+// Fonction include
 # include "../libft/libft.h"
 # include "../minilibx/mlx.h"
 # include <unistd.h>
@@ -26,97 +27,41 @@
 # include "parsing.h"
 #include "clean_exit.h"
 
+// Bool for returns 
 # define OK 0
 # define ERROR 1
+
+// Window size
 # define HEIGHT 400
 # define WIDTH 600
+
+// Square size for the mini_map
 # define SIZE_SQUARE 10
 
-/*------------------------------------------------------------------ STRUCT ---------------------------------------------------------*/
+// Keypress Mac
+// UP = W ; LEFT = A ; RIGHT = D ; DOWN = S
+# define ESC 53
+# define UP 13
+# define LEFT 0
+# define RIGHT 2
+# define DOWN 1
 
-typedef int (*mlx_func_t)();
+// // Keypress Linux
+// // UP = W ; LEFT = A ; RIGHT = D ; DOWN = S
+// # define ESC 65307
+// # define UP 119
+// # define LEFT 97
+// # define RIGHT 100
+// # define DOWN 115
 
-typedef struct s_player
-{
-	double	pos_x;
-	double	pos_y;
-	double	dir_x;
-	double	dir_y;
-}	t_player;
+// Struct
+# include "structs.h"
 
-typedef	struct s_texture
-{
-	char	*NO;
-	void	*img_no;
-	char	*SO;
-	void	*img_so;
-	char	*WE;
-	void	*img_we;
-	char	*EA;
-	void	*img_ea;
-}	t_texture;
-
-typedef struct s_map
-{
-	char		*map_name;
-	int			map_fd;
-
-	char		**grid;
-	int			map_x;
-	int			map_y;
-
-	t_texture	texture;
-	int			*Floor;
-	bool		extract_floor;
-	int			*Ceiling;
-	bool		extract_ceiling;
-
-	t_list		*extract;
-	bool		error_doublon;
-}	t_map;
-
-typedef struct s_key
-{
-
-}	t_key;
-
-typedef struct s_cub
-{
-	bool	error_doublon;
-	t_map		*map;
-	t_player	*player;
-	t_texture	*texture;
-} t_cub;
-
-typedef struct	s_img
-{
-	int		width;
-	int		height;
-	void	*img_ptr;
-	int		bits_per_pixel;
-	int		size_line;
-	int		endian;
-	char	*img_addr;
-} t_img;
-
-typedef struct	s_mini_map_coordonate
-{
-	int	win_x;
-	int	win_y;
-	int	start_y;
-	int	start_x;
-	int	end_y;
-	int	end_x;
-}	t_mini_map;
-
-typedef struct s_game
-{
-	t_map		map;
-	t_player	player;
-	void		*mlx;
-	void		*win;
-	t_img		img;
-	t_mini_map	mini_map;
-}	t_game;
+// Prototypes
+# include "parsing.h"
+# include "clean_exit.h"
+# include "init.h"
+# include "mini_map.h"
+# include "mlx_win.h"
 
 #endif

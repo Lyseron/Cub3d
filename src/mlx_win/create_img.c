@@ -10,8 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/cube.h"
-#include "../includes/parsing.h"
+#include "cube.h"
 
 int	draw_pixel(t_game *game, int x, int y, unsigned int color)
 {

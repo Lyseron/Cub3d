@@ -10,8 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/cube.h"
-#include "../includes/parsing.h"
+#include "cube.h"
 
 static void	init_mini_map_coord(t_game *game, int map_x, int map_y)
 {

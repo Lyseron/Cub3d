@@ -1,22 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   clean_exit.h                                       :+:      :+:    :+:   */
+/*   mini_map.h                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mvignes <mvignes@student.42.fr>            +#+  +:+       +#+        */
+/*   By: lyaberge <lyaberge@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/06/09 16:56:44 by lyaberge          #+#    #+#             */
-/*   Updated: 2026/06/11 16:46:37 by mvignes          ###   ########.fr       */
+/*   Created: 2026/06/11 16:57:51 by lyaberge          #+#    #+#             */
+/*   Updated: 2026/06/11 16:57:51 by lyaberge         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#ifndef MINI_MAP_H
+# define MINI_MAP_H
 
-#ifndef CLEAN_EXIT_H
-# define CLEAN_EXIT_H
-
-/* ------------------- free_mlx.c ------------- */
-void	free_data_fd(t_map *map);
-int		print_error(char *str, t_map *map, int r);
-void	free_line_and_gnl(char *line);
+/* ------------------- mini_map.c -------------------------- */
+int		draw_tiny_map(t_game *game);
 
 #endif

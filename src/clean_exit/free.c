@@ -10,10 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/cube.h"
-
-// void	free_all()
-// {}
+#include "cube.h"
 
 int	print_error(char *str, t_map *map, int r)
 {

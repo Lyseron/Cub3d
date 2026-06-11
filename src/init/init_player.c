@@ -10,8 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/cube.h"
-#include "../includes/parsing.h"
+#include "cube.h"
 
 static int	found_pos_player(char **map, int *x, int *y)
 {

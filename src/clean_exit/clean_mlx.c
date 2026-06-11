@@ -10,8 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/cube.h"
-#include "../includes/parsing.h"
+#include "cube.h"
 
 int	exit_game(t_game *game)
 {
