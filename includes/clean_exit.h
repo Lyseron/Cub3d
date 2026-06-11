@@ -3,19 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   clean_exit.h                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lyaberge <lyaberge@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mvignes <mvignes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/09 16:56:44 by lyaberge          #+#    #+#             */
-/*   Updated: 2026/06/09 16:56:44 by lyaberge         ###   ########.fr       */
+/*   Updated: 2026/06/11 16:46:37 by mvignes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 
 #ifndef CLEAN_EXIT_H
 # define CLEAN_EXIT_H
-
-/* ------------------- clean_mlx.c ------------- */
-int		exit_game(t_game *game);
 
 /* ------------------- free_mlx.c ------------- */
 void	free_data_fd(t_map *map);

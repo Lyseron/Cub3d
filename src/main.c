@@ -6,7 +6,7 @@
 /*   By: mvignes <mvignes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/09 14:48:41 by mvignes           #+#    #+#             */
-/*   Updated: 2026/06/11 14:39:11 by mvignes          ###   ########.fr       */
+/*   Updated: 2026/06/11 16:43:05 by mvignes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,25 +40,6 @@
 // 	}
 // }
 
-void	fill_map(t_game *game, char **map_tab)
-{
-	int	y;
-	int	i;
-
-	y = 0;
-	i = 0;
-	game->map.grid = malloc(sizeof(char *) * (ft_dba_len(map_tab) + 1));
-	if (!game->map.grid)
-		return ;
-	while (map_tab[y])
-	{
-		game->map.grid[i] = ft_strdup(map_tab[y]);
-		i++;
-		y++;
-	}
-	game->map.grid[i] = NULL;
-}
-
 int	parsing(t_game *game, char **av)
 {
 	game->map.map_name = av[1];
@@ -77,10 +58,6 @@ int	parsing(t_game *game, char **av)
 	return (OK);
 }
 
-typedef int (*mlx_func_t)();
-
-#include <stdint.h>
-
 int	main(int ac, char **av)
 {
 	t_game	game;
@@ -90,6 +67,7 @@ int	main(int ac, char **av)
 	ft_memset(&game, 0, sizeof(game));
 	if (parsing(&game, av) == ERROR)
 		return (ERROR);
+	print_data(&game.map);	// <------------- Penser a retirer cest juste pour print le parscing etre sur que tout est bon
 	create_img(&game);
 	mlx_hook(game.win, 2, 1L << 0, ((mlx_func_t)(uintptr_t)key), &game);
 	mlx_hook(game.win, 17, 0, ((mlx_func_t)(uintptr_t)exit_game), &game);

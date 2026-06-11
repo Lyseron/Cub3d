@@ -6,7 +6,7 @@
 /*   By: mvignes <mvignes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/09 19:47:20 by mvignes           #+#    #+#             */
-/*   Updated: 2026/06/10 20:24:00 by mvignes          ###   ########.fr       */
+/*   Updated: 2026/06/11 16:44:58 by mvignes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,8 @@ int	read_map(char *line, t_map *map)
 	while (1 || map->error_doublon)
 	{
 		line = get_next_line(map->map_fd);
-		if (!line || !line[0] || check_no_double_data(line, map))
+		if (!line || !line[0] || check_no_double_data(line, map)
+			|| line_not_parasite(line, map))
 			break ;
 		new = ft_lstnew(line);
 		if (!new)
