@@ -32,10 +32,10 @@ int		read_map(char *line, Map *map);
 bool	verif_init_value(Map *map);
 int		sort_color(char *line, Map *map);
 int		ft_decide_name_texture(char *av);
-
 int		print_error(char *str, Map *map, int r);
 void	free_data_fd(Map *map);
 void	free_line_and_gnl(char *line);
+
 /* ------------------- Check_valid_map_utils.c ------------- */
 bool	is_player(char c);
 bool	is_valid_component(char c);
@@ -50,7 +50,7 @@ int		ft_decide(char *av);
 int		fill_struct_player(Player *player, char **map);
 
 /* ------------------- init_mlx.c -------------------------- */
-int		key(int key_choice, void *game);
+int		key(int key_choice, Game *game);
 int		init_mlx(Game *game);
 
 /* ------------------- create_img.c ------------------------ */

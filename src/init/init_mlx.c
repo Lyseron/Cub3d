@@ -23,10 +23,9 @@ int	init_mlx(Game *game)
 	return (OK);
 }
 
-int	key(int key_choice, void *arg)
+int	key(int key_choice, Game *game)
 {
-	const Game	*game = arg;
-	
+	(void)game;
 	if (key_choice == 53 || key_choice == 65307)
 	{
 		exit(OK);
