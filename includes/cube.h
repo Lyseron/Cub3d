@@ -6,7 +6,7 @@
 /*   By: mvignes <mvignes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/08 13:38:07 by lyaberge          #+#    #+#             */
-/*   Updated: 2026/06/08 17:17:08 by mvignes          ###   ########.fr       */
+/*   Updated: 2026/06/10 22:17:01 by mvignes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,10 @@
 # include <fcntl.h>
 # include <stdlib.h>
 # include <stdbool.h>
+# include <X11/keysym.h>
+
+# include "parsing.h"
+#include "clean_exit.h"
 
 # define OK 0
 # define ERROR 1
@@ -40,23 +44,46 @@ typedef struct s_player
 typedef	struct s_texture
 {
 	char	*NO;
+	void	*img_no;
 	char	*SO;
+	void	*img_so;
 	char	*WE;
+	void	*img_we;
 	char	*EA;
+	void	*img_ea;
 }	Texture;
 
 typedef struct s_map
 {
+	char	*map_name;
+	int		map_fd;
+
 	char	**grid;
+	int		map_x;
+	int		map_y;
+
 	Texture	texture;
 	int		*Floor;
+	bool	extract_floor;
 	int		*Ceiling;
+	bool	extract_ceiling;
+
+	t_list	*extract;
+	bool	error_doublon;
 }	Map;
 
 typedef struct s_key
 {
 
 }	Key;
+
+typedef struct s_cub
+{
+	bool	error_doublon;
+	Map		*map;
+	Player	*player;
+	Texture	*texture;
+} Cub;
 
 typedef struct	s_img
 {

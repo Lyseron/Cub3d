@@ -5,14 +5,40 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mvignes <mvignes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/06/08 13:48:23 by lyaberge          #+#    #+#             */
-/*   Updated: 2026/06/08 17:18:40 by mvignes          ###   ########.fr       */
+/*   Created: 2026/06/09 14:48:41 by mvignes           #+#    #+#             */
+/*   Updated: 2026/06/11 14:39:11 by mvignes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/cube.h"
-#include "../includes/parsing.h"
-#include "../includes/clean_exit.h"
+
+void	print_data(Map *map)
+{
+	printf("\nPRINT TEXTURE\n");
+	if (map->texture.NO)
+		printf("%s\n", map->texture.NO);
+	if (map->texture.SO)
+		printf("%s\n", map->texture.SO);
+	if (map->texture.WE)
+		printf("%s\n", map->texture.WE);
+	if (map->texture.EA)
+		printf("%s\n", map->texture.EA);
+
+	printf("\nPRINT COLOR\n");
+	if (map->Floor)
+		for (int i = 0; i < 3;i++)
+			printf("floor i = %i\n", map->Floor[i]);
+	if (map->Ceiling)
+		for (int i = 0; i < 3;i++)
+			printf("Ceiling i = %i\n", map->Ceiling[i]);
+	
+	printf("\nPRINT MAP\n");
+	for (int i = 0; i < map->map_y;i++)
+	{
+		for (int j = 0; j < map->map_x; j++)
+			printf("%c", map->grid[i][j]);
+	}
+}
 
 void	fill_map(Game *game, char **map_tab)
 {
@@ -35,18 +61,34 @@ void	fill_map(Game *game, char **map_tab)
 
 int	parsing(Game *game, char **av)
 {
-	char	*map_tab[] = {
-		"    111111",
-		"    100001",
-		"111110N001",
-		"1000000001",
-		"1111111111",
-		NULL
-	};
+// 	(void)ac;
+// 	// if (ac != 2)
+// 	// 	return (print_error("Wrong number of args", NULL, 2));
+	// Map	maps;
+	// ft_memset(&maps, 0, sizeof(Map));
+	// game->map = maps;
+// 	// Cub	cub;
+// 	// ft_memset(&cub, 0, sizeof(Cub));
+// 	// cub.map = &map;
+	game->map.map_name = av[1];
+	if (extract_data(&game->map))
+		return (1);
+	print_data(&game->map);
+	// free_data_fd(&maps);
+// }
+	// char	*map_tab[] = {
+	// 	"    111111",
+	// 	"    100001",
+	// 	"111110N001",
+	// 	"1000000001",
+	// 	"1111111111",
+	// 	NULL
+	// };
 
-	fill_map(game, map_tab);
-	if (!game->map.grid)
-		return (ERROR);
+	// char	**map_tab = &maps.grid;
+	// fill_map(game, map_tab);
+	// if (!game->map.grid)
+		// return (ERROR);
 	if (ft_decide(av[1]) == ERROR)
 		return (ft_putstr_fd("Error: Wrong map extension\n", 2), ERROR);
 	if (check_map(&game->map) == ERROR)
@@ -58,6 +100,10 @@ int	parsing(Game *game, char **av)
 	return (OK);
 }
 
+typedef int (*mlx_func_t)();
+
+#include <stdint.h>
+
 int	main(int ac, char **av)
 {
 	Game	game;
@@ -68,8 +114,8 @@ int	main(int ac, char **av)
 	if (parsing(&game, av) == ERROR)
 		return (ERROR);
 	create_img(&game);
-	mlx_hook(game.win, 2, 1L << 0, key, &game);
-	mlx_hook(game.win, 17, 0, exit_game, &game);
+	mlx_hook(game.win, 2, 1L << 0, ((mlx_func_t)(uintptr_t)key), &game);
+	mlx_hook(game.win, 17, 0, ((mlx_func_t)(uintptr_t)exit_game), &game);
 	mlx_loop(game.mlx);
 	return (OK);
 }
