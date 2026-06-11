@@ -6,7 +6,7 @@
 /*   By: mvignes <mvignes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/09 18:23:50 by mvignes           #+#    #+#             */
-/*   Updated: 2026/06/11 13:33:21 by mvignes          ###   ########.fr       */
+/*   Updated: 2026/06/11 16:44:42 by mvignes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 // void	free_all()
 // {}
 
-int	print_error(char *str, Map *map, int r)
+int	print_error(char *str, t_map *map, int r)
 {
 	map->error_doublon = true;
 	ft_putendl_fd(str, 2);
@@ -36,7 +36,7 @@ void	free_and_null(void **data)
 	*data = NULL;
 }
 
-void	free_data_fd(Map *map)
+void	free_data_fd(t_map *map)
 {
 	if (map->map_fd)
 		close(map->map_fd);

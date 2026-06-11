@@ -54,6 +54,7 @@ MINI_SRC    = \
 INIT_SRC    = \
 	$(INIT_DIR)/extract_color.c \
 	$(INIT_DIR)/extract.c \
+	$(INIT_DIR)/verif_extract.c \
 	$(INIT_DIR)/extract_map.c \
 	$(INIT_DIR)/extract_texture_and_color.c \
 	$(INIT_DIR)/init_player.c \

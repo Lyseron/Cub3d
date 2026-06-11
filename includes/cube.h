@@ -6,7 +6,7 @@
 /*   By: mvignes <mvignes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/08 13:38:07 by lyaberge          #+#    #+#             */
-/*   Updated: 2026/06/10 22:17:01 by mvignes          ###   ########.fr       */
+/*   Updated: 2026/06/11 16:43:52 by mvignes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@
 # include <fcntl.h>
 # include <stdlib.h>
 # include <stdbool.h>
+# include <stdint.h>
 // # include <X11/keysym.h>
 
 # include "parsing.h"
@@ -33,13 +34,15 @@
 
 /*------------------------------------------------------------------ STRUCT ---------------------------------------------------------*/
 
+typedef int (*mlx_func_t)();
+
 typedef struct s_player
 {
 	double	pos_x;
 	double	pos_y;
 	double	dir_x;
 	double	dir_y;
-}	Player;
+}	t_player;
 
 typedef	struct s_texture
 {
@@ -51,39 +54,39 @@ typedef	struct s_texture
 	void	*img_we;
 	char	*EA;
 	void	*img_ea;
-}	Texture;
+}	t_texture;
 
 typedef struct s_map
 {
-	char	*map_name;
-	int		map_fd;
+	char		*map_name;
+	int			map_fd;
 
-	char	**grid;
-	int		map_x;
-	int		map_y;
+	char		**grid;
+	int			map_x;
+	int			map_y;
 
-	Texture	texture;
-	int		*Floor;
-	bool	extract_floor;
-	int		*Ceiling;
-	bool	extract_ceiling;
+	t_texture	texture;
+	int			*Floor;
+	bool		extract_floor;
+	int			*Ceiling;
+	bool		extract_ceiling;
 
-	t_list	*extract;
-	bool	error_doublon;
-}	Map;
+	t_list		*extract;
+	bool		error_doublon;
+}	t_map;
 
 typedef struct s_key
 {
 
-}	Key;
+}	t_key;
 
 typedef struct s_cub
 {
 	bool	error_doublon;
-	Map		*map;
-	Player	*player;
-	Texture	*texture;
-} Cub;
+	t_map		*map;
+	t_player	*player;
+	t_texture	*texture;
+} t_cub;
 
 typedef struct	s_img
 {
@@ -94,7 +97,7 @@ typedef struct	s_img
 	int		size_line;
 	int		endian;
 	char	*img_addr;
-} Img;
+} t_img;
 
 typedef struct	s_mini_map_coordonate
 {
@@ -104,16 +107,16 @@ typedef struct	s_mini_map_coordonate
 	int	start_x;
 	int	end_y;
 	int	end_x;
-}	Mini_map;
+}	t_mini_map;
 
 typedef struct s_game
 {
-	Map			map;
-	Player		player;
+	t_map		map;
+	t_player	player;
 	void		*mlx;
 	void		*win;
-	Img			img;
-	Mini_map	mini_map;
-}	Game;
+	t_img		img;
+	t_mini_map	mini_map;
+}	t_game;
 
 #endif

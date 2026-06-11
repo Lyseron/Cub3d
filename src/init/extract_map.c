@@ -6,7 +6,7 @@
 /*   By: mvignes <mvignes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/09 14:48:05 by mvignes           #+#    #+#             */
-/*   Updated: 2026/06/10 20:39:56 by mvignes          ###   ########.fr       */
+/*   Updated: 2026/06/11 16:44:50 by mvignes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ static bool	good_value_map(char *line)
 	return (false);
 }
 
-static bool	get_dimenssion(Map *map)
+static bool	get_dimenssion(t_map *map)
 {
 	int		i;
 	t_list	*tmp;
@@ -55,7 +55,7 @@ static bool	get_dimenssion(Map *map)
 	return (OK);
 }
 
-void	allow_memory_grid(Map *map)
+void	allow_memory_grid(t_map *map)
 {
 	int	i;
 
@@ -68,7 +68,7 @@ void	allow_memory_grid(Map *map)
 	}
 }
 
-void	write_map(Map *map)
+void	write_map(t_map *map)
 {
 	int		i;
 	int		j;
@@ -96,18 +96,18 @@ void	write_map(Map *map)
 	map->grid[i] = NULL;
 }
 
-bool	extract_map(char *line, Map *map)
+bool	extract_map(char *line, t_map *map)
 {
 	if (read_map(line, map))
 	{
 		get_next_line(-1);
-		return (ft_putstr_fd("Error donblon data", 2), ERROR);
+		return (ft_putendl_fd("Error donblon data", 2), ERROR);
 	}
 	map->map_fd = open(map->map_name, O_RDONLY);
 	if (map->map_fd == -1)
-		return (ft_putstr_fd("Error open map", 2), ERROR);
+		return (ft_putendl_fd("Error open map", 2), ERROR);
 	if (get_dimenssion(map))
-		return (ft_putstr_fd("void map in fd", 2), ERROR);
+		return (ft_putendl_fd("void map in fd", 2), ERROR);
 	allow_memory_grid(map);
 	write_map(map);
 	// if (verif_init_value(map) == false)

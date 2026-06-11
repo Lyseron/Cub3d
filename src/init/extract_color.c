@@ -6,7 +6,7 @@
 /*   By: mvignes <mvignes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/10 15:41:09 by mvignes           #+#    #+#             */
-/*   Updated: 2026/06/11 14:53:42 by mvignes          ###   ########.fr       */
+/*   Updated: 2026/06/11 16:44:48 by mvignes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ static bool	check_digit(char *str)
 	return (false);
 }
 
-static char	**split_color(char *line, char *find, Map *map)
+static char	**split_color(char *line, char *find, t_map *map)
 {
 	char	**tab_char;
 	char	*value;
@@ -46,7 +46,7 @@ static char	**split_color(char *line, char *find, Map *map)
 	return (tab_char);
 }
 
-static int	*add_color(char *line, char *find, Map *map)
+static int	*add_color(char *line, char *find, t_map *map)
 {
 	char	**tab_char;
 	int		*tab_int;
@@ -73,7 +73,7 @@ static int	*add_color(char *line, char *find, Map *map)
 	return (tab_int);
 }
 
-static bool	add_var_color(char *line, Map *map, char *find, int **color)
+static bool	add_var_color(char *line, t_map *map, char *find, int **color)
 {
 	if (*color)
 	{
@@ -89,7 +89,7 @@ static bool	add_var_color(char *line, Map *map, char *find, int **color)
 	return (OK);
 }
 
-int	sort_color(char *line, Map *map)
+int	sort_color(char *line, t_map *map)
 {
 	if (ft_strnstr(line, "C", ft_strlen(line)))
 		if (add_var_color(line, map, "C", &map->Ceiling))

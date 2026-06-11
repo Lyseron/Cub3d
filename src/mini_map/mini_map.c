@@ -3,17 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   mini_map.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lyaberge <lyaberge@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mvignes <mvignes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/10 18:22:38 by lyaberge          #+#    #+#             */
-/*   Updated: 2026/06/10 18:22:38 by lyaberge         ###   ########.fr       */
+/*   Updated: 2026/06/11 16:42:26 by mvignes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/cube.h"
 #include "../includes/parsing.h"
 
-static void	init_mini_map_coord(Game *game, int map_x, int map_y)
+static void	init_mini_map_coord(t_game *game, int map_x, int map_y)
 {
 	if (!game)
 		return ;
@@ -24,7 +24,7 @@ static void	init_mini_map_coord(Game *game, int map_x, int map_y)
 	game->mini_map.win_y = game->mini_map.start_y;
 }
 
-static int	draw_tiny_square(Game *game, int map_x, int map_y, int color)
+static int	draw_tiny_square(t_game *game, int map_x, int map_y, int color)
 {
 	if (!game)
 		return (ERROR);
@@ -44,7 +44,7 @@ static int	draw_tiny_square(Game *game, int map_x, int map_y, int color)
 	return (OK);
 }
 
-static int	draw_player_in_tiny_map(Game *game)
+static int	draw_player_in_tiny_map(t_game *game)
 {
 	if (draw_tiny_square(game, game->player.pos_x,
 			game->player.pos_y, 0x0000FF) == ERROR)
@@ -52,7 +52,7 @@ static int	draw_player_in_tiny_map(Game *game)
 	return (OK);
 }
 
-static int	tiny_map_conditions(Game *game, int x, int y)
+static int	tiny_map_conditions(t_game *game, int x, int y)
 {
 	if (game->map.grid[y][x] == '1')
 	{
@@ -67,7 +67,7 @@ static int	tiny_map_conditions(Game *game, int x, int y)
 	return (OK);
 }
 
-int	draw_tiny_map(Game *game)
+int	draw_tiny_map(t_game *game)
 {
 	int	x;
 	int	y;

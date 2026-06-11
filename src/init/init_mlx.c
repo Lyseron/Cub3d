@@ -6,13 +6,13 @@
 /*   By: mvignes <mvignes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/09 16:54:57 by lyaberge          #+#    #+#             */
-/*   Updated: 2026/06/11 14:34:32 by mvignes          ###   ########.fr       */
+/*   Updated: 2026/06/11 16:49:30 by mvignes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/cube.h"
 
-int	init_mlx(Game *game)
+int	init_mlx(t_game *game)
 {
 	game->mlx = mlx_init();
 	if (!game->mlx)
@@ -23,7 +23,7 @@ int	init_mlx(Game *game)
 	return (OK);
 }
 
-int	key(int key_choice, Game *game)
+int	key(int key_choice, t_game *game)
 {
 	(void)game;
 	if (key_choice == 53 || key_choice == 65307)

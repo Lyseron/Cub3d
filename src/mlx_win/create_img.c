@@ -3,17 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   create_img.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lyaberge <lyaberge@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mvignes <mvignes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/09 17:11:19 by lyaberge          #+#    #+#             */
-/*   Updated: 2026/06/09 17:11:19 by lyaberge         ###   ########.fr       */
+/*   Updated: 2026/06/11 16:42:31 by mvignes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/cube.h"
 #include "../includes/parsing.h"
 
-int	draw_pixel(Game *game, int x, int y, unsigned int color)
+int	draw_pixel(t_game *game, int x, int y, unsigned int color)
 {
 	int		pos_pixel;
 	char	*pixel;
@@ -34,7 +34,7 @@ int	draw_pixel(Game *game, int x, int y, unsigned int color)
 	return (OK);
 }
 
-int	create_img(Game *game)
+int	create_img(t_game *game)
 {
 	if (!game || !game->mlx || !game->win)
 		return (ERROR);

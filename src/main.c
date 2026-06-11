@@ -6,13 +6,13 @@
 /*   By: mvignes <mvignes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/09 14:48:41 by mvignes           #+#    #+#             */
-/*   Updated: 2026/06/11 14:39:11 by mvignes          ###   ########.fr       */
+/*   Updated: 2026/06/11 16:43:05 by mvignes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/cube.h"
 
-void	print_data(Map *map)
+void	print_data(t_map *map)
 {
 	printf("\nPRINT TEXTURE\n");
 	if (map->texture.NO)
@@ -40,55 +40,13 @@ void	print_data(Map *map)
 	}
 }
 
-void	fill_map(Game *game, char **map_tab)
+int	parsing(t_game *game, char **av)
 {
-	int	y;
-	int	i;
-
-	y = 0;
-	i = 0;
-	game->map.grid = malloc(sizeof(char *) * (ft_dba_len(map_tab) + 1));
-	if (!game->map.grid)
-		return ;
-	while (map_tab[y])
-	{
-		game->map.grid[i] = ft_strdup(map_tab[y]);
-		i++;
-		y++;
-	}
-	game->map.grid[i] = NULL;
-}
-
-int	parsing(Game *game, char **av)
-{
-// 	(void)ac;
-// 	// if (ac != 2)
-// 	// 	return (print_error("Wrong number of args", NULL, 2));
-	// Map	maps;
-	// ft_memset(&maps, 0, sizeof(Map));
-	// game->map = maps;
-// 	// Cub	cub;
-// 	// ft_memset(&cub, 0, sizeof(Cub));
-// 	// cub.map = &map;
 	game->map.map_name = av[1];
 	if (extract_data(&game->map))
 		return (1);
-	print_data(&game->map);
 	// free_data_fd(&maps);
-// }
-	// char	*map_tab[] = {
-	// 	"    111111",
-	// 	"    100001",
-	// 	"111110N001",
-	// 	"1000000001",
-	// 	"1111111111",
-	// 	NULL
-	// };
 
-	// char	**map_tab = &maps.grid;
-	// fill_map(game, map_tab);
-	// if (!game->map.grid)
-		// return (ERROR);
 	if (ft_decide(av[1]) == ERROR)
 		return (ft_putstr_fd("Error: Wrong map extension\n", 2), ERROR);
 	if (check_map(&game->map) == ERROR)
@@ -100,19 +58,16 @@ int	parsing(Game *game, char **av)
 	return (OK);
 }
 
-typedef int (*mlx_func_t)();
-
-#include <stdint.h>
-
 int	main(int ac, char **av)
 {
-	Game	game;
+	t_game	game;
 
 	if (ac != 2)
 		return (ft_putstr_fd("Error: Wrong number of args\n", 2), ERROR);
 	ft_memset(&game, 0, sizeof(game));
 	if (parsing(&game, av) == ERROR)
 		return (ERROR);
+	print_data(&game.map);	// <------------- Penser a retirer cest juste pour print le parscing etre sur que tout est bon
 	create_img(&game);
 	mlx_hook(game.win, 2, 1L << 0, ((mlx_func_t)(uintptr_t)key), &game);
 	mlx_hook(game.win, 17, 0, ((mlx_func_t)(uintptr_t)exit_game), &game);

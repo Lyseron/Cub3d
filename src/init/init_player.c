@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init_player.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lyaberge <lyaberge@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mvignes <mvignes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/09 16:53:12 by lyaberge          #+#    #+#             */
-/*   Updated: 2026/06/09 16:53:12 by lyaberge         ###   ########.fr       */
+/*   Updated: 2026/06/11 16:49:15 by mvignes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,7 @@ static int	found_dir_player(char **map, int *x, int *y)
 	return (OK);
 }
 
-int	fill_struct_player(Player *player, char **map)
+int	fill_struct_player(t_player *player, char **map)
 {
 	int	x;
 	int	y;

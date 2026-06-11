@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   clean_exit.h                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lyaberge <lyaberge@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mvignes <mvignes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/09 16:56:44 by lyaberge          #+#    #+#             */
-/*   Updated: 2026/06/09 16:56:44 by lyaberge         ###   ########.fr       */
+/*   Updated: 2026/06/11 16:46:37 by mvignes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,6 @@
 # include "cube.h"
 
 /* ------------------- clean_mlx.c ------------- */
-int		exit_game(Game *game);
+int		exit_game(t_game *game);
 
 #endif
