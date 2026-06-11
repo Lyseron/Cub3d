@@ -6,12 +6,13 @@
 /*   By: mvignes <mvignes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/08 13:35:57 by lyaberge          #+#    #+#             */
-/*   Updated: 2026/06/11 16:48:54 by mvignes          ###   ########.fr       */
+/*   Updated: 2026/06/11 17:41:47 by mvignes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PARSING_H
 # define PARSING_H
+# include "structs.h"
 
 /* ------------------- Check_map_cub.c --------------------- */
 int		ft_decide(char *av);

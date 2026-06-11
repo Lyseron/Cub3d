@@ -3,15 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   mini_map.h                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lyaberge <lyaberge@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mvignes <mvignes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/11 16:57:51 by lyaberge          #+#    #+#             */
-/*   Updated: 2026/06/11 16:57:51 by lyaberge         ###   ########.fr       */
+/*   Updated: 2026/06/11 17:41:39 by mvignes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef MINI_MAP_H
 # define MINI_MAP_H
+# include "structs.h"
 
 /* ------------------- mini_map.c -------------------------- */
 int		draw_tiny_map(t_game *game);

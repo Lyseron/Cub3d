@@ -3,15 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   mlx_win.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lyaberge <lyaberge@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mvignes <mvignes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/11 16:57:12 by lyaberge          #+#    #+#             */
-/*   Updated: 2026/06/11 16:57:12 by lyaberge         ###   ########.fr       */
+/*   Updated: 2026/06/11 17:41:45 by mvignes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef MLX_WIN_H
 # define MLX_WIN_H
+# include "structs.h"
 
 /* ------------------- create_img.c ------------------------ */
 int		create_img(t_game *game);
