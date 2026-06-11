@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init_mlx.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lyaberge <lyaberge@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mvignes <mvignes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/09 16:54:57 by lyaberge          #+#    #+#             */
-/*   Updated: 2026/06/09 16:54:57 by lyaberge         ###   ########.fr       */
+/*   Updated: 2026/06/11 14:34:32 by mvignes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,10 @@ int	init_mlx(Game *game)
 	return (OK);
 }
 
-int	key(int key_choice, Game *game)
+int	key(int key_choice, void *arg)
 {
-	(void)game;
+	const Game	*game = arg;
+	
 	if (key_choice == 53 || key_choice == 65307)
 	{
 		exit(OK);
