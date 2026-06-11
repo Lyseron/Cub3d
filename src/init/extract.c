@@ -10,9 +10,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/cube.h"
+#include "cube.h"
 
-bool	line_not_parasite(char *line, Map *map)
+bool	line_not_parasite(char *line, t_map *map)
 {
 	int	i = 0;
 
@@ -57,7 +57,7 @@ bool	good_len_color(int *Ceiling, int *Floor)
 	return (true);
 }
 
-bool	verif_name_texture(Map *map)
+bool	verif_name_texture(t_map *map)
 {
 	if (ft_decide_name_texture(map->texture.NO)
 		|| ft_decide_name_texture(map->texture.SO)
@@ -67,7 +67,7 @@ bool	verif_name_texture(Map *map)
 	return (false);
 }
 
-bool	verif_init_value(Map *map)
+bool	verif_init_value(t_map *map)
 {
 	int	i;
 
@@ -95,7 +95,7 @@ bool	verif_init_value(Map *map)
 	return (true);
 }
 
-static bool	all_info_grab(Map *map)
+static bool	all_info_grab(t_map *map)
 {
 	if (map->texture.NO && map->texture.SO && map->texture.WE && map->texture.EA
 		&& map->Ceiling && map->Floor)
@@ -103,7 +103,7 @@ static bool	all_info_grab(Map *map)
 	return (false);
 }
 
-bool extract_data(Map *map)
+bool extract_data(t_map *map)
 {
 	char	*line;
 

@@ -1,20 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   clean_mlx.c                                        :+:      :+:    :+:   */
+/*   mlx_win.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lyaberge <lyaberge@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/06/09 16:55:55 by lyaberge          #+#    #+#             */
-/*   Updated: 2026/06/09 16:55:55 by lyaberge         ###   ########.fr       */
+/*   Created: 2026/06/11 16:57:12 by lyaberge          #+#    #+#             */
+/*   Updated: 2026/06/11 16:57:12 by lyaberge         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cube.h"
+#ifndef MLX_WIN_H
+# define MLX_WIN_H
 
-int	exit_game(t_game *game)
-{
-	(void)game;
-	exit(OK);
-	return (OK);
-}
+/* ------------------- create_img.c ------------------------ */
+int		create_img(t_game *game);
+int		draw_pixel(t_game *game, int x, int y, unsigned int color);
+
+#endif

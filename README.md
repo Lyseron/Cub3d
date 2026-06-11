@@ -28,26 +28,3 @@ To draw a square for the minimap:
 ### AI uses :
 
 Thank you.
-
-
-branche lily
-
-Check main
-- init struct
-
-Checklist Parsing 
-
-<!-- - .cub -->
-- entourer de 1 (mur)
-<!-- - element a avoir : F C, nb de valeur  -->
-<!-- - texture de chaque cote N/S/E/O, double direction -->
-- Player (1 seul)
-<!-- - check texture -->
-<!-- - map en dernier -->
-- permission de map
-- enlever env
-
-
-si NO texture puis espace, je met les espaces dans la chaine de caractere donc il y aura une error lors du lancement de la texture, derangeant ou on le defent ?
-
-

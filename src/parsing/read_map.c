@@ -10,9 +10,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/cube.h"
+#include "cube.h"
 
-bool	check_no_double_data(char *line, Map *map)
+bool	check_no_double_data(char *line, t_map *map)
 {
 	if (!line || ft_strnstr(line, "NO", ft_strlen(line))
 		|| ft_strnstr(line, "SO", ft_strlen(line))
@@ -28,7 +28,7 @@ bool	check_no_double_data(char *line, Map *map)
 	return (false);
 }
 
-int	read_map(char *line, Map *map)
+int	read_map(char *line, t_map *map)
 {
 	t_list	*new;
 

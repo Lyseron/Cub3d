@@ -3,15 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   check_valid_map.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lyaberge <lyaberge@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mvignes <mvignes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/09 13:47:59 by lyaberge          #+#    #+#             */
-/*   Updated: 2026/06/09 13:47:59 by lyaberge         ###   ########.fr       */
+/*   Updated: 2026/06/11 14:29:00 by mvignes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/cube.h"
-#include "../includes/parsing.h"
+#include "cube.h"
 
 static bool	has_good_component(char **map)
 {
@@ -100,7 +99,7 @@ static bool	is_valid_map(char **map)
 	return (true);
 }
 
-int	check_map(Map *maps)
+int	check_map(t_map *maps)
 {
 	if (maps->grid == NULL)
 		return (ft_putstr_fd("Error: No map\n", 2), ERROR);

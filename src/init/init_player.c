@@ -10,8 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/cube.h"
-#include "../includes/parsing.h"
+#include "cube.h"
 
 static int	found_pos_player(char **map, int *x, int *y)
 {
@@ -30,7 +29,49 @@ static int	found_pos_player(char **map, int *x, int *y)
 	return (ERROR);
 }
 
-int	fill_struct_player(Player *player, char **map)
+static int	get_dir_x(char where_player_look)
+{
+	if (where_player_look == 'N')
+		return (0);
+	else if (where_player_look == 'S')
+		return (0);
+	else if (where_player_look == 'E')
+		return (1);
+	else if (where_player_look == 'W')
+		return (-1);
+	else
+		return (10);
+}
+
+static int	get_dir_y(char where_player_look)
+{
+	if (where_player_look == 'N')
+		return (-1);
+	else if (where_player_look == 'S')
+		return (1);
+	else if (where_player_look == 'E')
+		return (0);
+	else if (where_player_look == 'W')
+		return (0);
+	else
+		return (10);
+}
+
+static int	found_dir_player(char **map, int *x, int *y)
+{
+	char	look_player;
+
+	look_player = map[*y][*x];
+	if (!look_player)
+		return (ERROR);
+	*x = get_dir_x(look_player);
+	*y = get_dir_y(look_player);
+	if (*x == 10 || *y == 10)
+		return (ERROR);
+	return (OK);
+}
+
+int	fill_struct_player(t_player *player, char **map)
 {
 	int	x;
 	int	y;
@@ -41,5 +82,9 @@ int	fill_struct_player(Player *player, char **map)
 		return (ERROR);
 	player->pos_x = (double)x;
 	player->pos_y = (double)y;
+	if (found_dir_player(map, &x, &y) == ERROR)
+		return (ERROR);
+	player->dir_x = (double)x;
+	player->dir_y = (double)y;
 	return (OK);
 }

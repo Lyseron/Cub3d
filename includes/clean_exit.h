@@ -14,9 +14,12 @@
 #ifndef CLEAN_EXIT_H
 # define CLEAN_EXIT_H
 
-# include "cube.h"
-
 /* ------------------- clean_mlx.c ------------- */
-int		exit_game(Game *game);
+int		exit_game(t_game *game);
+
+/* ------------------- free_mlx.c ------------- */
+void	free_data_fd(t_map *map);
+int		print_error(char *str, t_map *map, int r);
+void	free_line_and_gnl(char *line);
 
 #endif

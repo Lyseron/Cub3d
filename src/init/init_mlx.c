@@ -1,27 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check_valid_map_utils.c                            :+:      :+:    :+:   */
+/*   init_mlx.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mvignes <mvignes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/06/09 13:50:07 by lyaberge          #+#    #+#             */
-/*   Updated: 2026/06/11 14:30:08 by mvignes          ###   ########.fr       */
+/*   Created: 2026/06/09 16:54:57 by lyaberge          #+#    #+#             */
+/*   Updated: 2026/06/11 14:34:32 by mvignes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cube.h"
 
-bool	is_player(char c)
+int	init_mlx(t_game *game)
 {
-	if (c && (c == 'N' || c == 'S' || c == 'E' || c == 'W'))
-		return (true);
-	return (false);
+	game->mlx = mlx_init();
+	if (!game->mlx)
+		return (ERROR);
+	game->win = mlx_new_window(game->mlx, WIDTH, HEIGHT, "Cub3d");
+	if (!game->win)
+		return (ERROR);
+	return (OK);
 }
 
-bool	is_valid_component(char c)
+int	key(int key_choice, t_game *game)
 {
-	if (c && (c == '1' || c == '0' || is_player(c) || ft_iswhitespace(c)))
-		return (true);
-	return (false);
+	(void)game;
+	if (key_choice == 53 || key_choice == 65307)
+	{
+		exit(OK);
+		return (OK);
+	}
+	return (OK);
 }
