@@ -86,8 +86,8 @@ int	fill_struct_player(t_player *player, char **map)
 	letter_player = '\0';
 	if (found_pos_player(map, &x, &y, &letter_player) == ERROR)
 		return (ERROR);
-	player->pos_x = (double)x;
-	player->pos_y = (double)y;
+	player->pos_x = (double)x + 0.5;
+	player->pos_y = (double)y + 0.5;
 	player->where_look = letter_player;
 	if (found_dir_player(player, &x, &y) == ERROR)
 		return (ERROR);

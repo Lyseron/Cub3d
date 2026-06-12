@@ -77,7 +77,7 @@ typedef struct	s_img
 	char			*img_addr;
 } t_img;
 
-typedef struct	s_mini_map_coordonate
+typedef struct	s_mini_map
 {
 	int				win_x;
 	int				win_y;
@@ -85,16 +85,30 @@ typedef struct	s_mini_map_coordonate
 	int				start_x;
 	int				end_y;
 	int				end_x;
+	int				map_case_left;
+	int				map_case_right;
+	int				map_case_top;
+	int				map_case_bottom;
+	
 }	t_mini_map;
 
 typedef struct s_mini_map_player
 {
-	double			start_y;
-	double			start_x;
-	double			end_y;
-	double			end_x;
-	double			player_pixel_y;
-	double			player_pixel_x;
+	int			center_y;
+	int			center_x;
+	int			start_y;
+	int			start_x;
+	int			end_y;
+	int			end_x;
+
+	double			player_top;
+	double			player_bottom;
+	double			player_left;
+	double			player_right;
+
+	int			player_pixel_y;
+	int			player_pixel_x;
+
 } t_mini_player;
 
 typedef struct s_game
