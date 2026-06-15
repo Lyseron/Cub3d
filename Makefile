@@ -7,13 +7,13 @@ INCS		= -I. -I$(LIBFT_DIR)
 
 # BLACK		= \033[0;30m
 # RED			= \033[0;31m
-# GREEN		= \033[0;32m
+GREEN		= \033[0;32m
 # YELLOW		= \033[0;33m
 # BLUE		= \033[0;34m
 # MAGENTA		= \033[0;35m
 # CYAN		= \033[0;36m
-# GRAS		= \033[1m
-# RESET		= \033[0m
+GRAS		= \033[1m
+RESET		= \033[0m
 
 LIBFT_DIR	= libft
 LIBFT		= $(LIBFT_DIR)/libft.a
@@ -119,6 +119,14 @@ fclean: clean
 
 re: fclean all
 
+pull:
+	@git checkout main
+	@git pull
+	@git checkout lily
+	@git pull
+	@git checkout matt
+	@git pull
+	@printf "$(GREEN)$(GRAS) Pull all branch finish$(RESET)"
 
 # COLOR_FILE	= .last_colors
 
