@@ -6,9 +6,12 @@
 /*   By: mvignes <mvignes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/15 15:23:09 by mvignes           #+#    #+#             */
-/*   Updated: 2026/06/15 15:23:17 by mvignes          ###   ########.fr       */
+/*   Updated: 2026/06/15 15:27:53 by mvignes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#ifndef KEY_MAC_H
+# define KEY_MAC_H
 
 // Keypress Mac
 // UP = W ; LEFT = A ; RIGHT = D ; DOWN = S
@@ -17,3 +20,5 @@
 # define LEFT 0
 # define RIGHT 2
 # define DOWN 1
+
+#endif
