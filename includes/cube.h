@@ -32,11 +32,20 @@
 # define ERROR 1
 
 // Window size
-# define HEIGHT 400
-# define WIDTH 600
+# define HEIGHT 600
+# define WIDTH 800
 
-// Square size for the mini_map
+// Square size for the mini_map in pixel
 # define SIZE_SQUARE 10
+
+// Size of the player in pixel
+# define SIZE_PLAYER 6
+
+// Border of the player on each side in map size (SIZE_PLAYER / 2) / SIZE_SQUARE
+# define BORDER_PLAYER 0.3
+
+// The nb of advancement the player mooves in the window
+# define SPEED 0.1
 
 // Keypress Mac
 // UP = W ; LEFT = A ; RIGHT = D ; DOWN = S

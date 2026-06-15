@@ -31,10 +31,11 @@ bool	extract_data(t_map *map);
 bool	verif_init_value(t_map *map);
 
 /* ------------------- Init_mlx.c -------------------------- */
-int		key(int key_choice, t_game *game);
 int		init_mlx(t_game *game);
 
 /* ------------------- Init_player.c ----------------------- */
 int		fill_struct_player(t_player *player, char **map);
+int		get_dir_y(char where_player_look);
+int		get_dir_x(char where_player_look);
 
 #endif
