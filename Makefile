@@ -126,7 +126,7 @@ pull:
 	@git pull
 	@git checkout matt
 	@git pull
-	@printf "$(GREEN)$(GRAS) Pull all branch finish$(RESET)"
+	@printf "$(GREEN)$(GRAS) Pull all branch finish$(RESET)\n"
 
 # COLOR_FILE	= .last_colors
 
@@ -195,4 +195,4 @@ pull:
 # 	@printf "   '--------' '-..-'       '.$(COL4)(_,_)$(RESET).' /_______.'    ''-..-'  ''-'   ''-'     ''-...-'     ''-..-'          '---'              '--'      '--'   '---'     '---'    ''-...-'  '--'    '--'   ''-..-'    '-...-'    \n"
 # 	@printf "$(RESET)\n"
 
-.PHONY: all clean fclean re
+.PHONY: all clean fclean re pull name_ascii user42
