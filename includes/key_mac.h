@@ -1,19 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   key_linux.h                                        :+:      :+:    :+:   */
+/*   key_mac.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mvignes <mvignes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/06/15 14:59:40 by mvignes           #+#    #+#             */
-/*   Updated: 2026/06/15 15:23:21 by mvignes          ###   ########.fr       */
+/*   Created: 2026/06/15 15:23:09 by mvignes           #+#    #+#             */
+/*   Updated: 2026/06/15 15:23:17 by mvignes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-// // Keypress Linux
-// // UP = W ; LEFT = A ; RIGHT = D ; DOWN = S
-# define ESC 65307
-# define UP 119
-# define LEFT 97
-# define RIGHT 100
-# define DOWN 115
+// Keypress Mac
+// UP = W ; LEFT = A ; RIGHT = D ; DOWN = S
+# define ESC 53
+# define UP 13
+# define LEFT 0
+# define RIGHT 2
+# define DOWN 1

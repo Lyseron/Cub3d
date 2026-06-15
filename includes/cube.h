@@ -6,7 +6,7 @@
 /*   By: mvignes <mvignes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/08 13:38:07 by lyaberge          #+#    #+#             */
-/*   Updated: 2026/06/15 14:50:44 by mvignes          ###   ########.fr       */
+/*   Updated: 2026/06/15 15:24:34 by mvignes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,9 @@
 // # include <X11/keysym.h>
 
 # include "parsing.h"
-#include "clean_exit.h"
+# include "clean_exit.h"
+// # include "key_mac.h"
+// # include "key_linux.h"
 
 // Bool for returns 
 # define OK 0
