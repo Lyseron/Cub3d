@@ -120,6 +120,15 @@ fclean: clean
 
 re: fclean all
 
+main:
+	@git checkout main
+
+lily:
+	@git checkout lily
+
+matt:
+	@git checkout matt
+
 pull:
 	@git checkout main
 	@git pull
@@ -196,4 +205,4 @@ pull:
 # 	@printf "   '--------' '-..-'       '.$(COL4)(_,_)$(RESET).' /_______.'    ''-..-'  ''-'   ''-'     ''-...-'     ''-..-'          '---'              '--'      '--'   '---'     '---'    ''-...-'  '--'    '--'   ''-..-'    '-...-'    \n"
 # 	@printf "$(RESET)\n"
 
-.PHONY: all clean fclean re pull name_ascii user42
+.PHONY: all clean fclean re pull main lily matt name_ascii user42
