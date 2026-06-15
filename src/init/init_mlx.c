@@ -22,14 +22,3 @@ int	init_mlx(t_game *game)
 		return (ERROR);
 	return (OK);
 }
-
-int	key(int key_choice, t_game *game)
-{
-	(void)game;
-	if (key_choice == 53 || key_choice == 65307)
-	{
-		exit(OK);
-		return (OK);
-	}
-	return (OK);
-}

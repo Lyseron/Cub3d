@@ -49,7 +49,8 @@ MLX_WIN_SRC = \
 	$(MLX_WIN_DIR)/create_img.c
 
 MINI_SRC    = \
-	$(MINI_DIR)/mini_map.c
+	$(MINI_DIR)/mini_map.c \
+	$(MINI_DIR)/gameplay.c
 
 INIT_SRC    = \
 	$(INIT_DIR)/extract_color.c \
@@ -118,6 +119,15 @@ fclean: clean
 	@printf "\033[36mFull clean\033[0m\n"
 
 re: fclean all
+
+main:
+	@git checkout main
+
+lily:
+	@git checkout lily
+
+matt:
+	@git checkout matt
 
 pull:
 	@git checkout main
@@ -195,4 +205,4 @@ pull:
 # 	@printf "   '--------' '-..-'       '.$(COL4)(_,_)$(RESET).' /_______.'    ''-..-'  ''-'   ''-'     ''-...-'     ''-..-'          '---'              '--'      '--'   '---'     '---'    ''-...-'  '--'    '--'   ''-..-'    '-...-'    \n"
 # 	@printf "$(RESET)\n"
 
-.PHONY: all clean fclean re pull name_ascii user42
+.PHONY: all clean fclean re pull main lily matt name_ascii user42

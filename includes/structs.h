@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   scructs.h                                          :+:      :+:    :+:   */
+/*   structs.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lyaberge <lyaberge@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mvignes <mvignes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/11 16:48:45 by lyaberge          #+#    #+#             */
-/*   Updated: 2026/06/11 16:48:45 by lyaberge         ###   ########.fr       */
+/*   Updated: 2026/06/11 17:40:19 by mvignes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,11 @@
 
 /*------------------------------------------------------------------ STRUCT ---------------------------------------------------------*/
 
+typedef int (*mlx_func_t)();
+
 typedef struct s_player
 {
+	char	where_look;
 	double	pos_x;
 	double	pos_y;
 	double	dir_x;
@@ -67,33 +70,58 @@ typedef struct s_cub
 
 typedef struct	s_img
 {
-	int		width;
-	int		height;
-	void	*img_ptr;
-	int		bits_per_pixel;
-	int		size_line;
-	int		endian;
-	char	*img_addr;
+	int				width;
+	int				height;
+	void			*img_ptr;
+	int				bits_per_pixel;
+	int				size_line;
+	int				endian;
+	char			*img_addr;
 } t_img;
 
-typedef struct	s_mini_map_coordonate
+typedef struct	s_mini_map
 {
-	int	win_x;
-	int	win_y;
-	int	start_y;
-	int	start_x;
-	int	end_y;
-	int	end_x;
+	int				win_x;
+	int				win_y;
+	int				start_y;
+	int				start_x;
+	int				end_y;
+	int				end_x;
+	int				map_case_left;
+	int				map_case_right;
+	int				map_case_top;
+	int				map_case_bottom;
+	
 }	t_mini_map;
+
+typedef struct s_mini_map_player
+{
+	int			center_y;
+	int			center_x;
+	int			start_y;
+	int			start_x;
+	int			end_y;
+	int			end_x;
+
+	double			player_top;
+	double			player_bottom;
+	double			player_left;
+	double			player_right;
+
+	int			player_pixel_y;
+	int			player_pixel_x;
+
+} t_mini_player;
 
 typedef struct s_game
 {
-	t_map		map;
-	t_player	player;
-	void		*mlx;
-	void		*win;
+	t_map			map;
+	t_player		player;
+	void			*mlx;
+	void			*win;
 	t_img			img;
-	t_mini_map	mini_map;
+	t_mini_map		mini_map;
+	t_mini_player	mini_player;
 }	t_game;
 
 
