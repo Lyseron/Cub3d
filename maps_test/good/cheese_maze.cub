@@ -1,9 +1,9 @@
-NO textures/simonkraft/wet_sponge.xpm
-SO textures/simonkraft/wet_sponge.xpm
-WE textures/simonkraft/wet_sponge.xpm
-EA textures/simonkraft/wet_sponge.xpm
+NO textures/simonkraft/wet_sponge1.xpm
+SO textures/simonkraft/wet_sponge2.xpm
+WE textures/simonkraft/wet_sponge3.xpm
+EA textures/simonkraft/wet_sponge4.xpm
 
-C 153,204,255
+C 153,204,29
 F 164,169,20
 
 111111111111111111111
@@ -27,4 +27,3 @@ F 164,169,20
 101010111011111111101
 1N1000001000000000001
 111111111111111111111
-

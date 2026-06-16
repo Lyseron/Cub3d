@@ -6,7 +6,7 @@
 /*   By: mvignes <mvignes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/08 13:38:07 by lyaberge          #+#    #+#             */
-/*   Updated: 2026/06/11 16:43:52 by mvignes          ###   ########.fr       */
+/*   Updated: 2026/06/15 15:24:34 by mvignes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,9 @@
 // # include <X11/keysym.h>
 
 # include "parsing.h"
-#include "clean_exit.h"
+# include "clean_exit.h"
+// # include "key_mac.h"
+// # include "key_linux.h"
 
 // Bool for returns 
 # define OK 0
@@ -49,19 +51,19 @@
 
 // Keypress Mac
 // UP = W ; LEFT = A ; RIGHT = D ; DOWN = S
-# define ESC 53
-# define UP 13
-# define LEFT 0
-# define RIGHT 2
-# define DOWN 1
+// # define ESC 53
+// # define UP 13
+// # define LEFT 0
+// # define RIGHT 2
+// # define DOWN 1
 
 // // Keypress Linux
 // // UP = W ; LEFT = A ; RIGHT = D ; DOWN = S
-// # define ESC 65307
-// # define UP 119
-// # define LEFT 97
-// # define RIGHT 100
-// # define DOWN 115
+# define ESC 65307
+# define UP 119
+# define LEFT 97
+# define RIGHT 100
+# define DOWN 115
 
 // Struct
 # include "structs.h"

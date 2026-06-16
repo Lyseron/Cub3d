@@ -6,7 +6,7 @@
 /*   By: mvignes <mvignes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/10 15:41:09 by mvignes           #+#    #+#             */
-/*   Updated: 2026/06/11 16:44:48 by mvignes          ###   ########.fr       */
+/*   Updated: 2026/06/15 15:21:12 by mvignes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,11 @@ static bool	check_digit(char *str)
 	count = 0;
 	while (str[i])
 	{
-		if (ft_isdigit(str[i++]))
+		if (ft_isdigit(str[i]))
 			count++;
+		else if (!ft_iswhitespace(str[i]) && str[i] != ',')
+			return (false);
+		i++;
 	}
 	if (count && count < 4)
 		return (true);
