@@ -83,11 +83,11 @@ UNAME_S := $(shell uname)
 ifeq ($(UNAME_S),Darwin)
 	MLX_DIR = mlx_macos
 	MLX_INC = -I$(MLX_DIR)
-	MLX_LIB = -L$(MLX_DIR) -lmlx -framework OpenGL -framework AppKit ./includes/key_mac.h
+	MLX_LIB = -L$(MLX_DIR) -lmlx -framework OpenGL -framework AppKit
 else
 	MLX_DIR = minilibx
 	MLX_INC = -I$(MLX_DIR)
-	MLX_LIB = -L$(MLX_DIR) -lmlx -lXext -lX11 -lm -lbsd ./includes/key_linux.h
+	MLX_LIB = -L$(MLX_DIR) -lmlx -lXext -lX11 -lm -lbsd
 endif
 
 INC = -Iincludes $(MLX_INC)
