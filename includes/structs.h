@@ -6,7 +6,7 @@
 /*   By: mvignes <mvignes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/11 16:48:45 by lyaberge          #+#    #+#             */
-/*   Updated: 2026/06/16 15:28:13 by mvignes          ###   ########.fr       */
+/*   Updated: 2026/06/16 18:22:16 by mvignes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,32 @@ typedef struct s_texture
 	void	*img_ea;
 }	t_texture;
 
+
+typedef struct s_raycasting
+{
+	double	ray_pos_x;
+	double	ray_pos_y;
+	double	ray_dir_x;
+	double	ray_dir_y;
+	double	delta_dist_x;
+	double	delta_dist_y;
+	double	plane_x;
+	double	plane_y;
+	double	xx;
+	double	yy;
+	double	dir_x;
+	double	dir_y;
+
+	double	wall_x;
+	int		side;
+	int		step_x;
+	int		step_y;
+	double	line_height;
+	double	end;
+	bool	hit_a_wall;
+}	t_ray;
+
+
 typedef struct s_map
 {
 	char		*map_name;
@@ -55,6 +81,8 @@ typedef struct s_map
 	bool		extract_ceiling;
 	t_list		*extract;
 	bool		error_doublon;
+
+	t_ray		ray;
 }	t_map;
 
 typedef struct s_cub
@@ -105,15 +133,6 @@ typedef struct s_mini_map_player
 	int		player_pixel_y;
 	int		player_pixel_x;
 }	t_mini_player;
-
-typedef struct s_raycasting
-{
-	double	ray_pos_x;
-	double	ray_pos_y;
-	double	plane_x;
-	double	plane_y;
-	bool	hit_a_wall;
-}	t_ray;
 
 typedef struct s_game
 {

@@ -6,7 +6,7 @@
 /*   By: mvignes <mvignes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/08 13:38:07 by lyaberge          #+#    #+#             */
-/*   Updated: 2026/06/15 15:24:34 by mvignes          ###   ########.fr       */
+/*   Updated: 2026/06/16 18:15:45 by mvignes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,8 @@
 # include <stdlib.h>
 # include <stdbool.h>
 # include <stdint.h>
-// # include <X11/keysym.h>
+# include <X11/keysym.h>
+# include <limits.h>
 
 # include "parsing.h"
 # include "clean_exit.h"
@@ -36,6 +37,7 @@
 // Window size
 # define HEIGHT 600
 # define WIDTH 800
+# define SIZE LONG_MAX
 
 // Square size for the mini_map in pixel
 # define SIZE_SQUARE 10

@@ -6,7 +6,7 @@
 /*   By: mvignes <mvignes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/09 14:48:41 by mvignes           #+#    #+#             */
-/*   Updated: 2026/06/16 15:29:50 by mvignes          ###   ########.fr       */
+/*   Updated: 2026/06/16 18:27:48 by mvignes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,28 @@ int	parsing(t_game *game, char **av)
 	return (OK);
 }
 
+
+void	raycasting(t_map *map, int i)
+{
+	double	camera_x;
+	// double	side_x;
+	// double	side_y;
+	// double	dist;
+	// int		start_y;
+
+	while (++i < WIDTH)
+	{
+		camera_x = 2 * i / (double)WIDTH - 1;
+		map->ray.ray_dir_x = map->ray.dir_x + map->ray.plane_x * camera_x;
+		map->ray.ray_dir_y = map->ray.dir_y + map->ray.plane_y * camera_x;
+	}
+}
+void	display(t_game *game)
+{
+	ft_bzero(&game->img.img_addr, (HEIGHT * WIDTH * (game->img.bits_per_pixel / 8)));
+	raycasting(&game->map, 0);
+}
+
 int	main(int ac, char **av)
 {
 	t_game	game;
@@ -68,6 +90,7 @@ int	main(int ac, char **av)
 	create_initial_img(&game);
 	mlx_hook(game.win, 2, 1L << 0, ((mlx_func_t)(uintptr_t)key), &game);
 	mlx_hook(game.win, 17, 0, ((mlx_func_t)(uintptr_t)exit_game), &game);
+	mlx_loop_hook(game.mlx, (mlx_func_t)(uintptr_t)display, &game);
 	mlx_loop(game.mlx);
 	return (OK);
 }

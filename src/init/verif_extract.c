@@ -6,7 +6,7 @@
 /*   By: mvignes <mvignes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/11 16:09:54 by mvignes           #+#    #+#             */
-/*   Updated: 2026/06/11 16:44:56 by mvignes          ###   ########.fr       */
+/*   Updated: 2026/06/16 17:49:21 by mvignes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,10 +56,10 @@ bool	good_len_color(int *Ceiling, int *Floor)
 
 bool	verif_name_texture(t_map *map)
 {
-	if (ft_decide_name_texture(map->texture.NO)
-		|| ft_decide_name_texture(map->texture.SO)
-		|| ft_decide_name_texture(map->texture.WE)
-		|| ft_decide_name_texture(map->texture.EA))
+	if (ft_decide_name_texture(map->texture.no)
+		|| ft_decide_name_texture(map->texture.so)
+		|| ft_decide_name_texture(map->texture.we)
+		|| ft_decide_name_texture(map->texture.ea))
 		return (true);
 	return (false);
 }
@@ -69,23 +69,23 @@ bool	verif_init_value(t_map *map)
 	int	i;
 
 	i = 0;
-	if (!map->texture.NO || !map->texture.SO || !map->texture.WE
-		|| !map->texture.EA || !map->Ceiling || !map->Floor
+	if (!map->texture.no || !map->texture.so || !map->texture.we
+		|| !map->texture.ea || !map->ceiling || !map->floor
 		|| map->error_doublon || verif_name_texture(map))
 		return (false);
-	if (good_len_color(map->Ceiling, map->Floor))
+	if (good_len_color(map->ceiling, map->floor))
 		return (false);
 	i = 0;
 	while (i < 3)
 	{
-		if (map->Ceiling[i] < 0 || map->Ceiling[i] > 255)
+		if (map->ceiling[i] < 0 || map->ceiling[i] > 255)
 			return (false);
 		i++;
 	}
 	i = 0;
 	while (i < 3)
 	{
-		if (map->Floor[i] < 0 || map->Floor[i] > 255)
+		if (map->floor[i] < 0 || map->floor[i] > 255)
 			return (false);
 		i++;
 	}
