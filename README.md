@@ -9,11 +9,11 @@
 
 To create the executable ./cub3d ->
 ``` bash
-	make 
+	make
 ```
 Then to compile ->
 ``` bash
-	./cub3d maps/map.cub
+	./cub3d maps/good/map.cub
 ```
 
 ## Ressources
@@ -24,7 +24,15 @@ Minilibx Doc/tutorial:
 To draw a square for the minimap:
 - https://aurelienbrabant.fr/blog/pixel-drawing-with-the-minilibx
 
+For the wall Collision of the minimap:
+- https://jonathanwhiting.com/tutorial/collision/
+
+For the ray in the minimap:
+- https://ibon-ira-cub3d.mintlify.app/concepts/raycasting
+
 
 ### AI uses :
+
+- Solve Probleme with github ssh key
 
 Thank you.

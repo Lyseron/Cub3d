@@ -15,6 +15,7 @@
 int	exit_game(t_game *game)
 {
 	(void)game;
+	// free_data_fd(&game->map);
 	exit(OK);
 	return (OK);
 }

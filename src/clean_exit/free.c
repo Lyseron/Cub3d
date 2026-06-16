@@ -37,20 +37,20 @@ void	free_data_fd(t_map *map)
 {
 	if (map->map_fd)
 		close(map->map_fd);
-	if (map->texture.NO)
-		free_and_null((void *)&map->texture.NO);
-	if (map->texture.SO)
-		free_and_null((void *)&map->texture.SO);
-	if (map->texture.WE)
-		free_and_null((void *)&map->texture.WE);
-	if (map->texture.EA)
-		free_and_null((void *)&map->texture.EA);
-	if (map->Floor)
-		free_and_null((void *)&map->Floor);
-	if (map->Ceiling)
-		free_and_null((void *)&map->Ceiling);
+	if (map->texture.no)
+		free_and_null((void *)&map->texture.no);
+	if (map->texture.so)
+		free_and_null((void *)&map->texture.so);
+	if (map->texture.we)
+		free_and_null((void *)&map->texture.we);
+	if (map->texture.ea)
+		free_and_null((void *)&map->texture.ea);
+	if (map->floor)
+		free_and_null((void *)&map->floor);
+	if (map->ceiling)
+		free_and_null((void *)&map->ceiling);
 	if (map->extract)
 		ft_lstclear(&(map->extract), free);
-	// if (map->grid)
-	// 	ft_free_dba(map->grid);
+	if (map->grid)
+		ft_free_dba(map->grid);
 }

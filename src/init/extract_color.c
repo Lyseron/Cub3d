@@ -95,10 +95,10 @@ static bool	add_var_color(char *line, t_map *map, char *find, int **color)
 int	sort_color(char *line, t_map *map)
 {
 	if (ft_strnstr(line, "C", ft_strlen(line)))
-		if (add_var_color(line, map, "C", &map->Ceiling))
+		if (add_var_color(line, map, "C", &map->ceiling))
 			return (ERROR);
 	if (ft_strnstr(line, "F", ft_strlen(line)))
-		if (add_var_color(line, map, "F", &map->Floor))
+		if (add_var_color(line, map, "F", &map->floor))
 			return (ERROR);
 	return (OK);
 }
