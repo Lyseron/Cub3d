@@ -87,8 +87,8 @@ int	main(int ac, char **av)
 		return (ft_putstr_fd("Error: Wrong number of args\n", 2), ERROR);
 	ft_memset(&game, 0, sizeof(game));
 	if (parsing(&game, av) == ERROR)
-		return (ERROR);
-	create_img(&game);
+		return (free_data_fd(&game.map), ERROR);
+	create_initial_img(&game);
 	mlx_hook(game.win, 2, 1L << 0, ((mlx_func_t)(uintptr_t)key), &game);
 	mlx_hook(game.win, 17, 0, ((mlx_func_t)(uintptr_t)exit_game), &game);
 	mlx_loop(game.mlx);

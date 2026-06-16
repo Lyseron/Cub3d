@@ -49,7 +49,8 @@ MLX_WIN_SRC = \
 	$(MLX_WIN_DIR)/create_img.c
 
 MINI_SRC    = \
-	$(MINI_DIR)/mini_map.c \
+	$(MINI_DIR)/draw_mini_map.c \
+	$(MINI_DIR)/draw_mini_map_utils.c \
 	$(MINI_DIR)/gameplay.c
 
 INIT_SRC    = \
@@ -59,6 +60,8 @@ INIT_SRC    = \
 	$(INIT_DIR)/extract_texture_and_color.c \
 	$(INIT_DIR)/init_player.c \
 	$(INIT_DIR)/init_mini_map.c \
+	$(INIT_DIR)/init_mini_player.c \
+	$(INIT_DIR)/init_ray.c \
 	$(INIT_DIR)/init_mlx.c
 
 CLEAN_SRC  = \

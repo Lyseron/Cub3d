@@ -14,8 +14,8 @@
 # define CUBE_H
 
 // Fonction include
-# include "../libft/libft.h"
-# include "../minilibx/mlx.h"
+# include "libft.h"
+# include "mlx.h"
 # include <unistd.h>
 # include <stdio.h>
 # include <fcntl.h>

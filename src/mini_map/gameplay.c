@@ -74,24 +74,45 @@ static int	moove_player(t_game *game, double dir_x, double dir_y)
 	return (OK);
 }
 
+static void	update_dir(t_game *game, char look)
+{
+	game->player.dir_x = get_dir_x(look);
+	game->player.dir_y = get_dir_y(look);
+	game->ray.plane_x = -game->player.dir_y * 0.66;
+	game->ray.plane_y = game->player.dir_x * 0.66;
+}
+
+static int	is_moove_ok(t_game *game, int key_choice)
+{
+	if (key_choice == UP)
+	{
+		update_dir(game, 'N');
+		return (moove_player(game, game->player.dir_x, game->player.dir_y));
+	}
+	else if (key_choice == LEFT)
+	{
+		update_dir(game, 'W');
+		return (moove_player(game, game->player.dir_x, game->player.dir_y));
+	}
+	else if (key_choice == RIGHT)
+	{
+		update_dir(game, 'E');
+		return (moove_player(game, game->player.dir_x, game->player.dir_y));
+	}
+	else if (key_choice == DOWN)
+	{
+		update_dir(game, 'S');
+		return (moove_player(game, game->player.dir_x, game->player.dir_y));
+	}
+	else
+		return (ERROR);
+}
+
 int	key(int key_choice, t_game *game)
 {
-	int	error;
-
-	// printf("key: %d\n", key_choice);
-	error = 0;
-	(void)game;
 	if (key_choice == ESC)
 		return (exit_game(game), OK);
-	if (key_choice == UP)
-		error = moove_player(game, get_dir_x('N'), get_dir_y('N'));
-	else if (key_choice == LEFT)
-		error = moove_player(game, get_dir_x('W'), get_dir_y('W'));
-	else if (key_choice == RIGHT)
-		error = moove_player(game, get_dir_x('E'), get_dir_y('E'));
-	else if (key_choice == DOWN)
-		error = moove_player(game, get_dir_x('S'), get_dir_y('S'));
-	if (error == OK)
-		draw_tiny_map(game);
+	if (is_moove_ok(game, key_choice) == OK)
+		draw_mini_map(game);
 	return (OK);
 }

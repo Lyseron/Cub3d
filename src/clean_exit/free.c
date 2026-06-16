@@ -51,6 +51,6 @@ void	free_data_fd(t_map *map)
 		free_and_null((void *)&map->ceiling);
 	if (map->extract)
 		ft_lstclear(&(map->extract), free);
-	// if (map->grid)
-	// 	ft_free_dba(map->grid);
+	if (map->grid)
+		ft_free_dba(map->grid);
 }

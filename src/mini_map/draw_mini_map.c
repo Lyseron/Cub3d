@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   mini_map.c                                         :+:      :+:    :+:   */
+/*   draw_mini_map.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lyaberge <lyaberge@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -11,26 +11,6 @@
 /* ************************************************************************** */
 
 #include "cube.h"
-
-static int	draw_tiny_square(t_game *game, int map_x, int map_y, int color)
-{
-	if (!game)
-		return (ERROR);
-	init_mini_map_coord(&game->mini_map, map_x, map_y);
-	while (game->mini_map.win_y < game->mini_map.end_y)
-	{
-		game->mini_map.win_x = game->mini_map.start_x;
-		while (game->mini_map.win_x < game->mini_map.end_x)
-		{
-			if (draw_pixel(game, game->mini_map.win_x,
-					game->mini_map.win_y, color) == ERROR)
-				return (ERROR);
-			game->mini_map.win_x++;
-		}
-		game->mini_map.win_y++;
-	}
-	return (OK);
-}
 
 static int	draw_player(t_game *game)
 {
@@ -51,22 +31,47 @@ static int	draw_player(t_game *game)
 	return (OK);
 }
 
-static int	tiny_map_conditions(t_game *game, int x, int y)
+static int	draw_ray(t_game *game, double ray_dir_x, double ray_dir_y)
 {
-	if (game->map.grid[y][x] == '1')
+	int	ray_pixel_x;
+	int	ray_pixel_y;
+
+	init_ray(game);
+	while (game->ray.ray_pos_y >= 0 && game->ray.ray_pos_y < game->map.map_y
+		&& game->ray.ray_pos_x >= 0 && game->ray.ray_pos_x < game->map.map_x
+		&& game->map.grid[(int)game->ray.ray_pos_y][(int)game->ray.ray_pos_x] != '1')
 	{
-		if (draw_tiny_square(game, x, y, 0x800080) == ERROR)
+		ray_pixel_x = 15 + game->ray.ray_pos_x * SIZE_SQUARE;
+		ray_pixel_y = 15 + game->ray.ray_pos_y * SIZE_SQUARE;
+		if (draw_pixel(game, ray_pixel_x, ray_pixel_y, 0x0000FF) == ERROR)
 			return (ERROR);
-	}
-	else if (game->map.grid[y][x] == '0')
-	{
-		if (draw_tiny_square(game, x, y, 0x008000) == ERROR)
-			return (ERROR);
+		game->ray.ray_pos_x = game->ray.ray_pos_x + ray_dir_x * SPEED;
+		game->ray.ray_pos_y = game->ray.ray_pos_y + ray_dir_y * SPEED;
 	}
 	return (OK);
 }
 
-int	draw_tiny_map(t_game *game)
+static int	draw_all_ray(t_game *game)
+{
+	double	ray_dir_x;
+	double	ray_dir_y;
+	double	camera_x;
+	int		x;
+
+	x = 0;
+	while (x < WIDTH)
+	{
+		camera_x = 2.0 * x / (double)WIDTH - 1;
+		ray_dir_x = game->player.dir_x + game->ray.plane_x * camera_x;
+		ray_dir_y = game->player.dir_y + game->ray.plane_y * camera_x;
+		if (draw_ray(game, ray_dir_x, ray_dir_y) == ERROR)
+			return (ERROR);
+		x++;
+	}
+	return (OK);
+}
+
+int	draw_mini_map(t_game *game)
 {
 	int	x;
 	int	y;
@@ -86,6 +91,8 @@ int	draw_tiny_map(t_game *game)
 		y++;
 	}
 	if (draw_player(game) == ERROR)
+		return (ERROR);
+	if (draw_all_ray(game) == ERROR)
 		return (ERROR);
 	mlx_put_image_to_window(game->mlx, game->win, game->img.img_ptr, 0, 0);
 	return (OK);

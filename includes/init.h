@@ -34,10 +34,15 @@ int		fill_struct_player(t_player *player, char **map);
 int		get_dir_y(char where_player_look);
 int		get_dir_x(char where_player_look);
 
+/* ------------------- Init_mini_player.c --------------------- */
+void	init_mini_player(t_game *game);
+void	init_mini_player_square(t_game *game, double next_x, double next_y);
+
 /* ------------------- Init_mini_map.c --------------------- */
 void	init_mini_map_coord(t_mini_map *mini_map, int map_x, int map_y);
-void	init_mini_player(t_game *game);
 void	init_mini_map_square(t_game *game, int x, int y);
-void	init_mini_player_square(t_game *game, double next_x, double next_y);
+
+/* ------------------- Init_ray.c ----------------------- */
+void	init_ray(t_game *game);
 
 #endif

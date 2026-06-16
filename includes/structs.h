@@ -94,15 +94,22 @@ typedef struct s_mini_map_player
 	int		start_x;
 	int		end_y;
 	int		end_x;
-
 	double	player_top;
 	double	player_bottom;
 	double	player_left;
 	double	player_right;
-
 	int		player_pixel_y;
 	int		player_pixel_x;
 }	t_mini_player;
+
+typedef struct s_raycasting
+{
+	double	ray_pos_x;
+	double	ray_pos_y;
+	double	plane_x;
+	double	plane_y;
+	bool	hit_a_wall;
+}	t_ray;
 
 typedef struct s_game
 {
@@ -113,6 +120,7 @@ typedef struct s_game
 	t_img			img;
 	t_mini_map		mini_map;
 	t_mini_player	mini_player;
+	t_ray			ray;
 }	t_game;
 
 #endif
