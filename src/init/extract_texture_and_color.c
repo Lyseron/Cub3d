@@ -14,16 +14,23 @@
 
 static bool	good_value_not_map(char *line, t_map *map)
 {
-	if (!map->texture.NO || !map->texture.SO || !map->texture.WE || !map->texture.EA
-		|| !map->Ceiling || !map->Floor || map->error_doublon)
+	if (!map->texture.no || !map->texture.so
+		|| !map->texture.we || !map->texture.ea
+		|| !map->ceiling || !map->floor || map->error_doublon)
 	{
-		if (ft_strnstr(line, "01", ft_strlen(line)) || ft_strnstr(line, "11", ft_strlen(line))
-			||ft_strnstr(line, "00", ft_strlen(line)) || ft_strnstr(line, "10", ft_strlen(line))
-			|| ft_strnstr(line, "S1", ft_strlen(line)) || ft_strnstr(line, "E1", ft_strlen(line))
-			|| ft_strnstr(line, "N1", ft_strlen(line)) || ft_strnstr(line, "W1", ft_strlen(line))
-			|| ft_strnstr(line, "S0", ft_strlen(line)) || ft_strnstr(line, "E0", ft_strlen(line))
-			|| ft_strnstr(line, "N0", ft_strlen(line)) || ft_strnstr(line, "W0", ft_strlen(line)))
-				return (true);
+		if (ft_strnstr(line, "01", ft_strlen(line))
+			|| ft_strnstr(line, "11", ft_strlen(line))
+			||ft_strnstr(line, "00", ft_strlen(line))
+			|| ft_strnstr(line, "10", ft_strlen(line))
+			|| ft_strnstr(line, "S1", ft_strlen(line))
+			|| ft_strnstr(line, "E1", ft_strlen(line))
+			|| ft_strnstr(line, "N1", ft_strlen(line))
+			|| ft_strnstr(line, "W1", ft_strlen(line))
+			|| ft_strnstr(line, "S0", ft_strlen(line))
+			|| ft_strnstr(line, "E0", ft_strlen(line))
+			|| ft_strnstr(line, "N0", ft_strlen(line))
+			|| ft_strnstr(line, "W0", ft_strlen(line)))
+			return (true);
 	}
 	return (false);
 }
@@ -52,11 +59,11 @@ static int	add_value_or_check_doublon(char *line, t_map *map,
 		tmp = ft_strdup(add_texture(line, find));
 		if (!tmp)
 			return (print_error("Error: Malloc *texture for add_texture crash",
-				map, ERROR));
+					map, ERROR));
 		*texture = ft_strtrim(tmp, " 	\n");
 		if (!*texture)
 			return (print_error("Error: Malloc *texture for add_texture crash",
-				map, ERROR));
+					map, ERROR));
 		free(tmp);
 	}
 	return (0);
@@ -65,14 +72,15 @@ static int	add_value_or_check_doublon(char *line, t_map *map,
 int	sort_value(char *line, t_map *map)
 {
 	if (ft_strnstr(line, "NO", ft_strlen(line)))
-		add_value_or_check_doublon(line, map, "NO", &map->texture.NO);
+		add_value_or_check_doublon(line, map, "NO", &map->texture.no);
 	if (ft_strnstr(line, "SO", ft_strlen(line)))
-		add_value_or_check_doublon(line, map, "SO", &map->texture.SO);
+		add_value_or_check_doublon(line, map, "SO", &map->texture.so);
 	if (ft_strnstr(line, "WE", ft_strlen(line)))
-		add_value_or_check_doublon(line, map, "WE", &map->texture.WE);
+		add_value_or_check_doublon(line, map, "WE", &map->texture.we);
 	if (ft_strnstr(line, "EA", ft_strlen(line)))
-		add_value_or_check_doublon(line, map, "EA", &map->texture.EA);
-	if (ft_strnstr(line, "C", ft_strlen(line)) || ft_strnstr(line, "F", ft_strlen(line)))
+		add_value_or_check_doublon(line, map, "EA", &map->texture.ea);
+	if (ft_strnstr(line, "C", ft_strlen(line))
+		|| ft_strnstr(line, "F", ft_strlen(line)))
 		if (sort_color(line, map))
 			return (ERROR);
 	if (good_value_not_map(line, map))

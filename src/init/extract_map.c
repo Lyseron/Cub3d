@@ -16,14 +16,20 @@ static bool	good_value_map(char *line)
 {
 	if (!line)
 		return (false);
-	if (!ft_strnstr(line, "NO", !ft_strlen(line)) || !ft_strnstr(line, "SO", !ft_strlen(line))
-		|| !ft_strnstr(line, "WE", !ft_strlen(line)) || !ft_strnstr(line, "EA", !ft_strlen(line))
-		|| !ft_strnstr(line, "C", !ft_strlen(line)) || !ft_strnstr(line, "F", !ft_strlen(line)))
+	if (!ft_strnstr(line, "NO", !ft_strlen(line))
+		|| !ft_strnstr(line, "SO", !ft_strlen(line))
+		|| !ft_strnstr(line, "WE", !ft_strlen(line))
+		|| !ft_strnstr(line, "EA", !ft_strlen(line))
+		|| !ft_strnstr(line, "C", !ft_strlen(line))
+		|| !ft_strnstr(line, "F", !ft_strlen(line)))
 	{
-		if (ft_strnstr(line, "0", ft_strlen(line)) || ft_strnstr(line, "1", ft_strlen(line))
-			|| ft_strnstr(line, "S", ft_strlen(line)) || ft_strnstr(line, "E", ft_strlen(line))
-			|| ft_strnstr(line, "N", ft_strlen(line)) || ft_strnstr(line, "W", ft_strlen(line)))
-				return (true);
+		if (ft_strnstr(line, "0", ft_strlen(line))
+			|| ft_strnstr(line, "1", ft_strlen(line))
+			|| ft_strnstr(line, "S", ft_strlen(line))
+			|| ft_strnstr(line, "E", ft_strlen(line))
+			|| ft_strnstr(line, "N", ft_strlen(line))
+			|| ft_strnstr(line, "W", ft_strlen(line)))
+			return (true);
 	}
 	return (false);
 }
@@ -42,7 +48,7 @@ static bool	get_dimenssion(t_map *map)
 	while (tmp)
 	{
 		if (!good_value_map(tmp->content))
-			break;
+			break ;
 		i = 0;
 		tmp_char = tmp->content;
 		while (tmp_char[i])
@@ -82,7 +88,7 @@ void	write_map(t_map *map)
 	while (tmp)
 	{
 		if (!good_value_map(tmp->content))
-			break;
+			break ;
 		tmp_char = tmp->content;
 		j = 0;
 		while (tmp_char[j])

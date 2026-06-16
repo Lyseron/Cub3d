@@ -12,28 +12,7 @@
 
 #include "cube.h"
 
-int	draw_pixel(t_game *game, int x, int y, unsigned int color)
-{
-	int		pos_pixel;
-	char	*pixel;
-
-	if (!game || !game->img.img_addr)
-		return (ERROR);
-	if (x < 0 || x >= WIDTH || y < 0 || y >= HEIGHT)
-		return (ERROR);
-	if (game->img.size_line <= 0 || game->img.bits_per_pixel <= 0)
-		return (ERROR);
-	pos_pixel = (y * game->img.size_line + x * (game->img.bits_per_pixel / 8));
-	if (pos_pixel < 0)
-		return (ERROR);
-	pixel = game->img.img_addr + pos_pixel;
-	if (pixel == NULL)
-		return (ERROR);
-	*(unsigned int *)pixel = color;
-	return (OK);
-}
-
-int	create_img(t_game *game)
+int	create_initial_img(t_game *game)
 {
 	if (!game || !game->mlx || !game->win)
 		return (ERROR);
@@ -44,7 +23,7 @@ int	create_img(t_game *game)
 			&game->img.bits_per_pixel, &game->img.size_line, &game->img.endian);
 	if (!game->img.img_addr)
 		return (ERROR);
-	if (draw_tiny_map(game) == ERROR)
+	if (draw_mini_map(game) == ERROR)
 		return (ERROR);
 	mlx_put_image_to_window(game->mlx, game->win, game->img.img_ptr, 0, 0);
 	return (OK);
