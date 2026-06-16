@@ -14,14 +14,21 @@
 
 bool	line_not_parasite(char *line, t_map *map)
 {
-	int	i = 0;
+	int	i;
 
-	if (ft_strnstr(line, "NO", ft_strlen(line)) || ft_strnstr(line, "SO", ft_strlen(line))
-	|| ft_strnstr(line, "WE", ft_strlen(line)) || ft_strnstr(line, "EA", ft_strlen(line))
-	|| ft_strnstr(line, "C", ft_strlen(line)) || ft_strnstr(line, "F", ft_strlen(line))
-	|| ft_strnstr(line, "0", ft_strlen(line)) || ft_strnstr(line, "1", ft_strlen(line))
-	|| ft_strnstr(line, "S", ft_strlen(line)) || ft_strnstr(line, "E", ft_strlen(line))
-	|| ft_strnstr(line, "N", ft_strlen(line)) || ft_strnstr(line, "W", ft_strlen(line)))
+	i = 0;
+	if (ft_strnstr(line, "NO", ft_strlen(line))
+		|| ft_strnstr(line, "SO", ft_strlen(line))
+		|| ft_strnstr(line, "WE", ft_strlen(line))
+		|| ft_strnstr(line, "EA", ft_strlen(line))
+		|| ft_strnstr(line, "C", ft_strlen(line))
+		|| ft_strnstr(line, "F", ft_strlen(line))
+		|| ft_strnstr(line, "0", ft_strlen(line))
+		|| ft_strnstr(line, "1", ft_strlen(line))
+		|| ft_strnstr(line, "S", ft_strlen(line))
+		|| ft_strnstr(line, "E", ft_strlen(line))
+		|| ft_strnstr(line, "N", ft_strlen(line))
+		|| ft_strnstr(line, "W", ft_strlen(line)))
 	{
 		while (ft_iswhitespace(line[i]))
 			i++;
@@ -37,7 +44,7 @@ bool	line_not_parasite(char *line, t_map *map)
 bool	good_len_color(int *Ceiling, int *Floor)
 {
 	int	i;
-	
+
 	i = 0;
 	while (Ceiling[i] != -1)
 		i++;
@@ -59,10 +66,10 @@ bool	good_len_color(int *Ceiling, int *Floor)
 
 bool	verif_name_texture(t_map *map)
 {
-	if (ft_decide_name_texture(map->texture.NO)
-		|| ft_decide_name_texture(map->texture.SO)
-		|| ft_decide_name_texture(map->texture.WE)
-		|| ft_decide_name_texture(map->texture.EA))
+	if (ft_decide_name_texture(map->texture.no)
+		|| ft_decide_name_texture(map->texture.so)
+		|| ft_decide_name_texture(map->texture.we)
+		|| ft_decide_name_texture(map->texture.ea))
 		return (true);
 	return (false);
 }
@@ -72,23 +79,23 @@ bool	verif_init_value(t_map *map)
 	int	i;
 
 	i = 0;
-	if (!map->texture.NO || !map->texture.SO || !map->texture.WE
-		|| !map->texture.EA || !map->Ceiling || !map->Floor
+	if (!map->texture.no || !map->texture.so || !map->texture.we
+		|| !map->texture.ea || !map->ceiling || !map->floor
 		|| map->error_doublon || verif_name_texture(map))
 		return (false);
-	if (good_len_color(map->Ceiling, map->Floor))
+	if (good_len_color(map->ceiling, map->floor))
 		return (false);
 	i = 0;
 	while (i < 3)
 	{
-		if (map->Ceiling[i] < 0 || map->Ceiling[i] > 255)
+		if (map->ceiling[i] < 0 || map->ceiling[i] > 255)
 			return (false);
 		i++;
 	}
 	i = 0;
 	while (i < 3)
 	{
-		if (map->Floor[i] < 0 || map->Floor[i] > 255)
+		if (map->floor[i] < 0 || map->floor[i] > 255)
 			return (false);
 		i++;
 	}
@@ -97,13 +104,13 @@ bool	verif_init_value(t_map *map)
 
 static bool	all_info_grab(t_map *map)
 {
-	if (map->texture.NO && map->texture.SO && map->texture.WE && map->texture.EA
-		&& map->Ceiling && map->Floor)
+	if (map->texture.no && map->texture.so && map->texture.we && map->texture.ea
+		&& map->ceiling && map->floor)
 		return (true);
 	return (false);
 }
 
-bool extract_data(t_map *map)
+bool	extract_data(t_map *map)
 {
 	char	*line;
 
@@ -114,16 +121,17 @@ bool extract_data(t_map *map)
 	{
 		line = get_next_line(map->map_fd);
 		if (!line)
-			break;
+			break ;
 		if (sort_value(line, map))
 			return (free_line_and_gnl(line),
-			print_error("Error: Value not correct", map, ERROR));
+				print_error("Error: Value not correct", map, ERROR));
 		free(line);
 		if (all_info_grab(map))
-			break;
+			break ;
 	}
 	if (verif_init_value(map) == false)
-		return (get_next_line(-1), print_error("Value not correct", map, ERROR));
+		return (get_next_line(-1),
+			print_error("Value not correct", map, ERROR));
 	if (extract_map(line, map))
 		return (print_error(NULL, map, ERROR), ERROR);
 	return (false);

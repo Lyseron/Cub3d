@@ -12,42 +12,33 @@
 
 #include "cube.h"
 
-void	init_mini_player_square_coor(t_game *game, double next_x, double next_y)
+static bool	bordplayer_cond(t_game *game)
 {
-	game->mini_player.player_top = next_y - BORDER_PLAYER;
-	game->mini_player.player_bottom = next_y + BORDER_PLAYER;
-	game->mini_player.player_left = next_x - BORDER_PLAYER;
-	game->mini_player.player_right = next_x + BORDER_PLAYER;
+	if (game->mini_player.player_left < game->mini_map.map_case_right
+		&& game->mini_player.player_right > game->mini_map.map_case_left
+		&& game->mini_player.player_top < game->mini_map.map_case_bottom
+		&& game->mini_player.player_bottom > game->mini_map.map_case_top)
+		return (true);
+	return (false);
 }
 
-void	init_mini_map_square_coor(t_game *game, int x, int y)
-{
-	game->mini_map.map_case_left = x;
-	game->mini_map.map_case_right = x + 1;
-	game->mini_map.map_case_top = y;
-	game->mini_map.map_case_bottom = y + 1;
-}
-
-static bool	is_border_player_touching_wall(t_game *game, double next_x, double next_y)
+static bool	is_bordplayer_touch_wall(t_game *game, double next_x, double next_y)
 {
 	int	y;
 	int	x;
 
-	init_mini_player_square_coor(game, next_x, next_y);
+	init_mini_player_square(game, next_x, next_y);
 	y = 0;
 	while (y < game->map.map_y)
 	{
 		x = 0;
 		while (x < game->map.map_x)
 		{
-			init_mini_map_square_coor(game, x, y);
+			init_mini_map_square(game, x, y);
 			if (game->map.grid[y][x] == '1')
 			{
-				if (game->mini_player.player_left < game->mini_map.map_case_right
-					&& game->mini_player.player_right > game->mini_map.map_case_left
-					&& game->mini_player.player_top < game->mini_map.map_case_bottom
-					&& game->mini_player.player_bottom > game->mini_map.map_case_top)
-						return (true);
+				if (bordplayer_cond(game) == true)
+					return (true);
 			}
 			x++;
 		}
@@ -63,21 +54,25 @@ static int	moove_player(t_game *game, double dir_x, double dir_y)
 
 	next_pos_player_x = game->player.pos_x + dir_x * SPEED;
 	next_pos_player_y = game->player.pos_y + dir_y * SPEED;
-	printf("current: x=%f y=%f\n", game->player.pos_x, game->player.pos_y);
-	printf("next: x=%f, y=%f\n", next_pos_player_x, next_pos_player_y);
-	if (next_pos_player_x - BORDER_PLAYER < 0 || next_pos_player_y  - BORDER_PLAYER < 0)
-		return (printf("ERROR: Negative Value\n"), ERROR);
-	if (next_pos_player_x + BORDER_PLAYER >= game->map.map_x 
-			|| next_pos_player_y + BORDER_PLAYER >= game->map.map_y)
-		return (printf("ERROR: out of map\n"), ERROR);
-	if (is_border_player_touching_wall(game, next_pos_player_x, next_pos_player_y) == true)
-		return (printf("ERROR: Touching wall\n"), ERROR);
+	// printf("current: x=%f y=%f\n", game->player.pos_x,
+		// game->player.pos_y);
+	// printf("next: x=%f, y=%f\n", next_pos_player_x,
+		// next_pos_player_y);
+	if (next_pos_player_x - BORDER_PLAYER < 0
+		|| next_pos_player_y - BORDER_PLAYER < 0)
+		return (/*printf("ERROR: Negative Value\n"), */ERROR);
+	if (next_pos_player_x + BORDER_PLAYER >= game->map.map_x
+		|| next_pos_player_y + BORDER_PLAYER >= game->map.map_y)
+		return (/*printf("ERROR: out of map\n"), */ERROR);
+	if (is_bordplayer_touch_wall(game, next_pos_player_x,
+			next_pos_player_y) == true)
+		return (/*printf("ERROR: Touching wall\n"), */ERROR);
 	game->player.pos_x = next_pos_player_x;
 	game->player.pos_y = next_pos_player_y;
-	printf("suposidly moove to x=%f y=%f\n", game->player.pos_x, game->player.pos_y);
+	// printf("suposidly moove to x=%f y=%f\n",
+		// game->player.pos_x, game->player.pos_y);
 	return (OK);
 }
-
 
 int	key(int key_choice, t_game *game)
 {

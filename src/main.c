@@ -23,7 +23,6 @@
 // 		printf("%s\n", map->texture.WE);
 // 	if (map->texture.EA)
 // 		printf("%s\n", map->texture.EA);
-
 // 	printf("\nPRINT COLOR\n");
 // 	if (map->Floor)
 // 		for (int i = 0; i < 3;i++)
@@ -31,7 +30,6 @@
 // 	if (map->Ceiling)
 // 		for (int i = 0; i < 3;i++)
 // 			printf("Ceiling i = %i\n", map->Ceiling[i]);
-	
 // 	printf("\nPRINT MAP\n");
 // 	for (int i = 0; i < map->map_y;i++)
 // 	{

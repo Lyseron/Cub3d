@@ -44,6 +44,7 @@ int	read_map(char *line, t_map *map)
 	}
 	close(map->map_fd);
 	if (map->error_doublon)
-		return (free(line), print_error("Error: Data doublon in fd", map, ERROR));
-	return(OK);
+		return (free(line), print_error("Error: Data doublon in fd",
+				map, ERROR));
+	return (OK);
 }

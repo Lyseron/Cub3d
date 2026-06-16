@@ -16,8 +16,6 @@
 # include "../libft/libft.h"
 # include <stdbool.h>
 
-/*------------------------------------------------------------------ STRUCT ---------------------------------------------------------*/
-
 typedef struct s_player
 {
 	char	where_look;
@@ -27,89 +25,84 @@ typedef struct s_player
 	double	dir_y;
 }	t_player;
 
-typedef	struct s_texture
+typedef struct s_texture
 {
-	char	*NO;
+	char	*no;
 	void	*img_no;
-	char	*SO;
+	char	*so;
 	void	*img_so;
-	char	*WE;
+	char	*we;
 	void	*img_we;
-	char	*EA;
+	char	*ea;
 	void	*img_ea;
 }	t_texture;
 
 typedef struct s_map
 {
-	char	*map_name;
-	int		map_fd;
-
-	char	**grid;
-	int		map_x;
-	int		map_y;
-
+	char		*map_name;
+	int			map_fd;
+	char		**grid;
+	int			map_x;
+	int			map_y;
 	t_texture	texture;
-	int		*Floor;
-	bool	extract_floor;
-	int		*Ceiling;
-	bool	extract_ceiling;
-
-	t_list	*extract;
-	bool	error_doublon;
+	int			*floor;
+	bool		extract_floor;
+	int			*ceiling;
+	bool		extract_ceiling;
+	t_list		*extract;
+	bool		error_doublon;
 }	t_map;
 
 typedef struct s_cub
 {
-	bool	error_doublon;
+	bool		error_doublon;
 	t_map		*map;
 	t_player	*player;
 	t_texture	*texture;
-} t_cub;
+}	t_cub;
 
-typedef struct	s_img
+typedef struct s_img
 {
-	int				width;
-	int				height;
-	void			*img_ptr;
-	int				bits_per_pixel;
-	int				size_line;
-	int				endian;
-	char			*img_addr;
-} t_img;
+	int		width;
+	int		height;
+	void	*img_ptr;
+	int		bits_per_pixel;
+	int		size_line;
+	int		endian;
+	char	*img_addr;
+}	t_img;
 
-typedef struct	s_mini_map
+typedef struct s_mini_map
 {
-	int				win_x;
-	int				win_y;
-	int				start_y;
-	int				start_x;
-	int				end_y;
-	int				end_x;
-	int				map_case_left;
-	int				map_case_right;
-	int				map_case_top;
-	int				map_case_bottom;
-	
+	int		win_x;
+	int		win_y;
+	int		start_y;
+	int		start_x;
+	int		end_y;
+	int		end_x;
+	int		map_case_left;
+	int		map_case_right;
+	int		map_case_top;
+	int		map_case_bottom;
 }	t_mini_map;
 
 typedef struct s_mini_map_player
 {
-	int			center_y;
-	int			center_x;
-	int			start_y;
-	int			start_x;
-	int			end_y;
-	int			end_x;
+	int		center_y;
+	int		center_x;
+	int		start_y;
+	int		start_x;
+	int		end_y;
+	int		end_x;
 
-	double			player_top;
-	double			player_bottom;
-	double			player_left;
-	double			player_right;
+	double	player_top;
+	double	player_bottom;
+	double	player_left;
+	double	player_right;
 
-	int			player_pixel_y;
-	int			player_pixel_x;
-
-} t_mini_player;
+	int		player_pixel_y;
+	int		player_pixel_x;
+}	t_mini_player;
 
 typedef struct s_game
 {
@@ -122,6 +115,4 @@ typedef struct s_game
 	t_mini_player	mini_player;
 }	t_game;
 
-
 #endif
-
