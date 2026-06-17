@@ -14,8 +14,8 @@
 
 void	init_mini_player(t_game *game)
 {
-	game->mini_player.center_x = game->player.pos_x * SIZE_SQUARE + 15;
-	game->mini_player.center_y = game->player.pos_y * SIZE_SQUARE + 15;
+	game->mini_player.center_x = game->player.pos_x * SIZE_SQUARE + MARGE;
+	game->mini_player.center_y = game->player.pos_y * SIZE_SQUARE + MARGE;
 	game->mini_player.start_x = game->mini_player.center_x - (SIZE_PLAYER / 2);
 	game->mini_player.start_y = game->mini_player.center_y - (SIZE_PLAYER / 2);
 	game->mini_player.end_y = game->mini_player.start_y + SIZE_PLAYER;

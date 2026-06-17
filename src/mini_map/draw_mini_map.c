@@ -33,20 +33,24 @@ static int	draw_player(t_game *game)
 
 static int	draw_ray(t_game *game, double ray_dir_x, double ray_dir_y)
 {
-	int	ray_pixel_x;
-	int	ray_pixel_y;
+	int		ray_pixel_x;
+	int		ray_pixel_y;
+	double	ray_pos_y;
+	double	ray_pos_x;
 
 	init_ray(game);
-	while (game->ray.ray_pos_y >= 0 && game->ray.ray_pos_y < game->map.map_y
-		&& game->ray.ray_pos_x >= 0 && game->ray.ray_pos_x < game->map.map_x
-		&& game->map.grid[(int)game->ray.ray_pos_y][(int)game->ray.ray_pos_x] != '1')
+	ray_pos_y = game->ray.ray_pos_y;
+	ray_pos_x = game->ray.ray_pos_x;
+	while (ray_pos_y >= 0 && ray_pos_y < game->map.map_y
+		&& ray_pos_x >= 0 && ray_pos_x < game->map.map_x
+		&& game->map.grid[(int)ray_pos_y][(int)ray_pos_x] != '1')
 	{
-		ray_pixel_x = 15 + game->ray.ray_pos_x * SIZE_SQUARE;
-		ray_pixel_y = 15 + game->ray.ray_pos_y * SIZE_SQUARE;
-		if (draw_pixel(game, ray_pixel_x, ray_pixel_y, 0x0000FF) == ERROR)
+		ray_pixel_x = MARGE + ray_pos_x * SIZE_SQUARE;
+		ray_pixel_y = MARGE + ray_pos_y * SIZE_SQUARE;
+		if (draw_pixel(game, ray_pixel_x, ray_pixel_y, 0xFF0000) == ERROR)
 			return (ERROR);
-		game->ray.ray_pos_x = game->ray.ray_pos_x + ray_dir_x * SPEED;
-		game->ray.ray_pos_y = game->ray.ray_pos_y + ray_dir_y * SPEED;
+		ray_pos_x = ray_pos_x + ray_dir_x * SPEED;
+		ray_pos_y = ray_pos_y + ray_dir_y * SPEED;
 	}
 	return (OK);
 }
@@ -56,17 +60,17 @@ static int	draw_all_ray(t_game *game)
 	double	ray_dir_x;
 	double	ray_dir_y;
 	double	camera_x;
-	int		x;
+	int		i;
 
-	x = 0;
-	while (x < WIDTH)
+	i = 0;
+	while (i < WIDTH)
 	{
-		camera_x = 2.0 * x / (double)WIDTH - 1;
+		camera_x = 2.0 * i / (double)WIDTH - 1;
 		ray_dir_x = game->player.dir_x + game->ray.plane_x * camera_x;
 		ray_dir_y = game->player.dir_y + game->ray.plane_y * camera_x;
 		if (draw_ray(game, ray_dir_x, ray_dir_y) == ERROR)
 			return (ERROR);
-		x++;
+		i++;
 	}
 	return (OK);
 }

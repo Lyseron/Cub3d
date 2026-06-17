@@ -51,6 +51,7 @@ MLX_WIN_SRC = \
 MINI_SRC    = \
 	$(MINI_DIR)/draw_mini_map.c \
 	$(MINI_DIR)/draw_mini_map_utils.c \
+	$(MINI_DIR)/gameplay_utils.c \
 	$(MINI_DIR)/gameplay.c
 
 INIT_SRC    = \

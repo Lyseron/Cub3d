@@ -63,7 +63,7 @@ int	parsing(t_game *game, char **av)
 	if (ft_decide(game->map.map_name) == ERROR)
 		return (ft_putstr_fd("Error: Wrong map extension\n", 2), ERROR);
 	if (extract_data(&game->map))
-		return (1);
+		return (ERROR);
 	// print_data(&game->map);
 	// free_data_fd(&maps);
 	if (check_map(&game->map) == ERROR)
@@ -75,7 +75,7 @@ int	parsing(t_game *game, char **av)
 	return (OK);
 }
 
-typedef int (*mlx_func_t)();
+typedef int	(*mlx_func_t)();
 
 #include <stdint.h>
 

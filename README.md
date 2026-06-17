@@ -27,9 +27,6 @@ To draw a square for the minimap:
 For the wall Collision of the minimap:
 - https://jonathanwhiting.com/tutorial/collision/
 
-For the ray in the minimap:
-- https://ibon-ira-cub3d.mintlify.app/concepts/raycasting
-
 
 ### AI uses :
 

@@ -16,8 +16,8 @@ void	init_mini_map_coord(t_mini_map *mini_map, int map_x, int map_y)
 {
 	if (!mini_map)
 		return ;
-	mini_map->start_y = map_y * SIZE_SQUARE + 15;
-	mini_map->start_x = map_x * SIZE_SQUARE + 15;
+	mini_map->start_y = map_y * SIZE_SQUARE + MARGE;
+	mini_map->start_x = map_x * SIZE_SQUARE + MARGE;
 	mini_map->end_y = mini_map->start_y + SIZE_SQUARE;
 	mini_map->end_x = mini_map->start_x + SIZE_SQUARE;
 	mini_map->win_y = mini_map->start_y;

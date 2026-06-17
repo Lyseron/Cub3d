@@ -42,6 +42,9 @@
 // The nb of advancement the player mooves in the window
 # define SPEED 0.1
 
+// The marge between the top right and the map
+# define MARGE 15
+
 // Keypress Mac
 // UP = W ; LEFT = A ; RIGHT = D ; DOWN = S
 # define ESC 53
