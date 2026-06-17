@@ -6,7 +6,7 @@
 /*   By: mvignes <mvignes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/09 14:48:41 by mvignes           #+#    #+#             */
-/*   Updated: 2026/06/17 14:24:36 by mvignes          ###   ########.fr       */
+/*   Updated: 2026/06/17 19:08:47 by mvignes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,26 +57,26 @@ int	parsing(t_game *game, char **av)
 }
 
 
-void	raycasting(t_map *map, int i)
-{
-	double	camera_x;
-	// double	side_x;
-	// double	side_y;
-	// double	dist;
-	// int		start_y;
+// void	raycasting(t_map *map, int i)
+// {
+// 	double	camera_x;
+// 	// double	side_x;
+// 	// double	side_y;
+// 	// double	dist;
+// 	// int		start_y;
 
-	while (++i < WIDTH)
-	{
-		camera_x = 2 * i / (double)WIDTH - 1;
-		map->ray.ray_dir_x = map->ray.dir_x + map->ray.plane_x * camera_x;
-		map->ray.ray_dir_y = map->ray.dir_y + map->ray.plane_y * camera_x;
-	}
-}
-void	display(t_game *game)
-{
-	ft_bzero(&game->img.img_addr, (HEIGHT * WIDTH * (game->img.bits_per_pixel / 8)));
-	raycasting(&game->map, 0);
-}
+// 	while (++i < WIDTH)
+// 	{
+// 		camera_x = 2 * i / (double)WIDTH - 1;
+// 		map->ray.ray_dir_x = map->ray.dir_x + map->ray.plane_x * camera_x;
+// 		map->ray.ray_dir_y = map->ray.dir_y + map->ray.plane_y * camera_x;
+// 	}
+// }
+// void	display(t_game *game)
+// {
+// 	ft_bzero(&game->img.img_addr, (HEIGHT * WIDTH * (game->img.bits_per_pixel / 8)));
+// 	raycasting(&game->map, 0);
+// }
 
 int	main(int ac, char **av)
 {

@@ -6,7 +6,7 @@
 /*   By: mvignes <mvignes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/11 17:34:39 by lyaberge          #+#    #+#             */
-/*   Updated: 2026/06/17 17:50:53 by mvignes          ###   ########.fr       */
+/*   Updated: 2026/06/17 19:08:01 by mvignes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,8 +51,8 @@ void	moove_player_utils(t_game *game, double dir_x, double dir_y, int key, doubl
 {
 	(void)cos_p;
 	(void)sin_p;
-	(void)dir_x;
-	(void)dir_y;
+	// (void)dir_x;
+	// (void)dir_y;
 	// printf("x = %f\n", dir_x);
 	// printf("y = %f\n", dir_y);
 	if (key == UP)
@@ -106,14 +106,13 @@ static int	moove_player(t_game *game, double dir_x, double dir_y, int key, doubl
 	return (OK);
 }
 
-static void	update_dir(t_game *game, char look, double cos_p, double sin_p)
-{
-	(void)look;
-	// game->player.dir_x = get_dir_x(look);
-	// game->player.dir_y = get_dir_y(look);
-	game->ray.plane_x -= cos_p;
-	game->ray.plane_y += sin_p;
-}
+// static void	update_dir(t_game *game, char look)
+// {
+// 	game->player.dir_x = get_dir_x(look);
+// 	game->player.dir_y = get_dir_y(look);
+// 	game->ray.plane_x = -game->player.dir_y * 0.66;
+// 	game->ray.plane_y = game->player.dir_x * 0.66;
+// }
 
 static int	update_plane(t_game *game, int key)
 {
@@ -121,19 +120,27 @@ static int	update_plane(t_game *game, int key)
 	{
 		// printf("OUI OUI BAGUETTE \n");
 		// printf("play dir y = \n", )
+		printf("play dir y = %f\n", game->player.dir_y);
+		printf("play dir x = %f\n", game->player.dir_x);
 		game->player.dir_y -= SPEED_CAM;
-		// if (game->player.dir_y >= 2 * PI)
-		// 	game->player.dir_y = 0;
-		// if (game->player.dir_y < 0)
-		// 	game->player.dir_y = 2 * PI;
+		if (game->player.dir_y >= 2 * PI)
+			game->player.dir_y = 0;
+		if (game->player.dir_y < 0)
+			game->player.dir_y = 2 * PI;
 		game->player.dir_x -= SPEED_CAM;
+		if (game->player.dir_x >= 2 * PI)
+			game->player.dir_x = 0;
+		if (game->player.dir_x < 0)
+			game->player.dir_x = 2 * PI;
 		return (OK);
 	}
 	else if (key == XK_Right)
 	{
 		// printf("NON NON BAGUETTE \n");
+		printf("play dir y = %f\n", game->player.dir_y);
+		printf("play dir x = %f\n", game->player.dir_x);
 		game->player.dir_y += SPEED_CAM;
-		game->player.dir_x -= SPEED_CAM;
+		game->player.dir_x += SPEED_CAM;
 		return (OK);
 	}
 	return (ERROR);
@@ -145,22 +152,22 @@ static int	is_moove_ok(t_game *game, int key_choice)
 	double	sin_plane = sin(game->player.plane);
 	if (key_choice == UP)
 	{
-		update_dir(game, 'N', cos_plane, sin_plane);
+		// update_dir(game, 'N');
 		return (moove_player(game, game->player.dir_x, game->player.dir_y, key_choice, cos_plane, sin_plane));
 	}
 	else if (key_choice == LEFT)
 	{
-		update_dir(game, 'W', cos_plane, sin_plane);
+		// update_dir(game, 'W');
 		return (moove_player(game, game->player.dir_x, game->player.dir_y, key_choice, cos_plane, sin_plane));
 	}
 	else if (key_choice == RIGHT)
 	{
-		update_dir(game, 'E', cos_plane, sin_plane);
+		// update_dir(game, 'E');
 		return (moove_player(game, game->player.dir_x, game->player.dir_y, key_choice, cos_plane, sin_plane));
 	}
 	else if (key_choice == DOWN)
 	{
-		update_dir(game, 'S', cos_plane, sin_plane);
+		// update_dir(game, 'S');
 		return (moove_player(game, game->player.dir_x, game->player.dir_y, key_choice, cos_plane, sin_plane));
 	}
 	else if (key_choice == XK_Left || key_choice == XK_Right)

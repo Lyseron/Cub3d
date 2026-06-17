@@ -6,7 +6,7 @@
 /*   By: mvignes <mvignes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/08 13:38:07 by lyaberge          #+#    #+#             */
-/*   Updated: 2026/06/17 17:25:24 by mvignes          ###   ########.fr       */
+/*   Updated: 2026/06/17 19:13:32 by mvignes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,16 +28,14 @@
 
 # include "parsing.h"
 # include "clean_exit.h"
-// # include "key_mac.h"
-// # include "key_linux.h"
 
 // Bool for returns 
 # define OK 0
 # define ERROR 1
 
 // Window size
-# define HEIGHT 600
-# define WIDTH 800
+# define HEIGHT 1200
+# define WIDTH 1800
 # define SIZE LONG_MAX
 
 // Square size for the mini_map in pixel

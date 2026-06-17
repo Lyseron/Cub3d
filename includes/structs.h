@@ -6,7 +6,7 @@
 /*   By: mvignes <mvignes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/11 16:48:45 by lyaberge          #+#    #+#             */
-/*   Updated: 2026/06/17 17:37:26 by mvignes          ###   ########.fr       */
+/*   Updated: 2026/06/17 19:03:54 by mvignes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,21 +45,19 @@ typedef struct s_texture
 
 typedef struct s_raycasting
 {
-	double	ray_pos_x;
-	double	ray_pos_y;
-	double	ray_dir_x;
-	double	ray_dir_y;
-	double	delta_dist_x;
-	double	delta_dist_y;
-	double	plane_x;
-	double	plane_y;
-	int		map_x;
-	int		map_y;
-	double	dir_x;
-	double	dir_y;
+	double	ray_pos_x;		// calcul rayon
+	double	ray_pos_y;		// calcul rayon
+	double	ray_dir_x;		// angle direction rayon
+	double	ray_dir_y;		// angle direction rayon
+	double	delta_dist_x;	// distance rayon
+	double	delta_dist_y;	// distance rayon
+	double	plane_x;		// plan a gauche de lecran
+	double	plane_y;		// plan a droite de lecran
+	int		map_x;			// position dans la map en int
+	int		map_y;			// position dans la map en int
 
-	double	wall_x;
-	int		side;
+	double	wall_x;			// distantce du mur
+	int		side;			// si x < y side == 1
 	int		step_x;
 	int		step_y;
 	double	line_height;
