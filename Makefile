@@ -18,17 +18,8 @@ RESET		= \033[0m
 LIBFT_DIR	= libft
 LIBFT		= $(LIBFT_DIR)/libft.a
 
-SRCS		= ./src/main.c\
-			./src/parsing/extract.c\
-			./src/parsing/extract_map.c\
-			./src/parsing/extract_color.c\
-			./src/parsing/check_name_texture.c\
-			./src/parsing/read_map.c\
-			./src/parsing/extract_texture_and_color.c\
-			./src/parsing/free.c\
-
 OBJS		= $(SRCS:%.c=%.o)
-RM			= rm -f
+RM			= rm -rf
 UNAME_S		:= $(shell uname)
 SRCS_DIR   = src
 

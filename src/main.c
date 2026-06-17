@@ -6,7 +6,7 @@
 /*   By: mvignes <mvignes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/09 14:48:41 by mvignes           #+#    #+#             */
-/*   Updated: 2026/06/16 18:27:48 by mvignes          ###   ########.fr       */
+/*   Updated: 2026/06/17 14:24:36 by mvignes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,7 +90,7 @@ int	main(int ac, char **av)
 	create_initial_img(&game);
 	mlx_hook(game.win, 2, 1L << 0, ((mlx_func_t)(uintptr_t)key), &game);
 	mlx_hook(game.win, 17, 0, ((mlx_func_t)(uintptr_t)exit_game), &game);
-	mlx_loop_hook(game.mlx, (mlx_func_t)(uintptr_t)display, &game);
+	// mlx_loop_hook(game.mlx, (mlx_func_t)(uintptr_t)display, &game);
 	mlx_loop(game.mlx);
 	return (OK);
 }

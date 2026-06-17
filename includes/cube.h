@@ -6,7 +6,7 @@
 /*   By: mvignes <mvignes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/08 13:38:07 by lyaberge          #+#    #+#             */
-/*   Updated: 2026/06/16 18:15:45 by mvignes          ###   ########.fr       */
+/*   Updated: 2026/06/17 17:25:24 by mvignes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@
 # include <stdint.h>
 # include <X11/keysym.h>
 # include <limits.h>
+# include <math.h>
 
 # include "parsing.h"
 # include "clean_exit.h"
@@ -40,7 +41,7 @@
 # define SIZE LONG_MAX
 
 // Square size for the mini_map in pixel
-# define SIZE_SQUARE 10
+# define SIZE_SQUARE 15
 
 // Size of the player in pixel
 # define SIZE_PLAYER 6
@@ -50,6 +51,9 @@
 
 // The nb of advancement the player mooves in the window
 # define SPEED 0.1
+# define SPEED_CAM 0.05
+
+# define PI 3.14159265358979323846
 
 // Keypress Mac
 // UP = W ; LEFT = A ; RIGHT = D ; DOWN = S

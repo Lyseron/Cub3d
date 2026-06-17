@@ -6,7 +6,7 @@
 /*   By: mvignes <mvignes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/11 16:48:45 by lyaberge          #+#    #+#             */
-/*   Updated: 2026/06/16 18:22:16 by mvignes          ###   ########.fr       */
+/*   Updated: 2026/06/17 17:37:26 by mvignes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ typedef struct s_player
 	char	where_look;
 	double	pos_x;
 	double	pos_y;
+	double	plane;
 	double	dir_x;
 	double	dir_y;
 }	t_player;
@@ -52,8 +53,8 @@ typedef struct s_raycasting
 	double	delta_dist_y;
 	double	plane_x;
 	double	plane_y;
-	double	xx;
-	double	yy;
+	int		map_x;
+	int		map_y;
 	double	dir_x;
 	double	dir_y;
 
