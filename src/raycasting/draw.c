@@ -6,21 +6,33 @@
 /*   By: mvignes <mvignes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/18 13:35:41 by mvignes           #+#    #+#             */
-/*   Updated: 2026/06/18 14:39:29 by mvignes          ###   ########.fr       */
+/*   Updated: 2026/06/18 18:35:06 by mvignes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cube.h"
 
-// void	put_pixel(t_game *game, int x, int y, int color)
-// {
-// 	char	*pixel;
+void	put_pixel(t_game *game, int x, int y, int color)
+{
+	char	*pixel;
 
-// 	if (x < 0 || x >= WIDTH || y < 0 || y >= HEIGHT)
-// 		return ;
-// 	pixel = game->img.img_addr + (y * game->img.size_line + x
-// 			* (game->img.bits_per_pixel / 8));
-// 	*(unsigned int *)pixel = color;
+	if (x < 0 || x >= WIDTH || y < 0 || y >= HEIGHT)
+		return ;
+	pixel = game->img.img_addr + (y * game->img.size_line + x
+			* (game->img.bits_per_pixel / 8));
+	*(unsigned int *)pixel = color;
+}
+
+// void	draw_square(t_game *game, int x, int y, int size, int color)
+// {
+// 	for (int i = 0; i < size;i++)
+// 		put_pixel (x + i, y, color, game);
+// 	for (int i = 0; i < size;i++)
+// 		put_pixel (x, y + 1, color, game);
+// 	for (int i = 0; i < size;i++)
+// 		put_pixel (x + size, y + i, color, game);
+// 	for (int i = 0; i < size;i++)
+// 		put_pixel (x + i, y + size, color, game);
 // }
 
 void	draw_all_3d(t_game *game)
