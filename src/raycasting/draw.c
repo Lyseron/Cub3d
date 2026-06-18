@@ -1,23 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   mlx_win.h                                          :+:      :+:    :+:   */
+/*   draw.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mvignes <mvignes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/06/11 16:57:12 by lyaberge          #+#    #+#             */
-/*   Updated: 2026/06/18 14:23:01 by mvignes          ###   ########.fr       */
+/*   Created: 2026/06/18 13:35:41 by mvignes           #+#    #+#             */
+/*   Updated: 2026/06/18 14:39:29 by mvignes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MLX_WIN_H
-# define MLX_WIN_H
-# include "structs.h"
+#include "cube.h"
 
-/* ------------------- create_img.c ------------------------ */
-int		create_initial_img(t_game *game);
+// void	put_pixel(t_game *game, int x, int y, int color)
+// {
+// 	char	*pixel;
 
-int		keyno(int key, t_game *game);
-int		keywee(int key, t_game *game);
+// 	if (x < 0 || x >= WIDTH || y < 0 || y >= HEIGHT)
+// 		return ;
+// 	pixel = game->img.img_addr + (y * game->img.size_line + x
+// 			* (game->img.bits_per_pixel / 8));
+// 	*(unsigned int *)pixel = color;
+// }
 
-#endif
+void	draw_all_3d(t_game *game)
+{
+	(void)game;
+	printf("CC TU ES LA \n");
+}

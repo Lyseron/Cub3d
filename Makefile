@@ -23,11 +23,12 @@ RM			= rm -rf
 UNAME_S		:= $(shell uname)
 SRCS_DIR   = src
 
-PARS_DIR    = $(SRCS_DIR)/parsing
-CLEAN_DIR   = $(SRCS_DIR)/clean_exit
-INIT_DIR    = $(SRCS_DIR)/init
-MINI_DIR    = $(SRCS_DIR)/mini_map
-MLX_WIN_DIR = $(SRCS_DIR)/mlx_win
+PARS_DIR		= $(SRCS_DIR)/parsing
+CLEAN_DIR		= $(SRCS_DIR)/clean_exit
+INIT_DIR		= $(SRCS_DIR)/init
+MINI_DIR		= $(SRCS_DIR)/mini_map
+MLX_WIN_DIR		= $(SRCS_DIR)/mlx_win
+RAYCASTING_DIR	= $(SRCS_DIR)/raycasting
 
 PARS_SRC   = \
 	$(PARS_DIR)/check_valid_map.c \
@@ -37,7 +38,8 @@ PARS_SRC   = \
 	$(PARS_DIR)/read_map.c
 	
 MLX_WIN_SRC = \
-	$(MLX_WIN_DIR)/create_img.c
+	$(MLX_WIN_DIR)/create_img.c\
+	$(MLX_WIN_DIR)/key.c
 
 MINI_SRC    = \
 	$(MINI_DIR)/draw_mini_map.c \
@@ -60,12 +62,17 @@ CLEAN_SRC  = \
 	$(CLEAN_DIR)/clean_mlx.c \
 	$(CLEAN_DIR)/free.c
 
+RAYCASTING_SRC = \
+		$(RAYCASTING_DIR)/draw.c\
+		$(RAYCASTING_DIR)/raycasting.c\
+
 SRCS    = \
 	$(PARS_SRC) \
 	$(CLEAN_SRC) \
 	$(MLX_WIN_SRC) \
 	$(INIT_SRC) \
 	$(MINI_SRC) \
+	$(RAYCASTING_SRC)\
 	$(SRCS_DIR)/main.c
 
 

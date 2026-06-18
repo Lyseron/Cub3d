@@ -6,7 +6,7 @@
 /*   By: mvignes <mvignes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/08 13:38:07 by lyaberge          #+#    #+#             */
-/*   Updated: 2026/06/17 19:13:32 by mvignes          ###   ########.fr       */
+/*   Updated: 2026/06/18 15:42:48 by mvignes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@
 
 # include "parsing.h"
 # include "clean_exit.h"
+# include "raycasting.h"
 
 // Bool for returns 
 # define OK 0
@@ -50,6 +51,9 @@
 // The nb of advancement the player mooves in the window
 # define SPEED 0.1
 # define SPEED_CAM 0.05
+
+# define TURN_RIGTH 1
+# define TURN_LEFT -1
 
 # define PI 3.14159265358979323846
 

@@ -6,7 +6,7 @@
 /*   By: mvignes <mvignes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/11 16:48:45 by lyaberge          #+#    #+#             */
-/*   Updated: 2026/06/17 19:03:54 by mvignes          ###   ########.fr       */
+/*   Updated: 2026/06/18 16:23:59 by mvignes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,11 +23,11 @@ typedef int (*mlx_func_t)();
 typedef struct s_player
 {
 	char	where_look;
-	double	pos_x;
-	double	pos_y;
-	double	plane;
-	double	dir_x;
-	double	dir_y;
+	double	pos_x;	// pos player en x						<----- utiliser dans raycasting
+	double	pos_y;	// pos player en y						<----- utiliser dans raycasting
+	double	plane;	// angle de rotation					<----- utiliser dans raycasting
+	double	dir_x;	//										pas encore utiliser
+	double	dir_y;	//										pas encore utiliser
 }	t_player;
 
 typedef struct s_texture
@@ -133,6 +133,16 @@ typedef struct s_mini_map_player
 	int		player_pixel_x;
 }	t_mini_player;
 
+typedef struct	s_bool_key
+{
+	bool	w;
+	bool	a;
+	bool	s;
+	bool	d;
+	bool	left;
+	bool	right;
+}	t_bool_key;
+
 typedef struct s_game
 {
 	t_map			map;
@@ -143,6 +153,7 @@ typedef struct s_game
 	t_mini_map		mini_map;
 	t_mini_player	mini_player;
 	t_ray			ray;
+	t_bool_key		bool_key;
 }	t_game;
 
 #endif

@@ -1,23 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   mlx_win.h                                          :+:      :+:    :+:   */
+/*   raycasting.h                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mvignes <mvignes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/06/11 16:57:12 by lyaberge          #+#    #+#             */
-/*   Updated: 2026/06/18 14:23:01 by mvignes          ###   ########.fr       */
+/*   Created: 2026/06/18 14:28:37 by mvignes           #+#    #+#             */
+/*   Updated: 2026/06/18 15:44:29 by mvignes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MLX_WIN_H
-# define MLX_WIN_H
-# include "structs.h"
+#ifndef RAYCASTING_H
+# define RAYCASTING_H
 
-/* ------------------- create_img.c ------------------------ */
-int		create_initial_img(t_game *game);
+# include "cube.h"
 
-int		keyno(int key, t_game *game);
-int		keywee(int key, t_game *game);
+
+void	draw_all_3d(t_game *game);
+void	raycasting(t_game *game);
+void	moov_player(t_game *game, double cos_p, double sin_p);
 
 #endif

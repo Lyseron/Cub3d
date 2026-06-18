@@ -6,7 +6,7 @@
 /*   By: mvignes <mvignes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/11 16:57:51 by lyaberge          #+#    #+#             */
-/*   Updated: 2026/06/11 17:41:39 by mvignes          ###   ########.fr       */
+/*   Updated: 2026/06/18 15:35:34 by mvignes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ int	draw_mini_map(t_game *game);
 int	tiny_map_conditions(t_game *game, int x, int y);
 int	draw_tiny_square(t_game *game, int map_x, int map_y, int color);
 int	draw_pixel(t_game *game, int x, int y, unsigned int color);
+int	draw_mini_map(t_game *game);
 
 /* ------------------- Gameplay.c -------------------------- */
 int	key(int key_choice, t_game *game);

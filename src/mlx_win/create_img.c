@@ -6,7 +6,7 @@
 /*   By: mvignes <mvignes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/09 17:11:19 by lyaberge          #+#    #+#             */
-/*   Updated: 2026/06/11 16:42:31 by mvignes          ###   ########.fr       */
+/*   Updated: 2026/06/18 14:08:49 by mvignes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,8 @@ int	create_initial_img(t_game *game)
 			&game->img.bits_per_pixel, &game->img.size_line, &game->img.endian);
 	if (!game->img.img_addr)
 		return (ERROR);
-	if (draw_mini_map(game) == ERROR)
-		return (ERROR);
-	mlx_put_image_to_window(game->mlx, game->win, game->img.img_ptr, 0, 0);
+	// if (draw_mini_map(game) == ERROR)
+	// 	return (ERROR);
+	// mlx_put_image_to_window(game->mlx, game->win, game->img.img_ptr, 0, 0);
 	return (OK);
 }
