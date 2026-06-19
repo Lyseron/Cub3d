@@ -6,7 +6,7 @@
 /*   By: mvignes <mvignes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/08 13:38:07 by lyaberge          #+#    #+#             */
-/*   Updated: 2026/06/18 15:42:48 by mvignes          ###   ########.fr       */
+/*   Updated: 2026/06/19 14:55:50 by mvignes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@
 # define SIZE LONG_MAX
 
 // Square size for the mini_map in pixel
-# define SIZE_SQUARE 15
+# define SIZE_SQUARE 32
 
 // Size of the player in pixel
 # define SIZE_PLAYER 6
@@ -56,6 +56,9 @@
 # define TURN_LEFT -1
 
 # define PI 3.14159265358979323846
+
+
+# define DEBUG 1
 
 // Keypress Mac
 // UP = W ; LEFT = A ; RIGHT = D ; DOWN = S

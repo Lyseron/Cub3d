@@ -6,7 +6,7 @@
 /*   By: mvignes <mvignes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/09 14:48:41 by mvignes           #+#    #+#             */
-/*   Updated: 2026/06/18 15:45:02 by mvignes          ###   ########.fr       */
+/*   Updated: 2026/06/19 13:34:54 by mvignes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,14 +68,36 @@ int	parsing(t_game *game, char **av)
 
 
 
-
+// bool	touch(double px, double py, t_game *game)
+// {
+// 	int	x = px / SIZE_SQUARE;
+// 	int	y = py / SIZE_SQUARE;
+// 	if (game->map.grid[y][x] == '1')
+// 		return (true);
+// 	return (false);
+// }
 
 void	display(t_game *game)
 {
 	(void)game;
 	ft_bzero(game->img.img_addr, HEIGHT * WIDTH * (game->img.bits_per_pixel / 8));
-	raycasting(game);
-	draw_mini_map(game);
+	raycasting(game, &game->player);
+	// draw_mini_map(game);
+	
+	
+
+
+	// double	ray_x = game->player.pos_x;
+	// double	ray_y = game->player.pos_y;
+	// double	cos_a = cos(game->player.plane);
+	// double	sin_a = sin(game->player.plane);
+	// while (!touch(ray_x, ray_y, game))
+	// {
+	// 	put_pixel(game, ray_x, ray_y, 0xFF0000);
+	// 	ray_x += cos_a;
+	// 	ray_y += sin_a;
+	// }
+	mlx_put_image_to_window(game->mlx, game->win, game->img.img_ptr, 0, 0);
 }
 
 int	main(int ac, char **av)

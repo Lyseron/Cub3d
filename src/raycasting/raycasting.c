@@ -6,7 +6,7 @@
 /*   By: mvignes <mvignes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/18 14:15:59 by mvignes           #+#    #+#             */
-/*   Updated: 2026/06/18 18:37:37 by mvignes          ###   ########.fr       */
+/*   Updated: 2026/06/19 14:23:01 by mvignes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -117,23 +117,57 @@
 // 	game->ray.wall_x -= floor(game->ray.wall_x);
 // }
 
+// bool	touch(double px, double py, t_game *game)
+// {
+// 	int	x = px / SIZE_SQUARE;
+// 	int	y = py / SIZE_SQUARE;
+// 	if (game->map.grid[y][x] == '1')
+// 		return (true);
+// 	return (false);
+// }
 
-void	raycasting(t_game *game)
+// void	draw_line(t_player *player, t_game *game, double start_x, int i)
+// {
+// 	(void)player;
+// 	(void)i;
+// 	(void)start_x;
+// 	double	cos_a = cos(game->player.plane);
+// 	double	sin_a = sin(game->player.plane);
+// 	double	ray_x = game->player.pos_x;
+// 	double	ray_y = game->player.pos_y;
+// 	while (!touch(ray_x, ray_y, game))
+// 	{
+// 		put_pixel(game, ray_x, ray_y, 0xFF0000);
+// 		ray_x += cos_a;
+// 		ray_y += sin_a;
+// 	}
+// }
+
+void	raycasting(t_game *game, t_player *player)
 {
-	double	cos_p = cos(game->player.plane);
-	double	sin_p = sin(game->player.plane);
-	// (void)cos_p;
-	// (void)sin_p;
-	
-	if (game->bool_key.w || game->bool_key.a || game->bool_key.s || game->bool_key.d
-	|| game->bool_key.left || game->bool_key.right)
-		moov_player(game, cos_p, sin_p);
-	// while ()
-	// {
-		
-	// 	calcul_horizontal_intersection(game);
-	// }
-	
+	double	fraction;
+	double	start_x;
+	int		i;
+
+	fraction = PI / 3 / WIDTH;
+	start_x = game->player.plane - PI / 6;
+	i = 0;
+	game->ray.cos_p = cos(game->player.plane);
+	game->ray.sin_p = sin(game->player.plane);
+
+	// printf("pos du player en x = %f, pos du player en y = %f\n\n", game->player.pos_x, game->player.pos_y);
+	move_player(game);
+	if (DEBUG)
+	{
+		draw_square(player->pos_x * SIZE_SQUARE, player->pos_y * SIZE_SQUARE, 5, 0x00FF00, game);
+		draw_map(game);
+	}
+	while (i < WIDTH)
+	{
+		draw_line(&game->player, game, start_x, i);
+		start_x += fraction;
+		i++;
+	}
 }
 
 // static int	rascasting(t_game *game)

@@ -6,7 +6,7 @@
 /*   By: mvignes <mvignes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/11 16:48:45 by lyaberge          #+#    #+#             */
-/*   Updated: 2026/06/18 16:23:59 by mvignes          ###   ########.fr       */
+/*   Updated: 2026/06/19 14:35:52 by mvignes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,8 @@ typedef struct s_player
 
 typedef struct s_texture
 {
-	char	*no;
-	void	*img_no;
+	char	*no;		// <----- mettre en char **
+	void	*img_no;	// <----- mettre en void **
 	char	*so;
 	void	*img_so;
 	char	*we;
@@ -45,6 +45,13 @@ typedef struct s_texture
 
 typedef struct s_raycasting
 {
+
+	double	cos_p;
+	double	sin_p;
+
+	double	fraction;
+	double	start_x;
+
 	double	ray_pos_x;		// calcul rayon
 	double	ray_pos_y;		// calcul rayon
 	double	ray_dir_x;		// angle direction rayon
@@ -83,14 +90,6 @@ typedef struct s_map
 
 	t_ray		ray;
 }	t_map;
-
-typedef struct s_cub
-{
-	bool		error_doublon;
-	t_map		*map;
-	t_player	*player;
-	t_texture	*texture;
-}	t_cub;
 
 typedef struct s_img
 {

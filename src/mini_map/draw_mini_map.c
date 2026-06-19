@@ -6,7 +6,7 @@
 /*   By: mvignes <mvignes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/10 18:22:38 by lyaberge          #+#    #+#             */
-/*   Updated: 2026/06/18 17:57:52 by mvignes          ###   ########.fr       */
+/*   Updated: 2026/06/18 19:21:07 by mvignes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,8 +100,9 @@ int	draw_mini_map(t_game *game)
 	}
 	if (draw_player(game) == ERROR)
 		return (ERROR);
+	
 	// if (draw_all_ray(game) == ERROR)
 	// 	return (ERROR);
-	mlx_put_image_to_window(game->mlx, game->win, game->img.img_ptr, 0, 0);
+	// mlx_put_image_to_window(game->mlx, game->win, game->img.img_ptr, 0, 0);
 	return (OK);
 }
