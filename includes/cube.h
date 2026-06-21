@@ -6,7 +6,7 @@
 /*   By: mvignes <mvignes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/08 13:38:07 by lyaberge          #+#    #+#             */
-/*   Updated: 2026/06/19 14:55:50 by mvignes          ###   ########.fr       */
+/*   Updated: 2026/06/21 14:12:48 by mvignes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@
 # define SIZE_PLAYER 6
 
 // Border of the player on each side in map size (SIZE_PLAYER / 2) / SIZE_SQUARE
-# define BORDER_PLAYER 0.3
+# define BORDER_PLAYER 0.5
 
 // The nb of advancement the player mooves in the window
 # define SPEED 0.1
@@ -58,7 +58,7 @@
 # define PI 3.14159265358979323846
 
 
-# define DEBUG 1
+# define DEBUG 0
 
 // Keypress Mac
 // UP = W ; LEFT = A ; RIGHT = D ; DOWN = S

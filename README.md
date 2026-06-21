@@ -30,9 +30,17 @@ For the wall Collision of the minimap:
 For the ray in the minimap:
 - https://ibon-ira-cub3d.mintlify.app/concepts/raycasting
 
+For the ray in 3D
+- [medium ismailassil](https://ismailassil.medium.com/ray-casting-c-8bfae2c2fc13)
+- [doc 1](https://lodev.org/cgtutor/raycasting.html)
+- [doc 2](https://ibon-ira-cub3d.mintlify.app/)
 
 ### AI uses :
 
 - Solve Probleme with github ssh key
 
 Thank you.
+
+
+note pour moi meme
+regler le probleme d'escalier sur la map 3d, venant surement du draw_line (changer et faire le dda)

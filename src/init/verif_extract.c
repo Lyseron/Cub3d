@@ -6,23 +6,36 @@
 /*   By: mvignes <mvignes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/11 16:09:54 by mvignes           #+#    #+#             */
-/*   Updated: 2026/06/16 17:49:21 by mvignes          ###   ########.fr       */
+/*   Updated: 2026/06/21 14:11:20 by mvignes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/cube.h"
+
+static bool	good_caractere(char *line)
+{
+	if (ft_strnstr(line, "NO", ft_strlen(line))
+	|| ft_strnstr(line, "SO", ft_strlen(line))
+	|| ft_strnstr(line, "WE", ft_strlen(line))
+	|| ft_strnstr(line, "EA", ft_strlen(line))
+	|| ft_strnstr(line, "C", ft_strlen(line))
+	|| ft_strnstr(line, "F", ft_strlen(line))
+	|| ft_strnstr(line, "0", ft_strlen(line))
+	|| ft_strnstr(line, "1", ft_strlen(line))
+	|| ft_strnstr(line, "S", ft_strlen(line))
+	|| ft_strnstr(line, "E", ft_strlen(line))
+	|| ft_strnstr(line, "N", ft_strlen(line))
+	|| ft_strnstr(line, "W", ft_strlen(line)))
+		return (true);
+	return (false);
+}
 
 bool	line_not_parasite(char *line, t_map *map)
 {
 	int	i;
 
 	i = 0;
-	if (ft_strnstr(line, "NO", ft_strlen(line)) || ft_strnstr(line, "SO", ft_strlen(line))
-	|| ft_strnstr(line, "WE", ft_strlen(line)) || ft_strnstr(line, "EA", ft_strlen(line))
-	|| ft_strnstr(line, "C", ft_strlen(line)) || ft_strnstr(line, "F", ft_strlen(line))
-	|| ft_strnstr(line, "0", ft_strlen(line)) || ft_strnstr(line, "1", ft_strlen(line))
-	|| ft_strnstr(line, "S", ft_strlen(line)) || ft_strnstr(line, "E", ft_strlen(line))
-	|| ft_strnstr(line, "N", ft_strlen(line)) || ft_strnstr(line, "W", ft_strlen(line)))
+	if (good_caractere(line))
 		return (false);
 	if (line[0] != '\n' || line[0] != '\0')
 	{

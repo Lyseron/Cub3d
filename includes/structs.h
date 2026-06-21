@@ -6,7 +6,7 @@
 /*   By: mvignes <mvignes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/11 16:48:45 by lyaberge          #+#    #+#             */
-/*   Updated: 2026/06/19 14:35:52 by mvignes          ###   ########.fr       */
+/*   Updated: 2026/06/21 13:17:49 by mvignes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,19 @@
 # include "../libft/libft.h"
 # include <stdbool.h>
 
+/*------------------------------------------------------------------ ENUMERATION ---------------------------------------------------------*/
+
+typedef enum e_status
+{
+	IS_NORD,
+	IS_SUD,
+	IS_WEAST,
+	IS_EST,
+	IS_DOOR
+}						t_status;
+
 /*------------------------------------------------------------------ STRUCT ---------------------------------------------------------*/
+
 
 typedef int (*mlx_func_t)();
 
@@ -28,6 +40,7 @@ typedef struct s_player
 	double	plane;	// angle de rotation					<----- utiliser dans raycasting
 	double	dir_x;	//										pas encore utiliser
 	double	dir_y;	//										pas encore utiliser
+	float	speed_player;
 }	t_player;
 
 typedef struct s_texture
@@ -45,31 +58,35 @@ typedef struct s_texture
 
 typedef struct s_raycasting
 {
+	double	cos_p;			// direction des rayons FOV				<----- utiliser dans raycasting
+	double	sin_p;			// direction des rayons FOV				<----- utiliser dans raycasting
+	int		map_x;			// position dans la map en int			<----- utiliser dans raycasting
+	int		map_y;			// position dans la map en int			<----- utiliser dans raycasting
+	double	delta_dist_x;	// distance rayon						<----- utiliser dans raycasting
+	double	delta_dist_y;	// distance rayon						<----- utiliser dans raycasting
 
-	double	cos_p;
-	double	sin_p;
 
-	double	fraction;
-	double	start_x;
+	int		step_x;			// sense du rayon Est Ouest				<----- utiliser dans raycasting
+	int		step_y;			// sense du rayon Nord Sud				<----- utiliser dans raycasting
+	double	side_dist_x;	// distance jusqua la prochaine ligne	<----- utiliser dans raycasting
+	double	side_dist_y;	// distance jusqua la prochaine ligne	<----- utiliser dans raycasting
+	
+	bool	touch;												//	<----- utiliser dans raycasting
+	int		wall_touch; //											<----- utiliser dans raycasting
 
-	double	ray_pos_x;		// calcul rayon
-	double	ray_pos_y;		// calcul rayon
-	double	ray_dir_x;		// angle direction rayon
-	double	ray_dir_y;		// angle direction rayon
-	double	delta_dist_x;	// distance rayon
-	double	delta_dist_y;	// distance rayon
-	double	plane_x;		// plan a gauche de lecran
-	double	plane_y;		// plan a droite de lecran
-	int		map_x;			// position dans la map en int
-	int		map_y;			// position dans la map en int
+	double	dist_perp;		// distance de l'intersection			<----- utiliser dans raycasting
+	double	line_height;	// hauteur mur							<----- utiliser dans raycasting
+	double	start_y;//												<----- utiliser dans raycasting
+	double	end;//													<----- utiliser dans raycasting
+	double	fraction;											//	<----- utiliser dans raycasting mais surtout pour le speed
+	double	start_x;											//	<----- utiliser dans raycasting mais surtout pour le speed
 
-	double	wall_x;			// distantce du mur
-	int		side;			// si x < y side == 1
-	int		step_x;
-	int		step_y;
-	double	line_height;
-	double	end;
-	bool	hit_a_wall;
+
+
+	double	ray_pos_x;		// calcul rayon				// <----- j'utilise pas mais lily utilise
+	double	ray_pos_y;		// calcul rayon				// <----- j'utilise pas mais lily utilise
+	double	plane_x;		// plan a gauche de lecran	// <----- j'utilise pas mais lily utilise
+	double	plane_y;		// plan a droite de lecran	// <----- j'utilise pas mais lily utilise
 }	t_ray;
 
 
@@ -140,6 +157,7 @@ typedef struct	s_bool_key
 	bool	d;
 	bool	left;
 	bool	right;
+	bool	shift;
 }	t_bool_key;
 
 typedef struct s_game

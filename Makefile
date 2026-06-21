@@ -39,7 +39,8 @@ PARS_SRC   = \
 	
 MLX_WIN_SRC = \
 	$(MLX_WIN_DIR)/create_img.c\
-	$(MLX_WIN_DIR)/key.c
+	$(MLX_WIN_DIR)/key.c\
+	$(MLX_WIN_DIR)/moove.c
 
 MINI_SRC    = \
 	$(MINI_DIR)/draw_mini_map.c \
@@ -63,8 +64,10 @@ CLEAN_SRC  = \
 	$(CLEAN_DIR)/free.c
 
 RAYCASTING_SRC = \
+		$(RAYCASTING_DIR)/dda.c\
+		$(RAYCASTING_DIR)/put_pixel.c\
 		$(RAYCASTING_DIR)/draw_2d.c\
-		$(RAYCASTING_DIR)/draw.c\
+		$(RAYCASTING_DIR)/draw_3d.c\
 		$(RAYCASTING_DIR)/raycasting.c\
 
 SRCS    = \
