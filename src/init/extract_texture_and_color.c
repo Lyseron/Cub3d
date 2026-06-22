@@ -6,7 +6,7 @@
 /*   By: mvignes <mvignes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/08 17:05:45 by mvignes           #+#    #+#             */
-/*   Updated: 2026/06/22 13:23:35 by mvignes          ###   ########.fr       */
+/*   Updated: 2026/06/22 16:42:46 by mvignes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 static bool	good_value_not_map(char *line, t_map *map)
 {
-	if (!map->texture.no || !map->texture.so
-		|| !map->texture.we || !map->texture.ea
+	if (!map->texture.path[IS_NORTH] || !map->texture.path[IS_SOUTH]
+		|| !map->texture.path[IS_WEAST] || !map->texture.path[IS_EAST]
 		|| !map->ceiling || !map->floor || map->error_doublon)
 	{
 		if (ft_strnstr(line, "01", ft_strlen(line))
@@ -71,14 +71,17 @@ static int	add_value_or_check_doublon(char *line, t_map *map,
 
 int	sort_value(char *line, t_map *map)
 {
+	t_texture	*text;
+	
+	text = &map->texture;
 	if (ft_strnstr(line, "NO", ft_strlen(line)))
-		add_value_or_check_doublon(line, map, "NO", &map->texture.no);
+		add_value_or_check_doublon(line, map, "NO", &text->path[IS_NORTH]);
 	if (ft_strnstr(line, "SO", ft_strlen(line)))
-		add_value_or_check_doublon(line, map, "SO", &map->texture.so);
+		add_value_or_check_doublon(line, map, "SO", &text->path[IS_SOUTH]);
 	if (ft_strnstr(line, "WE", ft_strlen(line)))
-		add_value_or_check_doublon(line, map, "WE", &map->texture.we);
+		add_value_or_check_doublon(line, map, "WE", &text->path[IS_WEAST]);
 	if (ft_strnstr(line, "EA", ft_strlen(line)))
-		add_value_or_check_doublon(line, map, "EA", &map->texture.ea);
+		add_value_or_check_doublon(line, map, "EA", &text->path[IS_EAST]);
 	if (ft_strnstr(line, "C", ft_strlen(line))
 		|| ft_strnstr(line, "F", ft_strlen(line)))
 		if (sort_color(line, map))

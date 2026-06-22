@@ -6,7 +6,7 @@
 /*   By: mvignes <mvignes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/11 16:48:45 by lyaberge          #+#    #+#             */
-/*   Updated: 2026/06/22 15:32:02 by mvignes          ###   ########.fr       */
+/*   Updated: 2026/06/22 16:57:45 by mvignes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,15 +20,14 @@
 
 typedef enum e_status
 {
-	IS_NORD,
-	IS_SUD,
+	IS_NORTH,
+	IS_SOUTH,
 	IS_WEAST,
-	IS_EST,
+	IS_EAST,
 	IS_DOOR
 }						t_status;
 
 /*------------------------------------------------------------------ STRUCT ---------------------------------------------------------*/
-
 
 typedef int (*mlx_func_t)();
 
@@ -38,23 +37,35 @@ typedef struct s_player
 	double	pos_x;	// pos player en x						<----- utiliser dans raycasting
 	double	pos_y;	// pos player en y						<----- utiliser dans raycasting
 	double	plane;	// angle de rotation					<----- utiliser dans raycasting
-	double	dir_x;	//										pas encore utiliser
-	double	dir_y;	//										pas encore utiliser
+	// double	dir_x;	//										pas encore utiliser (on sup ?)
+	// double	dir_y;	//										pas encore utiliser (on sup ?)
 	float	speed_player;
 }	t_player;
 
+
+typedef struct s_img
+{
+	int		width;
+	int		height;
+	void	*img_ptr;
+	int		bits_per_pixel;
+	int		size_line;
+	int		endian;
+	char	*img_addr;
+}	t_img;
+
+
 typedef struct s_texture
 {
-	char	*no;
-	void	*img_no;
-	char	*so;
-	void	*img_so;
-	char	*we;
-	void	*img_we;
-	char	*ea;
-	void	*img_ea;
+	char	*path[4];
+	t_img	img[5];
 }	t_texture;
 
+typedef struct s_point
+{
+	void	*x;
+	void	*y;
+}	t_point;
 
 typedef struct s_raycasting
 {
@@ -104,20 +115,7 @@ typedef struct s_map
 	bool		extract_ceiling;
 	t_list		*extract;
 	bool		error_doublon;
-
-	t_ray		ray;
 }	t_map;
-
-typedef struct s_img
-{
-	int		width;
-	int		height;
-	void	*img_ptr;
-	int		bits_per_pixel;
-	int		size_line;
-	int		endian;
-	char	*img_addr;
-}	t_img;
 
 typedef struct s_mini_map
 {

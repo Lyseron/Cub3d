@@ -6,7 +6,7 @@
 /*   By: mvignes <mvignes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/09 18:23:50 by mvignes           #+#    #+#             */
-/*   Updated: 2026/06/21 17:19:40 by mvignes          ###   ########.fr       */
+/*   Updated: 2026/06/22 16:37:38 by mvignes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,30 +35,33 @@ void	free_and_null(void **data)
 
 void	free_all_img(t_game *game)
 {
+	t_texture *texture;
+
+	texture = &game->map.texture;
 	if (game->img.img_ptr)
 		mlx_destroy_image(game->mlx, game->img.img_ptr);
-	if (game->map.texture.img_no)
-		mlx_destroy_image(game->mlx, game->map.texture.img_no);
-	if (game->map.texture.img_so)
-		mlx_destroy_image(game->mlx, game->map.texture.img_no);
-	if (game->map.texture.img_we)
-		mlx_destroy_image(game->mlx, game->map.texture.img_no);
-	if (game->map.texture.img_ea)
-		mlx_destroy_image(game->mlx, game->map.texture.img_no);
+	if (texture->path[IS_NORTH])
+		mlx_destroy_image(game->mlx, texture->path[IS_NORTH]);
+	if (texture->path[IS_SOUTH])
+		mlx_destroy_image(game->mlx, texture->path[IS_SOUTH]);
+	if (texture->path[IS_WEAST])
+		mlx_destroy_image(game->mlx, texture->path[IS_WEAST]);
+	if (texture->path[IS_EAST])
+		mlx_destroy_image(game->mlx, texture->path[IS_EAST]);
 }
 
 void	free_data_fd(t_map *map)
 {
 	if (map->map_fd)
 		close(map->map_fd);
-	if (map->texture.no)
-		free_and_null((void *)&map->texture.no);
-	if (map->texture.so)
-		free_and_null((void *)&map->texture.so);
-	if (map->texture.we)
-		free_and_null((void *)&map->texture.we);
-	if (map->texture.ea)
-		free_and_null((void *)&map->texture.ea);
+	if (map->texture.path[IS_NORTH])
+		free_and_null((void *)&map->texture.path[IS_NORTH]);
+	if (map->texture.path[IS_SOUTH])
+		free_and_null((void *)&map->texture.path[IS_SOUTH]);
+	if (map->texture.path[IS_WEAST])
+		free_and_null((void *)&map->texture.path[IS_WEAST]);
+	if (map->texture.path[IS_EAST])
+		free_and_null((void *)&map->texture.path[IS_EAST]);
 	if (map->floor)
 		free_and_null((void *)&map->floor);
 	if (map->ceiling)

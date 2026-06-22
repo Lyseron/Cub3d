@@ -6,7 +6,7 @@
 /*   By: mvignes <mvignes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/11 16:09:54 by mvignes           #+#    #+#             */
-/*   Updated: 2026/06/21 14:11:20 by mvignes          ###   ########.fr       */
+/*   Updated: 2026/06/22 16:32:27 by mvignes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,10 +69,10 @@ bool	good_len_color(int *Ceiling, int *Floor)
 
 bool	verif_name_texture(t_map *map)
 {
-	if (ft_decide_name_texture(map->texture.no)
-		|| ft_decide_name_texture(map->texture.so)
-		|| ft_decide_name_texture(map->texture.we)
-		|| ft_decide_name_texture(map->texture.ea))
+	if (ft_decide_name_texture(map->texture.path[IS_NORTH])
+		|| ft_decide_name_texture(map->texture.path[IS_SOUTH])
+		|| ft_decide_name_texture(map->texture.path[IS_WEAST])
+		|| ft_decide_name_texture(map->texture.path[IS_EAST]))
 		return (true);
 	return (false);
 }
@@ -82,8 +82,9 @@ bool	verif_init_value(t_map *map)
 	int	i;
 
 	i = 0;
-	if (!map->texture.no || !map->texture.so || !map->texture.we
-		|| !map->texture.ea || !map->ceiling || !map->floor
+	if (!map->texture.path[IS_NORTH] || !map->texture.path[IS_SOUTH]
+		|| !map->texture.path[IS_WEAST] || !map->texture.path[IS_EAST]
+		|| !map->ceiling || !map->floor
 		|| map->error_doublon || verif_name_texture(map))
 		return (false);
 	if (good_len_color(map->ceiling, map->floor))

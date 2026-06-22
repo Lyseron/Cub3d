@@ -6,7 +6,7 @@
 /*   By: mvignes <mvignes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/09 14:48:41 by mvignes           #+#    #+#             */
-/*   Updated: 2026/06/22 15:46:03 by mvignes          ###   ########.fr       */
+/*   Updated: 2026/06/22 16:52:51 by mvignes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,14 +15,14 @@
 void	print_data(t_map *map)
 {
 	printf("\nPRINT TEXTURE\n");
-	if (map->texture.no)
-		printf("%s\n", map->texture.no);
-	if (map->texture.so)
-		printf("%s\n", map->texture.so);
-	if (map->texture.we)
-		printf("%s\n", map->texture.we);
-	if (map->texture.ea)
-		printf("%s\n", map->texture.ea);
+	if (map->texture.path[IS_NORTH])
+		printf("%s\n", map->texture.path[IS_NORTH]);
+	if (map->texture.path[IS_SOUTH])
+		printf("%s\n", map->texture.path[IS_SOUTH]);
+	if (map->texture.path[IS_WEAST])
+		printf("%s\n", map->texture.path[IS_WEAST]);
+	if (map->texture.path[IS_EAST])
+		printf("%s\n", map->texture.path[IS_EAST]);
 	printf("\nPRINT COLOR\n");
 	if (map->floor)
 		for (int i = 0; i < 3;i++)
