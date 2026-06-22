@@ -1,7 +1,7 @@
-NO textures/simonkraft/wet_sponge.xpm
-SO textures/simonkraft/wet_sponge.xpm
-WE textures/simonkraft/wet_sponge.xpm
-EA textures/simonkraft/wet_sponge.xpm
+NO ./wolftex/greystone.xpm
+SO ./wolftex/greystone.xpm
+WE ./wolftex/greystone.xpm
+EA ./wolftex/greystone.xpm
 
 C 153,204,255
 F 164,169,20

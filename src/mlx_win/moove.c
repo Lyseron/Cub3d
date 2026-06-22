@@ -6,7 +6,7 @@
 /*   By: mvignes <mvignes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/21 14:08:07 by mvignes           #+#    #+#             */
-/*   Updated: 2026/06/21 14:12:33 by mvignes          ###   ########.fr       */
+/*   Updated: 2026/06/21 15:42:47 by mvignes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,8 +96,16 @@ void	move_player(t_game *game)
 	if (next_pos_play_x + BORDER_PLAYER >= game->map.map_x
 		|| next_pos_play_y + BORDER_PLAYER >= game->map.map_y)
 		return ;
-	if (game->map.grid[(int)(next_pos_play_y)][(int)(next_pos_play_x)] == '1')
-		return ;
-	game->player.pos_x = next_pos_play_x;
-	game->player.pos_y = next_pos_play_y;
+	if (game->map.grid[(int)(next_pos_play_y)][(int)(game->player.pos_x)] != '1') // a revoir, pas mal parce quon se bloque pas mais passe a travers les coins des mures
+		game->player.pos_y = next_pos_play_y;
+	if (game->map.grid[(int)(game->player.pos_y)][(int)next_pos_play_x] != '1')
+		game->player.pos_x = next_pos_play_x;
+	// if (is_bordplayer_touchwall(game, next_pos_play_x, next_pos_play_y))
+	// {
+	// 	printf("OUI OUI BAGUETTE\n");
+	// 	return ;
+	// }
+		// return ;
+	// game->player.pos_x = next_pos_play_x;
+	// game->player.pos_y = next_pos_play_y;
 }

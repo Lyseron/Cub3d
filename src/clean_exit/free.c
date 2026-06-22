@@ -6,7 +6,7 @@
 /*   By: mvignes <mvignes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/09 18:23:50 by mvignes           #+#    #+#             */
-/*   Updated: 2026/06/11 16:44:42 by mvignes          ###   ########.fr       */
+/*   Updated: 2026/06/21 17:19:40 by mvignes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,20 @@ void	free_and_null(void **data)
 {
 	free(*data);
 	*data = NULL;
+}
+
+void	free_all_img(t_game *game)
+{
+	if (game->img.img_ptr)
+		mlx_destroy_image(game->mlx, game->img.img_ptr);
+	if (game->map.texture.img_no)
+		mlx_destroy_image(game->mlx, game->map.texture.img_no);
+	if (game->map.texture.img_so)
+		mlx_destroy_image(game->mlx, game->map.texture.img_no);
+	if (game->map.texture.img_we)
+		mlx_destroy_image(game->mlx, game->map.texture.img_no);
+	if (game->map.texture.img_ea)
+		mlx_destroy_image(game->mlx, game->map.texture.img_no);
 }
 
 void	free_data_fd(t_map *map)

@@ -6,7 +6,7 @@
 /*   By: mvignes <mvignes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/08 13:38:07 by lyaberge          #+#    #+#             */
-/*   Updated: 2026/06/21 14:12:48 by mvignes          ###   ########.fr       */
+/*   Updated: 2026/06/21 15:42:57 by mvignes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,11 +46,11 @@
 # define SIZE_PLAYER 6
 
 // Border of the player on each side in map size (SIZE_PLAYER / 2) / SIZE_SQUARE
-# define BORDER_PLAYER 0.5
+# define BORDER_PLAYER .2
 
 // The nb of advancement the player mooves in the window
-# define SPEED 0.1
-# define SPEED_CAM 0.05
+# define SPEED 0.06
+# define SPEED_CAM 0.02
 
 # define TURN_RIGTH 1
 # define TURN_LEFT -1

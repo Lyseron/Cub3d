@@ -6,37 +6,37 @@
 /*   By: mvignes <mvignes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/09 14:48:41 by mvignes           #+#    #+#             */
-/*   Updated: 2026/06/19 13:34:54 by mvignes          ###   ########.fr       */
+/*   Updated: 2026/06/21 17:46:08 by mvignes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cube.h"
 
-// void	print_data(t_map *map)
-// {
-// 	printf("\nPRINT TEXTURE\n");
-// 	if (map->texture.NO)
-// 		printf("%s\n", map->texture.NO);
-// 	if (map->texture.SO)
-// 		printf("%s\n", map->texture.SO);
-// 	if (map->texture.WE)
-// 		printf("%s\n", map->texture.WE);
-// 	if (map->texture.EA)
-// 		printf("%s\n", map->texture.EA);
-// 	printf("\nPRINT COLOR\n");
-// 	if (map->Floor)
-// 		for (int i = 0; i < 3;i++)
-// 			printf("floor i = %i\n", map->Floor[i]);
-// 	if (map->Ceiling)
-// 		for (int i = 0; i < 3;i++)
-// 			printf("Ceiling i = %i\n", map->Ceiling[i]);
-// 	printf("\nPRINT MAP\n");
-// 	for (int i = 0; i < map->map_y;i++)
-// 	{
-// 		for (int j = 0; j < map->map_x; j++)
-// 			printf("%c", map->grid[i][j]);
-// 	}
-// }
+void	print_data(t_map *map)
+{
+	printf("\nPRINT TEXTURE\n");
+	if (map->texture.no)
+		printf("%s\n", map->texture.no);
+	if (map->texture.so)
+		printf("%s\n", map->texture.so);
+	if (map->texture.we)
+		printf("%s\n", map->texture.we);
+	if (map->texture.ea)
+		printf("%s\n", map->texture.ea);
+	printf("\nPRINT COLOR\n");
+	if (map->floor)
+		for (int i = 0; i < 3;i++)
+			printf("floor i = %i\n", map->floor[i]);
+	if (map->ceiling)
+		for (int i = 0; i < 3;i++)
+			printf("Ceiling i = %i\n", map->ceiling[i]);
+	printf("\nPRINT MAP\n");
+	for (int i = 0; i < map->map_y;i++)
+	{
+		for (int j = 0; j < map->map_x; j++)
+			printf("%c", map->grid[i][j]);
+	}
+}
 
 int	parsing(t_game *game, char **av)
 {
@@ -45,7 +45,7 @@ int	parsing(t_game *game, char **av)
 		return (ft_putstr_fd("Error: Wrong map extension\n", 2), ERROR);
 	if (extract_data(&game->map))
 		return (1);
-	// print_data(&game->map);
+	print_data(&game->map);
 	// free_data_fd(&maps);
 	if (check_map(&game->map) == ERROR)
 		return (ft_putstr_fd("Error: Wrong map\n", 2), ERROR);
@@ -56,47 +56,11 @@ int	parsing(t_game *game, char **av)
 	return (OK);
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-// bool	touch(double px, double py, t_game *game)
-// {
-// 	int	x = px / SIZE_SQUARE;
-// 	int	y = py / SIZE_SQUARE;
-// 	if (game->map.grid[y][x] == '1')
-// 		return (true);
-// 	return (false);
-// }
-
 void	display(t_game *game)
 {
 	(void)game;
 	ft_bzero(game->img.img_addr, HEIGHT * WIDTH * (game->img.bits_per_pixel / 8));
 	raycasting(game, &game->player);
-	// draw_mini_map(game);
-	
-	
-
-
-	// double	ray_x = game->player.pos_x;
-	// double	ray_y = game->player.pos_y;
-	// double	cos_a = cos(game->player.plane);
-	// double	sin_a = sin(game->player.plane);
-	// while (!touch(ray_x, ray_y, game))
-	// {
-	// 	put_pixel(game, ray_x, ray_y, 0xFF0000);
-	// 	ray_x += cos_a;
-	// 	ray_y += sin_a;
-	// }
 	mlx_put_image_to_window(game->mlx, game->win, game->img.img_ptr, 0, 0);
 }
 
@@ -109,11 +73,10 @@ int	main(int ac, char **av)
 	ft_memset(&game, 0, sizeof(game));
 	if (parsing(&game, av) == ERROR)
 		return (free_data_fd(&game.map), ERROR);
-	create_initial_img(&game);
-	// mlx_hook(game.win, 2, 1L << 0, ((mlx_func_t)(uintptr_t)key), &game);
+	if (create_initial_img(&game))
+		return (ft_putendl_fd("ERROR lors de l'ouverture des images", 2), ERROR);
 	mlx_hook(game.win, 2, 1L << 0, ((mlx_func_t)(uintptr_t)keywee), &game);
 	mlx_hook(game.win, 3, 1L << 1, ((mlx_func_t)(uintptr_t)keyno), &game);
-
 	mlx_hook(game.win, 17, 0, ((mlx_func_t)(uintptr_t)exit_game), &game);
 	mlx_loop_hook(game.mlx, (mlx_func_t)(uintptr_t)display, &game);
 	mlx_loop(game.mlx);

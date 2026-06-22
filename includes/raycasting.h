@@ -15,8 +15,9 @@
 
 # include "cube.h"
 
+typedef struct s_game	t_game;
 
-void	draw_all_3d(t_game *game);
+// void	draw_all_3d(t_game *game);
 void	draw_square(int x, int y, int color, t_game *game);
 void	draw_square_player(int x, int y, int color, t_game *game);
 void	draw_map(t_game *game);

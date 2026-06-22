@@ -6,7 +6,7 @@
 /*   By: mvignes <mvignes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/11 16:48:45 by lyaberge          #+#    #+#             */
-/*   Updated: 2026/06/21 13:17:49 by mvignes          ###   ########.fr       */
+/*   Updated: 2026/06/21 17:02:12 by mvignes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,8 +45,8 @@ typedef struct s_player
 
 typedef struct s_texture
 {
-	char	*no;		// <----- mettre en char **
-	void	*img_no;	// <----- mettre en void **
+	char	*no;
+	void	*img_no;
 	char	*so;
 	void	*img_so;
 	char	*we;
