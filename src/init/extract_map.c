@@ -6,7 +6,7 @@
 /*   By: mvignes <mvignes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/09 14:48:05 by mvignes           #+#    #+#             */
-/*   Updated: 2026/06/11 16:44:50 by mvignes          ###   ########.fr       */
+/*   Updated: 2026/06/22 19:36:46 by mvignes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,8 +96,9 @@ void	write_map(t_map *map)
 			map->grid[i][j] = tmp_char[j];
 			j++;
 		}
-		i++;
+		map->grid[i][j] = '\0';
 		tmp = tmp->next;
+		i++;
 	}
 	map->grid[i] = NULL;
 }

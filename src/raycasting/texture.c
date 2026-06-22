@@ -6,9 +6,13 @@
 /*   By: mvignes <mvignes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/22 18:02:20 by mvignes           #+#    #+#             */
-/*   Updated: 2026/06/22 18:02:29 by mvignes          ###   ########.fr       */
+/*   Updated: 2026/06/22 20:47:49 by mvignes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "cube.h"
 
+void	calcul_pos_texture(t_game *game)
+{
+
+}

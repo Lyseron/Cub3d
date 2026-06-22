@@ -6,7 +6,7 @@
 /*   By: mvignes <mvignes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/18 13:35:41 by mvignes           #+#    #+#             */
-/*   Updated: 2026/06/22 15:36:15 by mvignes          ###   ########.fr       */
+/*   Updated: 2026/06/22 20:34:56 by mvignes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,9 @@ void	init_draw_3d(t_game *game, t_ray *ray)
 
 void	draw_3d(t_game *game, t_ray *ray, int y, int i)
 {
+	// double	angle_correctif;
+
+	// angle_correctif = y - game->height / 2;
 	if (y < ray->start_y)
 	{
 		put_pixel(game, i, y, 0xF33333);
@@ -89,7 +92,7 @@ void	draw_line(t_game *game, double angle_rayon, int i)
 	init_dda(game, ray, angle_rayon);
 	calcul_direct_wall(&game->player, ray);
 	calcul_horizontal_intersection(game, ray);
-	calcul_dist(game, &game->ray);
+	calcul_dist(game, &game->ray, angle_rayon);
 	search_cote_wall(game, ray);
 	init_draw_3d(game, &game->ray);
 	while (y < game->height)

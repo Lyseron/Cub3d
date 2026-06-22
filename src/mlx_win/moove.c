@@ -6,7 +6,7 @@
 /*   By: mvignes <mvignes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/21 14:08:07 by mvignes           #+#    #+#             */
-/*   Updated: 2026/06/22 15:44:10 by mvignes          ###   ########.fr       */
+/*   Updated: 2026/06/22 20:46:59 by mvignes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,6 +89,8 @@ void	move_player(t_game *game)
 	double	next_pos_play_y;
 
 	init_speed(game);
+	next_pos_play_x = 0;
+	next_pos_play_y = 0;
 	moove(game, &game->player, &next_pos_play_x, &next_pos_play_y);
 	if (next_pos_play_x - BORDER_PLAYER < 0
 		|| next_pos_play_y - BORDER_PLAYER < 0)

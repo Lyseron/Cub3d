@@ -1,6 +1,6 @@
 NAME		= cub3D
 CC			= cc
-CFLAGS		= -o3 #-Wall -Wextra -Werror -o3
+CFLAGS		= -o3 -g #-Wall -Wextra -Werror -o3
 MAKEFLAGS	+= --no-print-directory
 
 INCS		= -I. -I$(LIBFT_DIR)
@@ -30,24 +30,24 @@ MINI_DIR		= $(SRCS_DIR)/mini_map
 MLX_WIN_DIR		= $(SRCS_DIR)/mlx_win
 RAYCASTING_DIR	= $(SRCS_DIR)/raycasting
 
-PARS_SRC   = \
+PARS_SRC		= \
 	$(PARS_DIR)/check_valid_map.c \
 	$(PARS_DIR)/check_valid_map_utils.c \
 	$(PARS_DIR)/check_map_cub.c \
 	$(PARS_DIR)/check_name_texture.c\
 	$(PARS_DIR)/read_map.c
 	
-MLX_WIN_SRC = \
+MLX_WIN_SRC		= \
 	$(MLX_WIN_DIR)/create_img.c\
 	$(MLX_WIN_DIR)/key.c\
 	$(MLX_WIN_DIR)/moove.c
 
-MINI_SRC    = \
+MINI_SRC		= \
 	$(MINI_DIR)/draw_mini_map.c \
 	$(MINI_DIR)/draw_mini_map_utils.c \
 	$(MINI_DIR)/gameplay.c
 
-INIT_SRC    = \
+INIT_SRC		= \
 	$(INIT_DIR)/extract_color.c \
 	$(INIT_DIR)/extract.c \
 	$(INIT_DIR)/verif_extract.c \
@@ -59,7 +59,7 @@ INIT_SRC    = \
 	$(INIT_DIR)/init_ray.c \
 	$(INIT_DIR)/init_mlx.c
 
-CLEAN_SRC  = \
+CLEAN_SRC		= \
 	$(CLEAN_DIR)/clean_mlx.c \
 	$(CLEAN_DIR)/free.c
 
@@ -68,9 +68,10 @@ RAYCASTING_SRC = \
 		$(RAYCASTING_DIR)/put_pixel.c\
 		$(RAYCASTING_DIR)/draw_2d.c\
 		$(RAYCASTING_DIR)/draw_3d.c\
+		$(RAYCASTING_DIR)/texture.c\
 		$(RAYCASTING_DIR)/raycasting.c\
 
-SRCS    = \
+SRCS		= \
 	$(PARS_SRC) \
 	$(CLEAN_SRC) \
 	$(MLX_WIN_SRC) \

@@ -31,7 +31,7 @@ void	put_pixel(t_game *game, int x, int y, int color);
 
 //	dda
 void	search_cote_wall(t_game *game, t_ray *ray);
-void	calcul_dist(t_game *game, t_ray *ray);
+void	calcul_dist(t_game *game, t_ray *ray, double angle_rayon);
 void	calcul_horizontal_intersection(t_game *game, t_ray *ray);
 void	calcul_direct_wall(t_player *, t_ray *ray);
 void	init_dda(t_game *game, t_ray *ray, double angle_rayon);

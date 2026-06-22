@@ -34,6 +34,7 @@ For the ray in 3D
 - [medium ismailassil](https://ismailassil.medium.com/ray-casting-c-8bfae2c2fc13)
 - [doc 1](https://lodev.org/cgtutor/raycasting.html)
 - [doc 2](https://ibon-ira-cub3d.mintlify.app/)
+- [doc 3](https://permadi.com/1996/05/ray-casting-tutorial-table-of-contents/)
 
 ### AI uses :
 
