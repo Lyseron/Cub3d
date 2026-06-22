@@ -6,7 +6,7 @@
 /*   By: mvignes <mvignes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/08 13:38:07 by lyaberge          #+#    #+#             */
-/*   Updated: 2026/06/21 15:42:57 by mvignes          ###   ########.fr       */
+/*   Updated: 2026/06/22 15:52:11 by mvignes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,8 +35,8 @@
 # define ERROR 1
 
 // Window size
-# define HEIGHT 1200
-# define WIDTH 1800
+// # define HEIGHT 1200
+// # define WIDTH 1800
 # define SIZE LONG_MAX
 
 // Square size for the mini_map in pixel
@@ -50,7 +50,7 @@
 
 // The nb of advancement the player mooves in the window
 # define SPEED 0.06
-# define SPEED_CAM 0.02
+# define SPEED_CAM 0.05
 
 # define TURN_RIGTH 1
 # define TURN_LEFT -1
@@ -75,6 +75,9 @@
 # define LEFT 97
 # define RIGHT 100
 # define DOWN 115
+# define SHIFT 0xffe1
+# define ARROW_LEFT 0xff51
+# define ARROW_RIGHT 0xff53
 
 // Struct
 # include "structs.h"

@@ -6,7 +6,7 @@
 /*   By: mvignes <mvignes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/18 14:15:59 by mvignes           #+#    #+#             */
-/*   Updated: 2026/06/21 17:14:10 by mvignes          ###   ########.fr       */
+/*   Updated: 2026/06/22 15:36:29 by mvignes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	raycasting(t_game *game, t_player *player)
 	double	start_x;
 	int		i;
 
-	fraction = (PI / 3.0) / WIDTH;
+	fraction = (PI / 3.0) / game->width;
 	start_x = player->plane - (PI / 6.0);
 	i = 0;
 	game->ray.cos_p = cos(game->player.plane);
@@ -30,7 +30,7 @@ void	raycasting(t_game *game, t_player *player)
 			player->pos_y * SIZE_SQUARE, 0x00FF00, game);
 		draw_map(game);
 	}
-	while (i < WIDTH)
+	while (i < game->width)
 	{
 		if (DEBUG)
 			draw_line_2d(&game->player, game, start_x, i);

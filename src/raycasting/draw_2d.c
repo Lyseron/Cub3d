@@ -6,7 +6,7 @@
 /*   By: mvignes <mvignes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/19 13:27:14 by mvignes           #+#    #+#             */
-/*   Updated: 2026/06/21 14:05:21 by mvignes          ###   ########.fr       */
+/*   Updated: 2026/06/22 15:34:59 by mvignes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,7 @@ static bool	touch(double px, double py, t_game *game)
 
 	x = px / SIZE_SQUARE;
 	y = py / SIZE_SQUARE;
-	if (x < 0 || x >= WIDTH || y < 0 || y >= HEIGHT)
+	if (x < 0 || x >= game->width || y < 0 || y >= game->height)
 		return (true);
 	if (game->map.grid[y][x] == '1')
 		return (true);

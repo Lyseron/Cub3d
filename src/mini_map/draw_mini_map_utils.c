@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   draw_mini_map_utils.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lyaberge <lyaberge@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mvignes <mvignes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/16 09:25:19 by lyaberge          #+#    #+#             */
-/*   Updated: 2026/06/16 09:25:19 by lyaberge         ###   ########.fr       */
+/*   Updated: 2026/06/22 15:34:33 by mvignes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int	draw_pixel(t_game *game, int x, int y, unsigned int color)
 
 	if (!game || !game->img.img_addr)
 		return (ERROR);
-	if (x < 0 || x >= WIDTH || y < 0 || y >= HEIGHT)
+	if (x < 0 || x >= game->width || y < 0 || y >= game->height)
 		return (ERROR);
 	if (game->img.size_line <= 0 || game->img.bits_per_pixel <= 0)
 		return (ERROR);

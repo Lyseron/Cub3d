@@ -6,7 +6,7 @@
 /*   By: mvignes <mvignes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/11 16:48:45 by lyaberge          #+#    #+#             */
-/*   Updated: 2026/06/21 17:02:12 by mvignes          ###   ########.fr       */
+/*   Updated: 2026/06/22 15:32:02 by mvignes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -162,6 +162,8 @@ typedef struct	s_bool_key
 
 typedef struct s_game
 {
+	int				width;
+	int				height;
 	t_map			map;
 	t_player		player;
 	void			*mlx;

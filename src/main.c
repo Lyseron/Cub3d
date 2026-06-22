@@ -6,7 +6,7 @@
 /*   By: mvignes <mvignes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/09 14:48:41 by mvignes           #+#    #+#             */
-/*   Updated: 2026/06/21 17:46:08 by mvignes          ###   ########.fr       */
+/*   Updated: 2026/06/22 15:46:03 by mvignes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ int	parsing(t_game *game, char **av)
 		return (ft_putstr_fd("Error: Wrong map extension\n", 2), ERROR);
 	if (extract_data(&game->map))
 		return (1);
-	print_data(&game->map);
+	// print_data(&game->map);
 	// free_data_fd(&maps);
 	if (check_map(&game->map) == ERROR)
 		return (ft_putstr_fd("Error: Wrong map\n", 2), ERROR);
@@ -59,7 +59,7 @@ int	parsing(t_game *game, char **av)
 void	display(t_game *game)
 {
 	(void)game;
-	ft_bzero(game->img.img_addr, HEIGHT * WIDTH * (game->img.bits_per_pixel / 8));
+	ft_bzero(game->img.img_addr, game->height * game->width * (game->img.bits_per_pixel / 8));
 	raycasting(game, &game->player);
 	mlx_put_image_to_window(game->mlx, game->win, game->img.img_ptr, 0, 0);
 }

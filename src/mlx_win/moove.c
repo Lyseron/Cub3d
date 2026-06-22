@@ -6,7 +6,7 @@
 /*   By: mvignes <mvignes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/21 14:08:07 by mvignes           #+#    #+#             */
-/*   Updated: 2026/06/21 15:42:47 by mvignes          ###   ########.fr       */
+/*   Updated: 2026/06/22 15:44:10 by mvignes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,7 @@ void	moove(t_game *game, t_player *player, double *next_x, double *next_y)
 static void	init_speed(t_game *game)
 {
 	if (game->bool_key.shift)
-		game->player.speed_player = SPEED * 1.5f;
+		game->player.speed_player = SPEED * 3.5f;
 	else
 		game->player.speed_player = SPEED;
 }

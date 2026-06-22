@@ -6,7 +6,7 @@
 /*   By: mvignes <mvignes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/18 13:35:41 by mvignes           #+#    #+#             */
-/*   Updated: 2026/06/21 17:14:31 by mvignes          ###   ########.fr       */
+/*   Updated: 2026/06/22 15:36:15 by mvignes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,15 +45,15 @@
 // 	}
 // }
 
-void	init_draw_3d(t_ray *ray)
+void	init_draw_3d(t_game *game, t_ray *ray)
 {
-	ray->line_height = HEIGHT / ray->dist_perp;
-	ray->start_y = (HEIGHT / 2) - (ray->line_height / 2);
-	ray->end = (HEIGHT / 2) + (ray->line_height / 2);
+	ray->line_height = game->height / ray->dist_perp;
+	ray->start_y = (game->height / 2) - (ray->line_height / 2);
+	ray->end = (game->height / 2) + (ray->line_height / 2);
 	if (ray->start_y < 0)
 		ray->start_y = 0;
-	if (ray->end >= HEIGHT)
-		ray->end = HEIGHT - 1;
+	if (ray->end >= game->height)
+		ray->end = game->height - 1;
 }
 
 void	draw_3d(t_game *game, t_ray *ray, int y, int i)
@@ -91,8 +91,8 @@ void	draw_line(t_game *game, double angle_rayon, int i)
 	calcul_horizontal_intersection(game, ray);
 	calcul_dist(game, &game->ray);
 	search_cote_wall(game, ray);
-	init_draw_3d(&game->ray);
-	while (y < HEIGHT)
+	init_draw_3d(game, &game->ray);
+	while (y < game->height)
 	{
 		draw_3d(game, ray, y, i);
 		y++;
