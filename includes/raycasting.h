@@ -36,4 +36,8 @@ void	calcul_horizontal_intersection(t_game *game, t_ray *ray);
 void	calcul_direct_wall(t_player *, t_ray *ray);
 void	init_dda(t_game *game, t_ray *ray, double angle_rayon);
 
+// texture
+int	init_all_textures(t_game *game, t_texture *texture);
+int	calcul_pos_texture(t_game *game, t_ray *ray, int tex_width);
+int	get_pixel_from_texture(t_img *tex, int tex_x, int tex_y);
 #endif

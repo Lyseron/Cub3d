@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   key.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mvignes <mvignes@student.42.fr>            +#+  +:+       +#+        */
+/*   By: vignesmattheu <vignesmattheu@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/18 14:16:59 by mvignes           #+#    #+#             */
-/*   Updated: 2026/06/22 15:53:51 by mvignes          ###   ########.fr       */
+/*   Updated: 2026/06/23 06:11:11 by vignesmatth      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,25 +14,28 @@
 
 int	keyno(int key, t_game *game)
 {
-	if (key == XK_w)
+	if (key == ESC)
+		return (exit_game(game), OK);
+	if (key == UP)
 		game->bool_key.w = false;
-	if (key == XK_a)
+	if (key == LEFT)
 		game->bool_key.a = false;
-	if (key == XK_s)
+	if (key == DOWN)
 		game->bool_key.s = false;
-	if (key == XK_d)
+	if (key == RIGHT)
 		game->bool_key.d = false;
-	if (key == XK_Left)
+	if (key == ARROW_LEFT)
 		game->bool_key.left = false;
-	if (key == XK_Right)
+	if (key == ARROW_RIGHT)
 		game->bool_key.right = false;
-	if (key == XK_Shift_L)
+	if (key == SHIFT)
 		game->bool_key.shift = false;
 	return (0);
 }
 
 int	keywee(int key, t_game *game)
 {
+	//printf("key = %i\n", key);
 	if (key == ESC)
 		return (exit_game(game), OK);
 	if (key == UP)

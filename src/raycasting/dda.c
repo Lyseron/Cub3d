@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   dda.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mvignes <mvignes@student.42.fr>            +#+  +:+       +#+        */
+/*   By: vignesmattheu <vignesmattheu@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/21 13:32:41 by mvignes           #+#    #+#             */
-/*   Updated: 2026/06/22 20:55:52 by mvignes          ###   ########.fr       */
+/*   Updated: 2026/06/24 11:32:53 by vignesmatth      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,8 +73,8 @@ void	calcul_horizontal_intersection(t_game *game, t_ray *ray)
 void	calcul_dist(t_game *game, t_ray *ray, double angle_rayon)
 {
 	t_player	*player;
-	double		tmp;
-	double		angle_correctif;
+	double	  tmp;
+	double	  angle_correctif;
 
 	player = &game->player;
 	if (ray->wall_touch == 0)
@@ -88,13 +88,9 @@ void	calcul_dist(t_game *game, t_ray *ray, double angle_rayon)
 		ray->dist_perp = tmp / ray->sin_p;
 	}
 	angle_correctif = angle_rayon - game->player.plane;
-	// while (angle_correctif < 0)
-	// 	angle_correctif += (PI * 2);
-	// while (angle_correctif > (PI * 2))
-	// 	angle_correctif -= (PI * 2);
 	ray->dist_perp *= cos(angle_correctif);
-	if (ray->dist_perp < 0.5)
-		ray->dist_perp = 0.5;
+	if (ray->dist_perp < 0.01)
+		ray->dist_perp = 0.01;
 }
 
 // 3 == ouest/ 4 == est/ 1 == nord/ 2 == sud

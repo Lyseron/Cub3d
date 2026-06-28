@@ -1,7 +1,7 @@
 NO ./wolftex/greystone.xpm
-SO ./wolftex/greystone.xpm
-WE ./wolftex/greystone.xpm
-EA ./wolftex/greystone.xpm
+SO ./wolftex/colorstone.xpm
+WE ./wolftex/wood.xpm
+EA ./wolftex/redbrick.xpm
 
 C 153,204,29
 F 164,169,20

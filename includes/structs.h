@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   structs.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mvignes <mvignes@student.42.fr>            +#+  +:+       +#+        */
+/*   By: vignesmattheu <vignesmattheu@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/11 16:48:45 by lyaberge          #+#    #+#             */
-/*   Updated: 2026/06/22 16:57:45 by mvignes          ###   ########.fr       */
+/*   Updated: 2026/06/27 11:06:04 by vignesmatth      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@
 
 typedef enum e_status
 {
+	IS_NULL,
 	IS_NORTH,
 	IS_SOUTH,
 	IS_WEAST,
@@ -57,8 +58,8 @@ typedef struct s_img
 
 typedef struct s_texture
 {
-	char	*path[4];
-	t_img	img[5];
+	char	*path[5];
+	t_img	img[6];
 }	t_texture;
 
 typedef struct s_point
@@ -92,7 +93,11 @@ typedef struct s_raycasting
 	double	fraction;											//	<----- utiliser dans raycasting mais surtout pour le speed
 	double	start_x;											//	<----- utiliser dans raycasting mais surtout pour le speed
 
-
+	double	pos_tex;		// position du pixel de texture			<----- utiliser dans raycasting
+	int		pos_tex_x;		// postion en x du fichier xpm			<----- utiliser dans raycasting
+	int		pos_tex_y;		// postion en y du fichier xpm			<----- utiliser dans raycasting
+	double	step;			// pas d'avance pour la loc dans xpm	<----- utiliser dans raycasting
+	t_img	*tex_projet;	// la texture qui sera projeté			<----- utiliser dans raycasting
 
 	double	ray_pos_x;		// calcul rayon				// <----- j'utilise pas mais lily utilise
 	double	ray_pos_y;		// calcul rayon				// <----- j'utilise pas mais lily utilise
