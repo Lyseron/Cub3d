@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cube.h                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vignesmattheu <vignesmattheu@student.42    +#+  +:+       +#+        */
+/*   By: mvignes <mvignes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/08 13:38:07 by lyaberge          #+#    #+#             */
-/*   Updated: 2026/06/27 20:48:03 by vignesmatth      ###   ########.fr       */
+/*   Updated: 2026/06/28 15:57:19 by mvignes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,25 +62,25 @@
 
 // Keypress Mac
 // UP = W ; LEFT = A ; RIGHT = D ; DOWN = S
-# define ESC 53
-# define UP 13
-# define LEFT 0
-# define RIGHT 2
-# define DOWN 1
-# define SHIFT 257
-# define ARROW_LEFT 123
-# define ARROW_RIGHT 124
+// # define ESC 53
+// # define UP 13
+// # define LEFT 0
+// # define RIGHT 2
+// # define DOWN 1
+// # define SHIFT 257
+// # define ARROW_LEFT 123
+// # define ARROW_RIGHT 124
 
 // // Keypress Linux
 // // UP = W ; LEFT = A ; RIGHT = D ; DOWN = S
-// # define ESC 65307
-// # define UP 119
-// # define LEFT 97
-// # define RIGHT 100
-// # define DOWN 115
-// # define SHIFT 0xffe1
-// # define ARROW_LEFT 0xff51
-// # define ARROW_RIGHT 0xff53
+# define ESC 65307
+# define UP 119
+# define LEFT 97
+# define RIGHT 100
+# define DOWN 115
+# define SHIFT 0xffe1
+# define ARROW_LEFT 0xff51
+# define ARROW_RIGHT 0xff53
 
 // Struct
 # include "structs.h"

@@ -6,7 +6,7 @@
 /*   By: mvignes <mvignes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/09 14:48:41 by mvignes           #+#    #+#             */
-/*   Updated: 2026/06/22 16:52:51 by mvignes          ###   ########.fr       */
+/*   Updated: 2026/06/28 16:00:39 by mvignes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,14 +52,17 @@ int	parsing(t_game *game, char **av)
 	if (fill_struct_player(&game->player, game->map.grid) == ERROR)
 		return (ERROR);
 	if (init_mlx(game) == ERROR)
+	{
+		printf("PROUBLEME ICI\n");
 		return (ERROR);
+	}
 	return (OK);
 }
 
 void	display(t_game *game)
 {
 	(void)game;
-	ft_bzero(game->img.img_addr, game->height * game->width * (game->img.bits_per_pixel / 8));
+	// ft_bzero(game->img.img_addr, game->height * game->width * (game->img.bits_per_pixel / 8));
 	raycasting(game, &game->player);
 	mlx_put_image_to_window(game->mlx, game->win, game->img.img_ptr, 0, 0);
 }

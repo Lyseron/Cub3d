@@ -21,7 +21,7 @@ LIBFT		= $(LIBFT_DIR)/libft.a
 OBJS		= $(SRCS:%.c=%.o)
 RM			= rm -rf
 UNAME_S		:= $(shell uname)
-SRCS_DIR   = src
+SRCS_DIR	= src
 
 PARS_DIR		= $(SRCS_DIR)/parsing
 CLEAN_DIR		= $(SRCS_DIR)/clean_exit
@@ -81,11 +81,11 @@ SRCS		= \
 	$(SRCS_DIR)/main.c
 
 
-OBJ_DIR    = obj/
-OBJS    = $(addprefix $(OBJ_DIR), $(SRCS:%.c=%.o))
+OBJ_DIR	= obj/
+OBJS	= $(addprefix $(OBJ_DIR), $(SRCS:%.c=%.o))
 
-RM      = rm -f
-UNAME_S := $(shell uname)
+RM		= rm -f
+UNAME_S	:= $(shell uname)
 
 ifeq ($(UNAME_S),Darwin)
 	MLX_DIR = mlx_macos
@@ -97,7 +97,7 @@ else
 	MLX_LIB = -L$(MLX_DIR) -lmlx -lXext -lX11 -lm -lbsd
 endif
 
-INC = -Iincludes $(MLX_INC)
+INC	= -Iincludes $(MLX_INC)
 all: $(LIBFT) $(NAME)
 
 $(NAME): $(OBJS)

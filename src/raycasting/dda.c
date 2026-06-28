@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   dda.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vignesmattheu <vignesmattheu@student.42    +#+  +:+       +#+        */
+/*   By: mvignes <mvignes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/21 13:32:41 by mvignes           #+#    #+#             */
-/*   Updated: 2026/06/24 11:32:53 by vignesmatth      ###   ########.fr       */
+/*   Updated: 2026/06/28 16:01:54 by mvignes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,8 +73,8 @@ void	calcul_horizontal_intersection(t_game *game, t_ray *ray)
 void	calcul_dist(t_game *game, t_ray *ray, double angle_rayon)
 {
 	t_player	*player;
-	double	  tmp;
-	double	  angle_correctif;
+	double		tmp;
+	double		angle_correctif;
 
 	player = &game->player;
 	if (ray->wall_touch == 0)
