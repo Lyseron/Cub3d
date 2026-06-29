@@ -6,7 +6,7 @@
 /*   By: mvignes <mvignes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/10 15:41:09 by mvignes           #+#    #+#             */
-/*   Updated: 2026/06/29 14:33:12 by mvignes          ###   ########.fr       */
+/*   Updated: 2026/06/29 15:45:06 by mvignes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,7 +88,6 @@ static bool	add_var_color(char *line, t_map *map, char *find, int *color)
 		*color = add_color(line, find, map);
 		if (map->error)
 			return (ERROR);
-			printf("color = %d\n", *color);
 	}
 	return (OK);
 }
