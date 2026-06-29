@@ -6,7 +6,7 @@
 /*   By: mvignes <mvignes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/11 16:48:45 by lyaberge          #+#    #+#             */
-/*   Updated: 2026/06/29 10:55:22 by mvignes          ###   ########.fr       */
+/*   Updated: 2026/06/29 11:36:58 by mvignes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,8 +58,8 @@ typedef struct s_img
 
 typedef struct s_texture
 {
-	char	*path[5];
-	t_img	img[6];
+	char	*path[4];
+	t_img	img[5];
 }	t_texture;
 
 typedef struct s_point

@@ -6,7 +6,7 @@
 /*   By: mvignes <mvignes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/08 13:38:07 by lyaberge          #+#    #+#             */
-/*   Updated: 2026/06/29 09:49:43 by mvignes          ###   ########.fr       */
+/*   Updated: 2026/06/29 11:13:04 by mvignes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@
 # define PI 3.14159265358979323846
 
 
-# define DEBUG 1
+# define DEBUG 0
 
 // Keypress Mac
 // UP = W ; LEFT = A ; RIGHT = D ; DOWN = S

@@ -6,7 +6,7 @@
 /*   By: mvignes <mvignes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/09 18:23:50 by mvignes           #+#    #+#             */
-/*   Updated: 2026/06/29 10:55:47 by mvignes          ###   ########.fr       */
+/*   Updated: 2026/06/29 11:39:43 by mvignes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,14 +40,14 @@ void	free_all_img(t_game *game)
 	texture = &game->map.texture;
 	if (game->img.img_ptr)
 		mlx_destroy_image(game->mlx, game->img.img_ptr);
-	if (texture->path[IS_NORTH])
-		mlx_destroy_image(game->mlx, texture->path[IS_NORTH]);
-	if (texture->path[IS_SOUTH])
-		mlx_destroy_image(game->mlx, texture->path[IS_SOUTH]);
-	if (texture->path[IS_WEAST])
-		mlx_destroy_image(game->mlx, texture->path[IS_WEAST]);
-	if (texture->path[IS_EAST])
-		mlx_destroy_image(game->mlx, texture->path[IS_EAST]);
+	if (texture->img[IS_NORTH].img_ptr)
+		mlx_destroy_image(game->mlx, texture->img[IS_NORTH].img_ptr);
+	if (texture->img[IS_SOUTH].img_ptr)
+		mlx_destroy_image(game->mlx, texture->img[IS_SOUTH].img_ptr);
+	if (texture->img[IS_WEAST].img_ptr)
+		mlx_destroy_image(game->mlx, texture->img[IS_WEAST].img_ptr);
+	if (texture->img[IS_EAST].img_ptr)
+		mlx_destroy_image(game->mlx, texture->img[IS_EAST].img_ptr);
 }
 
 void	free_data_fd(t_map *map)
