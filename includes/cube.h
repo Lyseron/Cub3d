@@ -6,7 +6,7 @@
 /*   By: mvignes <mvignes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/08 13:38:07 by lyaberge          #+#    #+#             */
-/*   Updated: 2026/06/29 12:56:24 by mvignes          ###   ########.fr       */
+/*   Updated: 2026/06/29 13:04:36 by mvignes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,8 +50,8 @@
 # define BORDER_PLAYER .2
 
 // The nb of advancement the player mooves in the window
-# define SPEED 5
-# define SPEED_CAM 0.07
+# define SPEED 3
+# define SPEED_CAM 0.08
 # define SPEED_SPRIT 1.5
 
 # define TURN_RIGTH 1
