@@ -6,7 +6,7 @@
 /*   By: mvignes <mvignes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/21 13:32:41 by mvignes           #+#    #+#             */
-/*   Updated: 2026/06/29 15:28:44 by mvignes          ###   ########.fr       */
+/*   Updated: 2026/06/29 17:43:23 by mvignes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,10 +87,10 @@ void	calcul_dist(t_game *game, t_ray *ray, double angle_rayon)
 		tmp = (ray->map_y - player->pos_y + (1 - ray->step_y) / 2);
 		ray->dist_perp = tmp / ray->sin_p;
 	}
-	angle_correctif = angle_rayon - game->player.plane;
-	ray->dist_perp *= cos(angle_correctif);
-	if (ray->dist_perp < 0.01)
-		ray->dist_perp = 0.01;
+	// angle_correctif = angle_rayon - game->player.plane;		<----- regle le probleme du fisheye mais fait twerker les murs
+	// ray->dist_perp *= cos(angle_correctif);					<----- regle le probleme du fisheye mais fait twerker les murs
+	if (ray->dist_perp < 0.05)
+		ray->dist_perp = 0.05;
 }
 
 // 3 == ouest/ 4 == est/ 1 == nord/ 2 == sud
