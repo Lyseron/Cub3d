@@ -6,7 +6,7 @@
 /*   By: mvignes <mvignes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/11 16:48:45 by lyaberge          #+#    #+#             */
-/*   Updated: 2026/06/29 12:03:29 by mvignes          ###   ########.fr       */
+/*   Updated: 2026/06/29 14:03:26 by mvignes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ typedef struct s_player
 	double	plane;	// angle de rotation					<----- utiliser dans raycasting
 	// double	dir_x;	//										pas encore utiliser (on sup ?)
 	// double	dir_y;	//										pas encore utiliser (on sup ?)
-	float	speed_player;
+	double	speed_player;
 }	t_player;
 
 
@@ -54,7 +54,6 @@ typedef struct s_img
 	int		endian;
 	char	*img_addr;
 }	t_img;
-
 
 typedef struct s_texture
 {
@@ -114,10 +113,10 @@ typedef struct s_map
 	int			map_x;
 	int			map_y;
 	t_texture	texture;
-	int			*floor;
-	bool		extract_floor;
-	int			*ceiling;
-	bool		extract_ceiling;
+	int			floor;
+	// bool		extract_floor;
+	int			ceiling;
+	// bool		extract_ceiling;
 	t_list		*extract;
 	bool		error;
 }	t_map;

@@ -6,7 +6,7 @@
 /*   By: mvignes <mvignes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/09 18:23:50 by mvignes           #+#    #+#             */
-/*   Updated: 2026/06/29 11:39:43 by mvignes          ###   ########.fr       */
+/*   Updated: 2026/06/29 14:10:28 by mvignes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,10 +62,10 @@ void	free_data_fd(t_map *map)
 		free_and_null((void *)&map->texture.path[IS_WEAST]);
 	if (map->texture.path[IS_EAST])
 		free_and_null((void *)&map->texture.path[IS_EAST]);
-	if (map->floor)
-		free_and_null((void *)&map->floor);
-	if (map->ceiling)
-		free_and_null((void *)&map->ceiling);
+	// if (map->floor)
+	// 	free_and_null((void *)&map->floor);
+	// if (map->ceiling)
+	// 	free_and_null((void *)&map->ceiling);
 	if (map->extract)
 		ft_lstclear(&(map->extract), free);
 	if (map->grid)
