@@ -6,7 +6,7 @@
 /*   By: mvignes <mvignes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/09 16:53:12 by lyaberge          #+#    #+#             */
-/*   Updated: 2026/06/11 16:49:15 by mvignes          ###   ########.fr       */
+/*   Updated: 2026/06/22 16:53:58 by mvignes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,7 +91,7 @@ int	fill_struct_player(t_player *player, char **map)
 	player->where_look = letter_player;
 	if (found_dir_player(player, &x, &y) == ERROR)
 		return (ERROR);
-	player->dir_x = (double)x;
-	player->dir_y = (double)y;
+	// player->dir_x = (double)x;
+	// player->dir_y = (double)y;
 	return (OK);
 }

@@ -6,23 +6,36 @@
 /*   By: mvignes <mvignes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/11 16:09:54 by mvignes           #+#    #+#             */
-/*   Updated: 2026/06/11 16:44:56 by mvignes          ###   ########.fr       */
+/*   Updated: 2026/06/29 10:55:22 by mvignes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/cube.h"
+
+static bool	good_caractere(char *line)
+{
+	if (ft_strnstr(line, "NO", ft_strlen(line))
+		|| ft_strnstr(line, "SO", ft_strlen(line))
+		|| ft_strnstr(line, "WE", ft_strlen(line))
+		|| ft_strnstr(line, "EA", ft_strlen(line))
+		|| ft_strnstr(line, "C", ft_strlen(line))
+		|| ft_strnstr(line, "F", ft_strlen(line))
+		|| ft_strnstr(line, "0", ft_strlen(line))
+		|| ft_strnstr(line, "1", ft_strlen(line))
+		|| ft_strnstr(line, "S", ft_strlen(line))
+		|| ft_strnstr(line, "E", ft_strlen(line))
+		|| ft_strnstr(line, "N", ft_strlen(line))
+		|| ft_strnstr(line, "W", ft_strlen(line)))
+		return (true);
+	return (false);
+}
 
 bool	line_not_parasite(char *line, t_map *map)
 {
 	int	i;
 
 	i = 0;
-	if (ft_strnstr(line, "NO", ft_strlen(line)) || ft_strnstr(line, "SO", ft_strlen(line))
-	|| ft_strnstr(line, "WE", ft_strlen(line)) || ft_strnstr(line, "EA", ft_strlen(line))
-	|| ft_strnstr(line, "C", ft_strlen(line)) || ft_strnstr(line, "F", ft_strlen(line))
-	|| ft_strnstr(line, "0", ft_strlen(line)) || ft_strnstr(line, "1", ft_strlen(line))
-	|| ft_strnstr(line, "S", ft_strlen(line)) || ft_strnstr(line, "E", ft_strlen(line))
-	|| ft_strnstr(line, "N", ft_strlen(line)) || ft_strnstr(line, "W", ft_strlen(line)))
+	if (good_caractere(line))
 		return (false);
 	if (line[0] != '\n' || line[0] != '\0')
 	{
@@ -30,7 +43,7 @@ bool	line_not_parasite(char *line, t_map *map)
 			i++;
 		if (!(!line[i]))
 		{
-			map->error_doublon = true;
+			map->error = true;
 			return (true);
 		}
 	}
@@ -40,7 +53,7 @@ bool	line_not_parasite(char *line, t_map *map)
 bool	good_len_color(int *Ceiling, int *Floor)
 {
 	int	i;
-	
+
 	i = 0;
 	while (Ceiling[i] != -1)
 		i++;
@@ -56,10 +69,10 @@ bool	good_len_color(int *Ceiling, int *Floor)
 
 bool	verif_name_texture(t_map *map)
 {
-	if (ft_decide_name_texture(map->texture.NO)
-		|| ft_decide_name_texture(map->texture.SO)
-		|| ft_decide_name_texture(map->texture.WE)
-		|| ft_decide_name_texture(map->texture.EA))
+	if (ft_decide_name_texture(map->texture.path[IS_NORTH])
+		|| ft_decide_name_texture(map->texture.path[IS_SOUTH])
+		|| ft_decide_name_texture(map->texture.path[IS_WEAST])
+		|| ft_decide_name_texture(map->texture.path[IS_EAST]))
 		return (true);
 	return (false);
 }
@@ -69,23 +82,24 @@ bool	verif_init_value(t_map *map)
 	int	i;
 
 	i = 0;
-	if (!map->texture.NO || !map->texture.SO || !map->texture.WE
-		|| !map->texture.EA || !map->Ceiling || !map->Floor
-		|| map->error_doublon || verif_name_texture(map))
+	if (!map->texture.path[IS_NORTH] || !map->texture.path[IS_SOUTH]
+		|| !map->texture.path[IS_WEAST] || !map->texture.path[IS_EAST]
+		|| !map->ceiling || !map->floor
+		|| map->error || verif_name_texture(map))
 		return (false);
-	if (good_len_color(map->Ceiling, map->Floor))
+	if (good_len_color(map->ceiling, map->floor))
 		return (false);
 	i = 0;
 	while (i < 3)
 	{
-		if (map->Ceiling[i] < 0 || map->Ceiling[i] > 255)
+		if (map->ceiling[i] < 0 || map->ceiling[i] > 255)
 			return (false);
 		i++;
 	}
 	i = 0;
 	while (i < 3)
 	{
-		if (map->Floor[i] < 0 || map->Floor[i] > 255)
+		if (map->floor[i] < 0 || map->floor[i] > 255)
 			return (false);
 		i++;
 	}

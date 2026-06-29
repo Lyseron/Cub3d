@@ -1,6 +1,6 @@
 NAME		= cub3D
 CC			= cc
-CFLAGS		= -Wall -Wextra -g -Werror
+CFLAGS		= -o3 -g #-Wall -Wextra -Werror -o3
 MAKEFLAGS	+= --no-print-directory
 
 INCS		= -I. -I$(LIBFT_DIR)
@@ -18,42 +18,36 @@ RESET		= \033[0m
 LIBFT_DIR	= libft
 LIBFT		= $(LIBFT_DIR)/libft.a
 
-SRCS		= ./src/main.c\
-			./src/parsing/extract.c\
-			./src/parsing/extract_map.c\
-			./src/parsing/extract_color.c\
-			./src/parsing/check_name_texture.c\
-			./src/parsing/read_map.c\
-			./src/parsing/extract_texture_and_color.c\
-			./src/parsing/free.c\
-
 OBJS		= $(SRCS:%.c=%.o)
-RM			= rm -f
+RM			= rm -rf
 UNAME_S		:= $(shell uname)
-SRCS_DIR   = src
+SRCS_DIR	= src
 
-PARS_DIR    = $(SRCS_DIR)/parsing
-CLEAN_DIR   = $(SRCS_DIR)/clean_exit
-INIT_DIR    = $(SRCS_DIR)/init
-MINI_DIR    = $(SRCS_DIR)/mini_map
-MLX_WIN_DIR = $(SRCS_DIR)/mlx_win
+PARS_DIR		= $(SRCS_DIR)/parsing
+CLEAN_DIR		= $(SRCS_DIR)/clean_exit
+INIT_DIR		= $(SRCS_DIR)/init
+MINI_DIR		= $(SRCS_DIR)/mini_map
+MLX_WIN_DIR		= $(SRCS_DIR)/mlx_win
+RAYCASTING_DIR	= $(SRCS_DIR)/raycasting
 
-PARS_SRC   = \
+PARS_SRC		= \
 	$(PARS_DIR)/check_valid_map.c \
 	$(PARS_DIR)/check_valid_map_utils.c \
 	$(PARS_DIR)/check_map_cub.c \
 	$(PARS_DIR)/check_name_texture.c\
 	$(PARS_DIR)/read_map.c
 	
-MLX_WIN_SRC = \
-	$(MLX_WIN_DIR)/create_img.c
+MLX_WIN_SRC		= \
+	$(MLX_WIN_DIR)/create_img.c\
+	$(MLX_WIN_DIR)/key.c\
+	$(MLX_WIN_DIR)/moove.c
 
-MINI_SRC    = \
+MINI_SRC		= \
 	$(MINI_DIR)/draw_mini_map.c \
 	$(MINI_DIR)/draw_mini_map_utils.c \
 	$(MINI_DIR)/gameplay.c
 
-INIT_SRC    = \
+INIT_SRC		= \
 	$(INIT_DIR)/extract_color.c \
 	$(INIT_DIR)/extract.c \
 	$(INIT_DIR)/verif_extract.c \
@@ -65,24 +59,34 @@ INIT_SRC    = \
 	$(INIT_DIR)/init_ray.c \
 	$(INIT_DIR)/init_mlx.c
 
-CLEAN_SRC  = \
+CLEAN_SRC		= \
 	$(CLEAN_DIR)/clean_mlx.c \
 	$(CLEAN_DIR)/free.c
 
-SRCS    = \
+RAYCASTING_SRC = \
+		$(RAYCASTING_DIR)/dda.c\
+		$(RAYCASTING_DIR)/put_pixel.c\
+		$(RAYCASTING_DIR)/draw_2d.c\
+		$(RAYCASTING_DIR)/draw_3d.c\
+		$(RAYCASTING_DIR)/texture.c\
+		$(RAYCASTING_DIR)/raycasting.c\
+
+SRCS		= \
 	$(PARS_SRC) \
 	$(CLEAN_SRC) \
 	$(MLX_WIN_SRC) \
 	$(INIT_SRC) \
 	$(MINI_SRC) \
+	$(RAYCASTING_SRC)\
+	$(SRCS_DIR)/utils_time.c\
 	$(SRCS_DIR)/main.c
 
 
-OBJ_DIR    = obj/
-OBJS    = $(addprefix $(OBJ_DIR), $(SRCS:%.c=%.o))
+OBJ_DIR	= obj/
+OBJS	= $(addprefix $(OBJ_DIR), $(SRCS:%.c=%.o))
 
-RM      = rm -f
-UNAME_S := $(shell uname)
+RM		= rm -f
+UNAME_S	:= $(shell uname)
 
 ifeq ($(UNAME_S),Darwin)
 	MLX_DIR = mlx_macos
@@ -94,7 +98,7 @@ else
 	MLX_LIB = -L$(MLX_DIR) -lmlx -lXext -lX11 -lm -lbsd
 endif
 
-INC = -Iincludes $(MLX_INC)
+INC	= -Iincludes $(MLX_INC)
 all: $(LIBFT) $(NAME)
 
 $(NAME): $(OBJS)

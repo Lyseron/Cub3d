@@ -6,7 +6,7 @@
 /*   By: mvignes <mvignes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/11 16:56:19 by lyaberge          #+#    #+#             */
-/*   Updated: 2026/06/11 17:43:34 by mvignes          ###   ########.fr       */
+/*   Updated: 2026/06/29 11:08:31 by mvignes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,6 @@ void	init_mini_map_coord(t_mini_map *mini_map, int map_x, int map_y);
 void	init_mini_map_square(t_game *game, int x, int y);
 
 /* ------------------- Init_ray.c ----------------------- */
-void	init_ray(t_game *game);
+// void	init_ray(t_game *game);
 
 #endif

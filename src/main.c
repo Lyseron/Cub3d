@@ -6,37 +6,37 @@
 /*   By: mvignes <mvignes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/09 14:48:41 by mvignes           #+#    #+#             */
-/*   Updated: 2026/06/16 15:29:50 by mvignes          ###   ########.fr       */
+/*   Updated: 2026/06/29 12:59:57 by mvignes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cube.h"
 
-// void	print_data(t_map *map)
-// {
-// 	printf("\nPRINT TEXTURE\n");
-// 	if (map->texture.NO)
-// 		printf("%s\n", map->texture.NO);
-// 	if (map->texture.SO)
-// 		printf("%s\n", map->texture.SO);
-// 	if (map->texture.WE)
-// 		printf("%s\n", map->texture.WE);
-// 	if (map->texture.EA)
-// 		printf("%s\n", map->texture.EA);
-// 	printf("\nPRINT COLOR\n");
-// 	if (map->Floor)
-// 		for (int i = 0; i < 3;i++)
-// 			printf("floor i = %i\n", map->Floor[i]);
-// 	if (map->Ceiling)
-// 		for (int i = 0; i < 3;i++)
-// 			printf("Ceiling i = %i\n", map->Ceiling[i]);
-// 	printf("\nPRINT MAP\n");
-// 	for (int i = 0; i < map->map_y;i++)
-// 	{
-// 		for (int j = 0; j < map->map_x; j++)
-// 			printf("%c", map->grid[i][j]);
-// 	}
-// }
+void	print_data(t_map *map)
+{
+	printf("\nPRINT TEXTURE\n");
+	if (map->texture.path[IS_NORTH])
+		printf("%s\n", map->texture.path[IS_NORTH]);
+	if (map->texture.path[IS_SOUTH])
+		printf("%s\n", map->texture.path[IS_SOUTH]);
+	if (map->texture.path[IS_WEAST])
+		printf("%s\n", map->texture.path[IS_WEAST]);
+	if (map->texture.path[IS_EAST])
+		printf("%s\n", map->texture.path[IS_EAST]);
+	printf("\nPRINT COLOR\n");
+	if (map->floor)
+		for (int i = 0; i < 3;i++)
+			printf("floor i = %i\n", map->floor[i]);
+	if (map->ceiling)
+		for (int i = 0; i < 3;i++)
+			printf("Ceiling i = %i\n", map->ceiling[i]);
+	printf("\nPRINT MAP\n");
+	for (int i = 0; i < map->map_y;i++)
+	{
+		for (int j = 0; j < map->map_x; j++)
+			printf("%c", map->grid[i][j]);
+	}
+}
 
 int	parsing(t_game *game, char **av)
 {
@@ -52,8 +52,20 @@ int	parsing(t_game *game, char **av)
 	if (fill_struct_player(&game->player, game->map.grid) == ERROR)
 		return (ERROR);
 	if (init_mlx(game) == ERROR)
+	{
+		printf("PROUBLEME ICI\n");
 		return (ERROR);
+	}
 	return (OK);
+}
+
+void	display(t_game *game)
+{
+	(void)game;
+	if (DEBUG)
+		ft_bzero(game->img.img_addr, game->height * game->width * (game->img.bits_per_pixel / 8));
+	raycasting(game, &game->player);
+	mlx_put_image_to_window(game->mlx, game->win, game->img.img_ptr, 0, 0);
 }
 
 int	main(int ac, char **av)
@@ -65,9 +77,12 @@ int	main(int ac, char **av)
 	ft_memset(&game, 0, sizeof(game));
 	if (parsing(&game, av) == ERROR)
 		return (free_data_fd(&game.map), ERROR);
-	create_initial_img(&game);
-	mlx_hook(game.win, 2, 1L << 0, ((mlx_func_t)(uintptr_t)key), &game);
+	if (create_initial_img(&game))
+		return (ft_putendl_fd("ERROR lors de l'ouverture des images", 2), ERROR);
+	mlx_hook(game.win, 2, 1L << 0, ((mlx_func_t)(uintptr_t)keywee), &game);
+	mlx_hook(game.win, 3, 1L << 1, ((mlx_func_t)(uintptr_t)keyno), &game);
 	mlx_hook(game.win, 17, 0, ((mlx_func_t)(uintptr_t)exit_game), &game);
+	mlx_loop_hook(game.mlx, (mlx_func_t)(uintptr_t)display, &game);
 	mlx_loop(game.mlx);
 	return (OK);
 }
