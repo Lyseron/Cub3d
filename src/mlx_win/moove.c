@@ -6,7 +6,7 @@
 /*   By: mvignes <mvignes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/21 14:08:07 by mvignes           #+#    #+#             */
-/*   Updated: 2026/06/22 20:46:59 by mvignes          ###   ########.fr       */
+/*   Updated: 2026/06/29 10:46:36 by mvignes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,23 +51,23 @@ void	moove(t_game *game, t_player *player, double *next_x, double *next_y)
 {
 	if (game->bool_key.w)
 	{
-		*next_x = player->pos_x + (game->ray.cos_p * player->speed_player);
-		*next_y = player->pos_y + (game->ray.sin_p * player->speed_player);
+		*next_x += (game->ray.cos_p * player->speed_player);
+		*next_y += (game->ray.sin_p * player->speed_player);
 	}
 	if (game->bool_key.a)
 	{
-		*next_x = player->pos_x + (game->ray.sin_p * player->speed_player);
-		*next_y = player->pos_y - (game->ray.cos_p * player->speed_player);
+		*next_x += (game->ray.sin_p * player->speed_player);
+		*next_y -= (game->ray.cos_p * player->speed_player);
 	}
 	if (game->bool_key.s)
 	{
-		*next_x = player->pos_x - (game->ray.cos_p * player->speed_player);
-		*next_y = player->pos_y - (game->ray.sin_p * player->speed_player);
+		*next_x -= (game->ray.cos_p * player->speed_player);
+		*next_y -= (game->ray.sin_p * player->speed_player);
 	}
 	if (game->bool_key.d)
 	{
-		*next_x = player->pos_x - (game->ray.sin_p * player->speed_player);
-		*next_y = player->pos_y + (game->ray.cos_p * player->speed_player);
+		*next_x -= (game->ray.sin_p * player->speed_player);
+		*next_y += (game->ray.cos_p * player->speed_player);
 	}
 	if (game->bool_key.right)
 		player->plane += TURN_RIGTH * SPEED_CAM;
@@ -78,7 +78,7 @@ void	moove(t_game *game, t_player *player, double *next_x, double *next_y)
 static void	init_speed(t_game *game)
 {
 	if (game->bool_key.shift)
-		game->player.speed_player = SPEED * 3.5f;
+		game->player.speed_player = SPEED * SPEED_SPRIT;
 	else
 		game->player.speed_player = SPEED;
 }
@@ -89,8 +89,8 @@ void	move_player(t_game *game)
 	double	next_pos_play_y;
 
 	init_speed(game);
-	next_pos_play_x = 0;
-	next_pos_play_y = 0;
+	next_pos_play_x = game->player.pos_x;
+	next_pos_play_y = game->player.pos_y;
 	moove(game, &game->player, &next_pos_play_x, &next_pos_play_y);
 	if (next_pos_play_x - BORDER_PLAYER < 0
 		|| next_pos_play_y - BORDER_PLAYER < 0)

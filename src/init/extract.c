@@ -6,7 +6,7 @@
 /*   By: mvignes <mvignes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/09 14:48:48 by mvignes           #+#    #+#             */
-/*   Updated: 2026/06/22 16:30:57 by mvignes          ###   ########.fr       */
+/*   Updated: 2026/06/29 10:54:48 by mvignes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ bool	extract_data(t_map *map)
 	{
 		line = get_next_line(map->map_fd);
 		if (!line)
-			break;
+			break ;
 		if (sort_value(line, map) || line_not_parasite(line, map))
 			return (free_line_and_gnl(line),
 				print_error("Error: Value not correct", map, ERROR));

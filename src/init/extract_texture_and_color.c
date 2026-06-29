@@ -6,7 +6,7 @@
 /*   By: mvignes <mvignes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/08 17:05:45 by mvignes           #+#    #+#             */
-/*   Updated: 2026/06/22 16:42:46 by mvignes          ###   ########.fr       */
+/*   Updated: 2026/06/29 10:55:22 by mvignes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ static bool	good_value_not_map(char *line, t_map *map)
 {
 	if (!map->texture.path[IS_NORTH] || !map->texture.path[IS_SOUTH]
 		|| !map->texture.path[IS_WEAST] || !map->texture.path[IS_EAST]
-		|| !map->ceiling || !map->floor || map->error_doublon)
+		|| !map->ceiling || !map->floor || map->error)
 	{
 		if (ft_strnstr(line, "01", ft_strlen(line))
 			|| ft_strnstr(line, "11", ft_strlen(line))
@@ -53,7 +53,7 @@ static int	add_value_or_check_doublon(char *line, t_map *map,
 	char	*tmp;
 
 	if (*texture)
-		map->error_doublon = true;
+		map->error = true;
 	else
 	{
 		tmp = ft_strdup(add_texture(line, find));
@@ -72,7 +72,7 @@ static int	add_value_or_check_doublon(char *line, t_map *map,
 int	sort_value(char *line, t_map *map)
 {
 	t_texture	*text;
-	
+
 	text = &map->texture;
 	if (ft_strnstr(line, "NO", ft_strlen(line)))
 		add_value_or_check_doublon(line, map, "NO", &text->path[IS_NORTH]);
@@ -87,6 +87,6 @@ int	sort_value(char *line, t_map *map)
 		if (sort_color(line, map))
 			return (ERROR);
 	if (good_value_not_map(line, map))
-		return (map->error_doublon = true, ERROR);
+		return (map->error = true, ERROR);
 	return (OK);
 }

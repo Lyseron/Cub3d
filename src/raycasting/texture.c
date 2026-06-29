@@ -3,41 +3,40 @@
 /*                                                        :::      ::::::::   */
 /*   texture.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vignesmattheu <vignesmattheu@student.42    +#+  +:+       +#+        */
+/*   By: mvignes <mvignes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/22 18:02:20 by mvignes           #+#    #+#             */
-/*   Updated: 2026/06/24 11:54:29 by vignesmatth      ###   ########.fr       */
+/*   Updated: 2026/06/29 10:49:39 by mvignes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "cube.h"
+#include "cube.h"
 
-int get_pixel_from_texture(t_img *tex, int tex_x, int tex_y)
+int	get_pixel_from_texture(t_img *tex, int tex_x, int tex_y)
 {
-    int *pixels;
+	int	*pixels;
 
-    if (!tex || !tex->img_addr)
-        return (0x000000);
-    
+	if (!tex || !tex->img_addr)
+		return (0x000000);
 	if (tex_x < 0 || tex_x >= tex->width || tex_y < 0 || tex_y >= tex->height)
 		return (0x000000);
-
-    pixels = (int *)tex->img_addr;
-    return (pixels[tex_y * (tex->size_line / 4) + tex_x]);
+	pixels = (int *)tex->img_addr;
+	return (pixels[tex_y * (tex->size_line / 4) + tex_x]);
 }
 
-void	direction_wall_for_add_texture(t_game *game, t_ray *ray, double *dist_raw, double *wall_x)
+void	direction_wall_for_add_texture(t_game *game, t_ray *ray,
+	double *dist_raw, double *wall_x)
 {
 	if (ray->wall_touch == 3 || ray->wall_touch == 4)
 	{
 		*dist_raw = (ray->map_x - game->player.pos_x
-			+ (1.0 - ray->step_x) / 2.0) / ray->cos_p;
+				+ (1.0 - ray->step_x) / 2.0) / ray->cos_p;
 		*wall_x = game->player.pos_y + *dist_raw * ray->sin_p;
 	}
 	else
 	{
 		*dist_raw = (ray->map_y - game->player.pos_y
-			+ (1.0 - ray->step_y) / 2.0) / ray->sin_p;
+				+ (1.0 - ray->step_y) / 2.0) / ray->sin_p;
 		*wall_x = game->player.pos_x + *dist_raw * ray->cos_p;
 	}
 }

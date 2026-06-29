@@ -6,7 +6,7 @@
 /*   By: mvignes <mvignes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/10 15:41:09 by mvignes           #+#    #+#             */
-/*   Updated: 2026/06/15 15:21:12 by mvignes          ###   ########.fr       */
+/*   Updated: 2026/06/29 10:55:22 by mvignes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ static char	**split_color(char *line, char *find, t_map *map)
 	tab_char = ft_split(value, ',');
 	if (ft_dba_len(tab_char) != 3)
 	{
-		map->error_doublon = true;
+		map->error = true;
 		ft_free_dba(tab_char);
 		return (NULL);
 	}
@@ -80,13 +80,13 @@ static bool	add_var_color(char *line, t_map *map, char *find, int **color)
 {
 	if (*color)
 	{
-		map->error_doublon = true;
+		map->error = true;
 		return (ERROR);
 	}
 	else
 	{
 		*color = add_color(line, find, map);
-		if (map->error_doublon)
+		if (map->error)
 			return (ERROR);
 	}
 	return (OK);

@@ -6,7 +6,7 @@
 /*   By: mvignes <mvignes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/09 18:23:50 by mvignes           #+#    #+#             */
-/*   Updated: 2026/06/22 16:37:38 by mvignes          ###   ########.fr       */
+/*   Updated: 2026/06/29 10:55:47 by mvignes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	print_error(char *str, t_map *map, int r)
 {
-	map->error_doublon = true;
+	map->error = true;
 	ft_putendl_fd(str, 2);
 	free_data_fd(map);
 	return (r);
@@ -35,7 +35,7 @@ void	free_and_null(void **data)
 
 void	free_all_img(t_game *game)
 {
-	t_texture *texture;
+	t_texture	*texture;
 
 	texture = &game->map.texture;
 	if (game->img.img_ptr)

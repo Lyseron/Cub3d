@@ -6,7 +6,7 @@
 /*   By: mvignes <mvignes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/11 16:09:54 by mvignes           #+#    #+#             */
-/*   Updated: 2026/06/22 16:32:27 by mvignes          ###   ########.fr       */
+/*   Updated: 2026/06/29 10:55:22 by mvignes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,17 +15,17 @@
 static bool	good_caractere(char *line)
 {
 	if (ft_strnstr(line, "NO", ft_strlen(line))
-	|| ft_strnstr(line, "SO", ft_strlen(line))
-	|| ft_strnstr(line, "WE", ft_strlen(line))
-	|| ft_strnstr(line, "EA", ft_strlen(line))
-	|| ft_strnstr(line, "C", ft_strlen(line))
-	|| ft_strnstr(line, "F", ft_strlen(line))
-	|| ft_strnstr(line, "0", ft_strlen(line))
-	|| ft_strnstr(line, "1", ft_strlen(line))
-	|| ft_strnstr(line, "S", ft_strlen(line))
-	|| ft_strnstr(line, "E", ft_strlen(line))
-	|| ft_strnstr(line, "N", ft_strlen(line))
-	|| ft_strnstr(line, "W", ft_strlen(line)))
+		|| ft_strnstr(line, "SO", ft_strlen(line))
+		|| ft_strnstr(line, "WE", ft_strlen(line))
+		|| ft_strnstr(line, "EA", ft_strlen(line))
+		|| ft_strnstr(line, "C", ft_strlen(line))
+		|| ft_strnstr(line, "F", ft_strlen(line))
+		|| ft_strnstr(line, "0", ft_strlen(line))
+		|| ft_strnstr(line, "1", ft_strlen(line))
+		|| ft_strnstr(line, "S", ft_strlen(line))
+		|| ft_strnstr(line, "E", ft_strlen(line))
+		|| ft_strnstr(line, "N", ft_strlen(line))
+		|| ft_strnstr(line, "W", ft_strlen(line)))
 		return (true);
 	return (false);
 }
@@ -43,7 +43,7 @@ bool	line_not_parasite(char *line, t_map *map)
 			i++;
 		if (!(!line[i]))
 		{
-			map->error_doublon = true;
+			map->error = true;
 			return (true);
 		}
 	}
@@ -53,7 +53,7 @@ bool	line_not_parasite(char *line, t_map *map)
 bool	good_len_color(int *Ceiling, int *Floor)
 {
 	int	i;
-	
+
 	i = 0;
 	while (Ceiling[i] != -1)
 		i++;
@@ -85,7 +85,7 @@ bool	verif_init_value(t_map *map)
 	if (!map->texture.path[IS_NORTH] || !map->texture.path[IS_SOUTH]
 		|| !map->texture.path[IS_WEAST] || !map->texture.path[IS_EAST]
 		|| !map->ceiling || !map->floor
-		|| map->error_doublon || verif_name_texture(map))
+		|| map->error || verif_name_texture(map))
 		return (false);
 	if (good_len_color(map->ceiling, map->floor))
 		return (false);

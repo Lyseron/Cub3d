@@ -6,7 +6,7 @@
 /*   By: mvignes <mvignes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/08 13:38:07 by lyaberge          #+#    #+#             */
-/*   Updated: 2026/06/28 15:57:19 by mvignes          ###   ########.fr       */
+/*   Updated: 2026/06/29 09:49:43 by mvignes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,8 +49,9 @@
 # define BORDER_PLAYER .2
 
 // The nb of advancement the player mooves in the window
-# define SPEED 0.06
-# define SPEED_CAM 0.05
+# define SPEED 0.03
+# define SPEED_CAM 0.04
+# define SPEED_SPRIT 1.5
 
 # define TURN_RIGTH 1
 # define TURN_LEFT -1
@@ -58,7 +59,7 @@
 # define PI 3.14159265358979323846
 
 
-# define DEBUG 0
+# define DEBUG 1
 
 // Keypress Mac
 // UP = W ; LEFT = A ; RIGHT = D ; DOWN = S

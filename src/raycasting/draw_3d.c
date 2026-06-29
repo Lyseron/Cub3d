@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   draw_3d.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vignesmattheu <vignesmattheu@student.42    +#+  +:+       +#+        */
+/*   By: mvignes <mvignes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/18 13:35:41 by mvignes           #+#    #+#             */
-/*   Updated: 2026/06/24 12:10:13 by vignesmatth      ###   ########.fr       */
+/*   Updated: 2026/06/29 10:50:17 by mvignes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,8 @@ void	init_draw_3d(t_game *game, t_ray *ray)
 		ray->end = game->height - 1;
 	ray->pos_tex_x = calcul_pos_texture(game, ray, ray->tex_projet->width);
 	ray->step = 1.0 * ray->tex_projet->height / ray->line_height;
-	ray->pos_tex = (ray->start_y - game->height / 2.0 + ray->line_height / 2.0) * ray->step;
+	ray->pos_tex = (ray->start_y - game->height
+			/ 2.0 + ray->line_height / 2.0) * ray->step;
 }
 
 void	draw_3d(t_game *game, t_ray *ray, int y, int i)

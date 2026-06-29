@@ -6,7 +6,7 @@
 /*   By: mvignes <mvignes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/09 19:47:20 by mvignes           #+#    #+#             */
-/*   Updated: 2026/06/11 16:44:58 by mvignes          ###   ########.fr       */
+/*   Updated: 2026/06/29 10:56:34 by mvignes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,7 @@ bool	check_no_double_data(char *line, t_map *map)
 		|| ft_strnstr(line, "C", ft_strlen(line))
 		|| ft_strnstr(line, "F", ft_strlen(line)))
 	{
-		map->error_doublon = true;
-		// free(line);
+		map->error = true;
 		return (true);
 	}
 	return (false);
@@ -32,7 +31,7 @@ int	read_map(char *line, t_map *map)
 {
 	t_list	*new;
 
-	while (1 || map->error_doublon)
+	while (1 || map->error)
 	{
 		line = get_next_line(map->map_fd);
 		if (!line || !line[0] || check_no_double_data(line, map)
@@ -44,7 +43,7 @@ int	read_map(char *line, t_map *map)
 		ft_lstadd_back(&(map->extract), new);
 	}
 	close(map->map_fd);
-	if (map->error_doublon)
+	if (map->error)
 		return (free(line), print_error("Error: Data doublon in fd",
 				map, ERROR));
 	return (OK);

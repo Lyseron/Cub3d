@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   key.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vignesmattheu <vignesmattheu@student.42    +#+  +:+       +#+        */
+/*   By: mvignes <mvignes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/18 14:16:59 by mvignes           #+#    #+#             */
-/*   Updated: 2026/06/23 06:11:11 by vignesmatth      ###   ########.fr       */
+/*   Updated: 2026/06/29 10:51:46 by mvignes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,6 @@ int	keyno(int key, t_game *game)
 
 int	keywee(int key, t_game *game)
 {
-	//printf("key = %i\n", key);
 	if (key == ESC)
 		return (exit_game(game), OK);
 	if (key == UP)
