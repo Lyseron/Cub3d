@@ -6,7 +6,7 @@
 /*   By: mvignes <mvignes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/08 13:38:07 by lyaberge          #+#    #+#             */
-/*   Updated: 2026/06/29 11:13:04 by mvignes          ###   ########.fr       */
+/*   Updated: 2026/06/29 12:56:24 by mvignes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@
 //# include <X11/keysym.h>
 # include <limits.h>
 # include <math.h>
+# include <sys/time.h>
 
 # include "parsing.h"
 # include "clean_exit.h"
@@ -49,8 +50,8 @@
 # define BORDER_PLAYER .2
 
 // The nb of advancement the player mooves in the window
-# define SPEED 0.03
-# define SPEED_CAM 0.04
+# define SPEED 5
+# define SPEED_CAM 0.07
 # define SPEED_SPRIT 1.5
 
 # define TURN_RIGTH 1

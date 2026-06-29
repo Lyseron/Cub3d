@@ -6,7 +6,7 @@
 /*   By: mvignes <mvignes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/11 16:48:45 by lyaberge          #+#    #+#             */
-/*   Updated: 2026/06/29 11:36:58 by mvignes          ###   ########.fr       */
+/*   Updated: 2026/06/29 12:03:29 by mvignes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ typedef enum e_status
 	IS_WEAST,
 	IS_EAST,
 	IS_DOOR
-}						t_status;
+}	t_status;
 
 /*------------------------------------------------------------------ STRUCT ---------------------------------------------------------*/
 
@@ -165,6 +165,8 @@ typedef struct	s_bool_key
 
 typedef struct s_game
 {
+	long			old_time;
+	long			time;
 	int				width;
 	int				height;
 	t_map			map;

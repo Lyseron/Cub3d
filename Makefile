@@ -78,6 +78,7 @@ SRCS		= \
 	$(INIT_SRC) \
 	$(MINI_SRC) \
 	$(RAYCASTING_SRC)\
+	$(SRCS_DIR)/utils_time.c\
 	$(SRCS_DIR)/main.c
 
 

@@ -40,4 +40,9 @@ void	init_dda(t_game *game, t_ray *ray, double angle_rayon);
 int	init_all_textures(t_game *game, t_texture *texture);
 int	calcul_pos_texture(t_game *game, t_ray *ray, int tex_width);
 int	get_pixel_from_texture(t_img *tex, int tex_x, int tex_y);
+
+
+
+double	update_time(t_game *game);
+
 #endif
