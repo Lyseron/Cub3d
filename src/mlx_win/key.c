@@ -6,7 +6,7 @@
 /*   By: mvignes <mvignes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/18 14:16:59 by mvignes           #+#    #+#             */
-/*   Updated: 2026/06/29 11:17:36 by mvignes          ###   ########.fr       */
+/*   Updated: 2026/06/29 13:23:51 by mvignes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,6 @@
 
 int	keyno(int key, t_game *game)
 {
-	if (key == ESC)
-		return (exit_game(game), OK);
 	if (key == UP)
 		game->bool_key.w = false;
 	if (key == LEFT)
