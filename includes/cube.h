@@ -6,7 +6,7 @@
 /*   By: mvignes <mvignes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/08 13:38:07 by lyaberge          #+#    #+#             */
-/*   Updated: 2026/06/30 15:45:17 by mvignes          ###   ########.fr       */
+/*   Updated: 2026/06/30 17:02:06 by mvignes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@
 # include <stdlib.h>
 # include <stdbool.h>
 # include <stdint.h>
-//# include <X11/keysym.h>
+# include <X11/keysym.h>
 # include <limits.h>
 # include <math.h>
 # include <sys/time.h>

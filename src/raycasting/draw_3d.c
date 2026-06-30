@@ -6,7 +6,7 @@
 /*   By: mvignes <mvignes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/18 13:35:41 by mvignes           #+#    #+#             */
-/*   Updated: 2026/06/30 13:27:20 by mvignes          ###   ########.fr       */
+/*   Updated: 2026/06/30 16:54:54 by mvignes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,8 +89,10 @@ void	select_texture(t_game *game, t_ray *ray)
 		ray->tex_projet = &game->map.texture.img[IS_SOUTH];
 	else if (ray->wall_touch == 3)
 		ray->tex_projet = &game->map.texture.img[IS_WEAST];
-	else
+	else if (ray->wall_touch == 4)
 		ray->tex_projet = &game->map.texture.img[IS_EAST];
+	else if (ray->wall_touch == 5)
+		ray->tex_projet = &game->map.texture.img[IS_DOOR];
 }
 
 void	draw_line(t_game *game, double angle_rayon, int i)

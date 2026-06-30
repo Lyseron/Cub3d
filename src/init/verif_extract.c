@@ -6,7 +6,7 @@
 /*   By: mvignes <mvignes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/11 16:09:54 by mvignes           #+#    #+#             */
-/*   Updated: 2026/06/29 14:27:50 by mvignes          ###   ########.fr       */
+/*   Updated: 2026/06/30 16:30:52 by mvignes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,8 @@ static bool	good_caractere(char *line)
 		|| ft_strnstr(line, "S", ft_strlen(line))
 		|| ft_strnstr(line, "E", ft_strlen(line))
 		|| ft_strnstr(line, "N", ft_strlen(line))
-		|| ft_strnstr(line, "W", ft_strlen(line)))
+		|| ft_strnstr(line, "W", ft_strlen(line))
+		|| ft_strnstr(line, "DOOR", ft_strlen(line)))
 		return (true);
 	return (false);
 }

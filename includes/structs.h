@@ -6,7 +6,7 @@
 /*   By: mvignes <mvignes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/11 16:48:45 by lyaberge          #+#    #+#             */
-/*   Updated: 2026/06/30 12:09:03 by mvignes          ###   ########.fr       */
+/*   Updated: 2026/06/30 16:31:12 by mvignes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,8 +57,8 @@ typedef struct s_img
 
 typedef struct s_texture
 {
-	char	*path[4];
-	t_img	img[5];
+	char	*path[5];
+	t_img	img[6];
 }	t_texture;
 
 typedef struct s_point
@@ -177,6 +177,7 @@ typedef struct s_game
 	t_mini_player	mini_player;
 	t_ray			ray;
 	t_bool_key		bool_key;
+	bool			is_door;
 }	t_game;
 
 #endif

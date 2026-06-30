@@ -6,7 +6,7 @@
 /*   By: mvignes <mvignes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/21 13:32:41 by mvignes           #+#    #+#             */
-/*   Updated: 2026/06/30 15:16:45 by mvignes          ###   ########.fr       */
+/*   Updated: 2026/06/30 17:01:10 by mvignes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,8 +65,13 @@ void	calcul_horizontal_intersection(t_game *game, t_ray *ray)
 		}
 		if (ray->map_y < 0 || ray->map_x < 0)
 			break ;
-		if (game->map.grid[ray->map_y][ray->map_x] == '1')
-			ray->touch = 1;
+		if (game->map.grid[ray->map_y][ray->map_x] == '1'
+			|| game->map.grid[ray->map_y][ray->map_x] == '2')
+			{
+				if (game->map.grid[ray->map_y][ray->map_x] == '2')
+					ray->wall_touch = 5;
+				ray->touch = 1;
+			}
 	}
 }
 
@@ -92,6 +97,8 @@ void	calcul_dist(t_game *game, t_ray *ray, double angle_rayon)
 // 3 == ouest/ 4 == est/ 1 == nord/ 2 == sud
 void	search_cote_wall(t_game *game, t_ray *ray)
 {
+	if (ray->wall_touch == 5)
+		return ;
 	if (ray->wall_touch == 0)
 	{
 		if (ray->step_x > 0)

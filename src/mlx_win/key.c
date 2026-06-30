@@ -6,11 +6,20 @@
 /*   By: mvignes <mvignes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/18 14:16:59 by mvignes           #+#    #+#             */
-/*   Updated: 2026/06/29 13:23:51 by mvignes          ###   ########.fr       */
+/*   Updated: 2026/06/30 17:06:04 by mvignes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cube.h"
+
+void	action_door(t_game *game)
+{
+	t_ray	*ray;
+
+	ray = &game->ray;
+	if (game->map.grid[(int)game->player.pos_y][(int)game->player.pos_x] == '2')
+		printf("OUIOUI BAGUETTE\n");
+}
 
 int	keyno(int key, t_game *game)
 {
@@ -28,6 +37,8 @@ int	keyno(int key, t_game *game)
 		game->bool_key.right = false;
 	if (key == SHIFT)
 		game->bool_key.shift = false;
+	if (key == XK_E)
+		action_door(game);
 	return (0);
 }
 

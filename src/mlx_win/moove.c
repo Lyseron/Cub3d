@@ -6,7 +6,7 @@
 /*   By: mvignes <mvignes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/21 14:08:07 by mvignes           #+#    #+#             */
-/*   Updated: 2026/06/30 13:57:11 by mvignes          ###   ########.fr       */
+/*   Updated: 2026/06/30 16:45:49 by mvignes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,9 +98,11 @@ void	move_player(t_game *game)
 	if (next_pos_play_x + BORDER_PLAYER >= game->map.map_x
 		|| next_pos_play_y + BORDER_PLAYER >= game->map.map_y)
 		return ;
-	if (game->map.grid[(int)(next_pos_play_y)][(int)(game->player.pos_x)] != '1') // a revoir, pas mal parce quon se bloque pas mais passe a travers les coins des mures
+	if (game->map.grid[(int)(next_pos_play_y)][(int)(game->player.pos_x)] != '1')
+		// && game->map.grid[(int)(next_pos_play_y)][(int)(game->player.pos_x)] != '2') // a revoir, pas mal parce quon se bloque pas mais passe a travers les coins des mures
 		game->player.pos_y = next_pos_play_y;
 	if (game->map.grid[(int)(game->player.pos_y)][(int)next_pos_play_x] != '1')
+		// && game->map.grid[(int)(game->player.pos_y)][(int)next_pos_play_x] != '2')
 		game->player.pos_x = next_pos_play_x;
 	// if (is_bordplayer_touchwall(game, next_pos_play_x, next_pos_play_y))
 	// {

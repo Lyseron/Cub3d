@@ -6,7 +6,7 @@
 /*   By: mvignes <mvignes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/08 17:05:45 by mvignes           #+#    #+#             */
-/*   Updated: 2026/06/29 10:55:22 by mvignes          ###   ########.fr       */
+/*   Updated: 2026/06/30 16:34:53 by mvignes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,9 @@ static bool	good_value_not_map(char *line, t_map *map)
 			|| ft_strnstr(line, "S0", ft_strlen(line))
 			|| ft_strnstr(line, "E0", ft_strlen(line))
 			|| ft_strnstr(line, "N0", ft_strlen(line))
-			|| ft_strnstr(line, "W0", ft_strlen(line)))
+			|| ft_strnstr(line, "W0", ft_strlen(line))
+			|| ft_strnstr(line, "02", ft_strlen(line))
+			|| ft_strnstr(line, "12", ft_strlen(line)))
 			return (true);
 	}
 	return (false);
@@ -41,7 +43,10 @@ static char	*add_texture(char *line, char *find)
 	int		i;
 
 	value = ft_strnstr(line, find, ft_strlen(line));
-	i = 2;
+	if (!ft_strncmp("DOOR", find, 5))
+		i = 4;
+	else
+		i = 2;
 	while (ft_iswhitespace(line[i]))
 		i++;
 	return (&value[i]);
@@ -82,6 +87,8 @@ int	sort_value(char *line, t_map *map)
 		add_value_or_check_doublon(line, map, "WE", &text->path[IS_WEAST]);
 	if (ft_strnstr(line, "EA", ft_strlen(line)))
 		add_value_or_check_doublon(line, map, "EA", &text->path[IS_EAST]);
+	if (ft_strnstr(line, "DOOR", ft_strlen(line)))
+		add_value_or_check_doublon(line, map, "DOOR", &text->path[IS_DOOR]);
 	if (ft_strnstr(line, "C", ft_strlen(line))
 		|| ft_strnstr(line, "F", ft_strlen(line)))
 		if (sort_color(line, map))

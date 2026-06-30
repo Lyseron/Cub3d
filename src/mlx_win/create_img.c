@@ -6,7 +6,7 @@
 /*   By: mvignes <mvignes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/09 17:11:19 by lyaberge          #+#    #+#             */
-/*   Updated: 2026/06/29 10:52:49 by mvignes          ###   ########.fr       */
+/*   Updated: 2026/06/30 16:30:13 by mvignes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,8 @@ int	create_initial_img(t_game *game)
 	if (laod_texture(game, &tex->img[IS_WEAST], tex->path[IS_WEAST]) == ERROR)
 		return (ERROR);
 	if (laod_texture(game, &tex->img[IS_EAST], tex->path[IS_EAST]) == ERROR)
+		return (ERROR);
+	if (laod_texture(game, &tex->img[IS_DOOR], tex->path[IS_DOOR]) == ERROR)
 		return (ERROR);
 	return (OK);
 }
