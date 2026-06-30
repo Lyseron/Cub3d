@@ -6,7 +6,7 @@
 /*   By: mvignes <mvignes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/11 16:48:45 by lyaberge          #+#    #+#             */
-/*   Updated: 2026/06/29 15:28:48 by mvignes          ###   ########.fr       */
+/*   Updated: 2026/06/30 12:09:03 by mvignes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,8 +63,8 @@ typedef struct s_texture
 
 typedef struct s_point
 {
-	void	*x;
-	void	*y;
+	double	x;
+	double	y;
 }	t_point;
 
 typedef struct s_raycasting

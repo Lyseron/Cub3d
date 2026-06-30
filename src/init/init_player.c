@@ -6,7 +6,7 @@
 /*   By: mvignes <mvignes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/09 16:53:12 by lyaberge          #+#    #+#             */
-/*   Updated: 2026/06/22 16:53:58 by mvignes          ###   ########.fr       */
+/*   Updated: 2026/06/30 15:07:48 by mvignes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,11 +61,24 @@ int	get_dir_y(char where_player_look)
 		return (10);
 }
 
+void	init_angle_player_spawn(t_player *player)
+{
+	if (player->where_look == 'N')
+		player->plane = (3 * PI) / 2;
+	else if (player->where_look == 'S')
+		player->plane = PI / 2;
+	else if (player->where_look == 'E')
+		player->plane = PI;
+	else if (player->where_look == 'W')
+		player->plane = 0;
+}
+
 static int	found_dir_player(t_player *player, int *x, int *y)
 {
 	char	look_player;
 
 	look_player = player->where_look;
+	init_angle_player_spawn(player);
 	if (!look_player)
 		return (ERROR);
 	*x = get_dir_x(look_player);

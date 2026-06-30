@@ -6,7 +6,7 @@
 /*   By: mvignes <mvignes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/21 13:32:41 by mvignes           #+#    #+#             */
-/*   Updated: 2026/06/29 17:43:23 by mvignes          ###   ########.fr       */
+/*   Updated: 2026/06/30 15:16:45 by mvignes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,17 +78,13 @@ void	calcul_dist(t_game *game, t_ray *ray, double angle_rayon)
 
 	player = &game->player;
 	if (ray->wall_touch == 0)
-	{
-		tmp = (ray->map_x - player->pos_x + (1 - ray->step_x) / 2);
-		ray->dist_perp = tmp / ray->cos_p;
-	}
+		ray->dist_perp = (ray->map_x - player->pos_x + (1 - ray->step_x) / 2)
+			/ ray->cos_p;
 	else
-	{
-		tmp = (ray->map_y - player->pos_y + (1 - ray->step_y) / 2);
-		ray->dist_perp = tmp / ray->sin_p;
-	}
-	// angle_correctif = angle_rayon - game->player.plane;		<----- regle le probleme du fisheye mais fait twerker les murs
-	// ray->dist_perp *= cos(angle_correctif);					<----- regle le probleme du fisheye mais fait twerker les murs
+		ray->dist_perp = (ray->map_y - player->pos_y + (1 - ray->step_y) / 2)
+			/ ray->sin_p;
+	angle_correctif = angle_rayon - player->plane;			//<----- regle le probleme du fisheye mais fait twerker les murs
+	ray->dist_perp *= cos(angle_correctif);					//<----- regle le probleme du fisheye mais fait twerker les murs
 	if (ray->dist_perp < 0.05)
 		ray->dist_perp = 0.05;
 }
