@@ -6,7 +6,7 @@
 /*   By: mvignes <mvignes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/18 13:35:41 by mvignes           #+#    #+#             */
-/*   Updated: 2026/06/30 16:54:54 by mvignes          ###   ########.fr       */
+/*   Updated: 2026/07/01 17:17:46 by mvignes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,18 +81,36 @@ void	draw_3d(t_game *game, t_ray *ray, int y, int i)
 		put_pixel(game, i, y, game->map.floor);
 }
 
+// bool	player_proche_door(t_game *game, t_player *player)
+// {
+// 	if (game->map.grid[(int)player->pos_y][(int)player->pos_x] == '2'
+// 		|| game->map.grid[(int)player->pos_y + 1][(int)player->pos_x] == '2'
+// 		|| game->map.grid[(int)player->pos_y - 1][(int)player->pos_x] == '2'
+// 		|| game->map.grid[(int)player->pos_y][(int)player->pos_x + 1] == '2'
+// 		|| game->map.grid[(int)player->pos_y][(int)player->pos_x - 1] == '2'
+// 		|| game->map.grid[(int)player->pos_y + 1][(int)player->pos_x + 1] == '2'
+// 		|| game->map.grid[(int)player->pos_y - 1][(int)player->pos_x + 1] == '2'
+// 		|| game->map.grid[(int)player->pos_y - 1][(int)player->pos_x - 1] == '2'
+// 		|| game->map.grid[(int)player->pos_y + 1][(int)player->pos_x - 1] == '2')
+// 		return (true);
+// 	return (false);
+// }
+
 void	select_texture(t_game *game, t_ray *ray)
 {
-	if (ray->wall_touch == 1)
-		ray->tex_projet = &game->map.texture.img[IS_NORTH];
-	else if (ray->wall_touch == 2)
-		ray->tex_projet = &game->map.texture.img[IS_SOUTH];
-	else if (ray->wall_touch == 3)
-		ray->tex_projet = &game->map.texture.img[IS_WEAST];
-	else if (ray->wall_touch == 4)
-		ray->tex_projet = &game->map.texture.img[IS_EAST];
-	else if (ray->wall_touch == 5)
+	t_player	*player;
+
+	player = &game->player;
+	if (ray->touch == 2 /*&& !player_proche_door(game, player)*/)
 		ray->tex_projet = &game->map.texture.img[IS_DOOR];
+	else if (ray->wall_touch == 1 /*&& ray->touch != 0*/)
+		ray->tex_projet = &game->map.texture.img[IS_NORTH];
+	else if (ray->wall_touch == 2 /*&& ray->touch != 0*/)
+		ray->tex_projet = &game->map.texture.img[IS_SOUTH];
+	else if (ray->wall_touch == 3 /*&& ray->touch != 0*/)
+		ray->tex_projet = &game->map.texture.img[IS_WEAST];
+	else if (ray->wall_touch == 4 /*&& ray->touch != 0*/)
+		ray->tex_projet = &game->map.texture.img[IS_EAST];
 }
 
 void	draw_line(t_game *game, double angle_rayon, int i)

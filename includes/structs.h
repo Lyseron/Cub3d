@@ -6,7 +6,7 @@
 /*   By: mvignes <mvignes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/11 16:48:45 by lyaberge          #+#    #+#             */
-/*   Updated: 2026/06/30 16:31:12 by mvignes          ###   ########.fr       */
+/*   Updated: 2026/07/01 17:21:04 by mvignes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,7 +82,7 @@ typedef struct s_raycasting
 	double	side_dist_x;	// distance jusqua la prochaine ligne	<----- utiliser dans raycasting
 	double	side_dist_y;	// distance jusqua la prochaine ligne	<----- utiliser dans raycasting
 	
-	bool	touch;												//	<----- utiliser dans raycasting
+	int		touch;												//	<----- utiliser dans raycasting
 	int		wall_touch; //											<----- utiliser dans raycasting
 
 	double	dist_perp;		// distance de l'intersection			<----- utiliser dans raycasting
@@ -160,6 +160,7 @@ typedef struct	s_bool_key
 	bool	left;
 	bool	right;
 	bool	shift;
+	bool	door;
 }	t_bool_key;
 
 typedef struct s_game
