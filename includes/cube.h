@@ -21,6 +21,20 @@
 # include <fcntl.h>
 # include <stdlib.h>
 # include <stdbool.h>
+# include <stdint.h>
+# include <math.h>
+
+// Struct
+# include "structs.h"
+
+// Prototypes
+# include "parsing.h"
+# include "clean_exit.h"
+# include "init.h"
+# include "mini_map.h"
+# include "mlx_win.h"
+
+typedef int	(*mlx_func_t)();
 
 // Bool for returns 
 # define OK 0
@@ -42,8 +56,28 @@
 // The nb of advancement the player mooves in the window
 # define SPEED 0.1
 
+// The nb of advancement the player mooves in the window
+# define SPEED_CAM 0.01
+
 // The marge between the top right and the map
-# define MARGE 15
+# define MARGE 25
+
+// How many case from the player the tiny map shows
+# define CASE_FROM_PLAYER 8
+
+// For the angle of the camera
+# define PI 3.14
+
+// Define the frame size around the mini/tiny map in pixel
+# define FRAME_SIZE 10
+
+// The color for the mini/tiny maps
+# define COLOR_WALL 0x009999
+# define COLOR_FLOOR 0x1e1e2e
+# define COLOR_PLAYER 11691775
+# define COLOR_RAY 11691775
+# define COLOR_FRAME 0x1e1e2e
+# define COLOR_BACKGROUND 0x202020
 
 // Keypress Mac
 // UP = W ; LEFT = A ; RIGHT = D ; DOWN = S
@@ -52,6 +86,11 @@
 # define LEFT 0
 # define RIGHT 2
 # define DOWN 1
+# define ARROW_UP 126
+# define ARROW_LEFT 123
+# define ARROW_RIGHT 124
+# define ARROW_DOWN 125
+# define MAP_CHANGE 46
 
 // // Keypress Linux
 // // UP = W ; LEFT = A ; RIGHT = D ; DOWN = S
@@ -60,15 +99,10 @@
 // # define LEFT 97
 // # define RIGHT 100
 // # define DOWN 115
-
-// Struct
-# include "structs.h"
-
-// Prototypes
-# include "parsing.h"
-# include "clean_exit.h"
-# include "init.h"
-# include "mini_map.h"
-# include "mlx_win.h"
+// # define ARROW_UP 65362
+// # define ARROW_LEFT 65361
+// # define ARROW_RIGHT 65363
+// # define ARROW_DOWN 65364
+// # define MAP_CHANGE 109
 
 #endif

@@ -14,6 +14,10 @@
 # define MLX_WIN_H
 
 /* ------------------- create_img.c ------------------------ */
-int		create_initial_img(t_game *game);
+int	init_img(t_game *game);
+
+/* ------------------- key.c ------------------------------- */
+int	keyno(int key, t_game *game);
+int	keywee(int key, t_game *game);
 
 #endif

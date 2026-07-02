@@ -22,3 +22,14 @@ int	init_mlx(t_game *game)
 		return (ERROR);
 	return (OK);
 }
+
+void	init_key(t_game *game)
+{
+	game->bool_key.a = false;
+	game->bool_key.w = false;
+	game->bool_key.s = false;
+	game->bool_key.d = false;
+	game->bool_key.left = false;
+	game->bool_key.right = false;
+	game->bool_key.change_map = false;
+}

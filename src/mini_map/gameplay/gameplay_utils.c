@@ -12,14 +12,6 @@
 
 #include "cube.h"
 
-void	update_dir(t_game *game, char look)
-{
-	game->player.dir_x = get_dir_x(look);
-	game->player.dir_y = get_dir_y(look);
-	game->ray.plane_x = -game->player.dir_y * 0.66;
-	game->ray.plane_y = game->player.dir_x * 0.66;
-}
-
 static bool	bordplayer_cond(t_game *game)
 {
 	if (game->mini_player.player_left < game->mini_map.map_case_right
@@ -43,7 +35,8 @@ bool	is_bordplayer_touch_wall(t_game *game, double next_x, double next_y)
 		while (x < game->map.map_x)
 		{
 			init_mini_map_square(game, x, y);
-			if (game->map.grid[y][x] == '1')
+			if (x < ft_strlen(game->map.grid[y])
+				&& game->map.grid[y][x] == '1')
 			{
 				if (bordplayer_cond(game) == true)
 					return (true);

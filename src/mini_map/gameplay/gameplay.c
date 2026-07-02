@@ -39,37 +39,44 @@ static int	moove_player(t_game *game, double dir_x, double dir_y)
 	return (OK);
 }
 
-static int	is_moove_ok(t_game *game, int key_choice)
+int	is_moove_ok(t_game *game, int key_choice)
 {
 	if (key_choice == UP)
-	{
-		update_dir(game, 'N');
 		return (moove_player(game, game->player.dir_x, game->player.dir_y));
-	}
 	else if (key_choice == LEFT)
-	{
-		update_dir(game, 'W');
-		return (moove_player(game, game->player.dir_x, game->player.dir_y));
-	}
+		return (moove_player(game, game->player.dir_y, -game->player.dir_x));
 	else if (key_choice == RIGHT)
-	{
-		update_dir(game, 'E');
-		return (moove_player(game, game->player.dir_x, game->player.dir_y));
-	}
+		return (moove_player(game, -game->player.dir_y, game->player.dir_x));
 	else if (key_choice == DOWN)
-	{
-		update_dir(game, 'S');
-		return (moove_player(game, game->player.dir_x, game->player.dir_y));
-	}
+		return (moove_player(game, -game->player.dir_x, -game->player.dir_y));
 	else
 		return (ERROR);
 }
 
-int	key(int key_choice, t_game *game)
+int	game_loop(t_game *game)
 {
-	if (key_choice == ESC)
-		return (exit_game(game), OK);
-	if (is_moove_ok(game, key_choice) == OK)
-		draw_mini_map(game);
+	game->moved = false;
+	if (game->bool_key.w && is_moove_ok(game, UP) == OK)
+		game->moved = true;
+	if (game->bool_key.a && is_moove_ok(game, LEFT) == OK)
+		game->moved = true;
+	if (game->bool_key.s && is_moove_ok(game, DOWN) == OK)
+		game->moved = true;
+	if (game->bool_key.d && is_moove_ok(game, RIGHT) == OK)
+		game->moved = true;
+	if (game->bool_key.left)
+	{
+		game->player.angle += SPEED_CAM;
+		update_dir(game);
+		game->moved = true;
+	}
+	if (game->bool_key.right)
+	{
+		game->player.angle -= SPEED_CAM;
+		update_dir(game);
+		game->moved = true;
+	}
+	if (game->moved == true)
+		adaptative_mini_map(game);
 	return (OK);
 }

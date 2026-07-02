@@ -13,6 +13,9 @@
 #ifndef PARSING_H
 # define PARSING_H
 
+/* ------------------- Parsing.c --------------------------= */
+int		parsing(t_game *game, char **av);
+
 /* ------------------- Check_map_cub.c --------------------- */
 int		ft_decide(char *av);
 

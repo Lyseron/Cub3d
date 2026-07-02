@@ -33,49 +33,29 @@ static int	found_pos_player(char **map, int *x, int *y, char *letter_player)
 	return (ERROR);
 }
 
-int	get_dir_x(char where_player_look)
+double	get_angle(char where_player_look)
 {
 	if (where_player_look == 'N')
-		return (0);
+		return (3 * PI / 2);
 	else if (where_player_look == 'S')
-		return (0);
+		return (PI / 2);
 	else if (where_player_look == 'E')
-		return (1);
+		return (0);
 	else if (where_player_look == 'W')
-		return (-1);
+		return (PI);
 	else
 		return (10);
 }
 
-int	get_dir_y(char where_player_look)
+void	update_dir(t_game *game)
 {
-	if (where_player_look == 'N')
-		return (-1);
-	else if (where_player_look == 'S')
-		return (1);
-	else if (where_player_look == 'E')
-		return (0);
-	else if (where_player_look == 'W')
-		return (0);
-	else
-		return (10);
+	game->player.dir_x = cos(game->player.angle);
+	game->player.dir_y = sin(game->player.angle);
+	game->ray.plane_x = -game->player.dir_y * 0.66;
+	game->ray.plane_y = game->player.dir_x * 0.66;
 }
 
-static int	found_dir_player(t_player *player, int *x, int *y)
-{
-	char	look_player;
-
-	look_player = player->where_look;
-	if (!look_player)
-		return (ERROR);
-	*x = get_dir_x(look_player);
-	*y = get_dir_y(look_player);
-	if (*x == 10 || *y == 10)
-		return (ERROR);
-	return (OK);
-}
-
-int	fill_struct_player(t_player *player, char **map)
+int	fill_struct_player(t_game *game)
 {
 	int		x;
 	int		y;
@@ -84,14 +64,12 @@ int	fill_struct_player(t_player *player, char **map)
 	x = 0;
 	y = 0;
 	letter_player = '\0';
-	if (found_pos_player(map, &x, &y, &letter_player) == ERROR)
+	if (found_pos_player(game->map.grid, &x, &y, &letter_player) == ERROR)
 		return (ERROR);
-	player->pos_x = (double)x + 0.5;
-	player->pos_y = (double)y + 0.5;
-	player->where_look = letter_player;
-	if (found_dir_player(player, &x, &y) == ERROR)
-		return (ERROR);
-	player->dir_x = (double)x;
-	player->dir_y = (double)y;
+	game->player.pos_x = (double)x + 0.5;
+	game->player.pos_y = (double)y + 0.5;
+	game->player.where_look = letter_player;
+	game->player.angle = get_angle(letter_player);
+	update_dir(game);
 	return (OK);
 }

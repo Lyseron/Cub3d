@@ -18,15 +18,6 @@ INCS		= -I. -I$(LIBFT_DIR)
 LIBFT_DIR	= libft
 LIBFT		= $(LIBFT_DIR)/libft.a
 
-SRCS		= ./src/main.c\
-			./src/parsing/extract.c\
-			./src/parsing/extract_map.c\
-			./src/parsing/extract_color.c\
-			./src/parsing/check_name_texture.c\
-			./src/parsing/read_map.c\
-			./src/parsing/extract_texture_and_color.c\
-			./src/parsing/free.c\
-
 OBJS		= $(SRCS:%.c=%.o)
 RM			= rm -f
 UNAME_S		:= $(shell uname)
@@ -39,20 +30,32 @@ MINI_DIR    = $(SRCS_DIR)/mini_map
 MLX_WIN_DIR = $(SRCS_DIR)/mlx_win
 
 PARS_SRC   = \
-	$(PARS_DIR)/check_valid_map.c \
-	$(PARS_DIR)/check_valid_map_utils.c \
-	$(PARS_DIR)/check_map_cub.c \
-	$(PARS_DIR)/check_name_texture.c\
-	$(PARS_DIR)/read_map.c
+	$(PARS_DIR)/parsing.c \
+	$(PARS_DIR)/checks/check_valid_map.c \
+	$(PARS_DIR)/checks/check_valid_map_utils.c \
+	$(PARS_DIR)/checks/check_map_cub.c \
+	$(PARS_DIR)/checks/check_name_texture.c\
+	$(PARS_DIR)/checks/read_map.c
 	
 MLX_WIN_SRC = \
-	$(MLX_WIN_DIR)/create_img.c
+	$(MLX_WIN_DIR)/create_img.c \
+	$(MLX_WIN_DIR)/key.c
 
 MINI_SRC    = \
-	$(MINI_DIR)/draw_mini_map.c \
-	$(MINI_DIR)/draw_mini_map_utils.c \
-	$(MINI_DIR)/gameplay_utils.c \
-	$(MINI_DIR)/gameplay.c
+	$(MINI_DIR)/mini_maps.c \
+	$(MINI_DIR)/draw/draw_mini_map.c \
+	$(MINI_DIR)/draw/draw_tiny_map.c \
+	$(MINI_DIR)/draw/draw_mp_components.c \
+	$(MINI_DIR)/draw/draw_mp_utils.c \
+	$(MINI_DIR)/draw/draw_tm_components.c \
+	$(MINI_DIR)/draw/draw_tm_utils.c \
+	$(MINI_DIR)/gameplay/gameplay_utils.c \
+	$(MINI_DIR)/gameplay/gameplay.c \
+	$(MINI_DIR)/init/init_mini_map.c \
+	$(MINI_DIR)/init/init_mini_player.c \
+	$(MINI_DIR)/init/init_tiny_player.c \
+	$(MINI_DIR)/init/init_tiny_map.c \
+	$(MINI_DIR)/init/init_ray.c
 
 INIT_SRC    = \
 	$(INIT_DIR)/extract_color.c \
@@ -60,9 +63,6 @@ INIT_SRC    = \
 	$(INIT_DIR)/extract_map.c \
 	$(INIT_DIR)/extract_texture_and_color.c \
 	$(INIT_DIR)/init_player.c \
-	$(INIT_DIR)/init_mini_map.c \
-	$(INIT_DIR)/init_mini_player.c \
-	$(INIT_DIR)/init_ray.c \
 	$(INIT_DIR)/init_mlx.c
 
 CLEAN_SRC  = \
@@ -81,7 +81,7 @@ SRCS    = \
 OBJ_DIR    = obj/
 OBJS    = $(addprefix $(OBJ_DIR), $(SRCS:%.c=%.o))
 
-RM      = rm -f
+RM      = rm -rf
 UNAME_S := $(shell uname)
 
 ifeq ($(UNAME_S),Darwin)
@@ -112,7 +112,7 @@ $(LIBFT):
 	@make -C $(LIBFT_DIR) > /dev/null 2>&1
 
 clean:
-	@$(RM) $(OBJS) .last_colors vgcore.* logs
+	@$(RM) $(OBJ_DIR) .last_colors vgcore.* logs
 	@make -C $(LIBFT_DIR) clean > /dev/null 2>&1
 	@make -C $(MLX_DIR) clean > /dev/null 2>&1
 	@printf "\033[34mObjects cleaned\033[0m\n"

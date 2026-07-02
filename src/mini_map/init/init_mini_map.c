@@ -16,11 +16,10 @@ void	init_mini_map_coord(t_mini_map *mini_map, int map_x, int map_y)
 {
 	if (!mini_map)
 		return ;
-	mini_map->start_y = map_y * SIZE_SQUARE + MARGE;
-	mini_map->start_x = map_x * SIZE_SQUARE + MARGE;
+	mini_map->start_y = convert_map_y_to_win_y(map_y);
+	mini_map->start_x = convert_map_x_to_win_x(map_x);
 	mini_map->end_y = mini_map->start_y + SIZE_SQUARE;
 	mini_map->end_x = mini_map->start_x + SIZE_SQUARE;
-	mini_map->win_y = mini_map->start_y;
 }
 
 // For the collision

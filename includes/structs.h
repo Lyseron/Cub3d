@@ -23,6 +23,7 @@ typedef struct s_player
 	double	pos_y;
 	double	dir_x;
 	double	dir_y;
+	double	angle;
 }	t_player;
 
 typedef struct s_texture
@@ -74,8 +75,6 @@ typedef struct s_img
 
 typedef struct s_mini_map
 {
-	int		win_x;
-	int		win_y;
 	int		start_y;
 	int		start_x;
 	int		end_y;
@@ -85,6 +84,28 @@ typedef struct s_mini_map
 	int		map_case_top;
 	int		map_case_bottom;
 }	t_mini_map;
+
+typedef struct s_tiny_map
+{
+	int	start_y;
+	int	end_y;
+	int	start_x;
+	int	end_x;
+
+	int	pixel_x;
+	int	pixel_y;
+	int	start_pixel_x;
+	int	start_pixel_y;
+	int	end_pixel_y;
+	int	end_pixel_x;
+	int	player_center_x;
+	int	player_center_y;
+
+	int	max_x;
+	int	max_y;
+	int	min_y;
+	int	min_x;
+}	t_tiny_map;
 
 typedef struct s_mini_map_player
 {
@@ -98,9 +119,18 @@ typedef struct s_mini_map_player
 	double	player_bottom;
 	double	player_left;
 	double	player_right;
-	int		player_pixel_y;
-	int		player_pixel_x;
 }	t_mini_player;
+
+typedef struct s_bool_key
+{
+	bool	w;
+	bool	a;
+	bool	s;
+	bool	d;
+	bool	left;
+	bool	right;
+	bool	change_map;
+}	t_bool_key;
 
 typedef struct s_raycasting
 {
@@ -108,11 +138,11 @@ typedef struct s_raycasting
 	double	ray_pos_y;
 	double	plane_x;
 	double	plane_y;
-	bool	hit_a_wall;
 }	t_ray;
 
 typedef struct s_game
 {
+	t_tiny_map		tiny_map;
 	t_map			map;
 	t_player		player;
 	void			*mlx;
@@ -121,6 +151,8 @@ typedef struct s_game
 	t_mini_map		mini_map;
 	t_mini_player	mini_player;
 	t_ray			ray;
+	t_bool_key		bool_key;
+	bool			moved;
 }	t_game;
 
 #endif

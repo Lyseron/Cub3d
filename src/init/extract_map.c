@@ -96,6 +96,7 @@ void	write_map(t_map *map)
 			map->grid[i][j] = tmp_char[j];
 			j++;
 		}
+		map->grid[i][j] = '\0';
 		i++;
 		tmp = tmp->next;
 	}
