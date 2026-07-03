@@ -27,6 +27,8 @@ To draw a square for the minimap:
 For the wall Collision of the minimap:
 - https://jonathanwhiting.com/tutorial/collision/
 
+For the convertion of color:
+- https://harm-smits.github.io/42docs/libs/minilibx/colors.html
 
 ### AI uses :
 

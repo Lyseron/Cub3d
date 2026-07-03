@@ -1,0 +1,21 @@
+NO ./texture_gall/wall_painting_landscape.xpm
+SO ./texture_gall/wall_painting_portrait.xpm
+WE ./texture_gall/wall_cafe.xpm
+EA ./texture_gall/violet.xpm
+
+C 245,245,240
+F 185,160,120
+
+11111
+10001
+10S01
+10001
+10001
+10001
+11001
+10001
+10001
+10001
+10001
+10001
+11111

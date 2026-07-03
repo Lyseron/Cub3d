@@ -14,8 +14,7 @@
 # define MINI_MAP_H
 
 /* ------------------- Mini_maps.c -------------------------- */
-int		display(t_game *game);
-int		adaptative_mini_map(t_game *game);
+int		display_check(t_game *game);
 
 /* ------------------- Draw_mini_map.c --------------------- */
 int		draw_mini_map(t_game *game);
@@ -29,7 +28,6 @@ int		draw_pixel(t_game *game, int x, int y, unsigned int color);
 /* ------------------- Draw_tiny_map.c --------------------- */
 int		draw_tiny_map(t_game *game);
 int		draw_tiny_square(t_game *game, int color);
-int		draw_frame(t_game *game);
 
 /* ------------------- Draw_tm_components.c ---------------- */
 int		draw_tiny_player(t_game *game);

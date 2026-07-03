@@ -52,6 +52,8 @@ static bool	is_invalid_next_case(char **map, int x, int y)
 		return (true);
 	if (map[y][x] == ' ')
 		return (true);
+	if (map[y][x] == '\n')
+		return (true);
 	return (false);
 }
 

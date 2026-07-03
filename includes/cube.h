@@ -23,6 +23,7 @@
 # include <stdbool.h>
 # include <stdint.h>
 # include <math.h>
+# include <sys/time.h>
 
 // Struct
 # include "structs.h"
@@ -33,8 +34,9 @@
 # include "init.h"
 # include "mini_map.h"
 # include "mlx_win.h"
+# include "raycasting.h"
 
-typedef int	(*mlx_func_t)();
+typedef int	(*t_mlx_func)();
 
 // Bool for returns 
 # define OK 0
@@ -43,6 +45,7 @@ typedef int	(*mlx_func_t)();
 // Window size
 # define HEIGHT 600
 # define WIDTH 800
+# define SIZE LONG_MAX
 
 // Square size for the mini_map in pixel
 # define SIZE_SQUARE 10
@@ -54,7 +57,10 @@ typedef int	(*mlx_func_t)();
 # define BORDER_PLAYER 0.3
 
 // The nb of advancement the player mooves in the window
-# define SPEED 0.1
+# define SPEED 1
+
+// The steps size to avance the ray in the map bound
+# define RAY_STEP_SIZE 0.1
 
 // The nb of advancement the player mooves in the window
 # define SPEED_CAM 0.01
@@ -66,17 +72,25 @@ typedef int	(*mlx_func_t)();
 # define CASE_FROM_PLAYER 8
 
 // For the angle of the camera
-# define PI 3.14
+# define PI 3.14159265358979323846
 
 // Define the frame size around the mini/tiny map in pixel
 # define FRAME_SIZE 10
+
+// The nb of advancement the player mooves in the window
+# define SPEED_SPRIT 1.5
+
+# define TURN_RIGTH 1
+# define TURN_LEFT -1
+
+# define DEBUG 0
 
 // The color for the mini/tiny maps
 # define COLOR_WALL 0x009999
 # define COLOR_FLOOR 0x1e1e2e
 # define COLOR_PLAYER 11691775
 # define COLOR_RAY 11691775
-# define COLOR_FRAME 0x1e1e2e
+# define COLOR_FRAME 0x009999
 # define COLOR_BACKGROUND 0x202020
 
 // Keypress Mac

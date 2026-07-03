@@ -1,6 +1,6 @@
 NAME		= cub3D
 CC			= cc
-CFLAGS		= -Wall -Wextra -g -Werror
+CFLAGS		= -Wall -Wextra -Werror -g
 MAKEFLAGS	+= --no-print-directory
 
 INCS		= -I. -I$(LIBFT_DIR)
@@ -15,7 +15,7 @@ INCS		= -I. -I$(LIBFT_DIR)
 # GRAS		= \033[1m
 # RESET		= \033[0m
 
-LIBFT_DIR	= libft
+LIBFT_DIR	= libs/libft
 LIBFT		= $(LIBFT_DIR)/libft.a
 
 OBJS		= $(SRCS:%.c=%.o)
@@ -25,8 +25,6 @@ SRCS_DIR   = src
 
 PARS_DIR    = $(SRCS_DIR)/parsing
 CLEAN_DIR   = $(SRCS_DIR)/clean_exit
-INIT_DIR    = $(SRCS_DIR)/init
-MINI_DIR    = $(SRCS_DIR)/mini_map
 MLX_WIN_DIR = $(SRCS_DIR)/mlx_win
 
 PARS_SRC   = \
@@ -35,35 +33,39 @@ PARS_SRC   = \
 	$(PARS_DIR)/checks/check_valid_map_utils.c \
 	$(PARS_DIR)/checks/check_map_cub.c \
 	$(PARS_DIR)/checks/check_name_texture.c\
-	$(PARS_DIR)/checks/read_map.c
+	$(PARS_DIR)/checks/read_map.c \
+	$(PARS_DIR)/init/extract_color.c \
+	$(PARS_DIR)/init/extract.c \
+	$(PARS_DIR)/init/extract_map.c \
+	$(PARS_DIR)/init/verif_extract.c \
+	$(PARS_DIR)/init/extract_texture_and_color.c \
+	$(PARS_DIR)/init/init_player.c \
+	$(PARS_DIR)/init/init_mlx.c
 	
 MLX_WIN_SRC = \
-	$(MLX_WIN_DIR)/create_img.c \
-	$(MLX_WIN_DIR)/key.c
-
-MINI_SRC    = \
-	$(MINI_DIR)/mini_maps.c \
-	$(MINI_DIR)/draw/draw_mini_map.c \
-	$(MINI_DIR)/draw/draw_tiny_map.c \
-	$(MINI_DIR)/draw/draw_mp_components.c \
-	$(MINI_DIR)/draw/draw_mp_utils.c \
-	$(MINI_DIR)/draw/draw_tm_components.c \
-	$(MINI_DIR)/draw/draw_tm_utils.c \
-	$(MINI_DIR)/gameplay/gameplay_utils.c \
-	$(MINI_DIR)/gameplay/gameplay.c \
-	$(MINI_DIR)/init/init_mini_map.c \
-	$(MINI_DIR)/init/init_mini_player.c \
-	$(MINI_DIR)/init/init_tiny_player.c \
-	$(MINI_DIR)/init/init_tiny_map.c \
-	$(MINI_DIR)/init/init_ray.c
-
-INIT_SRC    = \
-	$(INIT_DIR)/extract_color.c \
-	$(INIT_DIR)/extract.c \
-	$(INIT_DIR)/extract_map.c \
-	$(INIT_DIR)/extract_texture_and_color.c \
-	$(INIT_DIR)/init_player.c \
-	$(INIT_DIR)/init_mlx.c
+	$(MLX_WIN_DIR)/mini_map/mini_maps.c \
+	$(MLX_WIN_DIR)/mini_map/draw/draw_mini_map.c \
+	$(MLX_WIN_DIR)/mini_map/draw/draw_tiny_map.c \
+	$(MLX_WIN_DIR)/mini_map/draw/draw_mp_components.c \
+	$(MLX_WIN_DIR)/mini_map/draw/draw_mp_utils.c \
+	$(MLX_WIN_DIR)/mini_map/draw/draw_tm_components.c \
+	$(MLX_WIN_DIR)/mini_map/draw/draw_tm_utils.c \
+	$(MLX_WIN_DIR)/mini_map/init/init_mini_map.c \
+	$(MLX_WIN_DIR)/mini_map/init/init_mini_player.c \
+	$(MLX_WIN_DIR)/mini_map/init/init_tiny_player.c \
+	$(MLX_WIN_DIR)/mini_map/init/init_tiny_map.c \
+	$(MLX_WIN_DIR)/mini_map/init/init_ray.c \
+	$(MLX_WIN_DIR)/raycasting/dda.c \
+	$(MLX_WIN_DIR)/raycasting/put_pixel.c \
+	$(MLX_WIN_DIR)/raycasting/draw_2d.c \
+	$(MLX_WIN_DIR)/raycasting/draw_3d.c \
+	$(MLX_WIN_DIR)/raycasting/texture.c \
+	$(MLX_WIN_DIR)/raycasting/utils_time.c \
+	$(MLX_WIN_DIR)/raycasting/raycasting.c \
+	$(MLX_WIN_DIR)/gameplay/gameplay.c \
+	$(MLX_WIN_DIR)/gameplay/key.c \
+	$(MLX_WIN_DIR)/gameplay/gameplay_utils.c \
+	$(MLX_WIN_DIR)/create_img.c
 
 CLEAN_SRC  = \
 	$(CLEAN_DIR)/clean_mlx.c \
@@ -73,8 +75,8 @@ SRCS    = \
 	$(PARS_SRC) \
 	$(CLEAN_SRC) \
 	$(MLX_WIN_SRC) \
-	$(INIT_SRC) \
-	$(MINI_SRC) \
+	$(RAYCASTING_SRC) \
+	$(GAME_SRC) \
 	$(SRCS_DIR)/main.c
 
 
@@ -85,11 +87,11 @@ RM      = rm -rf
 UNAME_S := $(shell uname)
 
 ifeq ($(UNAME_S),Darwin)
-	MLX_DIR = mlx_macos
+	MLX_DIR = libs/mlx_macos
 	MLX_INC = -I$(MLX_DIR)
 	MLX_LIB = -L$(MLX_DIR) -lmlx -framework OpenGL -framework AppKit
 else
-	MLX_DIR = minilibx
+	MLX_DIR = libs/minilibx
 	MLX_INC = -I$(MLX_DIR)
 	MLX_LIB = -L$(MLX_DIR) -lmlx -lXext -lX11 -lm -lbsd
 endif

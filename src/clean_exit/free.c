@@ -14,7 +14,7 @@
 
 int	print_error(char *str, t_map *map, int r)
 {
-	map->error_doublon = true;
+	map->error = true;
 	ft_putendl_fd(str, 2);
 	free_data_fd(map);
 	return (r);
@@ -33,18 +33,35 @@ void	free_and_null(void **data)
 	*data = NULL;
 }
 
+void	free_all_img(t_game *game)
+{
+	t_texture	*texture;
+
+	texture = &game->map.texture;
+	if (game->img.img_ptr)
+		mlx_destroy_image(game->mlx, game->img.img_ptr);
+	if (texture->img[IS_NORTH].img_ptr)
+		mlx_destroy_image(game->mlx, texture->img[IS_NORTH].img_ptr);
+	if (texture->img[IS_SOUTH].img_ptr)
+		mlx_destroy_image(game->mlx, texture->img[IS_SOUTH].img_ptr);
+	if (texture->img[IS_WEAST].img_ptr)
+		mlx_destroy_image(game->mlx, texture->img[IS_WEAST].img_ptr);
+	if (texture->img[IS_EAST].img_ptr)
+		mlx_destroy_image(game->mlx, texture->img[IS_EAST].img_ptr);
+}
+
 void	free_data_fd(t_map *map)
 {
 	if (map->map_fd)
 		close(map->map_fd);
-	if (map->texture.no)
-		free_and_null((void *)&map->texture.no);
-	if (map->texture.so)
-		free_and_null((void *)&map->texture.so);
-	if (map->texture.we)
-		free_and_null((void *)&map->texture.we);
-	if (map->texture.ea)
-		free_and_null((void *)&map->texture.ea);
+	if (map->texture.path[IS_NORTH])
+		free_and_null((void *)&map->texture.path[IS_NORTH]);
+	if (map->texture.path[IS_SOUTH])
+		free_and_null((void *)&map->texture.path[IS_SOUTH]);
+	if (map->texture.path[IS_WEAST])
+		free_and_null((void *)&map->texture.path[IS_WEAST]);
+	if (map->texture.path[IS_EAST])
+		free_and_null((void *)&map->texture.path[IS_EAST]);
 	if (map->floor)
 		free_and_null((void *)&map->floor);
 	if (map->ceiling)

@@ -40,14 +40,15 @@ int	main(int ac, char **av)
 	ft_memset(&game, 0, sizeof(game));
 	if (parsing(&game, av) == ERROR)
 		return (free_data_fd(&game.map), ERROR);
-	init_img(&game);
+	if (init_img(&game) == ERROR)
+		return (free_data_fd(&game.map), ERROR);
 	init_key(&game);
-	if (display(&game) == ERROR)
-		return (ERROR);
-	mlx_hook(game.win, 2, 1L << 0, ((mlx_func_t)(uintptr_t)keywee), &game);
-	mlx_hook(game.win, 3, 1L << 1, ((mlx_func_t)(uintptr_t)keyno), &game);
-	mlx_hook(game.win, 17, 0, ((mlx_func_t)(uintptr_t)exit_game), &game);
-	mlx_loop_hook(game.mlx, ((mlx_func_t)(uintptr_t)game_loop), &game);
+	if (display_check(&game) == ERROR)
+		return (free_data_fd(&game.map), ERROR);
+	mlx_hook(game.win, 2, 1L << 0, ((t_mlx_func)(uintptr_t)keywee), &game);
+	mlx_hook(game.win, 3, 1L << 1, ((t_mlx_func)(uintptr_t)keyno), &game);
+	mlx_hook(game.win, 17, 0, ((t_mlx_func)(uintptr_t)exit_game), &game);
+	mlx_loop_hook(game.mlx, ((t_mlx_func)(uintptr_t)game_loop), &game);
 	mlx_loop(game.mlx);
 	return (OK);
 }

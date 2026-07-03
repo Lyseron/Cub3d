@@ -13,8 +13,19 @@
 #ifndef STRUCTS_H
 # define STRUCTS_H
 
-# include "../libft/libft.h"
-# include <stdbool.h>
+/*---------------------- ENUMERATION -----------------------*/
+
+typedef enum e_status
+{
+	IS_NULL,
+	IS_NORTH,
+	IS_SOUTH,
+	IS_WEAST,
+	IS_EAST,
+	IS_DOOR
+}	t_status;
+
+/*---------------------- STRUCT ----------------------------*/
 
 typedef struct s_player
 {
@@ -24,19 +35,33 @@ typedef struct s_player
 	double	dir_x;
 	double	dir_y;
 	double	angle;
+	float	speed_player;
 }	t_player;
+
+typedef struct s_img
+{
+	int		width;
+	int		height;
+	void	*img_ptr;
+	int		bits_per_pixel;
+	int		size_line;
+	int		endian;
+	char	*img_addr;
+}	t_img;
 
 typedef struct s_texture
 {
-	char	*no;
-	void	*img_no;
-	char	*so;
-	void	*img_so;
-	char	*we;
-	void	*img_we;
-	char	*ea;
-	void	*img_ea;
+	char	*path[6];
+	t_img	img[5];
+	int		convert_color_c;
+	int		convert_color_f;
 }	t_texture;
+
+typedef struct s_point
+{
+	void	*x;
+	void	*y;
+}	t_point;
 
 typedef struct s_map
 {
@@ -51,27 +76,39 @@ typedef struct s_map
 	int			*ceiling;
 	bool		extract_ceiling;
 	t_list		*extract;
-	bool		error_doublon;
+	bool		error;
 }	t_map;
 
-typedef struct s_cub
+typedef struct s_raycasting
 {
-	bool		error_doublon;
-	t_map		*map;
-	t_player	*player;
-	t_texture	*texture;
-}	t_cub;
-
-typedef struct s_img
-{
-	int		width;
-	int		height;
-	void	*img_ptr;
-	int		bits_per_pixel;
-	int		size_line;
-	int		endian;
-	char	*img_addr;
-}	t_img;
+	double	cos_p;			// direction des rayons FOV				<----- utiliser dans raycasting
+	double	sin_p;			// direction des rayons FOV				<----- utiliser dans raycasting
+	int		map_x;			// position dans la map en int			<----- utiliser dans raycasting
+	int		map_y;			// position dans la map en int			<----- utiliser dans raycasting
+	double	delta_dist_x;	// distance rayon						<----- utiliser dans raycasting
+	double	delta_dist_y;	// distance rayon						<----- utiliser dans raycasting
+	int		step_x;			// sense du rayon Est Ouest				<----- utiliser dans raycasting
+	int		step_y;			// sense du rayon Nord Sud				<----- utiliser dans raycasting
+	double	side_dist_x;	// distance jusqua la prochaine ligne	<----- utiliser dans raycasting
+	double	side_dist_y;	// distance jusqua la prochaine ligne	<----- utiliser dans raycasting
+	bool	touch;												//	<----- utiliser dans raycasting
+	int		wall_touch; //											<----- utiliser dans raycasting
+	double	dist_perp;		// distance de l'intersection			<----- utiliser dans raycasting
+	double	line_height;	// hauteur mur							<----- utiliser dans raycasting
+	double	start_y;//												<----- utiliser dans raycasting
+	double	end;//													<----- utiliser dans raycasting
+	double	fraction;											//	<----- utiliser dans raycasting mais surtout pour le speed
+	double	start_x;											//	<----- utiliser dans raycasting mais surtout pour le speed
+	double	pos_tex;		// position du pixel de texture			<----- utiliser dans raycasting
+	int		pos_tex_x;		// postion en x du fichier xpm			<----- utiliser dans raycasting
+	int		pos_tex_y;		// postion en y du fichier xpm			<----- utiliser dans raycasting
+	double	step;			// pas d'avance pour la loc dans xpm	<----- utiliser dans raycasting
+	t_img	*tex_projet;	// la texture qui sera projeté			<----- utiliser dans raycasting
+	double	ray_pos_x;		// calcul rayon				// <----- j'utilise pas mais lily utilise
+	double	ray_pos_y;		// calcul rayon				// <----- j'utilise pas mais lily utilise
+	double	plane_x;		// plan a gauche de lecran	// <----- j'utilise pas mais lily utilise
+	double	plane_y;		// plan a droite de lecran	// <----- j'utilise pas mais lily utilise
+}	t_ray;
 
 typedef struct s_mini_map
 {
@@ -91,7 +128,6 @@ typedef struct s_tiny_map
 	int	end_y;
 	int	start_x;
 	int	end_x;
-
 	int	pixel_x;
 	int	pixel_y;
 	int	start_pixel_x;
@@ -100,7 +136,6 @@ typedef struct s_tiny_map
 	int	end_pixel_x;
 	int	player_center_x;
 	int	player_center_y;
-
 	int	max_x;
 	int	max_y;
 	int	min_y;
@@ -130,18 +165,15 @@ typedef struct s_bool_key
 	bool	left;
 	bool	right;
 	bool	change_map;
+	bool	shift;
 }	t_bool_key;
-
-typedef struct s_raycasting
-{
-	double	ray_pos_x;
-	double	ray_pos_y;
-	double	plane_x;
-	double	plane_y;
-}	t_ray;
 
 typedef struct s_game
 {
+	long			old_time;
+	long			time;
+	int				width;
+	int				height;
 	t_tiny_map		tiny_map;
 	t_map			map;
 	t_player		player;
@@ -153,6 +185,7 @@ typedef struct s_game
 	t_ray			ray;
 	t_bool_key		bool_key;
 	bool			moved;
+	t_texture		textures;
 }	t_game;
 
 #endif

@@ -19,6 +19,9 @@ int		sort_color(char *line, t_map *map);
 /* ------------------- Exctract_map.c ---------------------- */
 bool	extract_map(char *line, t_map *map);
 
+/* ------------------- verif_extract.c ----------------------- */
+bool	line_not_parasite(char *line, t_map *map);
+
 /* ------------------- Exctract_texture_and_color.c -------- */
 int		sort_value(char *line, t_map *map);
 
