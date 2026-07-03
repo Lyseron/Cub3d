@@ -31,10 +31,7 @@
 // Prototypes
 # include "parsing.h"
 # include "clean_exit.h"
-# include "init.h"
-# include "mini_map.h"
 # include "mlx_win.h"
-# include "raycasting.h"
 
 typedef int	(*t_mlx_func)();
 
