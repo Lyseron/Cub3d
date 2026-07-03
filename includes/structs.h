@@ -6,7 +6,7 @@
 /*   By: mvignes <mvignes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/11 16:48:45 by lyaberge          #+#    #+#             */
-/*   Updated: 2026/07/01 17:21:04 by mvignes          ###   ########.fr       */
+/*   Updated: 2026/07/02 11:27:15 by mvignes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -178,7 +178,7 @@ typedef struct s_game
 	t_mini_player	mini_player;
 	t_ray			ray;
 	t_bool_key		bool_key;
-	bool			is_door;
+	bool			is_door_open;
 }	t_game;
 
 #endif

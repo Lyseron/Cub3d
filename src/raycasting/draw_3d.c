@@ -6,7 +6,7 @@
 /*   By: mvignes <mvignes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/18 13:35:41 by mvignes           #+#    #+#             */
-/*   Updated: 2026/07/01 17:17:46 by mvignes          ###   ########.fr       */
+/*   Updated: 2026/07/03 14:27:53 by mvignes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,9 +98,9 @@ void	draw_3d(t_game *game, t_ray *ray, int y, int i)
 
 void	select_texture(t_game *game, t_ray *ray)
 {
-	t_player	*player;
+	// t_player	*player;
 
-	player = &game->player;
+	// player = &game->player;
 	if (ray->touch == 2 /*&& !player_proche_door(game, player)*/)
 		ray->tex_projet = &game->map.texture.img[IS_DOOR];
 	else if (ray->wall_touch == 1 /*&& ray->touch != 0*/)

@@ -1,6 +1,6 @@
 NAME		= cub3D
 CC			= cc
-CFLAGS		= -g #-Wall -Wextra -Werror -o3
+CFLAGS		= -g -Wall -Wextra -Werror -o3
 MAKEFLAGS	+= --no-print-directory
 
 INCS		= -I. -I$(LIBFT_DIR)

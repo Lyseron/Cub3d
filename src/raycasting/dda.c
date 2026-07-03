@@ -6,7 +6,7 @@
 /*   By: mvignes <mvignes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/21 13:32:41 by mvignes           #+#    #+#             */
-/*   Updated: 2026/07/01 17:28:27 by mvignes          ###   ########.fr       */
+/*   Updated: 2026/07/03 14:23:20 by mvignes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,17 +84,23 @@ void	calcul_horizontal_intersection(t_game *game, t_ray *ray)
 		}
 		if (ray->map_y < 0 || ray->map_x < 0)
 			break ;
-		if (game->map.grid[ray->map_y][ray->map_x] == '1')
+		if (game->map.grid[ray->map_y][ray->map_x] == '1' || game->map.grid[ray->map_y][ray->map_x] == '3')
+		{
+			// if ()
 			ray->touch = 1;
+		}
 		if (game->map.grid[ray->map_y][ray->map_x] == '2' && !game->bool_key.door /*!player_proche_door(game, &game->player)*/)
+		{
+			game->map.grid[ray->map_y][ray->map_x] = '3';
+			game->is_door_open = true;
 			ray->touch = 2;
+		}
 	}
 }
 
 void	calcul_dist(t_game *game, t_ray *ray, double angle_rayon)
 {
 	t_player	*player;
-	double		tmp;
 	double		angle_correctif;
 
 	player = &game->player;
@@ -115,6 +121,7 @@ void	search_cote_wall(t_game *game, t_ray *ray)
 {
 	// if (ray->touch == 2)
 	// 	return ;
+	(void)game;
 	if (ray->wall_touch == 0)
 	{
 		if (ray->step_x > 0)

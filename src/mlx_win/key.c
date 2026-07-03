@@ -6,7 +6,7 @@
 /*   By: mvignes <mvignes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/18 14:16:59 by mvignes           #+#    #+#             */
-/*   Updated: 2026/07/01 17:27:27 by mvignes          ###   ########.fr       */
+/*   Updated: 2026/07/03 14:22:15 by mvignes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,10 @@ int	keyno(int key, t_game *game)
 
 int	keywee(int key, t_game *game)
 {
+	t_ray	*ray;
+
+	(void)ray;
+	ray = &game->ray;
 	if (key == ESC)
 		exit_game(game);
 	if (key == UP)
@@ -63,5 +67,10 @@ int	keywee(int key, t_game *game)
 		game->bool_key.shift = true;
 	if (key == XK_e)
 		game->bool_key.door = true;
+	// {
+	// 	if (!game->bool_key.door)
+	// 	else
+	// 		game->bool_key.door = false;
+	// }
 	return (0);
 }

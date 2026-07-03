@@ -6,46 +6,46 @@
 /*   By: mvignes <mvignes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/21 14:08:07 by mvignes           #+#    #+#             */
-/*   Updated: 2026/06/30 16:45:49 by mvignes          ###   ########.fr       */
+/*   Updated: 2026/07/03 14:22:30 by mvignes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cube.h"
 
-static bool	bordplayer_cond(t_game *game)
-{
-	if (game->mini_player.player_left < game->mini_map.map_case_right
-		&& game->mini_player.player_right > game->mini_map.map_case_left
-		&& game->mini_player.player_top < game->mini_map.map_case_bottom
-		&& game->mini_player.player_bottom > game->mini_map.map_case_top)
-		return (true);
-	return (false);
-}
+// static bool	bordplayer_cond(t_game *game)
+// {
+// 	if (game->mini_player.player_left < game->mini_map.map_case_right
+// 		&& game->mini_player.player_right > game->mini_map.map_case_left
+// 		&& game->mini_player.player_top < game->mini_map.map_case_bottom
+// 		&& game->mini_player.player_bottom > game->mini_map.map_case_top)
+// 		return (true);
+// 	return (false);
+// }
 
-static bool	is_bordplayer_touchwall(t_game *game, double next_x, double next_y)
-{
-	int	y;
-	int	x;
+// static bool	is_bordplayer_touchwall(t_game *game, double next_x, double next_y)
+// {
+// 	int	y;
+// 	int	x;
 
-	init_mini_player_square(game, next_x, next_y);
-	y = 0;
-	while (y < game->map.map_y)
-	{
-		x = 0;
-		while (x < game->map.map_x)
-		{
-			init_mini_map_square(game, x, y);
-			if (game->map.grid[y][x] == '1')
-			{
-				if (bordplayer_cond(game) == true)
-					return (true);
-			}
-			x++;
-		}
-		y++;
-	}
-	return (false);
-}
+// 	init_mini_player_square(game, next_x, next_y);
+// 	y = 0;
+// 	while (y < game->map.map_y)
+// 	{
+// 		x = 0;
+// 		while (x < game->map.map_x)
+// 		{
+// 			init_mini_map_square(game, x, y);
+// 			if (game->map.grid[y][x] == '1')
+// 			{
+// 				if (bordplayer_cond(game) == true)
+// 					return (true);
+// 			}
+// 			x++;
+// 		}
+// 		y++;
+// 	}
+// 	return (false);
+// }
 
 void	moove(t_game *game, t_player *player, double *next_x, double *next_y)
 {
@@ -98,11 +98,11 @@ void	move_player(t_game *game)
 	if (next_pos_play_x + BORDER_PLAYER >= game->map.map_x
 		|| next_pos_play_y + BORDER_PLAYER >= game->map.map_y)
 		return ;
-	if (game->map.grid[(int)(next_pos_play_y)][(int)(game->player.pos_x)] != '1')
-		// && game->map.grid[(int)(next_pos_play_y)][(int)(game->player.pos_x)] != '2') // a revoir, pas mal parce quon se bloque pas mais passe a travers les coins des mures
+	if (game->map.grid[(int)(next_pos_play_y)][(int)(game->player.pos_x)] != '1'
+		&& game->map.grid[(int)(next_pos_play_y)][(int)(game->player.pos_x)] != '2') // a revoir, pas mal parce quon se bloque pas mais passe a travers les coins des mures
 		game->player.pos_y = next_pos_play_y;
-	if (game->map.grid[(int)(game->player.pos_y)][(int)next_pos_play_x] != '1')
-		// && game->map.grid[(int)(game->player.pos_y)][(int)next_pos_play_x] != '2')
+	if (game->map.grid[(int)(game->player.pos_y)][(int)next_pos_play_x] != '1'
+		&& game->map.grid[(int)(game->player.pos_y)][(int)next_pos_play_x] != '2')
 		game->player.pos_x = next_pos_play_x;
 	// if (is_bordplayer_touchwall(game, next_pos_play_x, next_pos_play_y))
 	// {

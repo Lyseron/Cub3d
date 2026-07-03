@@ -6,7 +6,7 @@
 /*   By: mvignes <mvignes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/19 13:27:14 by mvignes           #+#    #+#             */
-/*   Updated: 2026/06/30 12:01:15 by mvignes          ###   ########.fr       */
+/*   Updated: 2026/07/03 14:27:40 by mvignes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,8 +52,6 @@ void	draw_map(t_game *game)
 {
 	char	**map;
 	int		color;
-	int		x;
-	int		y;
 
 	map = game->map.grid;
 	color = 0x0000FF;
@@ -93,6 +91,7 @@ void	draw_line_2d(t_player *player, t_game *game, double start_x, int i)
 	double	ray_x;
 	double	ray_y;
 
+	(void)i;
 	cos_a = cos(start_x);
 	sin_a = sin(start_x);
 	ray_x = player->pos_x * SIZE_SQUARE;
