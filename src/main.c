@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mvignes <mvignes@student.42.fr>            +#+  +:+       +#+        */
+/*   By: vignesmattheu <vignesmattheu@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/09 14:48:41 by mvignes           #+#    #+#             */
-/*   Updated: 2026/06/29 15:13:15 by mvignes          ###   ########.fr       */
+/*   Updated: 2026/07/04 11:34:43 by vignesmatth      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,6 @@ int	parsing(t_game *game, char **av)
 	if (extract_data(&game->map))
 		return (1);
 	// print_data(&game->map);
-	// free_data_fd(&maps);
 	if (check_map(&game->map) == ERROR)
 		return (ft_putstr_fd("Error: Wrong map\n", 2), ERROR);
 	if (fill_struct_player(&game->player, game->map.grid) == ERROR)
