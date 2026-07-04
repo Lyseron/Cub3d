@@ -94,6 +94,8 @@ static bool	is_valid_map(char **map)
 				return (false);
 			if (has_invalid_next_pos(map, x, y, '0'))
 				return (false);
+			if (has_invalid_next_pos(map, x, y, 'P'))
+				return (false);
 			x++;
 		}
 		y++;

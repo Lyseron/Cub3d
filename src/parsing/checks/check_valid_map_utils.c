@@ -21,7 +21,8 @@ bool	is_player(char c)
 
 bool	is_valid_component(char c)
 {
-	if (c && (c == '1' || c == '0' || is_player(c) || ft_iswhitespace(c)))
+	if (c && (c == '1' || c == '0' || c == 'P'
+		|| is_player(c) || ft_iswhitespace(c)))
 		return (true);
 	return (false);
 }

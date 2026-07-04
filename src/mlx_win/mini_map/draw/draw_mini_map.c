@@ -24,6 +24,11 @@ static int	mini_map_conditions(t_game *game, int x, int y)
 		if (draw_mini_square(game, x, y, COLOR_FLOOR) == ERROR)
 			return (ERROR);
 	}
+	else if (game->map.grid[y][x] == ' ')
+	{
+		if (draw_mini_square(game, x, y, COLOR_BACKGROUND) == ERROR)
+			return (ERROR);
+	}
 	return (OK);
 }
 

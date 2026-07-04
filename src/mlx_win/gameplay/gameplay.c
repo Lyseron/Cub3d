@@ -87,10 +87,14 @@ void	key_moove(t_game *game)
 
 int	game_loop(t_game *game)
 {
+	bool	hand2_anim_change;
+
 	game->moved = false;
 	init_speed(game);
 	key_moove(game);
-	if (game->moved == true)
+	hand2_anim_change = moove_anim(&game->hand_2);
+	if (game->moved == true 
+		|| hand2_anim_change == true)
 	{
 		if (display_check(game) == ERROR)
 			return (ERROR);

@@ -33,6 +33,19 @@ void	free_and_null(void **data)
 	*data = NULL;
 }
 
+void	free_anim(t_anim *anim, t_game *game)
+{
+	int	i;
+
+	i = 0;
+	while (i < anim->nb_of_img)
+	{
+		if (anim->anim_img[i].img_ptr)
+			mlx_destroy_image(game->mlx, anim->anim_img[i].img_ptr);
+		i++;
+	}
+}
+
 void	free_all_img(t_game *game)
 {
 	t_texture	*texture;
@@ -48,6 +61,11 @@ void	free_all_img(t_game *game)
 		mlx_destroy_image(game->mlx, texture->img[IS_WEAST].img_ptr);
 	if (texture->img[IS_EAST].img_ptr)
 		mlx_destroy_image(game->mlx, texture->img[IS_EAST].img_ptr);
+	if (game->hand.img_ptr)
+		mlx_destroy_image(game->mlx, game->hand.img_ptr);
+	if (game->brush.img_ptr)
+		mlx_destroy_image(game->mlx, game->brush.img_ptr);
+	free_anim(&game->hand_2, game);
 }
 
 void	free_data_fd(t_map *map)

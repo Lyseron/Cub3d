@@ -53,9 +53,19 @@ typedef struct s_texture
 {
 	char	*path[6];
 	t_img	img[5];
+	t_img	animation[7];
 	int		convert_color_c;
 	int		convert_color_f;
 }	t_texture;
+
+typedef struct s_anim
+{
+	int		nb_of_img;
+	int		frame_id;
+	t_img	anim_img[10];
+	int		time_frame;
+	int		nb_of_loop;
+}	t_anim;
 
 typedef struct s_point
 {
@@ -165,6 +175,7 @@ typedef struct s_bool_key
 	bool	left;
 	bool	right;
 	bool	change_map;
+	bool	change_hand;
 	bool	shift;
 }	t_bool_key;
 
@@ -186,6 +197,10 @@ typedef struct s_game
 	t_bool_key		bool_key;
 	bool			moved;
 	t_texture		textures;
+	t_anim			hand_2;
+	t_img			hand;
+	t_img			brush;
+	t_img			door;
 }	t_game;
 
 #endif

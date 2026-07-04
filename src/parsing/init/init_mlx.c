@@ -35,4 +35,5 @@ void	init_key(t_game *game)
 	game->bool_key.left = false;
 	game->bool_key.right = false;
 	game->bool_key.change_map = false;
+	game->bool_key.change_hand = false;
 }

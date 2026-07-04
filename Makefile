@@ -43,7 +43,7 @@ PARS_SRC   = \
 	$(PARS_DIR)/init/init_mlx.c
 	
 MLX_WIN_SRC = \
-	$(MLX_WIN_DIR)/mini_map/mini_maps.c \
+	$(MLX_WIN_DIR)/display.c \
 	$(MLX_WIN_DIR)/mini_map/draw/draw_mini_map.c \
 	$(MLX_WIN_DIR)/mini_map/draw/draw_tiny_map.c \
 	$(MLX_WIN_DIR)/mini_map/draw/draw_mp_components.c \
@@ -65,6 +65,9 @@ MLX_WIN_SRC = \
 	$(MLX_WIN_DIR)/gameplay/gameplay.c \
 	$(MLX_WIN_DIR)/gameplay/key.c \
 	$(MLX_WIN_DIR)/gameplay/gameplay_utils.c \
+	$(MLX_WIN_DIR)/animation/moove_anim.c \
+	$(MLX_WIN_DIR)/animation/init.c \
+	$(MLX_WIN_DIR)/animation/draw_anim.c \
 	$(MLX_WIN_DIR)/create_img.c
 
 CLEAN_SRC  = \

@@ -12,24 +12,24 @@
 
 #include "cube.h"
 
-void	fill_map(t_game *game, char **map_tab)
-{
-	int	y;
-	int	i;
+// void	fill_map(t_game *game, char **map_tab)
+// {
+// 	int	y;
+// 	int	i;
 
-	y = 0;
-	i = 0;
-	game->map.grid = malloc(sizeof(char *) * (ft_dba_len(map_tab) + 1));
-	if (!game->map.grid)
-		return ;
-	while (map_tab[y])
-	{
-		game->map.grid[i] = ft_strdup(map_tab[y]);
-		i++;
-		y++;
-	}
-	game->map.grid[i] = NULL;
-}
+// 	y = 0;
+// 	i = 0;
+// 	game->map.grid = malloc(sizeof(char *) * (ft_dba_len(map_tab) + 1));
+// 	if (!game->map.grid)
+// 		return ;
+// 	while (map_tab[y])
+// 	{
+// 		game->map.grid[i] = ft_strdup(map_tab[y]);
+// 		i++;
+// 		y++;
+// 	}
+// 	game->map.grid[i] = NULL;
+// }
 
 int	main(int ac, char **av)
 {

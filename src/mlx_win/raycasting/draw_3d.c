@@ -95,6 +95,8 @@ void	select_texture(t_game *game, t_ray *ray)
 		ray->tex_projet = &game->map.texture.img[IS_WEAST];
 	else
 		ray->tex_projet = &game->map.texture.img[IS_EAST];
+	// else
+	// 	ray->tex_projet = &game->anim.anim_img[game->anim.frame_id];
 }
 
 void	draw_line(t_game *game, double angle_rayon, int i)

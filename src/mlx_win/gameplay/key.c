@@ -29,6 +29,24 @@ int	keyno(int key, t_game *game)
 	return (OK);
 }
 
+void	toggle(t_game *game, int which_change)
+{
+	if (which_change == 1)
+	{
+		if (game->bool_key.change_map == true)
+			game->bool_key.change_map = false;
+		else if (game->bool_key.change_map == false)
+			game->bool_key.change_map = true;
+	}
+	else
+	{
+		if (game->bool_key.change_hand == true)
+			game->bool_key.change_hand = false;
+		else if (game->bool_key.change_hand == false)
+			game->bool_key.change_hand = true;
+	}
+}
+
 int	keywee(int key, t_game *game)
 {
 	// printf("key = [%d]\n", key);
@@ -48,10 +66,13 @@ int	keywee(int key, t_game *game)
 		game->bool_key.right = true;
 	if (key == MAP_CHANGE)
 	{
-		if (game->bool_key.change_map == true)
-			game->bool_key.change_map = false;
-		else if (game->bool_key.change_map == false)
-			game->bool_key.change_map = true;
+		toggle(game, 1);
+		if (display_check(game) == ERROR)
+			return (ERROR);
+	}
+	if (key == HAND_CHANGE)
+	{
+		toggle(game, 0);
 		if (display_check(game) == ERROR)
 			return (ERROR);
 	}

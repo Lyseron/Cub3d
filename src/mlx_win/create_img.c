@@ -12,7 +12,7 @@
 
 #include "cube.h"
 
-static int	laod_texture(t_game *game, t_img *tex, char *path)
+int	laod_texture(t_game *game, t_img *tex, char *path)
 {
 	if (!path)
 		return (ERROR);
@@ -65,6 +65,19 @@ int	init_color_c_and_f(t_game *game)
 	return (OK);
 }
 
+int	init_img_wall(t_game *game, t_texture *tex)
+{
+	if (laod_texture(game, &tex->img[IS_NORTH], tex->path[IS_NORTH]) == ERROR)
+		return (ERROR);
+	if (laod_texture(game, &tex->img[IS_SOUTH], tex->path[IS_SOUTH]) == ERROR)
+		return (ERROR);
+	if (laod_texture(game, &tex->img[IS_WEAST], tex->path[IS_WEAST]) == ERROR)
+		return (ERROR);
+	if (laod_texture(game, &tex->img[IS_EAST], tex->path[IS_EAST]) == ERROR)
+		return (ERROR);
+	return (OK);
+}
+
 int	init_img(t_game *game)
 {
 	t_texture	*tex;
@@ -79,15 +92,15 @@ int	init_img(t_game *game)
 			&game->img.bits_per_pixel, &game->img.size_line, &game->img.endian);
 	if (!game->img.img_addr)
 		return (ERROR);
-	if (laod_texture(game, &tex->img[IS_NORTH], tex->path[IS_NORTH]) == ERROR)
-		return (ERROR);
-	if (laod_texture(game, &tex->img[IS_SOUTH], tex->path[IS_SOUTH]) == ERROR)
-		return (ERROR);
-	if (laod_texture(game, &tex->img[IS_WEAST], tex->path[IS_WEAST]) == ERROR)
-		return (ERROR);
-	if (laod_texture(game, &tex->img[IS_EAST], tex->path[IS_EAST]) == ERROR)
+	if (init_img_wall(game, tex) == ERROR)
 		return (ERROR);
 	if (init_color_c_and_f(game) == ERROR)
 		return (ERROR);
+	if (init_img_hand(game) == ERROR)
+		return (ERROR);
+	if (init_img_hand2(game) == ERROR)
+		return (ERROR);
+	// if (init_img_door(game) == ERROR)
+	// 	return (ERROR);
 	return (OK);
 }

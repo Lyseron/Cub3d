@@ -40,8 +40,8 @@ typedef int	(*t_mlx_func)();
 # define ERROR 1
 
 // Window size
-# define HEIGHT 600
-# define WIDTH 800
+# define HEIGHT 800
+# define WIDTH 1200
 # define SIZE LONG_MAX
 
 // Square size for the mini_map in pixel
@@ -60,7 +60,7 @@ typedef int	(*t_mlx_func)();
 # define RAY_STEP_SIZE 0.1
 
 // The nb of advancement the player mooves in the window
-# define SPEED_CAM 0.01
+# define SPEED_CAM 0.02
 
 // The marge between the top right and the map
 # define MARGE 25
@@ -85,8 +85,8 @@ typedef int	(*t_mlx_func)();
 // The color for the mini/tiny maps
 # define COLOR_WALL 0x009999
 # define COLOR_FLOOR 0x1e1e2e
-# define COLOR_PLAYER 11691775
-# define COLOR_RAY 11691775
+# define COLOR_PLAYER 0xd745ff
+# define COLOR_RAY 0xd745ff
 # define COLOR_FRAME 0x009999
 # define COLOR_BACKGROUND 0x202020
 
@@ -102,6 +102,7 @@ typedef int	(*t_mlx_func)();
 # define ARROW_RIGHT 124
 # define ARROW_DOWN 125
 # define MAP_CHANGE 46
+# define HAND_CHANGE 31
 
 // // Keypress Linux
 // // UP = W ; LEFT = A ; RIGHT = D ; DOWN = S
@@ -115,5 +116,6 @@ typedef int	(*t_mlx_func)();
 // # define ARROW_RIGHT 65363
 // # define ARROW_DOWN 65364
 // # define MAP_CHANGE 109
+// # define HAND_CHANGE 111
 
 #endif

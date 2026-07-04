@@ -18,6 +18,7 @@
 /* ------------------- create_img.c ------------------------ */
 int		init_img(t_game *game);
 int		init_color_c_and_f(t_game *game);
+int		laod_texture(t_game *game, t_img *tex, char *path);
 
 /* ------------------- key.c ------------------------------- */
 int		keyno(int key, t_game *game);
@@ -106,4 +107,18 @@ int		get_pixel_from_texture(t_img *tex, int tex_x, int tex_y);
 
 double	update_time(t_game *game);
 
+/* =================== ANIMATION.c ========================= */
+
+/* ------------------- Init.c --------------------------==== */
+int		init_img_hand(t_game *game);
+int		init_img_hand2(t_game *game);
+int		init_img_door(t_game *game);
+
+/* ------------------- Init_ray.c -------------------------- */
+bool	moove_anim(t_anim *anim);
+
+/* ------------------- Draw_hand.c ------------------------- */
+int		draw_left_img(t_game *game, t_img *img);
+int		draw_right_img(t_game *game, t_img *img);
+int		draw_middle_img(t_game *game, t_img *img);
 #endif
