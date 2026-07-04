@@ -6,7 +6,7 @@
 /*   By: vignesmattheu <vignesmattheu@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/09 14:48:41 by mvignes           #+#    #+#             */
-/*   Updated: 2026/07/04 11:34:43 by vignesmatth      ###   ########.fr       */
+/*   Updated: 2026/07/04 11:37:19 by vignesmatth      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,6 @@ int	parsing(t_game *game, char **av)
 		return (ft_putstr_fd("Error: Wrong map extension\n", 2), ERROR);
 	if (extract_data(&game->map))
 		return (1);
-	// print_data(&game->map);
 	if (check_map(&game->map) == ERROR)
 		return (ft_putstr_fd("Error: Wrong map\n", 2), ERROR);
 	if (fill_struct_player(&game->player, game->map.grid) == ERROR)
