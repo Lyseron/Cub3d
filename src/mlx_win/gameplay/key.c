@@ -26,6 +26,8 @@ int	keyno(int key, t_game *game)
 		game->bool_key.left = false;
 	if (key == ARROW_RIGHT)
 		game->bool_key.right = false;
+	if (key == SHIFT)
+		game->bool_key.shift = false;
 	return (OK);
 }
 
@@ -47,6 +49,23 @@ void	toggle(t_game *game, int which_change)
 	}
 }
 
+int	display_keywee(int key, t_game *game)
+{
+	if (key == MAP_CHANGE)
+	{
+		toggle(game, 1);
+		if (display_check(game) == ERROR)
+			return (ERROR);
+	}
+	if (key == HAND_CHANGE)
+	{
+		toggle(game, 0);
+		if (display_check(game) == ERROR)
+			return (ERROR);
+	}
+	return (OK);
+}
+
 int	keywee(int key, t_game *game)
 {
 	// printf("key = [%d]\n", key);
@@ -64,17 +83,9 @@ int	keywee(int key, t_game *game)
 		game->bool_key.left = true;
 	if (key == ARROW_RIGHT)
 		game->bool_key.right = true;
-	if (key == MAP_CHANGE)
-	{
-		toggle(game, 1);
-		if (display_check(game) == ERROR)
-			return (ERROR);
-	}
-	if (key == HAND_CHANGE)
-	{
-		toggle(game, 0);
-		if (display_check(game) == ERROR)
-			return (ERROR);
-	}
+	if (key == SHIFT)
+		game->bool_key.shift = true;
+	if (display_keywee(key, game) == ERROR)
+		return (ERROR);
 	return (OK);
 }

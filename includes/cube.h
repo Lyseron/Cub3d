@@ -103,6 +103,7 @@ typedef int	(*t_mlx_func)();
 # define ARROW_DOWN 125
 # define MAP_CHANGE 46
 # define HAND_CHANGE 31
+# define SHIFT 257
 
 // // Keypress Linux
 // // UP = W ; LEFT = A ; RIGHT = D ; DOWN = S

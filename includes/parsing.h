@@ -55,6 +55,7 @@ int		ft_decide_name_texture(char *av);
 /* ------------------- Check_valid_map_utils.c ------------- */
 bool	is_player(char c);
 bool	is_valid_component(char c);
+bool	has_good_component(char **map);
 
 /* ------------------- Check_valid_map.c ------------------- */
 int		check_map(t_map *maps);

@@ -12,36 +12,6 @@
 
 #include "cube.h"
 
-int	laod_texture(t_game *game, t_img *tex, char *path)
-{
-	if (!path)
-		return (ERROR);
-	tex->img_ptr = mlx_xpm_file_to_image(game->mlx, path, &tex->width,
-			&tex->height);
-	if (!tex->img_ptr)
-	{
-		printf("Erreur : Impossible de charger la texture : %s\n", path);
-		return (ERROR);
-	}
-	tex->img_addr = mlx_get_data_addr(tex->img_ptr, &tex->bits_per_pixel,
-			&tex->size_line, &tex->endian);
-	if (!tex->img_addr)
-		return (ERROR);
-	return (OK);
-}
-
-static int	convert_rgb_to_int(int t, int r, int g, int b)
-{
-	return (t << 24 | r << 16 | g << 8 | b);
-}
-
-static bool	is_valid_color(int color)
-{
-	if (color < 0 || color > 255)
-		return (false);
-	return (true);
-}
-
 int	init_color_c_and_f(t_game *game)
 {
 	if (!game->map.ceiling || !game->map.floor)

@@ -15,6 +15,7 @@
 
 /* ------------------- clean_mlx.c ------------- */
 int		exit_game(t_game *game);
+void	free_anim(t_anim *anim, t_game *game);
 
 /* ------------------- free_mlx.c ------------- */
 void	free_data_fd(t_map *map);

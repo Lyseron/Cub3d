@@ -18,7 +18,11 @@
 /* ------------------- create_img.c ------------------------ */
 int		init_img(t_game *game);
 int		init_color_c_and_f(t_game *game);
+
+/* ------------------- create_img_utils.c ------------------ */
+bool	is_valid_color(int color);
 int		laod_texture(t_game *game, t_img *tex, char *path);
+int		convert_rgb_to_int(int t, int r, int g, int b);
 
 /* ------------------- key.c ------------------------------- */
 int		keyno(int key, t_game *game);
