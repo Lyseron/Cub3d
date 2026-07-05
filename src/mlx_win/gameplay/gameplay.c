@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   gameplay.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lyaberge <lyaberge@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mvignes <mvignes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/11 17:34:39 by lyaberge          #+#    #+#             */
-/*   Updated: 2026/06/11 17:34:39 by lyaberge         ###   ########.fr       */
+/*   Updated: 2026/07/05 12:43:31 by mvignes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,21 +27,25 @@ static int	moove_player(t_game *game, double dir_x, double dir_y)
 
 	next_pos_player_x = game->player.pos_x + dir_x * game->player.speed_player;
 	next_pos_player_y = game->player.pos_y + dir_y * game->player.speed_player;
+	if (game->map.grid[(int)(next_pos_player_y)][(int)(game->player.pos_x)] != '1')
+		game->player.pos_y = next_pos_player_y;
+	if (game->map.grid[(int)(game->player.pos_y)][(int)next_pos_player_x] != '1')
+		game->player.pos_x = next_pos_player_x;
 	// printf("current: x=%f y=%f\n", game->player.pos_x,
 		// game->player.pos_y);
 	// printf("next: x=%f, y=%f\n", next_pos_player_x,
 		// next_pos_player_y);
-	if (next_pos_player_x - BORDER_PLAYER < 0
-		|| next_pos_player_y - BORDER_PLAYER < 0)
-		return (/*printf("ERROR: Negative Value\n"), */ERROR);
-	if (next_pos_player_x + BORDER_PLAYER >= game->map.map_x
-		|| next_pos_player_y + BORDER_PLAYER >= game->map.map_y)
-		return (/*printf("ERROR: out of map\n"), */ERROR);
-	if (is_bordplayer_touch_wall(game, next_pos_player_x,
-			next_pos_player_y) == true)
-		return (/*printf("ERROR: Touching wall\n"), */ERROR);
-	game->player.pos_x = next_pos_player_x;
-	game->player.pos_y = next_pos_player_y;
+		
+	// if (next_pos_player_x - BORDER_PLAYER < 0
+	// 	|| next_pos_player_y - BORDER_PLAYER < 0)
+	// 	return (/*printf("ERROR: Negative Value\n"), */ERROR);
+	// if (next_pos_player_x + BORDER_PLAYER >= game->map.map_x
+	// 	|| next_pos_player_y + BORDER_PLAYER >= game->map.map_y)
+	// 	return (/*printf("ERROR: out of map\n"), */ERROR);
+	// if (is_bordplayer_touch_wall(game, next_pos_player_x,
+	// 		next_pos_player_y) == true)
+	// 	return (/*printf("ERROR: Touching wall\n"), */ERROR);
+	
 	// printf("suposidly moove to x=%f y=%f\n",
 		// game->player.pos_x, game->player.pos_y);
 	return (OK);

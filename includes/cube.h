@@ -6,7 +6,7 @@
 /*   By: mvignes <mvignes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/08 13:38:07 by lyaberge          #+#    #+#             */
-/*   Updated: 2026/06/10 22:17:01 by mvignes          ###   ########.fr       */
+/*   Updated: 2026/07/05 12:44:42 by mvignes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@
 # include <stdint.h>
 # include <math.h>
 # include <sys/time.h>
+# include <X11/keysym.h>
 
 // Struct
 # include "structs.h"
@@ -40,8 +41,8 @@ typedef int	(*t_mlx_func)();
 # define ERROR 1
 
 // Window size
-# define HEIGHT 800
-# define WIDTH 1200
+// # define HEIGHT 800
+// # define WIDTH 1200
 # define SIZE LONG_MAX
 
 // Square size for the mini_map in pixel
@@ -54,13 +55,13 @@ typedef int	(*t_mlx_func)();
 # define BORDER_PLAYER 0.3
 
 // The nb of advancement the player mooves in the window
-# define SPEED 1
+# define SPEED 2
 
 // The steps size to avance the ray in the map bound
 # define RAY_STEP_SIZE 0.1
 
 // The nb of advancement the player mooves in the window
-# define SPEED_CAM 0.02
+# define SPEED_CAM 0.06
 
 // The marge between the top right and the map
 # define MARGE 25
@@ -92,30 +93,32 @@ typedef int	(*t_mlx_func)();
 
 // Keypress Mac
 // UP = W ; LEFT = A ; RIGHT = D ; DOWN = S
-# define ESC 53
-# define UP 13
-# define LEFT 0
-# define RIGHT 2
-# define DOWN 1
-# define ARROW_UP 126
-# define ARROW_LEFT 123
-# define ARROW_RIGHT 124
-# define ARROW_DOWN 125
-# define MAP_CHANGE 46
-# define HAND_CHANGE 31
+// # define ESC 53
+// # define UP 13
+// # define LEFT 0
+// # define RIGHT 2
+// # define DOWN 1
+// # define ARROW_UP 126
+// # define ARROW_LEFT 123
+// # define ARROW_RIGHT 124
+// # define ARROW_DOWN 125
+// # define SHIFT jsp
+// # define MAP_CHANGE 46
+// # define HAND_CHANGE 31
 
 // // Keypress Linux
 // // UP = W ; LEFT = A ; RIGHT = D ; DOWN = S
-// # define ESC 65307
-// # define UP 119
-// # define LEFT 97
-// # define RIGHT 100
-// # define DOWN 115
-// # define ARROW_UP 65362
-// # define ARROW_LEFT 65361
-// # define ARROW_RIGHT 65363
-// # define ARROW_DOWN 65364
-// # define MAP_CHANGE 109
-// # define HAND_CHANGE 111
+# define ESC 65307
+# define UP 119
+# define LEFT 97
+# define RIGHT 100
+# define DOWN 115
+# define ARROW_UP 65362
+# define ARROW_LEFT 65361
+# define ARROW_RIGHT 65363
+# define ARROW_DOWN 65364
+# define SHIFT 0xffe1
+# define MAP_CHANGE 109
+# define HAND_CHANGE 111
 
 #endif

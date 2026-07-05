@@ -6,7 +6,7 @@
 /*   By: mvignes <mvignes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/18 14:16:59 by mvignes           #+#    #+#             */
-/*   Updated: 2026/06/18 18:39:21 by mvignes          ###   ########.fr       */
+/*   Updated: 2026/07/05 11:25:01 by mvignes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,8 @@ int	keyno(int key, t_game *game)
 		game->bool_key.left = false;
 	if (key == ARROW_RIGHT)
 		game->bool_key.right = false;
+	if (key == SHIFT)
+		game->bool_key.shift = false;
 	return (OK);
 }
 
@@ -64,6 +66,8 @@ int	keywee(int key, t_game *game)
 		game->bool_key.left = true;
 	if (key == ARROW_RIGHT)
 		game->bool_key.right = true;
+	if (key == SHIFT)
+		game->bool_key.shift = true;
 	if (key == MAP_CHANGE)
 	{
 		toggle(game, 1);

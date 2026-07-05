@@ -6,7 +6,7 @@
 /*   By: mvignes <mvignes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/09 14:48:41 by mvignes           #+#    #+#             */
-/*   Updated: 2026/06/11 14:39:11 by mvignes          ###   ########.fr       */
+/*   Updated: 2026/07/05 11:33:33 by mvignes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ int	main(int ac, char **av)
 		return (free_data_fd(&game.map), ERROR);
 	if (init_img(&game) == ERROR)
 		return (free_data_fd(&game.map), ERROR);
-	init_key(&game);
+	// init_key(&game);
 	if (display_check(&game) == ERROR)
 		return (free_data_fd(&game.map), ERROR);
 	mlx_hook(game.win, 2, 1L << 0, ((t_mlx_func)(uintptr_t)keywee), &game);
