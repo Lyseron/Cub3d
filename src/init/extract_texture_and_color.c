@@ -16,7 +16,7 @@ static bool	good_value_not_map(char *line, t_map *map)
 {
 	if (!map->texture.path[IS_NORTH] || !map->texture.path[IS_SOUTH]
 		|| !map->texture.path[IS_WEAST] || !map->texture.path[IS_EAST]
-		|| !map->ceiling || !map->floor || map->error)
+		|| map->ceiling == -1 || map->floor == -1 || map->error)
 	{
 		if (ft_strnstr(line, "01", ft_strlen(line))
 			|| ft_strnstr(line, "11", ft_strlen(line))

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   structs.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mvignes <mvignes@student.42.fr>            +#+  +:+       +#+        */
+/*   By: vignesmattheu <vignesmattheu@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/11 16:48:45 by lyaberge          #+#    #+#             */
-/*   Updated: 2026/07/02 11:27:15 by mvignes          ###   ########.fr       */
+/*   Updated: 2026/07/06 09:27:11 by vignesmatth      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ typedef struct s_img
 
 typedef struct s_texture
 {
-	char	*path[5];
+	char	*path[6];
 	t_img	img[6];
 }	t_texture;
 
@@ -178,7 +178,6 @@ typedef struct s_game
 	t_mini_player	mini_player;
 	t_ray			ray;
 	t_bool_key		bool_key;
-	bool			is_door_open;
 }	t_game;
 
 #endif

@@ -16,7 +16,7 @@ static bool	all_info_grab(t_map *map)
 {
 	if (map->texture.path[IS_NORTH] && map->texture.path[IS_SOUTH]
 		&& map->texture.path[IS_WEAST] && map->texture.path[IS_EAST]
-		&& map->ceiling && map->floor)
+		&& map->ceiling != -1 && map->floor != -1)
 		return (true);
 	return (false);
 }

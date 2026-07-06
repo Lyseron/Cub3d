@@ -1,6 +1,6 @@
 NAME		= cub3D
 CC			= cc
-CFLAGS		= -g -Wall -Wextra -Werror -o3
+CFLAGS		= #-g -Wall -Wextra -Werror -o3
 MAKEFLAGS	+= --no-print-directory
 
 INCS		= -I. -I$(LIBFT_DIR)
@@ -70,6 +70,7 @@ RAYCASTING_SRC = \
 		$(RAYCASTING_DIR)/draw_3d.c\
 		$(RAYCASTING_DIR)/texture.c\
 		$(RAYCASTING_DIR)/raycasting.c\
+		$(RAYCASTING_DIR)/door.c\
 
 SRCS		= \
 	$(PARS_SRC) \

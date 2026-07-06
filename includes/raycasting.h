@@ -44,5 +44,7 @@ int	get_pixel_from_texture(t_img *tex, int tex_x, int tex_y);
 
 
 double	update_time(t_game *game);
+void	door_open(t_game *game);
+bool	player_proche_door(t_game *game, t_player *player);
 
 #endif

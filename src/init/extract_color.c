@@ -78,7 +78,7 @@ static int	add_color(char *line, char *find, t_map *map)
 
 static bool	add_var_color(char *line, t_map *map, char *find, int *color)
 {
-	if (*color)
+	if (*color != -1)
 	{
 		map->error = true;
 		return (ERROR);

@@ -75,6 +75,8 @@ int	main(int ac, char **av)
 	if (ac != 2)
 		return (ft_putstr_fd("Error: Wrong number of args\n", 2), ERROR);
 	ft_memset(&game, 0, sizeof(game));
+	game.map.floor = -1;
+	game.map.ceiling = -1;
 	if (parsing(&game, av) == ERROR)
 		return (free_data_fd(&game.map), ERROR);
 	if (create_initial_img(&game))

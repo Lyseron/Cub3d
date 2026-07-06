@@ -65,7 +65,7 @@ bool	verif_init_value(t_map *map)
 {
 	if (!map->texture.path[IS_NORTH] || !map->texture.path[IS_SOUTH]
 		|| !map->texture.path[IS_WEAST] || !map->texture.path[IS_EAST]
-		|| !map->ceiling || !map->floor
+		|| map->ceiling == -1 || map->floor == -1
 		|| map->error || verif_name_texture(map))
 		return (false);
 	return (true);

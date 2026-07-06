@@ -51,6 +51,7 @@ void	raycasting(t_game *game, t_player *player)
 		start_x += fraction;
 		i++;
 	}
+	calcul_angle_player(&game->ray, &game->player);
 }
 
 // void	raycasting(t_game *game, t_player *player)
