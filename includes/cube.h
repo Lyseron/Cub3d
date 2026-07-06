@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cube.h                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vignesmattheu <vignesmattheu@student.42    +#+  +:+       +#+        */
+/*   By: mvignes <mvignes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/08 13:38:07 by lyaberge          #+#    #+#             */
-/*   Updated: 2026/07/06 09:32:27 by vignesmatth      ###   ########.fr       */
+/*   Updated: 2026/07/06 13:42:30 by mvignes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@
 # include <stdlib.h>
 # include <stdbool.h>
 # include <stdint.h>
-//# include <X11/keysym.h>
+# include <X11/keysym.h>
 # include <limits.h>
 # include <math.h>
 # include <sys/time.h>
@@ -66,27 +66,27 @@
 
 // Keypress Mac
 // UP = W ; LEFT = A ; RIGHT = D ; DOWN = S
-# define ESC 53
-# define UP 13
-# define LEFT 0
-# define RIGHT 2
-# define DOWN 1
-# define SHIFT 257
-# define ARROW_LEFT 123
-# define ARROW_RIGHT 124
-# define DOOR 14
+// # define ESC 53
+// # define UP 13
+// # define LEFT 0
+// # define RIGHT 2
+// # define DOWN 1
+// # define SHIFT 257
+// # define ARROW_LEFT 123
+// # define ARROW_RIGHT 124
+// # define DOOR 14
 
 // // Keypress Linux
 // // UP = W ; LEFT = A ; RIGHT = D ; DOWN = S
-// # define ESC 65307
-// # define UP 119
-// # define LEFT 97
-// # define RIGHT 100
-// # define DOWN 115
-// # define SHIFT 0xffe1
-// # define ARROW_LEFT 0xff51
-// # define ARROW_RIGHT 0xff53
-// # define DOOR 
+# define ESC 65307
+# define UP 119
+# define LEFT 97
+# define RIGHT 100
+# define DOWN 115
+# define SHIFT 0xffe1
+# define ARROW_LEFT 0xff51
+# define ARROW_RIGHT 0xff53
+# define DOOR 0x0065
 
 // Struct
 # include "structs.h"
