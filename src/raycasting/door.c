@@ -3,14 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   door.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vignesmattheu <vignesmattheu@student.42    +#+  +:+       +#+        */
+/*   By: mvignes <mvignes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/21 14:04:47 by mvignes           #+#    #+#             */
-/*   Updated: 2026/07/06 12:58:29 by vignesmatth      ###   ########.fr       */
+/*   Updated: 2026/07/07 14:19:17 by mvignes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cube.h"
+
+/*DEJA RAJOUTER DANS LE MAIN*/
 
 /// @brief Verifie s'il y a une porte sur la case y de x
 /// @param game 
@@ -24,8 +26,8 @@ static bool	is_door_cell(t_game *game, int x, int y)
 	if (x < 0 || x >= (int)ft_strlen(game->map.grid[y]))
 		return (false);
 	if (game->map.grid[y][x] == '2' || game->map.grid[y][x] == '3')
-        return (true);
-    return (false);
+		return (true);
+	return (false);
 }
 
 /// @brief Regarde si devant le joueur il y a une porte (la distance est = a DOOR_RANGE)
