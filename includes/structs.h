@@ -6,7 +6,7 @@
 /*   By: mvignes <mvignes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/11 16:48:45 by lyaberge          #+#    #+#             */
-/*   Updated: 2026/07/07 10:10:14 by mvignes          ###   ########.fr       */
+/*   Updated: 2026/07/07 10:52:03 by mvignes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,6 +87,7 @@ typedef struct s_map
 	bool		extract_ceiling;
 	t_list		*extract;
 	bool		error;
+	bool		door;
 }	t_map;
 
 typedef struct s_raycasting
@@ -101,7 +102,7 @@ typedef struct s_raycasting
 	int		step_y;			// sense du rayon Nord Sud				<----- utiliser dans raycasting
 	double	side_dist_x;	// distance jusqua la prochaine ligne	<----- utiliser dans raycasting
 	double	side_dist_y;	// distance jusqua la prochaine ligne	<----- utiliser dans raycasting
-	bool	touch;												//	<----- utiliser dans raycasting
+	int		touch;												//	<----- utiliser dans raycasting
 	int		wall_touch; //											<----- utiliser dans raycasting
 	double	dist_perp;		// distance de l'intersection			<----- utiliser dans raycasting
 	double	line_height;	// hauteur mur							<----- utiliser dans raycasting
@@ -178,6 +179,7 @@ typedef struct s_bool_key
 	bool	change_hand;
 	bool	shift;
 	bool	mouse;
+	bool	door;
 }	t_bool_key;
 
 typedef struct s_game

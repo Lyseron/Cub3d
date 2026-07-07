@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   gameplay_utils.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lyaberge <lyaberge@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mvignes <mvignes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/17 06:46:14 by lyaberge          #+#    #+#             */
-/*   Updated: 2026/06/17 06:46:14 by lyaberge         ###   ########.fr       */
+/*   Updated: 2026/07/07 11:47:05 by mvignes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,8 +35,10 @@ bool	is_bordplayer_touch_wall(t_game *game, double next_x, double next_y)
 		while (x < game->map.map_x)
 		{
 			init_mini_map_square(game, x, y);
-			if (x < ft_strlen(game->map.grid[y])
+			if ((x < ft_strlen(game->map.grid[y])
 				&& game->map.grid[y][x] == '1')
+				|| (x < ft_strlen(game->map.grid[y])
+				&& game->map.grid[y][x] == '2'))
 			{
 				if (bordplayer_cond(game) == true)
 					return (true);

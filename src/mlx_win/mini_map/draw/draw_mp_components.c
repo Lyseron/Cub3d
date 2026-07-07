@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   draw_mp_components.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lyaberge <lyaberge@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mvignes <mvignes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/18 03:29:33 by lyaberge          #+#    #+#             */
-/*   Updated: 2026/06/18 03:29:33 by lyaberge         ###   ########.fr       */
+/*   Updated: 2026/07/07 11:36:17 by mvignes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int	draw_pixel(t_game *game, int x, int y, unsigned int color)
 
 	if (!game || !game->img.img_addr)
 		return (ERROR);
-	if (x < 0 || x >= WIDTH || y < 0 || y >= HEIGHT)
+	if (x < 0 || x >= game->width || y < 0 || y >= game->height)
 		return (ERROR);
 	if (game->img.size_line <= 0 || game->img.bits_per_pixel <= 0)
 		return (ERROR);
@@ -109,9 +109,9 @@ int	draw_all_ray(t_game *game)
 	int		i;
 
 	i = 0;
-	while (i < WIDTH)
+	while (i < game->width)
 	{
-		camera_x = 2.0 * i / (double)WIDTH - 1;
+		camera_x = 2.0 * i / (double)game->width - 1;
 		ray_dir_x = game->player.dir_x + game->ray.plane_x * camera_x;
 		ray_dir_y = game->player.dir_y + game->ray.plane_y * camera_x;
 		if (draw_ray(game, ray_dir_x, ray_dir_y) == ERROR)

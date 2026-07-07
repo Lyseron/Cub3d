@@ -6,7 +6,7 @@
 /*   By: mvignes <mvignes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/18 14:16:59 by mvignes           #+#    #+#             */
-/*   Updated: 2026/07/07 10:16:40 by mvignes          ###   ########.fr       */
+/*   Updated: 2026/07/07 11:44:37 by mvignes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,8 @@ int	keyno(int key, t_game *game)
 		game->bool_key.right = false;
 	if (key == SHIFT)
 		game->bool_key.shift = false;
-	// if (key == MOUSE)
-	// 	game->bool_key.mouse += 1 % 2;
+	if (key == DOOR)
+		game->bool_key.door = false;
 	return (OK);
 }
 
@@ -93,6 +93,11 @@ int	keywee(int key, t_game *game)
 			game->bool_key.mouse = false;
 		else
 			game->bool_key.mouse = true;
+	}
+	if (key == DOOR && !game->bool_key.door)
+	{
+		game->bool_key.door = true;
+		door_open(game);
 	}
 	if (display_keywee(key, game) == ERROR)
 		return (ERROR);

@@ -6,7 +6,7 @@
 /*   By: mvignes <mvignes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/18 13:35:41 by mvignes           #+#    #+#             */
-/*   Updated: 2026/06/29 10:50:17 by mvignes          ###   ########.fr       */
+/*   Updated: 2026/07/07 10:48:20 by mvignes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,16 +87,19 @@ void	draw_3d(t_game *game, t_ray *ray, int y, int i)
 
 void	select_texture(t_game *game, t_ray *ray)
 {
-	if (ray->wall_touch == 1)
+	// t_player	*player;
+
+	// player = &game->player;
+	if (ray->touch == 2 /*&& !player_proche_door(game, player)*/)
+		ray->tex_projet = &game->map.texture.img[IS_DOOR];
+	else if (ray->wall_touch == 1 /*&& ray->touch != 0*/)
 		ray->tex_projet = &game->map.texture.img[IS_NORTH];
-	else if (ray->wall_touch == 2)
+	else if (ray->wall_touch == 2 /*&& ray->touch != 0*/)
 		ray->tex_projet = &game->map.texture.img[IS_SOUTH];
-	else if (ray->wall_touch == 3)
+	else if (ray->wall_touch == 3 /*&& ray->touch != 0*/)
 		ray->tex_projet = &game->map.texture.img[IS_WEAST];
-	else
+	else if (ray->wall_touch == 4 /*&& ray->touch != 0*/)
 		ray->tex_projet = &game->map.texture.img[IS_EAST];
-	// else
-	// 	ray->tex_projet = &game->anim.anim_img[game->anim.frame_id];
 }
 
 void	draw_line(t_game *game, double angle_rayon, int i)

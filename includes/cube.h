@@ -6,7 +6,7 @@
 /*   By: mvignes <mvignes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/08 13:38:07 by lyaberge          #+#    #+#             */
-/*   Updated: 2026/07/07 10:10:45 by mvignes          ###   ########.fr       */
+/*   Updated: 2026/07/07 11:48:08 by mvignes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,8 +41,8 @@ typedef int	(*t_mlx_func)();
 # define ERROR 1
 
 // Window size
-# define HEIGHT 800
-# define WIDTH 1200
+// # define HEIGHT 800
+// # define WIDTH 1200
 # define SIZE LONG_MAX
 
 // Square size for the mini_map in pixel
@@ -87,6 +87,9 @@ typedef int	(*t_mlx_func)();
 
 # define DEBUG 0
 
+# define DOOR_RANGE 3.0
+# define DOOR_PATH "./textures/texture_gall/door.xpm"
+
 // The color for the mini/tiny maps
 # define COLOR_WALL 0x009999
 # define COLOR_FLOOR 0x1e1e2e
@@ -125,5 +128,6 @@ typedef int	(*t_mlx_func)();
 # define HAND_CHANGE 111
 # define SHIFT 0xffe1
 # define MOUSE 0xffe3
+# define DOOR 0x0065
 
 #endif
