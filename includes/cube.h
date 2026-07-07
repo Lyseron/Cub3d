@@ -6,7 +6,7 @@
 /*   By: mvignes <mvignes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/08 13:38:07 by lyaberge          #+#    #+#             */
-/*   Updated: 2026/07/07 11:48:08 by mvignes          ###   ########.fr       */
+/*   Updated: 2026/07/07 12:07:55 by mvignes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,14 +80,12 @@ typedef int	(*t_mlx_func)();
 
 # define SENSITIVITY_MOUSE 0.001
 
-# define SENSITIVITY_MOUSE2 0.02
-
 # define TURN_RIGTH 1
 # define TURN_LEFT -1
 
 # define DEBUG 0
 
-# define DOOR_RANGE 3.0
+# define DOOR_RANGE 1
 # define DOOR_PATH "./textures/texture_gall/door.xpm"
 
 // The color for the mini/tiny maps
@@ -112,6 +110,8 @@ typedef int	(*t_mlx_func)();
 // # define MAP_CHANGE 46
 // # define HAND_CHANGE 31
 // # define SHIFT 257
+// # define MOUSE 
+// # define DOOR 
 
 // // Keypress Linux
 // // UP = W ; LEFT = A ; RIGHT = D ; DOWN = S

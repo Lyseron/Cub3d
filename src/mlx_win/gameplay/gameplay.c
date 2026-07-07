@@ -6,7 +6,7 @@
 /*   By: mvignes <mvignes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/11 17:34:39 by lyaberge          #+#    #+#             */
-/*   Updated: 2026/07/07 10:20:38 by mvignes          ###   ########.fr       */
+/*   Updated: 2026/07/07 11:56:05 by mvignes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,11 +95,9 @@ void	mouse_moove(t_game *game)
 	int	y;
 	int	dist_from_middle_screen;
 
-	// printf("x=%d dist=%d\n", x, dist_from_middle_screen);
 	if (game->bool_key.mouse)
 	{
 		mlx_mouse_get_pos(game->mlx, game->win, &x, &y);
-		// printf("aftermove x=%d y=%d\n", x, y);
 		dist_from_middle_screen = x - (game->width / 2);
 		if (dist_from_middle_screen == 0)
 			return ;
@@ -112,28 +110,6 @@ void	mouse_moove(t_game *game)
 	else
 		mlx_mouse_show(game->mlx, game->win);
 }
-
-// avec TURN_LEFT/TURN_RIGHT
-// void	mouse_moove(t_game *game)
-// {
-// 	int	x;
-// 	int	y;
-// 	int	dist_from_middle_screen;
-
-// 	mlx_mouse_get_pos(game->mlx, game->win, &x, &y);
-// 	// printf("aftermove x=%d y=%d\n", x, y);
-// 	dist_from_middle_screen = x - (game->width / 2);
-// 	if (dist_from_middle_screen == 0)
-// 		return ;
-// 	if (dist_from_middle_screen < 0)
-// 		game->player.angle += TURN_LEFT * SENSITIVITY_MOUSE2;
-// 	if (dist_from_middle_screen > 0)
-// 		game->player.angle += TURN_RIGTH * SENSITIVITY_MOUSE2;
-// 	update_dir(game);
-// 	game->moved = true;
-// 	// printf("x=%d dist=%d\n", x, dist_from_middle_screen);
-// 	mlx_mouse_move(game->mlx, game->win, game->width / 2, game->height / 2);
-// }
 
 int	game_loop(t_game *game)
 {
