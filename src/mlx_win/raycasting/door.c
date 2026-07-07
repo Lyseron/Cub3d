@@ -6,7 +6,7 @@
 /*   By: mvignes <mvignes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/21 14:04:47 by mvignes           #+#    #+#             */
-/*   Updated: 2026/07/07 12:07:24 by mvignes          ###   ########.fr       */
+/*   Updated: 2026/07/07 13:37:28 by mvignes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,11 +24,12 @@ static bool	is_door_cell(t_game *game, int x, int y)
 	if (x < 0 || x >= (int)ft_strlen(game->map.grid[y]))
 		return (false);
 	if (game->map.grid[y][x] == '2' || game->map.grid[y][x] == '3')
-        return (true);
-    return (false);
+		return (true);
+	return (false);
 }
 
-/// @brief Regarde si devant le joueur il y a une porte (la distance est = a DOOR_RANGE)
+/// @brief Regarde si devant le joueur il y a une porte (la distance est = a
+/// @brief DOOR_RANGE)
 /// @param game 
 /// @param tx 
 /// @param ty 

@@ -6,7 +6,7 @@
 /*   By: mvignes <mvignes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/09 14:48:41 by mvignes           #+#    #+#             */
-/*   Updated: 2026/06/11 14:39:11 by mvignes          ###   ########.fr       */
+/*   Updated: 2026/07/07 13:14:14 by mvignes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,12 +39,12 @@ int	main(int ac, char **av)
 		return (ft_putstr_fd("Error: Wrong number of args\n", 2), ERROR);
 	ft_memset(&game, 0, sizeof(game));
 	if (parsing(&game, av) == ERROR)
-		return (free_data_fd(&game.map), ERROR);
+		return (exit_game(&game), ERROR);
 	if (init_img(&game) == ERROR)
-		return (free_data_fd(&game.map), ERROR);
+		return (exit_game(&game), ERROR);
 	init_key(&game);
 	if (display_check(&game) == ERROR)
-		return (free_data_fd(&game.map), ERROR);
+		return (exit_game(&game), ERROR);
 	mlx_hook(game.win, 2, 1L << 0, ((t_mlx_func)(uintptr_t)keywee), &game);
 	mlx_hook(game.win, 3, 1L << 1, ((t_mlx_func)(uintptr_t)keyno), &game);
 	mlx_hook(game.win, 17, 0, ((t_mlx_func)(uintptr_t)exit_game), &game);

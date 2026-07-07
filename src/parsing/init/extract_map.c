@@ -6,7 +6,7 @@
 /*   By: mvignes <mvignes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/09 14:48:05 by mvignes           #+#    #+#             */
-/*   Updated: 2026/07/07 11:50:53 by mvignes          ###   ########.fr       */
+/*   Updated: 2026/07/07 13:34:39 by mvignes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -119,7 +119,5 @@ bool	extract_map(char *line, t_map *map)
 		return (ft_putendl_fd("void map in fd", 2), ERROR);
 	allow_memory_grid(map);
 	write_map(map);
-	// if (verif_init_value(map) == false)
-	// 	return (print_error("Error: Value not correct", map, ERROR));
 	return (OK);
 }

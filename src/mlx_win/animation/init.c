@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lyaberge <lyaberge@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mvignes <mvignes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/03 22:31:12 by lyaberge          #+#    #+#             */
-/*   Updated: 2026/07/03 22:31:12 by lyaberge         ###   ########.fr       */
+/*   Updated: 2026/07/07 13:32:22 by mvignes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,7 @@ int	init_img_hand2_bis(t_game *game)
 int	init_img_hand2(t_game *game)
 {
 	game->hand_2.nb_of_img = 8;
-	game->hand_2.time_frame = 2000;
+	game->hand_2.time_frame = TIME_FRAME_HAND_2;
 	game->hand_2.frame_id = 0;
 	game->hand_2.nb_of_loop = 0;
 	if (init_img_hand2_bis(game) == ERROR)

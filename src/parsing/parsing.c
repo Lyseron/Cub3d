@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parsing.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lyaberge <lyaberge@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mvignes <mvignes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/18 21:48:37 by lyaberge          #+#    #+#             */
-/*   Updated: 2026/06/18 21:48:37 by lyaberge         ###   ########.fr       */
+/*   Updated: 2026/07/07 13:35:27 by mvignes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,6 @@ int	parsing(t_game *game, char **av)
 		return (ft_putstr_fd("Error: Wrong map extension\n", 2), ERROR);
 	if (extract_data(&game->map))
 		return (ERROR);
-	// print_data(&game->map);
-	// free_data_fd(&maps);
 	if (check_map(&game->map) == ERROR)
 		return (ft_putstr_fd("Error: Wrong map\n", 2), ERROR);
 	if (fill_struct_player(game) == ERROR)

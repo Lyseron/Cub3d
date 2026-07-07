@@ -6,7 +6,7 @@
 /*   By: mvignes <mvignes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/08 13:38:07 by lyaberge          #+#    #+#             */
-/*   Updated: 2026/07/07 12:07:55 by mvignes          ###   ########.fr       */
+/*   Updated: 2026/07/07 13:29:59 by mvignes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,6 +87,8 @@ typedef int	(*t_mlx_func)();
 
 # define DOOR_RANGE 1
 # define DOOR_PATH "./textures/texture_gall/door.xpm"
+
+# define TIME_FRAME_HAND_2 7000
 
 // The color for the mini/tiny maps
 # define COLOR_WALL 0x009999
