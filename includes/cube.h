@@ -77,6 +77,10 @@ typedef int	(*t_mlx_func)();
 // The nb of advancement the player mooves in the window
 # define SPEED_SPRIT 1.5
 
+# define SENSITIVITY_MOUSE 0.00009
+
+# define SENSITIVITY_MOUSE2 0.02
+
 # define TURN_RIGTH 1
 # define TURN_LEFT -1
 

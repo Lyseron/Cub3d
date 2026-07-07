@@ -70,7 +70,5 @@ int	init_img(t_game *game)
 		return (ERROR);
 	if (init_img_hand2(game) == ERROR)
 		return (ERROR);
-	// if (init_img_door(game) == ERROR)
-	// 	return (ERROR);
 	return (OK);
 }

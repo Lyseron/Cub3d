@@ -200,7 +200,6 @@ typedef struct s_game
 	t_anim			hand_2;
 	t_img			hand;
 	t_img			brush;
-	t_img			door;
 }	t_game;
 
 #endif

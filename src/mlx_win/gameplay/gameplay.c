@@ -88,6 +88,47 @@ void	key_moove(t_game *game)
 	}
 }
 
+// en ajoutant la distance depuis le milieu de lcran
+// void	mouse_moove(t_game *game)
+// {
+// 	int	x;
+// 	int	y;
+// 	int	dist_from_middle_screen;
+
+// 	mlx_mouse_get_pos(game->mlx, game->win, &x, &y);
+// 	// printf("aftermove x=%d y=%d\n", x, y);
+// 	dist_from_middle_screen = x - (game->width / 2);
+// 	if (dist_from_middle_screen == 0)
+// 		return ;
+// 	game->player.angle += dist_from_middle_screen * SENSITIVITY_MOUSE;
+// 	update_dir(game);
+// 	game->moved = true;
+// 	// printf("x=%d dist=%d\n", x, dist_from_middle_screen);
+// 	mlx_mouse_move(game->mlx, game->win, game->width / 2, game->height / 2);
+// }
+
+// avec TURN_LEFT/TURN_RIGHT
+// void	mouse_moove(t_game *game)
+// {
+// 	int	x;
+// 	int	y;
+// 	int	dist_from_middle_screen;
+
+// 	mlx_mouse_get_pos(game->mlx, game->win, &x, &y);
+// 	// printf("aftermove x=%d y=%d\n", x, y);
+// 	dist_from_middle_screen = x - (game->width / 2);
+// 	if (dist_from_middle_screen == 0)
+// 		return ;
+// 	if (dist_from_middle_screen < 0)
+// 		game->player.angle += TURN_LEFT * SENSITIVITY_MOUSE2;
+// 	if (dist_from_middle_screen > 0)
+// 		game->player.angle += TURN_RIGTH * SENSITIVITY_MOUSE2;
+// 	update_dir(game);
+// 	game->moved = true;
+// 	// printf("x=%d dist=%d\n", x, dist_from_middle_screen);
+// 	mlx_mouse_move(game->mlx, game->win, game->width / 2, game->height / 2);
+// }
+
 int	game_loop(t_game *game)
 {
 	bool	hand2_anim_change;
@@ -95,6 +136,7 @@ int	game_loop(t_game *game)
 	game->moved = false;
 	init_speed(game);
 	key_moove(game);
+	// mouse_moove(game);
 	hand2_anim_change = moove_anim(&game->hand_2);
 	if (game->moved == true
 		|| hand2_anim_change == true)

@@ -362,26 +362,6 @@ This system is used to animate pixel sprites inside the game, such as enemies, d
 	<img src="assets/paper_7.png" alt="Tinymap preview" width="100" height="100">
 </p>
 
-<p align="center">
-	<img src="assets/door_0.png" alt="Tinymap preview" width="100" height="100">
-	<img src="assets/door_1.png" alt="Tinymap preview" width="100" height="100">
-	<img src="assets/door_2.png" alt="Tinymap preview" width="100" height="100">
-	<img src="assets/door_3.png" alt="Tinymap preview" width="100" height="100">
-</p>
-
-- Wall painting :
-
-<p align="center">
-	<img src="assets/mona_0.png" alt="Tinymap preview" width="100" height="100">
-	<img src="assets/mona_1.png" alt="Tinymap preview" width="100" height="100">
-	<img src="assets/mona_2.png" alt="Tinymap preview" width="100" height="100">
-	<img src="assets/mona_3.png" alt="Tinymap preview" width="100" height="100">
-	<img src="assets/mona_4.png" alt="Tinymap preview" width="100" height="100">
-	<img src="assets/mona_5.png" alt="Tinymap preview" width="100" height="100">
-	<img src="assets/mona_6.png" alt="Tinymap preview" width="100" height="100">
-	<img src="assets/mona_7.png" alt="Tinymap preview" width="100" height="100">
-</p>
-
 - Hands :
 
 <p align="center">
@@ -445,6 +425,11 @@ MiniLibX color documentation:
 Sprite animation reference:
 
 * https://www.youtube.com/watch?v=DFfsYWuupcI
+
+Mouse Mouvement:
+
+* https://discourse.libsdl.org/t/first-person-camera-mouse-movement-sdl2-opengl/23936
+* https://www.youtube.com/watch?v=LA__RqBExiU
 
 ---
 
