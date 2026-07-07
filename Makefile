@@ -62,8 +62,10 @@ MLX_WIN_SRC = \
 	$(MLX_WIN_DIR)/raycasting/texture.c \
 	$(MLX_WIN_DIR)/raycasting/utils_time.c \
 	$(MLX_WIN_DIR)/raycasting/raycasting.c \
+	$(MLX_WIN_DIR)/raycasting/door.c \
 	$(MLX_WIN_DIR)/gameplay/gameplay.c \
 	$(MLX_WIN_DIR)/gameplay/key.c \
+	$(MLX_WIN_DIR)/gameplay/key_utils.c \
 	$(MLX_WIN_DIR)/gameplay/gameplay_utils.c \
 	$(MLX_WIN_DIR)/animation/moove_anim.c \
 	$(MLX_WIN_DIR)/animation/init.c \
@@ -98,6 +100,12 @@ else
 	MLX_DIR = libs/minilibx
 	MLX_INC = -I$(MLX_DIR)
 	MLX_LIB = -L$(MLX_DIR) -lmlx -lXext -lX11 -lm -lbsd
+endif
+
+ifeq ($(UNAME_S),Darwin)
+	CFLAGS += -DMAC
+else
+	CFLAGS += -DLINUX
 endif
 
 INC = -Iincludes $(MLX_INC)

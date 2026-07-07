@@ -6,16 +6,18 @@
 /*   By: mvignes <mvignes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/09 14:48:05 by mvignes           #+#    #+#             */
-/*   Updated: 2026/06/22 19:36:46 by mvignes          ###   ########.fr       */
+/*   Updated: 2026/07/07 13:34:39 by mvignes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cube.h"
 
-static bool	good_value_map(char *line)
+static bool	good_value_map(t_map *map, char *line)
 {
 	if (!line)
 		return (false);
+	if (ft_strnstr(line, "2", ft_strlen(line)))
+		map->door = true;
 	if (!ft_strnstr(line, "NO", !ft_strlen(line))
 		|| !ft_strnstr(line, "SO", !ft_strlen(line))
 		|| !ft_strnstr(line, "WE", !ft_strlen(line))
@@ -41,13 +43,13 @@ static bool	get_dimenssion(t_map *map)
 	char	*tmp_char;
 
 	tmp = map->extract;
-	while (tmp && !good_value_map(tmp->content))
+	while (tmp && !good_value_map(map, tmp->content))
 		tmp = tmp->next;
 	if (!tmp)
 		return (ERROR);
 	while (tmp)
 	{
-		if (!good_value_map(tmp->content))
+		if (!good_value_map(map, tmp->content))
 			break ;
 		i = 0;
 		tmp_char = tmp->content;
@@ -82,12 +84,12 @@ void	write_map(t_map *map)
 	char	*tmp_char;
 
 	tmp = map->extract;
-	while (!good_value_map(tmp->content))
+	while (!good_value_map(map, tmp->content))
 		tmp = tmp->next;
 	i = 0;
 	while (tmp)
 	{
-		if (!good_value_map(tmp->content))
+		if (!good_value_map(map, tmp->content))
 			break ;
 		tmp_char = tmp->content;
 		j = 0;
@@ -117,7 +119,5 @@ bool	extract_map(char *line, t_map *map)
 		return (ft_putendl_fd("void map in fd", 2), ERROR);
 	allow_memory_grid(map);
 	write_map(map);
-	// if (verif_init_value(map) == false)
-	// 	return (print_error("Error: Value not correct", map, ERROR));
 	return (OK);
 }

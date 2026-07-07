@@ -1,7 +1,7 @@
-NO ./textures/wolftex/greystone.xpm
-SO ./textures/wolftex/colorstone.xpm
-WE ./textures/wolftex/wood.xpm
-EA ./textures/wolftex/redbrick.xpm
+NO ./textures/N.xpm
+SO ./textures/S.xpm
+WE ./textures/W.xpm
+EA ./textures/E.xpm
 
 C 153,204,255
 F 164,169,20

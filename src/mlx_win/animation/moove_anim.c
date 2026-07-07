@@ -25,3 +25,19 @@ bool	moove_anim(t_anim *anim)
 	}
 	return (false);
 }
+
+bool	moove_anim_door(t_anim *anim)
+{
+	anim->nb_of_loop++;
+	if (anim->nb_of_loop >= anim->time_frame)
+	{
+		anim->nb_of_loop = 0;
+		anim->frame_id++;
+		if (anim->frame_id >= anim->nb_of_img)
+		{
+			anim->frame_id = anim->nb_of_img - 1;
+			return (true);
+		}
+	}
+	return (false);
+}

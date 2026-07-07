@@ -57,7 +57,7 @@ static bool	condition_is_valid_map(char **map, int x, int y)
 		return (false);
 	if (has_invalid_next_pos(map, x, y, '0'))
 		return (false);
-	if (has_invalid_next_pos(map, x, y, 'P'))
+	if (has_invalid_next_pos(map, x, y, '2'))
 		return (false);
 	return (true);
 }

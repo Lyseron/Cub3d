@@ -6,7 +6,7 @@
 /*   By: mvignes <mvignes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/08 13:38:07 by lyaberge          #+#    #+#             */
-/*   Updated: 2026/06/10 22:17:01 by mvignes          ###   ########.fr       */
+/*   Updated: 2026/07/07 13:39:02 by mvignes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,8 +40,8 @@ typedef int	(*t_mlx_func)();
 # define ERROR 1
 
 // Window size
-# define HEIGHT 800
-# define WIDTH 1200
+// # define HEIGHT 800
+// # define WIDTH 1200
 # define SIZE LONG_MAX
 
 // Square size for the mini_map in pixel
@@ -77,14 +77,18 @@ typedef int	(*t_mlx_func)();
 // The nb of advancement the player mooves in the window
 # define SPEED_SPRIT 1.5
 
-# define SENSITIVITY_MOUSE 0.00009
-
-# define SENSITIVITY_MOUSE2 0.02
+// How sensitive the mouse is
+# define SENSITIVITY_MOUSE 0.001
 
 # define TURN_RIGTH 1
 # define TURN_LEFT -1
 
-# define DEBUG 0
+# define DOOR_RANGE 1
+# define DOOR_PATH "./textures/texture_gall/door/door_lily.xpm"
+
+// For the animation to define how many loop before a frame change
+# define TIME_FRAME_PHONE 500
+# define TIME_FRAME_HAND 15
 
 // The color for the mini/tiny maps
 # define COLOR_WALL 0x009999
@@ -93,34 +97,70 @@ typedef int	(*t_mlx_func)();
 # define COLOR_RAY 0xd745ff
 # define COLOR_FRAME 0x009999
 # define COLOR_BACKGROUND 0x202020
+# define COLOR_DOOR 0xa08a06
 
 // Keypress Mac
-// UP = W ; LEFT = A ; RIGHT = D ; DOWN = S
+# ifdef MAC
+
+// ECHAP
 # define ESC 53
+// UP -> W 
 # define UP 13
+// LEFT -> A 
 # define LEFT 0
+// RIGHT -> D
 # define RIGHT 2
+// DOWN -> S
 # define DOWN 1
+
+// ARROWS
 # define ARROW_UP 126
 # define ARROW_LEFT 123
 # define ARROW_RIGHT 124
 # define ARROW_DOWN 125
-# define MAP_CHANGE 46
-# define HAND_CHANGE 31
-# define SHIFT 257
 
-// // Keypress Linux
-// // UP = W ; LEFT = A ; RIGHT = D ; DOWN = S
-// # define ESC 65307
-// # define UP 119
-// # define LEFT 97
-// # define RIGHT 100
-// # define DOWN 115
-// # define ARROW_UP 65362
-// # define ARROW_LEFT 65361
-// # define ARROW_RIGHT 65363
-// # define ARROW_DOWN 65364
-// # define MAP_CHANGE 109
-// # define HAND_CHANGE 111
+// MAP_CHANGE  -> M
+# define MAP_CHANGE 46
+// HAND_CHANGE && DOOR -> O
+# define HAND_CHANGE 14
+# define DOOR 14
+// SHIFT RIGHT
+# define SHIFT 257
+// CTRL
+# define MOUSE 256
+
+# endif
+
+// Keypress Linux
+# ifdef LINUX
+
+// ECHAP
+# define ESC 65307
+// UP -> W 
+# define UP 119
+// LEFT -> A 
+# define LEFT 97
+// RIGHT -> D
+# define RIGHT 100
+// DOWN -> S
+# define DOWN 115
+
+// ARROWS
+# define ARROW_UP 65362
+# define ARROW_LEFT 65361
+# define ARROW_RIGHT 65363
+# define ARROW_DOWN 65364
+
+// MAP_CHANGE  -> M
+# define MAP_CHANGE 109
+// HAND_CHANGE && DOOR -> O
+# define HAND_CHANGE 111
+# define DOOR 111
+// SHIFT RIGHT
+# define SHIFT 65506
+// CTRL
+# define MOUSE 65508
+
+#endif
 
 #endif

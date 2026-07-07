@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   scructs.h                                          :+:      :+:    :+:   */
+/*   structs.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lyaberge <lyaberge@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mvignes <mvignes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/11 16:48:45 by lyaberge          #+#    #+#             */
-/*   Updated: 2026/06/11 16:48:45 by lyaberge         ###   ########.fr       */
+/*   Updated: 2026/07/07 10:52:03 by mvignes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ typedef struct s_img
 typedef struct s_texture
 {
 	char	*path[6];
-	t_img	img[5];
+	t_img	img[6];
 	t_img	animation[7];
 	int		convert_color_c;
 	int		convert_color_f;
@@ -87,37 +87,38 @@ typedef struct s_map
 	bool		extract_ceiling;
 	t_list		*extract;
 	bool		error;
+	bool		door;
 }	t_map;
 
 typedef struct s_raycasting
 {
-	double	cos_p;			// direction des rayons FOV				<----- utiliser dans raycasting
-	double	sin_p;			// direction des rayons FOV				<----- utiliser dans raycasting
-	int		map_x;			// position dans la map en int			<----- utiliser dans raycasting
-	int		map_y;			// position dans la map en int			<----- utiliser dans raycasting
-	double	delta_dist_x;	// distance rayon						<----- utiliser dans raycasting
-	double	delta_dist_y;	// distance rayon						<----- utiliser dans raycasting
-	int		step_x;			// sense du rayon Est Ouest				<----- utiliser dans raycasting
-	int		step_y;			// sense du rayon Nord Sud				<----- utiliser dans raycasting
-	double	side_dist_x;	// distance jusqua la prochaine ligne	<----- utiliser dans raycasting
-	double	side_dist_y;	// distance jusqua la prochaine ligne	<----- utiliser dans raycasting
-	bool	touch;												//	<----- utiliser dans raycasting
-	int		wall_touch; //											<----- utiliser dans raycasting
-	double	dist_perp;		// distance de l'intersection			<----- utiliser dans raycasting
-	double	line_height;	// hauteur mur							<----- utiliser dans raycasting
-	double	start_y;//												<----- utiliser dans raycasting
-	double	end;//													<----- utiliser dans raycasting
-	double	fraction;											//	<----- utiliser dans raycasting mais surtout pour le speed
-	double	start_x;											//	<----- utiliser dans raycasting mais surtout pour le speed
-	double	pos_tex;		// position du pixel de texture			<----- utiliser dans raycasting
-	int		pos_tex_x;		// postion en x du fichier xpm			<----- utiliser dans raycasting
-	int		pos_tex_y;		// postion en y du fichier xpm			<----- utiliser dans raycasting
-	double	step;			// pas d'avance pour la loc dans xpm	<----- utiliser dans raycasting
-	t_img	*tex_projet;	// la texture qui sera projeté			<----- utiliser dans raycasting
-	double	ray_pos_x;		// calcul rayon				// <----- j'utilise pas mais lily utilise
-	double	ray_pos_y;		// calcul rayon				// <----- j'utilise pas mais lily utilise
-	double	plane_x;		// plan a gauche de lecran	// <----- j'utilise pas mais lily utilise
-	double	plane_y;		// plan a droite de lecran	// <----- j'utilise pas mais lily utilise
+	double	cos_p;
+	double	sin_p;
+	int		map_x;
+	int		map_y;
+	double	delta_dist_x;
+	double	delta_dist_y;
+	int		step_x;
+	int		step_y;
+	double	side_dist_x;
+	double	side_dist_y;
+	int		touch;
+	int		wall_touch;
+	double	dist_perp;
+	double	line_height;
+	double	start_y;
+	double	end;
+	double	fraction;
+	double	start_x;
+	double	pos_tex;
+	int		pos_tex_x;
+	int		pos_tex_y;
+	double	step;
+	t_img	*tex_projet;
+	double	ray_pos_x;
+	double	ray_pos_y;
+	double	plane_x;
+	double	plane_y;
 }	t_ray;
 
 typedef struct s_mini_map
@@ -177,6 +178,8 @@ typedef struct s_bool_key
 	bool	change_map;
 	bool	change_hand;
 	bool	shift;
+	bool	mouse;
+	bool	door;
 }	t_bool_key;
 
 typedef struct s_game
@@ -197,9 +200,12 @@ typedef struct s_game
 	t_bool_key		bool_key;
 	bool			moved;
 	t_texture		textures;
-	t_anim			hand_2;
-	t_img			hand;
-	t_img			brush;
+	t_anim			phone;
+	t_anim			right_hand;
+	t_anim			left_hand;
+	bool			close_door;
+	bool			open_door;
+	bool			anim_is_finish;
 }	t_game;
 
 #endif

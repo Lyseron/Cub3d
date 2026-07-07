@@ -6,7 +6,7 @@
 /*   By: mvignes <mvignes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/10 15:41:09 by mvignes           #+#    #+#             */
-/*   Updated: 2026/06/29 10:55:22 by mvignes          ###   ########.fr       */
+/*   Updated: 2026/07/07 13:11:18 by mvignes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ static int	*add_color(char *line, char *find, t_map *map)
 		if (check_digit(tab_char[i]))
 			tab_int[i] = ft_atoi(tab_char[i]);
 		else
-			return (free(tab_int),
+			return (free(tab_int), ft_free_dba(tab_char),
 				print_error("Error: number rgb not good", map, ERROR), NULL);
 		i++;
 	}

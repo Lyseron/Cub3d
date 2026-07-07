@@ -18,42 +18,39 @@ static void	get_pos_pixel_to_draw(t_game *game, int x, int y)
 	game->tiny_map.pixel_y = convert_y_to_pixel(game, y);
 }
 
+static int	tiny_map_conditions2(t_game *game, int x, int y)
+{
+	if (game->map.grid[y][x] == '1')
+	{
+		if (draw_tiny_square(game, COLOR_WALL) == ERROR)
+			return (ERROR);
+	}
+	else if (game->map.grid[y][x] == '0')
+	{
+		if (draw_tiny_square(game, COLOR_FLOOR) == ERROR)
+			return (ERROR);
+	}
+	else if (game->map.grid[y][x] == ' ')
+	{
+		if (draw_tiny_square(game, COLOR_BACKGROUND) == ERROR)
+			return (ERROR);
+	}
+	else if (game->map.grid[y][x] == '2' || game->map.grid[y][x] == '3')
+	{
+		if (draw_tiny_square(game, COLOR_DOOR) == ERROR)
+			return (ERROR);
+	}
+	return (OK);
+}
+
 static int	tiny_map_conditions(t_game *game, int x, int y)
 {
 	if (y >= 0 && y < game->map.map_y && game->map.grid[y]
 		&& x >= 0 && x < ft_strlen(game->map.grid[y]))
 	{
 		get_pos_pixel_to_draw(game, x, y);
-		if (game->map.grid[y][x] == '1')
-		{
-			if (draw_tiny_square(game, COLOR_WALL) == ERROR)
-				return (ERROR);
-		}
-		else if (game->map.grid[y][x] == '0')
-		{
-			if (draw_tiny_square(game, COLOR_FLOOR) == ERROR)
-				return (ERROR);
-		}
-	}
-	return (OK);
-}
-
-static int	draw_frame(t_game *game)
-{
-	int	x;
-	int	y;
-
-	y = game->tiny_map.min_y - FRAME_SIZE;
-	while (y < game->tiny_map.max_y + FRAME_SIZE)
-	{
-		x = game->tiny_map.min_x - FRAME_SIZE;
-		while (x < game->tiny_map.max_x + FRAME_SIZE)
-		{
-			if (draw_pixel(game, x, y, COLOR_FRAME) == ERROR)
-				return (ERROR);
-			x++;
-		}
-		y++;
+		if (tiny_map_conditions2(game, x, y) == ERROR)
+			return (ERROR);
 	}
 	return (OK);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   create_img.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lyaberge <lyaberge@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mvignes <mvignes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/09 17:11:19 by lyaberge          #+#    #+#             */
-/*   Updated: 2026/06/09 17:11:19 by lyaberge         ###   ########.fr       */
+/*   Updated: 2026/07/07 11:51:23 by mvignes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,9 @@ int	init_img_wall(t_game *game, t_texture *tex)
 		return (ERROR);
 	if (laod_texture(game, &tex->img[IS_EAST], tex->path[IS_EAST]) == ERROR)
 		return (ERROR);
+	if (game->map.door)
+		if (laod_texture(game, &tex->img[IS_DOOR], DOOR_PATH) == ERROR)
+			return (ERROR);
 	return (OK);
 }
 
@@ -66,9 +69,11 @@ int	init_img(t_game *game)
 		return (ERROR);
 	if (init_color_c_and_f(game) == ERROR)
 		return (ERROR);
-	if (init_img_hand(game) == ERROR)
+	if (init_img_right_hand(game) == ERROR)
 		return (ERROR);
-	if (init_img_hand2(game) == ERROR)
+	if (init_img_left_hand(game) == ERROR)
+		return (ERROR);
+	if (init_img_phone(game) == ERROR)
 		return (ERROR);
 	return (OK);
 }
