@@ -1,104 +1,106 @@
 NAME		= cub3D
 CC			= cc
-CFLAGS		= -o3 -g #-Wall -Wextra -Werror -o3
+CFLAGS		= -Wall -Wextra -Werror -g
 MAKEFLAGS	+= --no-print-directory
 
 INCS		= -I. -I$(LIBFT_DIR)
 
 # BLACK		= \033[0;30m
 # RED			= \033[0;31m
-GREEN		= \033[0;32m
+# GREEN		= \033[0;32m
 # YELLOW		= \033[0;33m
 # BLUE		= \033[0;34m
 # MAGENTA		= \033[0;35m
 # CYAN		= \033[0;36m
-GRAS		= \033[1m
-RESET		= \033[0m
+# GRAS		= \033[1m
+# RESET		= \033[0m
 
-LIBFT_DIR	= libft
+LIBFT_DIR	= libs/libft
 LIBFT		= $(LIBFT_DIR)/libft.a
 
 OBJS		= $(SRCS:%.c=%.o)
-RM			= rm -rf
+RM			= rm -f
 UNAME_S		:= $(shell uname)
-SRCS_DIR	= src
+SRCS_DIR   = src
 
-PARS_DIR		= $(SRCS_DIR)/parsing
-CLEAN_DIR		= $(SRCS_DIR)/clean_exit
-INIT_DIR		= $(SRCS_DIR)/init
-MINI_DIR		= $(SRCS_DIR)/mini_map
-MLX_WIN_DIR		= $(SRCS_DIR)/mlx_win
-RAYCASTING_DIR	= $(SRCS_DIR)/raycasting
+PARS_DIR    = $(SRCS_DIR)/parsing
+CLEAN_DIR   = $(SRCS_DIR)/clean_exit
+MLX_WIN_DIR = $(SRCS_DIR)/mlx_win
 
-PARS_SRC		= \
-	$(PARS_DIR)/check_valid_map.c \
-	$(PARS_DIR)/check_valid_map_utils.c \
-	$(PARS_DIR)/check_map_cub.c \
-	$(PARS_DIR)/check_name_texture.c\
-	$(PARS_DIR)/read_map.c
+PARS_SRC   = \
+	$(PARS_DIR)/parsing.c \
+	$(PARS_DIR)/checks/check_valid_map.c \
+	$(PARS_DIR)/checks/check_valid_map_utils.c \
+	$(PARS_DIR)/checks/check_map_cub.c \
+	$(PARS_DIR)/checks/check_name_texture.c\
+	$(PARS_DIR)/checks/read_map.c \
+	$(PARS_DIR)/init/extract_color.c \
+	$(PARS_DIR)/init/extract.c \
+	$(PARS_DIR)/init/extract_map.c \
+	$(PARS_DIR)/init/verif_extract.c \
+	$(PARS_DIR)/init/extract_texture_and_color.c \
+	$(PARS_DIR)/init/init_player.c \
+	$(PARS_DIR)/init/init_mlx.c
 	
-MLX_WIN_SRC		= \
-	$(MLX_WIN_DIR)/create_img.c\
-	$(MLX_WIN_DIR)/key.c\
-	$(MLX_WIN_DIR)/moove.c
+MLX_WIN_SRC = \
+	$(MLX_WIN_DIR)/display.c \
+	$(MLX_WIN_DIR)/mini_map/draw/draw_mini_map.c \
+	$(MLX_WIN_DIR)/mini_map/draw/draw_tiny_map.c \
+	$(MLX_WIN_DIR)/mini_map/draw/draw_mp_components.c \
+	$(MLX_WIN_DIR)/mini_map/draw/draw_mp_utils.c \
+	$(MLX_WIN_DIR)/mini_map/draw/draw_tm_components.c \
+	$(MLX_WIN_DIR)/mini_map/draw/draw_tm_utils.c \
+	$(MLX_WIN_DIR)/mini_map/init/init_mini_map.c \
+	$(MLX_WIN_DIR)/mini_map/init/init_mini_player.c \
+	$(MLX_WIN_DIR)/mini_map/init/init_tiny_player.c \
+	$(MLX_WIN_DIR)/mini_map/init/init_tiny_map.c \
+	$(MLX_WIN_DIR)/mini_map/init/init_ray.c \
+	$(MLX_WIN_DIR)/raycasting/dda.c \
+	$(MLX_WIN_DIR)/raycasting/put_pixel.c \
+	$(MLX_WIN_DIR)/raycasting/draw_2d.c \
+	$(MLX_WIN_DIR)/raycasting/draw_3d.c \
+	$(MLX_WIN_DIR)/raycasting/texture.c \
+	$(MLX_WIN_DIR)/raycasting/utils_time.c \
+	$(MLX_WIN_DIR)/raycasting/raycasting.c \
+	$(MLX_WIN_DIR)/gameplay/gameplay.c \
+	$(MLX_WIN_DIR)/gameplay/key.c \
+	$(MLX_WIN_DIR)/gameplay/gameplay_utils.c \
+	$(MLX_WIN_DIR)/animation/moove_anim.c \
+	$(MLX_WIN_DIR)/animation/init.c \
+	$(MLX_WIN_DIR)/animation/draw_anim.c \
+	$(MLX_WIN_DIR)/create_img_utils.c \
+	$(MLX_WIN_DIR)/create_img.c
 
-MINI_SRC		= \
-	$(MINI_DIR)/draw_mini_map.c \
-	$(MINI_DIR)/draw_mini_map_utils.c \
-	$(MINI_DIR)/gameplay.c
-
-INIT_SRC		= \
-	$(INIT_DIR)/extract_color.c \
-	$(INIT_DIR)/extract.c \
-	$(INIT_DIR)/verif_extract.c \
-	$(INIT_DIR)/extract_map.c \
-	$(INIT_DIR)/extract_texture_and_color.c \
-	$(INIT_DIR)/init_player.c \
-	$(INIT_DIR)/init_mini_map.c \
-	$(INIT_DIR)/init_mini_player.c \
-	$(INIT_DIR)/init_ray.c \
-	$(INIT_DIR)/init_mlx.c
-
-CLEAN_SRC		= \
+CLEAN_SRC  = \
 	$(CLEAN_DIR)/clean_mlx.c \
 	$(CLEAN_DIR)/free.c
 
-RAYCASTING_SRC = \
-		$(RAYCASTING_DIR)/dda.c\
-		$(RAYCASTING_DIR)/put_pixel.c\
-		$(RAYCASTING_DIR)/draw_2d.c\
-		$(RAYCASTING_DIR)/draw_3d.c\
-		$(RAYCASTING_DIR)/texture.c\
-		$(RAYCASTING_DIR)/raycasting.c\
-
-SRCS		= \
+SRCS    = \
 	$(PARS_SRC) \
 	$(CLEAN_SRC) \
 	$(MLX_WIN_SRC) \
-	$(INIT_SRC) \
-	$(MINI_SRC) \
-	$(RAYCASTING_SRC)\
-	$(SRCS_DIR)/utils_time.c\
+	$(RAYCASTING_SRC) \
+	$(GAME_SRC) \
 	$(SRCS_DIR)/main.c
 
 
-OBJ_DIR	= obj/
-OBJS	= $(addprefix $(OBJ_DIR), $(SRCS:%.c=%.o))
+OBJ_DIR    = obj/
+OBJS    = $(addprefix $(OBJ_DIR), $(SRCS:%.c=%.o))
 
-RM		= rm -f
-UNAME_S	:= $(shell uname)
+RM      = rm -rf
+UNAME_S := $(shell uname)
 
 ifeq ($(UNAME_S),Darwin)
-	MLX_DIR = mlx_macos
+	MLX_DIR = libs/mlx_macos
 	MLX_INC = -I$(MLX_DIR)
 	MLX_LIB = -L$(MLX_DIR) -lmlx -framework OpenGL -framework AppKit
 else
-	MLX_DIR = minilibx
+	MLX_DIR = libs/minilibx
 	MLX_INC = -I$(MLX_DIR)
 	MLX_LIB = -L$(MLX_DIR) -lmlx -lXext -lX11 -lm -lbsd
 endif
 
-INC	= -Iincludes $(MLX_INC)
+INC = -Iincludes $(MLX_INC)
 all: $(LIBFT) $(NAME)
 
 $(NAME): $(OBJS)
@@ -116,7 +118,7 @@ $(LIBFT):
 	@make -C $(LIBFT_DIR) > /dev/null 2>&1
 
 clean:
-	@$(RM) $(OBJS) .last_colors vgcore.* logs
+	@$(RM) $(OBJ_DIR) .last_colors vgcore.* logs
 	@make -C $(LIBFT_DIR) clean > /dev/null 2>&1
 	@make -C $(MLX_DIR) clean > /dev/null 2>&1
 	@printf "\033[34mObjects cleaned\033[0m\n"
@@ -128,23 +130,6 @@ fclean: clean
 
 re: fclean all
 
-main:
-	@git checkout main
-
-lily:
-	@git checkout lily
-
-matt:
-	@git checkout matt
-
-pull:
-	@git checkout main
-	@git pull
-	@git checkout lily
-	@git pull
-	@git checkout matt
-	@git pull
-	@printf "$(GREEN)$(GRAS) Pull all branch finish$(RESET)\n"
 
 # COLOR_FILE	= .last_colors
 
@@ -213,4 +198,4 @@ pull:
 # 	@printf "   '--------' '-..-'       '.$(COL4)(_,_)$(RESET).' /_______.'    ''-..-'  ''-'   ''-'     ''-...-'     ''-..-'          '---'              '--'      '--'   '---'     '---'    ''-...-'  '--'    '--'   ''-..-'    '-...-'    \n"
 # 	@printf "$(RESET)\n"
 
-.PHONY: all clean fclean re pull main lily matt name_ascii user42
+.PHONY: all clean fclean re
