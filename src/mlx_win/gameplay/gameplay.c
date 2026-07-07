@@ -6,7 +6,7 @@
 /*   By: mvignes <mvignes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/11 17:34:39 by lyaberge          #+#    #+#             */
-/*   Updated: 2026/07/07 11:56:05 by mvignes          ###   ########.fr       */
+/*   Updated: 2026/07/07 13:43:50 by mvignes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,9 @@
 static void	init_speed(t_game *game)
 {
 	if (game->bool_key.shift)
-		game->player.speed_player = (SPEED * SPEED_SPRIT) * update_time(game); // * fragtime
+		game->player.speed_player = (SPEED * SPEED_SPRIT) * update_time(game);
 	else
-		game->player.speed_player = SPEED * update_time(game); // * fragtime
+		game->player.speed_player = SPEED * update_time(game);
 }
 
 static int	moove_player(t_game *game, double dir_x, double dir_y)
@@ -27,10 +27,6 @@ static int	moove_player(t_game *game, double dir_x, double dir_y)
 
 	next_pos_player_x = game->player.pos_x + dir_x * game->player.speed_player;
 	next_pos_player_y = game->player.pos_y + dir_y * game->player.speed_player;
-	// printf("current: x=%f y=%f\n", game->player.pos_x,
-		// game->player.pos_y);
-	// printf("next: x=%f, y=%f\n", next_pos_player_x,
-		// next_pos_player_y);
 	if (next_pos_player_x - BORDER_PLAYER >= 0
 		&& next_pos_player_x + BORDER_PLAYER < game->map.map_x)
 	{
@@ -45,8 +41,6 @@ static int	moove_player(t_game *game, double dir_x, double dir_y)
 				next_pos_player_y) == false)
 			game->player.pos_y = next_pos_player_y;
 	}
-	// printf("suposidly moove to x=%f y=%f\n",
-		// game->player.pos_x, game->player.pos_y);
 	return (OK);
 }
 
@@ -86,29 +80,6 @@ void	key_moove(t_game *game)
 		update_dir(game);
 		game->moved = true;
 	}
-}
-
-// en ajoutant la distance depuis le milieu de lcran
-void	mouse_moove(t_game *game)
-{
-	int	x;
-	int	y;
-	int	dist_from_middle_screen;
-
-	if (game->bool_key.mouse)
-	{
-		mlx_mouse_get_pos(game->mlx, game->win, &x, &y);
-		dist_from_middle_screen = x - (game->width / 2);
-		if (dist_from_middle_screen == 0)
-			return ;
-		game->player.angle += dist_from_middle_screen * SENSITIVITY_MOUSE;
-		update_dir(game);
-		game->moved = true;
-		mlx_mouse_move(game->mlx, game->win, game->width / 2, game->height / 2);
-		mlx_mouse_hide(game->mlx, game->win);
-	}
-	else
-		mlx_mouse_show(game->mlx, game->win);
 }
 
 int	game_loop(t_game *game)

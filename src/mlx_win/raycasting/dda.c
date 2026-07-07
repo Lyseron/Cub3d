@@ -6,7 +6,7 @@
 /*   By: mvignes <mvignes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/21 13:32:41 by mvignes           #+#    #+#             */
-/*   Updated: 2026/07/07 13:05:22 by mvignes          ###   ########.fr       */
+/*   Updated: 2026/07/07 13:41:30 by mvignes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,31 +45,10 @@ void	calcul_direct_wall(t_player *p, t_ray *ray)
 		ray->side_dist_y = (ray->map_y + 1.0 - p->pos_y) * ray->delta_dist_y;
 	}
 }
-static bool	cell_is_door(t_game *game, int x, int y)
-{
-	if (y < 0 || y >= game->map.map_y)
-		return (false);
-	if (x < 0 || x >= (int)ft_strlen(game->map.grid[y]))
-		return (false);
-	return (game->map.grid[y][x] == '2');
-}
-
-bool	player_proche_door(t_game *game, t_player *player)
-{
-	int	px;
-	int	py;
-
-	px = (int)player->pos_x;
-	py = (int)player->pos_y;
-	return (cell_is_door(game, px, py)
-		|| cell_is_door(game, px + 1, py) || cell_is_door(game, px - 1, py)
-		|| cell_is_door(game, px, py + 1) || cell_is_door(game, px, py - 1));
-}
 
 void	calcul_horizontal_intersection(t_game *game, t_ray *ray)
 {
 	ray->touch = false;
-	// ray->wall_touch = 0;
 	while (ray->touch == 0)
 	{
 		if (ray->side_dist_x < ray->side_dist_y)
@@ -86,17 +65,10 @@ void	calcul_horizontal_intersection(t_game *game, t_ray *ray)
 		}
 		if (ray->map_y < 0 || ray->map_x < 0)
 			break ;
-		if (game->map.grid[ray->map_y][ray->map_x] == '1' /*|| game->map.grid[ray->map_y][ray->map_x] == '3'*/)
-		{
-			// if ()
+		if (game->map.grid[ray->map_y][ray->map_x] == '1')
 			ray->touch = 1;
-		}
-		else if (game->map.grid[ray->map_y][ray->map_x] == '2' /*&& !game->bool_key.door *//*!player_proche_door(game, &game->player)*/)
-		{
-			// game->map.grid[ray->map_y][ray->map_x] = '3';
-			// game->is_door_open = true;
+		else if (game->map.grid[ray->map_y][ray->map_x] == '2')
 			ray->touch = 2;
-		}
 	}
 }
 

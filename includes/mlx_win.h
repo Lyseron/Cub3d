@@ -6,7 +6,7 @@
 /*   By: mvignes <mvignes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/11 16:57:12 by lyaberge          #+#    #+#             */
-/*   Updated: 2026/07/07 12:57:55 by mvignes          ###   ########.fr       */
+/*   Updated: 2026/07/07 13:44:19 by mvignes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ int		convert_rgb_to_int(int t, int r, int g, int b);
 /* ------------------- key.c ------------------------------- */
 int		keyno(int key, t_game *game);
 int		keywee(int key, t_game *game);
+void	mouse_moove(t_game *game);
 
 /* =================== MINI_MAP.c =========================== */
 

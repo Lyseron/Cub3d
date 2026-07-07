@@ -6,7 +6,7 @@
 /*   By: mvignes <mvignes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/18 13:35:41 by mvignes           #+#    #+#             */
-/*   Updated: 2026/07/07 10:48:20 by mvignes          ###   ########.fr       */
+/*   Updated: 2026/07/07 13:39:33 by mvignes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,18 +87,15 @@ void	draw_3d(t_game *game, t_ray *ray, int y, int i)
 
 void	select_texture(t_game *game, t_ray *ray)
 {
-	// t_player	*player;
-
-	// player = &game->player;
-	if (ray->touch == 2 /*&& !player_proche_door(game, player)*/)
+	if (ray->touch == 2)
 		ray->tex_projet = &game->map.texture.img[IS_DOOR];
-	else if (ray->wall_touch == 1 /*&& ray->touch != 0*/)
+	else if (ray->wall_touch == 1)
 		ray->tex_projet = &game->map.texture.img[IS_NORTH];
-	else if (ray->wall_touch == 2 /*&& ray->touch != 0*/)
+	else if (ray->wall_touch == 2)
 		ray->tex_projet = &game->map.texture.img[IS_SOUTH];
-	else if (ray->wall_touch == 3 /*&& ray->touch != 0*/)
+	else if (ray->wall_touch == 3)
 		ray->tex_projet = &game->map.texture.img[IS_WEAST];
-	else if (ray->wall_touch == 4 /*&& ray->touch != 0*/)
+	else if (ray->wall_touch == 4)
 		ray->tex_projet = &game->map.texture.img[IS_EAST];
 }
 
