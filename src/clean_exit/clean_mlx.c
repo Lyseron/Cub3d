@@ -48,4 +48,6 @@ void	free_all_img(t_game *game)
 	free_anim(&game->left_hand, game);
 	free_anim(&game->right_hand, game);
 	free_anim(&game->phone, game);
+	free_anim(&game->munch, game);
+	free_anim(&game->mona, game);
 }

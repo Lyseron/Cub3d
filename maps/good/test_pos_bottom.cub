@@ -1,5 +1,5 @@
-NO ./textures/texture_gall/animation_munch/wall_anim_0.xpm
-SO ./textures/texture_gall/wall_mona/wall_mona_5.xpm
+NO ./textures/texture_gall/wall_mona/wall_mona_0.xpm
+SO ./textures/texture_gall/munch/wall_anim_0.xpm
 WE ./textures/texture_gall/wall_multiple_tab.xpm
 EA ./textures/texture_gall/wall_multiple_tab2.xpm
 
@@ -12,7 +12,7 @@ F 176,145,95
 101
 101
 101
-101
+121
 101
 101
 101

@@ -120,17 +120,22 @@ double	update_time(t_game *game);
 
 /* =================== ANIMATION.c ========================= */
 
-/* ------------------- Init.c --------------------------==== */
+/* ------------------- Init.c ------------------------------ */
 int		init_img_left_hand(t_game *game);
 int		init_img_right_hand(t_game *game);
 int		init_img_phone(t_game *game);
 
-/* ------------------- Init_ray.c -------------------------- */
+/* ------------------- Init_again.c ------------------------- */
+int		init_mona(t_game *game);
+int		init_munch(t_game *game);
+
+/* ------------------- Moove_anim.c ------------------------ */
 bool	moove_anim(t_anim *anim);
 bool	moove_anim_door(t_anim *anim);
 
-/* ------------------- Draw_hand.c ------------------------- */
+/* ------------------- Draw_anim.c ------------------------- */
 int		draw_left_img(t_game *game, t_img *img);
 int		draw_right_img(t_game *game, t_img *img);
 int		draw_middle_img(t_game *game, t_img *img);
+
 #endif

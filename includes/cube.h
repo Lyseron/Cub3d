@@ -89,6 +89,8 @@ typedef int	(*t_mlx_func)();
 // For the animation to define how many loop before a frame change
 # define TIME_FRAME_PHONE 500
 # define TIME_FRAME_HAND 15
+# define TIME_FRAME_MONA 500
+# define TIME_FRAME_MUNCH 500
 
 // The color for the mini/tiny maps
 # define COLOR_WALL 0x009999
@@ -121,6 +123,8 @@ typedef int	(*t_mlx_func)();
 
 // MAP_CHANGE  -> M
 # define MAP_CHANGE 46
+// START_ANIM_WALL -> T
+# define START_ANIM_WALL 17
 // HAND_CHANGE && DOOR -> O
 # define HAND_CHANGE 14
 # define DOOR 14
@@ -153,6 +157,8 @@ typedef int	(*t_mlx_func)();
 
 // MAP_CHANGE  -> M
 # define MAP_CHANGE 109
+// START_ANIM_WALL -> T
+# define START_ANIM_WALL 116
 // HAND_CHANGE && DOOR -> O
 # define HAND_CHANGE 111
 # define DOOR 111

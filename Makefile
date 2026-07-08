@@ -69,6 +69,7 @@ MLX_WIN_SRC = \
 	$(MLX_WIN_DIR)/gameplay/gameplay_utils.c \
 	$(MLX_WIN_DIR)/animation/moove_anim.c \
 	$(MLX_WIN_DIR)/animation/init.c \
+	$(MLX_WIN_DIR)/animation/init_again.c \
 	$(MLX_WIN_DIR)/animation/draw_anim.c \
 	$(MLX_WIN_DIR)/create_img_utils.c \
 	$(MLX_WIN_DIR)/create_img.c

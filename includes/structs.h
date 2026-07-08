@@ -206,6 +206,9 @@ typedef struct s_game
 	bool			close_door;
 	bool			open_door;
 	bool			anim_is_finish;
+	bool			start_anim_wall;
+	t_anim			mona;
+	t_anim			munch;
 }	t_game;
 
 #endif

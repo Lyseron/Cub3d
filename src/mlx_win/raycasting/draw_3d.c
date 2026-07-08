@@ -90,9 +90,19 @@ void	select_texture(t_game *game, t_ray *ray)
 	if (ray->touch == 2)
 		ray->tex_projet = &game->map.texture.img[IS_DOOR];
 	else if (ray->wall_touch == 1)
-		ray->tex_projet = &game->map.texture.img[IS_NORTH];
+	{
+		if (game->start_anim_wall == true)
+			ray->tex_projet = &game->munch.anim_img[game->munch.frame_id];
+		else
+			ray->tex_projet = &game->map.texture.img[IS_NORTH];
+	}
 	else if (ray->wall_touch == 2)
-		ray->tex_projet = &game->map.texture.img[IS_SOUTH];
+	{
+		if (game->start_anim_wall == true)
+			ray->tex_projet = &game->mona.anim_img[game->mona.frame_id];
+		else
+			ray->tex_projet = &game->map.texture.img[IS_SOUTH];
+	}
 	else if (ray->wall_touch == 3)
 		ray->tex_projet = &game->map.texture.img[IS_WEAST];
 	else if (ray->wall_touch == 4)

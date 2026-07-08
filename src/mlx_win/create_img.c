@@ -51,6 +51,21 @@ int	init_img_wall(t_game *game, t_texture *tex)
 	return (OK);
 }
 
+static int	init_anim(t_game *game)
+{
+	if (init_img_right_hand(game) == ERROR)
+		return (ERROR);
+	if (init_img_left_hand(game) == ERROR)
+		return (ERROR);
+	if (init_img_phone(game) == ERROR)
+		return (ERROR);
+	if (init_mona(game) == ERROR)
+		return (ERROR);
+	if (init_munch(game) == ERROR)
+		return (ERROR);
+	return (OK);
+}
+
 int	init_img(t_game *game)
 {
 	t_texture	*tex;
@@ -69,11 +84,7 @@ int	init_img(t_game *game)
 		return (ERROR);
 	if (init_color_c_and_f(game) == ERROR)
 		return (ERROR);
-	if (init_img_right_hand(game) == ERROR)
-		return (ERROR);
-	if (init_img_left_hand(game) == ERROR)
-		return (ERROR);
-	if (init_img_phone(game) == ERROR)
+	if (init_anim(game) == ERROR)
 		return (ERROR);
 	return (OK);
 }

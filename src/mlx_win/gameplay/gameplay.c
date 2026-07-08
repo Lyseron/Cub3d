@@ -58,7 +58,7 @@ int	is_moove_ok(t_game *game, int key_choice)
 		return (ERROR);
 }
 
-static int	game_loop_action(t_game *game, bool *has_moved)
+void	game_loop_action(t_game *game, bool *has_moved, bool *mona, bool *munch)
 {
 	if (game->bool_key.change_hand == true)
 	{
@@ -71,28 +71,42 @@ static int	game_loop_action(t_game *game, bool *has_moved)
 			game->anim_is_finish = true;
 		}
 	}
-	if (game->moved == true
-		|| *has_moved == true)
+	if (game->start_anim_wall == true)
 	{
-		if (display_check(game) == ERROR)
-			return (ERROR);
+		*mona = moove_anim(&game->mona);
+		*munch = moove_anim(&game->munch);
+		if (*mona == true
+			&& game->mona.frame_id == game->mona.nb_of_img - 1)
+			game->start_anim_wall = false;
+		if (*munch == true
+			&& game->munch.frame_id == game->munch.nb_of_img - 1)
+			game->start_anim_wall = false;
 	}
-	return (OK);
 }
 
 int	game_loop(t_game *game)
 {
 	bool	has_moved;
+	bool	mona_has_moved;
+	bool	munch_has_moved;
 
 	game->moved = false;
 	game->anim_is_finish = true;
 	has_moved = false;
+	mona_has_moved = false;
 	init_speed(game);
 	key_moove(game);
 	#ifdef LINUX
 	mouse_moove(game);
 	#endif
-	if (game_loop_action(game, &has_moved) == ERROR)
-		return (ERROR);
+	game_loop_action(game, &has_moved, &mona_has_moved, &munch_has_moved);
+	if (game->moved == true
+		|| has_moved == true
+		|| mona_has_moved == true
+		|| munch_has_moved == true)
+	{
+		if (display_check(game) == ERROR)
+			return (ERROR);
+	}
 	return (OK);
 }

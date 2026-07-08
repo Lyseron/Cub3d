@@ -43,6 +43,7 @@ int	main(int ac, char **av)
 	if (init_img(&game) == ERROR)
 		return (exit_game(&game), ERROR);
 	init_key(&game);
+	game.start_anim_wall = false;
 	if (display_check(&game) == ERROR)
 		return (exit_game(&game), ERROR);
 	mlx_hook(game.win, 2, 1L << 0, ((t_mlx_func)(uintptr_t)keywee), &game);

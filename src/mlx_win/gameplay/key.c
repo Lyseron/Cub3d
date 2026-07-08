@@ -41,6 +41,18 @@ static void	toggle(bool *which_change)
 		*which_change = true;
 }
 
+static void	wall_anim(int key, t_game *game)
+{
+	if (key == START_ANIM_WALL && game->start_anim_wall == false)
+	{
+		game->start_anim_wall = true;
+		game->mona.frame_id = 0;
+		game->mona.nb_of_loop = 0;
+		game->munch.frame_id = 0;
+		game->munch.nb_of_loop = 0;
+	}
+}
+
 int	display_keywee(int key, t_game *game)
 {
 	if (key == MAP_CHANGE)
@@ -66,6 +78,7 @@ int	display_keywee(int key, t_game *game)
 		if (display_check(game) == ERROR)
 			return (ERROR);
 	}
+	wall_anim(key, game);
 	return (OK);
 }
 
