@@ -1,5 +1,5 @@
-NO ./textures/texture_gall/wall_mona/wall_mona_0.xpm
-SO ./textures/texture_gall/munch/wall_anim_0.xpm
+NO ./textures/texture_gall/munch/wall_anim_0.xpm
+SO ./textures/texture_gall/wall_mona/wall_mona_0.xpm 
 WE ./textures/texture_gall/wall_multiple_tab.xpm
 EA ./textures/texture_gall/wall_multiple_tab2.xpm
 
@@ -21,7 +21,7 @@ F 176,145,95
 121111101011111011101
 100000101000100010001
 101110101110101110111
-101000100000200010101
+101000100200200010101
 101011111111111010101
 100010000000000010001
 101010111011111111101

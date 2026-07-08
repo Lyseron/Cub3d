@@ -40,7 +40,7 @@ void	free_anim(t_anim *anim, t_game *game)
 	i = 0;
 	while (i < anim->nb_of_img)
 	{
-		if (anim->anim_img[i].img_ptr)
+		if (anim->anim_img[i].img_ptr && game->mlx)
 			mlx_destroy_image(game->mlx, anim->anim_img[i].img_ptr);
 		i++;
 	}

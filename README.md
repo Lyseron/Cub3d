@@ -54,7 +54,7 @@ Accepted characters are:
 * `N`, `S`, `E`, `W` for the player's initial position and orientation
 * `1` for walls
 * `0` for empty floor
-* `P` for doors
+* `2` for doors
 * `M` for enemies
 * spaces for empty areas outside the playable map
 
@@ -161,7 +161,7 @@ The player can move using the keyboard:
 * `M`         -> to switch minimap mode
 * `ESC`       -> to quit the game
 * `E`         -> to open the doors
-* `T`         -> to activate the wall animation
+* `P`         -> to activate the wall animation
 
 The player has a position:
 

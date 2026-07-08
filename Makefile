@@ -82,8 +82,6 @@ SRCS    = \
 	$(PARS_SRC) \
 	$(CLEAN_SRC) \
 	$(MLX_WIN_SRC) \
-	$(RAYCASTING_SRC) \
-	$(GAME_SRC) \
 	$(SRCS_DIR)/main.c
 
 
