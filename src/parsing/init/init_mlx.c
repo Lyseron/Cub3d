@@ -6,7 +6,7 @@
 /*   By: mvignes <mvignes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/09 16:54:57 by lyaberge          #+#    #+#             */
-/*   Updated: 2026/07/07 13:33:18 by mvignes          ###   ########.fr       */
+/*   Updated: 2026/07/09 12:17:24 by mvignes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int	init_mlx(t_game *game)
 	game->mlx = mlx_init();
 	if (!game->mlx)
 		return (ERROR);
-	game->width = 1200;
+	game->width = 1400;
 	game->height = 800;
 	game->win = mlx_new_window(game->mlx, game->width, game->height, "Cub3d");
 	if (!game->win)

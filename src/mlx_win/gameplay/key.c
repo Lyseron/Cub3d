@@ -6,12 +6,16 @@
 /*   By: mvignes <mvignes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/18 14:16:59 by mvignes           #+#    #+#             */
-/*   Updated: 2026/07/09 11:06:38 by mvignes          ###   ########.fr       */
+/*   Updated: 2026/07/09 12:08:54 by mvignes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cube.h"
 
+/// @brief It’s a relasse key function, in the relache key by the user, the bool becomes NULL.
+/// @param key 
+/// @param game 
+/// @return Null value for while mlx in main
 int	keyno(int key, t_game *game)
 {
 	if (key == UP)
@@ -33,6 +37,8 @@ int	keyno(int key, t_game *game)
 	return (OK);
 }
 
+/// @brief Change the bool if true for false and change if false for true
+/// @param which_change 
 static void	toggle(bool *which_change)
 {
 	if (*which_change == true)
@@ -85,6 +91,10 @@ int	display_keywee(int key, t_game *game)
 	return (OK);
 }
 
+/// @brief It’s a relasse key function, in the press key by the user, the bool becomes true.
+/// @param key 
+/// @param game 
+/// @return Null value for while mlx in main
 int	keywee(int key, t_game *game)
 {
 	if (key == ESC)

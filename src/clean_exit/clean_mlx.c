@@ -6,12 +6,15 @@
 /*   By: mvignes <mvignes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/09 16:55:55 by lyaberge          #+#    #+#             */
-/*   Updated: 2026/07/09 11:40:34 by mvignes          ###   ########.fr       */
+/*   Updated: 2026/07/09 11:45:03 by mvignes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cube.h"
 
+/// @brief properly exits the program
+/// @param game 
+/// @return returns nothing, he use exit fonction
 int	exit_game(t_game *game)
 {
 	free_all_img(game);
@@ -29,6 +32,8 @@ int	exit_game(t_game *game)
 	exit(OK);
 }
 
+/// @brief Free all mlx image
+/// @param game 
 void	free_all_img(t_game *game)
 {
 	t_texture	*texture;

@@ -6,12 +6,17 @@
 /*   By: mvignes <mvignes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/09 18:23:50 by mvignes           #+#    #+#             */
-/*   Updated: 2026/07/09 10:59:58 by mvignes          ###   ########.fr       */
+/*   Updated: 2026/07/09 11:48:59 by mvignes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cube.h"
 
+/// @brief Allows you to write a message and to quit the program properly as soon as the parsing is done
+/// @param str 
+/// @param map 
+/// @param r 
+/// @return Code exit
 int	print_error(char *str, t_map *map, int r)
 {
 	map->error = true;
@@ -20,6 +25,8 @@ int	print_error(char *str, t_map *map, int r)
 	return (r);
 }
 
+/// @brief Free string and free static char * in get_next_line
+/// @param line 
 void	free_line_and_gnl(char *line)
 {
 	free(line);
@@ -27,12 +34,17 @@ void	free_line_and_gnl(char *line)
 	get_next_line(-1);
 }
 
+/// @brief Free void data and assign NULL value
+/// @param data 
 void	free_and_null(void **data)
 {
 	free(*data);
 	*data = NULL;
 }
 
+/// @brief Free all image use for animation
+/// @param anim 
+/// @param game 
 void	free_anim(t_anim *anim, t_game *game)
 {
 	int	i;
@@ -46,6 +58,8 @@ void	free_anim(t_anim *anim, t_game *game)
 	}
 }
 
+/// @brief Free all data allows for parsing
+/// @param map 
 void	free_data_fd(t_map *map)
 {
 	if (map->map_fd)

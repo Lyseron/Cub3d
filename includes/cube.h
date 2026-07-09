@@ -6,7 +6,7 @@
 /*   By: mvignes <mvignes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/08 13:38:07 by lyaberge          #+#    #+#             */
-/*   Updated: 2026/07/09 11:33:48 by mvignes          ###   ########.fr       */
+/*   Updated: 2026/07/09 12:23:15 by mvignes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@
 # include <stdint.h>
 # include <math.h>
 # include <sys/time.h>
+# include <X11/keysym.h>
 
 // Struct
 # include "structs.h"
@@ -40,8 +41,6 @@ typedef int	(*t_mlx_func)();
 # define ERROR 1
 
 // Window size
-// # define HEIGHT 800
-// # define WIDTH 1200
 # define SIZE LONG_MAX
 
 // Square size for the mini_map in pixel
@@ -80,15 +79,17 @@ typedef int	(*t_mlx_func)();
 // How sensitive the mouse is
 # define SENSITIVITY_MOUSE 0.001
 
+// Sense in which one turns one’s head
 # define TURN_RIGTH 1
 # define TURN_LEFT -1
 
+// Information about the door
 # define DOOR_RANGE 1
 # define DOOR_PATH "./textures/texture_gall/door/door_lily.xpm"
 
 // For the animation to define how many loop before a frame change
 # define TIME_FRAME_PHONE 15
-# define TIME_FRAME_HAND 15
+# define TIME_FRAME_HAND 50
 # define TIME_FRAME_MONA 20000
 # define TIME_FRAME_MUNCH 20000
 
@@ -168,7 +169,7 @@ typedef int	(*t_mlx_func)();
 // SHIFT RIGHT
 # define SHIFT 65506
 // CTRL
-# define MOUSE 65508
+# define MOUSE XK_Control_L
 
 #endif
 

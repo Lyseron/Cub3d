@@ -6,12 +6,16 @@
 /*   By: mvignes <mvignes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/09 14:48:41 by mvignes           #+#    #+#             */
-/*   Updated: 2026/07/09 11:27:40 by mvignes          ###   ########.fr       */
+/*   Updated: 2026/07/09 12:02:20 by mvignes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cube.h"
 
+/// @brief The main for the best project "Cub3D" of all 42 !
+/// @param ac 
+/// @param av 
+/// @return exit status
 int	main(int ac, char **av)
 {
 	t_game	game;

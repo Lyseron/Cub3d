@@ -6,12 +6,17 @@
 /*   By: mvignes <mvignes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/21 13:32:41 by mvignes           #+#    #+#             */
-/*   Updated: 2026/07/07 13:41:30 by mvignes          ###   ########.fr       */
+/*   Updated: 2026/07/09 11:58:17 by mvignes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cube.h"
 
+/// @brief Initializes 3 vectors for algorithm dda
+/// @brief (Digital Differential Analyzer)
+/// @param game 
+/// @param ray 
+/// @param angle_rayon 
 void	init_dda(t_game *game, t_ray *ray, double angle_rayon)
 {
 	ray->cos_p = cos(angle_rayon);
@@ -22,6 +27,9 @@ void	init_dda(t_game *game, t_ray *ray, double angle_rayon)
 	ray->delta_dist_y = fabs(1 / ray->sin_p);
 }
 
+/// @brief Calcul the orientation
+/// @param p 
+/// @param ray 
 void	calcul_direct_wall(t_player *p, t_ray *ray)
 {
 	if (ray->cos_p < 0)
@@ -72,6 +80,10 @@ void	calcul_horizontal_intersection(t_game *game, t_ray *ray)
 	}
 }
 
+/// @brief Calcul the next distance
+/// @param game 
+/// @param ray 
+/// @param angle_rayon 
 void	calcul_dist(t_game *game, t_ray *ray, double angle_rayon)
 {
 	t_player	*player;
