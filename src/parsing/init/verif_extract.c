@@ -6,7 +6,7 @@
 /*   By: mvignes <mvignes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/11 16:09:54 by mvignes           #+#    #+#             */
-/*   Updated: 2026/06/29 10:55:22 by mvignes          ###   ########.fr       */
+/*   Updated: 2026/07/09 15:18:35 by mvignes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,12 +67,15 @@ bool	good_len_color(int *Ceiling, int *Floor)
 	return (true);
 }
 
+/// @brief check that each texture name ends up with . xpm
+/// @param map 
+/// @return return true for it's ok and return false for error
 bool	verif_name_texture(t_map *map)
 {
 	if (ft_decide_name_texture(map->texture.path[IS_NORTH])
-		|| ft_decide_name_texture(map->texture.path[IS_SOUTH])
-		|| ft_decide_name_texture(map->texture.path[IS_WEAST])
-		|| ft_decide_name_texture(map->texture.path[IS_EAST]))
+		&& ft_decide_name_texture(map->texture.path[IS_SOUTH])
+		&& ft_decide_name_texture(map->texture.path[IS_WEAST])
+		&& ft_decide_name_texture(map->texture.path[IS_EAST]))
 		return (true);
 	return (false);
 }

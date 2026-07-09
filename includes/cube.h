@@ -6,7 +6,7 @@
 /*   By: mvignes <mvignes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/08 13:38:07 by lyaberge          #+#    #+#             */
-/*   Updated: 2026/07/09 12:23:15 by mvignes          ###   ########.fr       */
+/*   Updated: 2026/07/09 13:13:08 by mvignes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -167,7 +167,7 @@ typedef int	(*t_mlx_func)();
 # define HAND_CHANGE 111
 # define DOOR 111
 // SHIFT RIGHT
-# define SHIFT 65506
+# define SHIFT XK_Shift_L
 // CTRL
 # define MOUSE XK_Control_L
 

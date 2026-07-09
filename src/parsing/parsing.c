@@ -6,12 +6,16 @@
 /*   By: mvignes <mvignes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/18 21:48:37 by lyaberge          #+#    #+#             */
-/*   Updated: 2026/07/09 11:37:47 by mvignes          ###   ########.fr       */
+/*   Updated: 2026/07/09 15:14:47 by mvignes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cube.h"
 
+/// @brief dispatches the work from parsing to the different functions
+/// @param game 
+/// @param av 
+/// @return return 0 for it's okay, 1 for there is an error
 int	parsing(t_game *game, char **av)
 {
 	game->map.map_name = av[1];
