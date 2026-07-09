@@ -6,7 +6,7 @@
 /*   By: mvignes <mvignes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/08 13:38:07 by lyaberge          #+#    #+#             */
-/*   Updated: 2026/07/07 13:39:02 by mvignes          ###   ########.fr       */
+/*   Updated: 2026/07/09 10:44:54 by mvignes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,10 +87,10 @@ typedef int	(*t_mlx_func)();
 # define DOOR_PATH "./textures/texture_gall/door/door_lily.xpm"
 
 // For the animation to define how many loop before a frame change
-# define TIME_FRAME_PHONE 500
+# define TIME_FRAME_PHONE 15
 # define TIME_FRAME_HAND 15
-# define TIME_FRAME_MONA 500
-# define TIME_FRAME_MUNCH 500
+# define TIME_FRAME_MONA 20000
+# define TIME_FRAME_MUNCH 20000
 
 // The color for the mini/tiny maps
 # define COLOR_WALL 0x009999
@@ -100,6 +100,9 @@ typedef int	(*t_mlx_func)();
 # define COLOR_FRAME 0x009999
 # define COLOR_BACKGROUND 0x202020
 # define COLOR_DOOR 0xa08a06
+
+# define GOOD_NORTH "./textures/texture_gall/munch/wall_anim_0.xpm"
+# define GOOD_SOUTH "./textures/texture_gall/wall_mona/wall_mona_0.xpm"
 
 // Keypress Mac
 # ifdef MAC

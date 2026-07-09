@@ -6,7 +6,7 @@
 /*   By: mvignes <mvignes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/11 17:34:39 by lyaberge          #+#    #+#             */
-/*   Updated: 2026/07/07 13:43:50 by mvignes          ###   ########.fr       */
+/*   Updated: 2026/07/09 10:49:16 by mvignes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,9 +96,9 @@ int	game_loop(t_game *game)
 	mona_has_moved = false;
 	init_speed(game);
 	key_moove(game);
-	#ifdef LINUX
+	// #ifdef LINUX
 	mouse_moove(game);
-	#endif
+	// #endif
 	game_loop_action(game, &has_moved, &mona_has_moved, &munch_has_moved);
 	if (game->moved == true
 		|| has_moved == true

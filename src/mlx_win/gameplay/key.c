@@ -6,7 +6,7 @@
 /*   By: mvignes <mvignes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/18 14:16:59 by mvignes           #+#    #+#             */
-/*   Updated: 2026/07/07 13:49:02 by mvignes          ###   ########.fr       */
+/*   Updated: 2026/07/09 10:50:17 by mvignes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,13 +43,16 @@ static void	toggle(bool *which_change)
 
 static void	wall_anim(int key, t_game *game)
 {
-	if (key == START_ANIM_WALL && game->start_anim_wall == false)
+	if (game->good_texture)
 	{
-		game->start_anim_wall = true;
-		game->mona.frame_id = 0;
-		game->mona.nb_of_loop = 0;
-		game->munch.frame_id = 0;
-		game->munch.nb_of_loop = 0;
+		if (key == START_ANIM_WALL && game->start_anim_wall == false)
+		{
+			game->start_anim_wall = true;
+			game->mona.frame_id = 0;
+			game->mona.nb_of_loop = 0;
+			game->munch.frame_id = 0;
+			game->munch.nb_of_loop = 0;
+		}
 	}
 }
 

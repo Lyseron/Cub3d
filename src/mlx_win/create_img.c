@@ -6,7 +6,7 @@
 /*   By: mvignes <mvignes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/09 17:11:19 by lyaberge          #+#    #+#             */
-/*   Updated: 2026/07/07 11:51:23 by mvignes          ###   ########.fr       */
+/*   Updated: 2026/07/09 10:50:50 by mvignes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,9 @@ int	init_img_wall(t_game *game, t_texture *tex)
 	if (game->map.door)
 		if (laod_texture(game, &tex->img[IS_DOOR], DOOR_PATH) == ERROR)
 			return (ERROR);
+	if (!ft_strncmp(tex->path[IS_NORTH], GOOD_NORTH, 46)
+		&& !ft_strncmp(tex->path[IS_SOUTH], GOOD_SOUTH, 50))
+			game->good_texture = true;
 	return (OK);
 }
 

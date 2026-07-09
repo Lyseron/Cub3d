@@ -6,7 +6,7 @@
 /*   By: mvignes <mvignes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/17 06:46:14 by lyaberge          #+#    #+#             */
-/*   Updated: 2026/07/07 13:52:06 by mvignes          ###   ########.fr       */
+/*   Updated: 2026/07/09 09:51:46 by mvignes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,24 +51,24 @@ bool	is_bordplayer_touch_wall(t_game *game, double next_x, double next_y)
 }
 
 // adding the distance from the middle of the screen
-// void	mouse_moove(t_game *game)
-// {
-// 	int	x;
-// 	int	y;
-// 	int	dist_from_middle_screen;
+void	mouse_moove(t_game *game)
+{
+	int	x;
+	int	y;
+	int	dist_from_middle_screen;
 
-// 	if (game->bool_key.mouse)
-// 	{
-// 		mlx_mouse_get_pos(game->mlx, game->win, &x, &y);
-// 		dist_from_middle_screen = x - (game->width / 2);
-// 		if (dist_from_middle_screen == 0)
-// 			return ;
-// 		game->player.angle += dist_from_middle_screen * SENSITIVITY_MOUSE;
-// 		update_dir(game);
-// 		game->moved = true;
-// 		mlx_mouse_move(game->mlx, game->win, game->width / 2, game->height / 2);
-// 		mlx_mouse_hide(game->mlx, game->win);
-// 	}
-// 	else
-// 		mlx_mouse_show(game->mlx, game->win);
-// }
+	if (game->bool_key.mouse)
+	{
+		mlx_mouse_get_pos(game->mlx, game->win, &x, &y);
+		dist_from_middle_screen = x - (game->width / 2);
+		if (dist_from_middle_screen == 0)
+			return ;
+		game->player.angle += dist_from_middle_screen * SENSITIVITY_MOUSE;
+		update_dir(game);
+		game->moved = true;
+		mlx_mouse_move(game->mlx, game->win, game->width / 2, game->height / 2);
+		mlx_mouse_hide(game->mlx, game->win);
+	}
+	else
+		mlx_mouse_show(game->mlx, game->win);
+}

@@ -6,7 +6,7 @@
 /*   By: mvignes <mvignes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/11 16:48:45 by lyaberge          #+#    #+#             */
-/*   Updated: 2026/07/07 10:52:03 by mvignes          ###   ########.fr       */
+/*   Updated: 2026/07/09 10:46:00 by mvignes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -207,6 +207,7 @@ typedef struct s_game
 	bool			open_door;
 	bool			anim_is_finish;
 	bool			start_anim_wall;
+	bool			good_texture;
 	t_anim			mona;
 	t_anim			munch;
 }	t_game;
