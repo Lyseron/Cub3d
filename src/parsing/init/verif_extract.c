@@ -6,12 +6,15 @@
 /*   By: mvignes <mvignes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/11 16:09:54 by mvignes           #+#    #+#             */
-/*   Updated: 2026/07/09 15:18:35 by mvignes          ###   ########.fr       */
+/*   Updated: 2026/07/09 15:26:35 by mvignes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cube.h"
 
+/// @brief check on the line if there are any explicitly good characters
+/// @param line 
+/// @return return true for it's ok
 static bool	good_caractere(char *line)
 {
 	if (ft_strnstr(line, "NO", ft_strlen(line))
@@ -30,6 +33,10 @@ static bool	good_caractere(char *line)
 	return (false);
 }
 
+/// @brief Check if the line of contents does not contain any parasitic containers
+/// @param line 
+/// @param map 
+/// @return return false for it's ok and return true for error
 bool	line_not_parasite(char *line, t_map *map)
 {
 	int	i;
@@ -50,6 +57,10 @@ bool	line_not_parasite(char *line, t_map *map)
 	return (false);
 }
 
+/// @brief check all code color for ceiling and floor
+/// @param Ceiling 
+/// @param Floor 
+/// @return return true for it's ok and return false for error
 bool	good_len_color(int *Ceiling, int *Floor)
 {
 	int	i;
@@ -80,6 +91,9 @@ bool	verif_name_texture(t_map *map)
 	return (false);
 }
 
+/// @brief Simple function to check everything that came out of the file. cub
+/// @param map 
+/// @return return true for it's ok and return false for error
 bool	verif_init_value(t_map *map)
 {
 	int	i;

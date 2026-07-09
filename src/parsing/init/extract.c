@@ -6,12 +6,15 @@
 /*   By: mvignes <mvignes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/09 14:48:48 by mvignes           #+#    #+#             */
-/*   Updated: 2026/07/09 11:10:28 by mvignes          ###   ########.fr       */
+/*   Updated: 2026/07/09 15:27:25 by mvignes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cube.h"
 
+/// @brief Check if we have all the useful information before extracting the map
+/// @param map 
+/// @return return true for it's ok
 static bool	all_info_grab(t_map *map)
 {
 	if (map->texture.path[IS_NORTH] && map->texture.path[IS_SOUTH]
@@ -21,6 +24,9 @@ static bool	all_info_grab(t_map *map)
 	return (false);
 }
 
+/// @brief Main function for data extraction
+/// @param map 
+/// @return return 1 for error
 bool	extract_data(t_map *map)
 {
 	char	*line;

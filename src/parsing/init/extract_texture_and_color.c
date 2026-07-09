@@ -6,12 +6,17 @@
 /*   By: mvignes <mvignes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/08 17:05:45 by mvignes           #+#    #+#             */
-/*   Updated: 2026/06/29 10:55:22 by mvignes          ###   ########.fr       */
+/*   Updated: 2026/07/09 15:32:06 by mvignes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cube.h"
 
+/// @brief Check if we have all the necessary data before the extraction from
+/// @brief the map and if there are any characters in the map
+/// @param line 
+/// @param map 
+/// @return Return true for it's ok
 static bool	good_value_not_map(char *line, t_map *map)
 {
 	if (!map->texture.path[IS_NORTH] || !map->texture.path[IS_SOUTH]
@@ -69,6 +74,10 @@ static int	add_value_or_check_doublon(char *line, t_map *map,
 	return (0);
 }
 
+/// @brief check if there are any characters to extract the textures or colors
+/// @param line 
+/// @param map 
+/// @return return 1 for error
 int	sort_value(char *line, t_map *map)
 {
 	t_texture	*text;
