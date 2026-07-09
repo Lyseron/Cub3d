@@ -6,7 +6,7 @@
 /*   By: mvignes <mvignes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/09 17:11:19 by lyaberge          #+#    #+#             */
-/*   Updated: 2026/07/09 11:06:32 by mvignes          ###   ########.fr       */
+/*   Updated: 2026/07/09 11:31:50 by mvignes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,16 +22,12 @@ int	init_color_c_and_f(t_game *game)
 		return (ERROR);
 	game->textures.convert_color_c = convert_rgb_to_int(0,
 			game->map.ceiling[0], game->map.ceiling[1], game->map.ceiling[2]);
-	if (!game->textures.convert_color_c)
-		return (ERROR);
 	if (is_valid_color(game->map.floor[0]) == false
 		|| is_valid_color(game->map.floor[1]) == false
 		|| is_valid_color(game->map.floor[2]) == false)
 		return (ERROR);
 	game->textures.convert_color_f = convert_rgb_to_int(0,
 			game->map.floor[0], game->map.floor[1], game->map.floor[2]);
-	if (!game->textures.convert_color_f)
-		return (ERROR);
 	return (OK);
 }
 

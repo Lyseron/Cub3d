@@ -6,7 +6,7 @@
 /*   By: mvignes <mvignes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/09 13:47:59 by lyaberge          #+#    #+#             */
-/*   Updated: 2026/06/11 14:29:00 by mvignes          ###   ########.fr       */
+/*   Updated: 2026/07/09 11:08:09 by mvignes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,11 +57,7 @@ static bool	condition_is_valid_map(char **map, int x, int y)
 		return (false);
 	if (has_invalid_next_pos(map, x, y, '0'))
 		return (false);
-<<<<<<< HEAD
 	if (has_invalid_next_pos(map, x, y, '2'))
-=======
-	if (has_invalid_next_pos(map, x, y, 'P'))
->>>>>>> main
 		return (false);
 	return (true);
 }
