@@ -6,7 +6,7 @@
 /*   By: mvignes <mvignes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/18 13:35:41 by mvignes           #+#    #+#             */
-/*   Updated: 2026/07/09 11:14:14 by mvignes          ###   ########.fr       */
+/*   Updated: 2026/07/09 11:39:19 by mvignes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,9 +34,7 @@ void	draw_3d(t_game *game, t_ray *ray, int y, int i)
 
 	img = ray->tex_projet;
 	if (y < ray->start_y)
-	{
 		put_pixel(game, i, y, game->textures.convert_color_c);
-	}
 	else if (y >= ray->start_y && y <= ray->end)
 	{
 		if (ray->pos_tex < 0)
@@ -47,9 +45,7 @@ void	draw_3d(t_game *game, t_ray *ray, int y, int i)
 		put_pixel(game, i, y, couleur);
 	}
 	else
-	{
 		put_pixel(game, i, y, game->textures.convert_color_f);
-	}
 }
 
 void	select_texture(t_game *game, t_ray *ray)

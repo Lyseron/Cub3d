@@ -6,7 +6,7 @@
 /*   By: mvignes <mvignes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/18 21:48:37 by lyaberge          #+#    #+#             */
-/*   Updated: 2026/07/09 11:14:07 by mvignes          ###   ########.fr       */
+/*   Updated: 2026/07/09 11:37:47 by mvignes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,5 @@ int	parsing(t_game *game, char **av)
 		return (ERROR);
 	if (init_mlx(game) == ERROR)
 		return (ERROR);
-	// printf("OUIOUI BAGUETTE, floor = %i, %i, %i\nMap error = %i\n",game->map.floor[0],game->map.floor[1],game->map.floor[2],game->map.error);
 	return (OK);
 }
