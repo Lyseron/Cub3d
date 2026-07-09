@@ -6,7 +6,11 @@
 /*   By: mvignes <mvignes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/08 13:38:07 by lyaberge          #+#    #+#             */
+<<<<<<< HEAD
 /*   Updated: 2026/07/09 10:44:54 by mvignes          ###   ########.fr       */
+=======
+/*   Updated: 2026/07/07 13:39:02 by mvignes          ###   ########.fr       */
+>>>>>>> main
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +28,10 @@
 # include <stdint.h>
 # include <math.h>
 # include <sys/time.h>
+<<<<<<< HEAD
+=======
+# include <X11/keysym.h>
+>>>>>>> main
 
 // Struct
 # include "structs.h"

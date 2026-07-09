@@ -1,27 +1,62 @@
+<<<<<<< HEAD
+<<<<<<<< HEAD:maps/good/medium_map.cub
 NO ./textures/texture_gall/munch/wall_anim_0.xpm
 SO ./textures/texture_gall/wall_mona/wall_mona_0.xpm
+=======
+<<<<<<<< HEAD:maps/good/complete_map.cub
+NO ./textures/texture_gall/munch/wall_anim_0.xpm
+SO ./textures/texture_gall/wall_mona/wall_mona_0.xpm 
+>>>>>>> main
 WE ./textures/texture_gall/wall_multiple_tab.xpm
 EA ./textures/texture_gall/wall_multiple_tab2.xpm
 
 C 206,205,203
 F 176,145,95
+========
+NO ./textures/texture_gall/wall_painting_landscape.xpm
+SO ./textures/texture_gall/wall_painting_portrait.xpm
+WE ./textures/texture_gall/wall_cafe.xpm
+EA ./textures/texture_gall/violet.xpm
+
+<<<<<<< HEAD
+C 25,20,35
+F 44,32,48
+>>>>>>>> main:maps/good/cheese_maze.cub
+=======
+C 245,245,240
+F 185,160,120
+>>>>>>>> main:maps/good/medium_map.cub
+>>>>>>> main
 
 111111111111111111111
 101000001000000000001
 101010101011111110001
 100010100010000010001
+<<<<<<< HEAD
 111110101111101011101
+=======
+111110101211101011101
+>>>>>>> main
 100000101000101000001
 101111101011101111111
 101000001010100000101
 101011111010111110101
 101010001010100010101
+<<<<<<< HEAD
 101110101010101010101
 100000101010001010001
 111111101011111011101
 100000101000100010001
 101110101110101110111
 101000100000100010101
+=======
+101110101010101020101
+100000101010001010001
+121111101011111011101
+100000101000100010001
+101110101110101110111
+101000100200200010101
+>>>>>>> main
 101011111111111010101
 100010000000000010001
 101010111011111111101

@@ -12,6 +12,42 @@
 
 #include "cube.h"
 
+<<<<<<< HEAD
+=======
+// double	distance(double x, double y)
+// {
+// 	return (sqrt(x * x + y * y));
+// }
+
+// double	fixed_distance(double x1, double y1, double x2, double y2,
+// 	t_game *game)
+// {
+// 	double	delta_x = x2 - x1;
+// 	double	delta_y = y2 - y1;
+// 	double	angle = atan2(delta_y, delta_x) - game->player.plane;
+// 	double	fix_dist = distance(delta_x, delta_y) * cos(angle);
+// 	return (fix_dist);
+// }
+
+// void	draw_line(t_player *player, t_game *game, double start_x, int i)
+// {
+// 	(void)player;
+// 	(void)i;
+// 	(void)start_x;
+// 	double	cos_a = cos(start_x);
+// 	double	sin_a = sin(start_x);
+// 	double	ray_x = player->pos_x * SIZE_SQUARE;
+// 	double	ray_y = player->pos_y * SIZE_SQUARE;
+// 	while (!touch(ray_x, ray_y, game))
+// 	{
+// 		if (DEBUG)
+// 			put_pixel(game, ray_x, ray_y, 0xFF0000);
+// 		ray_x += (cos_a);
+// 		ray_y += (sin_a);
+// 	}
+// }
+
+>>>>>>> main
 void	init_draw_3d(t_game *game, t_ray *ray)
 {
 	ray->line_height = game->height / ray->dist_perp;
@@ -57,6 +93,7 @@ void	select_texture(t_game *game, t_ray *ray)
 	if (ray->touch == 2)
 		ray->tex_projet = &game->map.texture.img[IS_DOOR];
 	else if (ray->wall_touch == 1)
+<<<<<<< HEAD
 	{
 		if (game->start_anim_wall == true)
 			ray->tex_projet = &game->munch.anim_img[game->munch.frame_id];
@@ -70,6 +107,11 @@ void	select_texture(t_game *game, t_ray *ray)
 		else
 			ray->tex_projet = &game->map.texture.img[IS_SOUTH];
 	}
+=======
+		ray->tex_projet = &game->map.texture.img[IS_NORTH];
+	else if (ray->wall_touch == 2)
+		ray->tex_projet = &game->map.texture.img[IS_SOUTH];
+>>>>>>> main
 	else if (ray->wall_touch == 3)
 		ray->tex_projet = &game->map.texture.img[IS_WEAST];
 	else if (ray->wall_touch == 4)
