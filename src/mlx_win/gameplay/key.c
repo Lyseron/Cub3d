@@ -6,7 +6,11 @@
 /*   By: mvignes <mvignes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/18 14:16:59 by mvignes           #+#    #+#             */
+<<<<<<< HEAD
+/*   Updated: 2026/07/09 10:50:17 by mvignes          ###   ########.fr       */
+=======
 /*   Updated: 2026/07/07 13:49:02 by mvignes          ###   ########.fr       */
+>>>>>>> main
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +45,21 @@ static void	toggle(bool *which_change)
 		*which_change = true;
 }
 
+static void	wall_anim(int key, t_game *game)
+{
+	if (game->good_texture)
+	{
+		if (key == START_ANIM_WALL && game->start_anim_wall == false)
+		{
+			game->start_anim_wall = true;
+			game->mona.frame_id = 0;
+			game->mona.nb_of_loop = 0;
+			game->munch.frame_id = 0;
+			game->munch.nb_of_loop = 0;
+		}
+	}
+}
+
 int	display_keywee(int key, t_game *game)
 {
 	if (key == MAP_CHANGE)
@@ -49,9 +68,14 @@ int	display_keywee(int key, t_game *game)
 		if (display_check(game) == ERROR)
 			return (ERROR);
 	}
-	if (key == HAND_CHANGE)
+	if (key == HAND_CHANGE && game->close_door == true
+		&& game->bool_key.change_hand == false
+		&& game->anim_is_finish)
 	{
 		toggle(&game->bool_key.change_hand);
+		game->anim_is_finish = false;
+		game->phone.frame_id = 0;
+		game->phone.nb_of_loop = 0;
 		if (display_check(game) == ERROR)
 			return (ERROR);
 	}
@@ -61,6 +85,7 @@ int	display_keywee(int key, t_game *game)
 		if (display_check(game) == ERROR)
 			return (ERROR);
 	}
+	wall_anim(key, game);
 	return (OK);
 }
 
@@ -85,7 +110,8 @@ int	keywee(int key, t_game *game)
 	if (key == DOOR && !game->bool_key.door)
 	{
 		game->bool_key.door = true;
-		door_open(game);
+		game->anim_is_finish = false;
+		game->bool_key.change_hand = true;
 	}
 	if (display_keywee(key, game) == ERROR)
 		return (ERROR);

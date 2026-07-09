@@ -6,7 +6,7 @@
 /*   By: mvignes <mvignes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/18 03:29:33 by lyaberge          #+#    #+#             */
-/*   Updated: 2026/07/07 11:36:17 by mvignes          ###   ########.fr       */
+/*   Updated: 2026/07/09 11:02:17 by mvignes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,7 +89,9 @@ static int	draw_ray(t_game *game, double ray_dir_x, double ray_dir_y)
 	ray_pos_x = game->ray.ray_pos_x;
 	while (ray_pos_y >= 0 && ray_pos_y < game->map.map_y
 		&& ray_pos_x >= 0 && ray_pos_x < game->map.map_x
-		&& game->map.grid[(int)ray_pos_y][(int)ray_pos_x] != '1')
+		&& (game->map.grid[(int)ray_pos_y][(int)ray_pos_x] != '1'
+		&& game->map.grid[(int)ray_pos_y][(int)ray_pos_x] != '2'
+		&& game->map.grid[(int)ray_pos_y][(int)ray_pos_x] != ' '))
 	{
 		x = MARGE + ray_pos_x * SIZE_SQUARE;
 		y = MARGE + ray_pos_y * SIZE_SQUARE;

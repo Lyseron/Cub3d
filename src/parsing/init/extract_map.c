@@ -6,7 +6,7 @@
 /*   By: mvignes <mvignes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/09 14:48:05 by mvignes           #+#    #+#             */
-/*   Updated: 2026/07/07 13:34:39 by mvignes          ###   ########.fr       */
+/*   Updated: 2026/07/09 11:03:28 by mvignes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,17 +63,22 @@ static bool	get_dimenssion(t_map *map)
 	return (OK);
 }
 
-void	allow_memory_grid(t_map *map)
+int	allow_memory_grid(t_map *map)
 {
 	int	i;
 
 	map->grid = malloc(sizeof(char *) * (map->map_y + 1));
+	if (!map->grid)
+		return (ERROR);
 	i = 0;
 	while (i < map->map_y)
 	{
 		map->grid[i] = malloc(sizeof(char) * (map->map_x + 1));
+		if (!map->grid[i])
+			return (ft_free_before_i(map->grid, i), ERROR);
 		i++;
 	}
+	return (OK);
 }
 
 void	write_map(t_map *map)
@@ -117,7 +122,8 @@ bool	extract_map(char *line, t_map *map)
 		return (ft_putendl_fd("Error open map", 2), ERROR);
 	if (get_dimenssion(map))
 		return (ft_putendl_fd("void map in fd", 2), ERROR);
-	allow_memory_grid(map);
+	if (allow_memory_grid(map) == ERROR)
+		return (ft_putendl_fd("Malloc fail", 2), ERROR);
 	write_map(map);
 	return (OK);
 }

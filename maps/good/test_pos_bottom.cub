@@ -1,9 +1,19 @@
+<<<<<<< HEAD
+NO ./textures/texture_gall/wall_mona/wall_mona_0.xpm
+SO ./textures/texture_gall/munch/wall_anim_0.xpm
+WE ./textures/texture_gall/wall_multiple_tab.xpm
+EA ./textures/texture_gall/wall_multiple_tab2.xpm
+
+C 206,205,203
+F 176,145,95
+=======
 NO ./textures/texture_gall/wall_painting_landscape.xpm
 SO ./textures/texture_gall/wall_painting_portrait.xpm
 WE ./textures/texture_gall/wall_cafe.xpm
 EA ./textures/texture_gall/violet.xpm
 C 245,245,240
 F 185,160,120
+>>>>>>> main
 
 111
 101
@@ -11,7 +21,11 @@ F 185,160,120
 101
 101
 101
+<<<<<<< HEAD
+121
+=======
 101
+>>>>>>> main
 101
 101
 101

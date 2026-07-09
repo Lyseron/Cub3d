@@ -6,7 +6,11 @@
 /*   By: mvignes <mvignes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/09 17:11:19 by lyaberge          #+#    #+#             */
+<<<<<<< HEAD
+/*   Updated: 2026/07/09 10:50:50 by mvignes          ###   ########.fr       */
+=======
 /*   Updated: 2026/07/07 11:51:23 by mvignes          ###   ########.fr       */
+>>>>>>> main
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +52,24 @@ int	init_img_wall(t_game *game, t_texture *tex)
 	if (game->map.door)
 		if (laod_texture(game, &tex->img[IS_DOOR], DOOR_PATH) == ERROR)
 			return (ERROR);
+	if (!ft_strncmp(tex->path[IS_NORTH], GOOD_NORTH, 46)
+		&& !ft_strncmp(tex->path[IS_SOUTH], GOOD_SOUTH, 50))
+			game->good_texture = true;
+	return (OK);
+}
+
+static int	init_anim(t_game *game)
+{
+	if (init_img_right_hand(game) == ERROR)
+		return (ERROR);
+	if (init_img_left_hand(game) == ERROR)
+		return (ERROR);
+	if (init_img_phone(game) == ERROR)
+		return (ERROR);
+	if (init_mona(game) == ERROR)
+		return (ERROR);
+	if (init_munch(game) == ERROR)
+		return (ERROR);
 	return (OK);
 }
 
@@ -69,9 +91,7 @@ int	init_img(t_game *game)
 		return (ERROR);
 	if (init_color_c_and_f(game) == ERROR)
 		return (ERROR);
-	if (init_img_hand(game) == ERROR)
-		return (ERROR);
-	if (init_img_hand2(game) == ERROR)
+	if (init_anim(game) == ERROR)
 		return (ERROR);
 	return (OK);
 }

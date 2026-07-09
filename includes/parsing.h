@@ -6,7 +6,7 @@
 /*   By: mvignes <mvignes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/08 13:35:57 by lyaberge          #+#    #+#             */
-/*   Updated: 2026/07/07 11:33:38 by mvignes          ###   ########.fr       */
+/*   Updated: 2026/07/09 10:57:19 by mvignes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,8 +62,6 @@ int		check_map(t_map *maps);
 
 /* ------------------- Read_map.c -------------------------- */
 int		read_map(char *line, t_map *map);
-
-
 
 void	door_open(t_game *game);
 #endif

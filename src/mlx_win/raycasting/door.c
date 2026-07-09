@@ -12,7 +12,11 @@
 
 #include "cube.h"
 
+<<<<<<< HEAD
+/// @brief Check if there is a door on a given coord x, y
+=======
 /// @brief Verifie s'il y a une porte sur la case y de x
+>>>>>>> main
 /// @param game 
 /// @param x 
 /// @param y 
@@ -28,7 +32,11 @@ static bool	is_door_cell(t_game *game, int x, int y)
 	return (false);
 }
 
+<<<<<<< HEAD
+/// @brief Look is there is a door in front of the player (distance is = a
+=======
 /// @brief Regarde si devant le joueur il y a une porte (la distance est = a
+>>>>>>> main
 /// @brief DOOR_RANGE)
 /// @param game 
 /// @param tx 
@@ -56,7 +64,31 @@ static bool	get_door_target(t_game *game, int *tx, int *ty)
 	return (false);
 }
 
+<<<<<<< HEAD
+static bool	is_bordplayer_touch_door(t_game *game, double x, double y)
+{
+	double	door_right;
+	double	door_left;
+	double	door_top;
+	double	door_bottom;
+
+	door_left = x;
+	door_right = x + 1;
+	door_top = y;
+	door_bottom = y + 1;
+	init_mini_player_square(game, game->player.pos_x, game->player.pos_y);
+	if (game->mini_player.player_left < door_right
+		&& game->mini_player.player_right > door_left
+		&& game->mini_player.player_top < door_bottom
+		&& game->mini_player.player_bottom > door_top)
+		return (true);
+	return (false);
+}
+
+/// @brief Find a foor in front of the player
+=======
 /// @brief Cherche une porte devant le joueur
+>>>>>>> main
 /// @param game 
 void	door_open(t_game *game)
 {
@@ -66,10 +98,23 @@ void	door_open(t_game *game)
 	if (!get_door_target(game, &x, &y))
 		return ;
 	if (game->map.grid[y][x] == '2')
+<<<<<<< HEAD
+	{
+		game->close_door = true;
+		game->open_door = false;
+		game->map.grid[y][x] = '3';
+	}
+	else if (game->map.grid[y][x] == '3')
+	{
+		game->open_door = true;
+		game->close_door = false;
+		if (is_bordplayer_touch_door(game, x, y) == false)
+=======
 		game->map.grid[y][x] = '3';
 	else if (game->map.grid[y][x] == '3')
 	{
 		if ((int)game->player.pos_x != x || (int)game->player.pos_y != y)
+>>>>>>> main
 			game->map.grid[y][x] = '2';
 	}
 }

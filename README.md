@@ -54,7 +54,7 @@ Accepted characters are:
 * `N`, `S`, `E`, `W` for the player's initial position and orientation
 * `1` for walls
 * `0` for empty floor
-* `P` for doors
+* `2` for doors
 * `M` for enemies
 * spaces for empty areas outside the playable map
 
@@ -160,7 +160,8 @@ The player can move using the keyboard:
 * right arrow -> to rotate right
 * `M`         -> to switch minimap mode
 * `ESC`       -> to quit the game
-* `O`         -> to open the doors
+* `E`         -> to open the doors
+* `P`         -> to activate the wall animation
 
 The player has a position:
 
@@ -326,23 +327,6 @@ Each animated element stores:
 At each game loop iteration, the animation counter is increased.
 When the counter reaches the defined frame delay, the current frame changes to the next one.
 
-If the animation reaches the last frame, the frame index is reset to `0`, which creates a continuous loop.
-
-```c
-anim->nb_of_loop++;
-
-if (anim->nb_of_loop >= anim->time_frame)
-{
-    anim->nb_of_loop = 0;
-    anim->frame_id++;
-
-    if (anim->frame_id >= anim->nb_of_img)
-        anim->frame_id = 0;
-}
-```
-
-This allows the sprite to stay on the same frame for several game loop iterations before switching to the next frame.
-
 Each frame is then drawn on screen according to the current `frame_id`.
 The game loop continuously updates the animation, so the sprite appears animated while the game is running.
 
@@ -362,11 +346,41 @@ This system is used to animate pixel sprites inside the game, such as enemies, d
 	<img src="assets/paper_7.png" alt="Tinymap preview" width="100" height="100">
 </p>
 
-- Hands :
+- Wall painting :
 
 <p align="center">
-	<img src="assets/palette_0.png" alt="Tinymap preview" width="100" height="100">
-	<img src="assets/brush_0.png" alt="Tinymap preview" width="100" height="100">
+	<img src="assets/mona_0.png" alt="mona" width="100" height="100">
+	<img src="assets/mona_1.png" alt="mona" width="100" height="100">
+	<img src="assets/mona_2.png" alt="mona" width="100" height="100">
+	<img src="assets/mona_3.png" alt="mona" width="100" height="100">
+	<img src="assets/mona_4.png" alt="mona" width="100" height="100">
+	<img src="assets/mona_5.png" alt="mona" width="100" height="100">
+	<img src="assets/mona_6.png" alt="mona" width="100" height="100">
+	<img src="assets/mona_7.png" alt="mona" width="100" height="100">
+</p>
+
+<p align="center">
+	<img src="assets/sprite_0.png" alt="munch" width="100" height="100">
+	<img src="assets/sprite_1.png" alt="munch" width="100" height="100">
+	<img src="assets/sprite_2.png" alt="munch" width="100" height="100">
+	<img src="assets/sprite_3.png" alt="munch" width="100" height="100">
+	<img src="assets/sprite_4.png" alt="munch" width="100" height="100">
+	<img src="assets/sprite_5.png" alt="munch" width="100" height="100">
+	<img src="assets/sprite_6.png" alt="munch" width="100" height="100">
+	<img src="assets/sprite_7.png" alt="munch" width="100" height="100">
+</p>
+
+- Hands:
+
+<p align="center">
+	<img src="assets/palette_0.png" alt="pallette" width="100" height="100">
+	<img src="assets/palette_1.png" alt="pallette" width="100" height="100">
+	<img src="assets/palette_2.png" alt="pallette" width="100" height="100">
+	<img src="assets/palette_3.png" alt="pallette" width="100" height="100">
+	<img src="assets/brush_0.png" alt="brush" width="100" height="100">
+	<img src="assets/brush_1.png" alt="brush" width="100" height="100">
+	<img src="assets/brush_2.png" alt="brush" width="100" height="100">
+	<img src="assets/brush_3.png" alt="brush" width="100" height="100">
 </p>
 
 ## Instructions

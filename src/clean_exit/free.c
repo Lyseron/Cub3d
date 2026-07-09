@@ -6,7 +6,7 @@
 /*   By: mvignes <mvignes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/09 18:23:50 by mvignes           #+#    #+#             */
-/*   Updated: 2026/06/11 13:33:21 by mvignes          ###   ########.fr       */
+/*   Updated: 2026/07/09 10:59:58 by mvignes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ void	free_anim(t_anim *anim, t_game *game)
 	i = 0;
 	while (i < anim->nb_of_img)
 	{
-		if (anim->anim_img[i].img_ptr)
+		if (anim->anim_img[i].img_ptr && game->mlx)
 			mlx_destroy_image(game->mlx, anim->anim_img[i].img_ptr);
 		i++;
 	}

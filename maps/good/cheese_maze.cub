@@ -1,10 +1,11 @@
-NO ./textures/texture_gall/wall_painting_landscape.xpm
-SO ./textures/texture_gall/wall_painting_portrait.xpm
-WE ./textures/texture_gall/wall_cafe.xpm
-EA ./textures/texture_gall/violet.xpm
+NO ./textures/texture_gall/munch/wall_anim_0.xpm
+SO ./textures/texture_gall/wall_mona/wall_mona_0.xpm
+WE ./textures/texture_gall/wall_multiple_tab.xpm
+EA ./textures/texture_gall/wall_multiple_tab2.xpm
 
-C 25,20,35
-F 44,32,48
+C 206,205,203
+F 176,145,95
+
 
 111111111111111111111
 101000001000000000001
@@ -27,4 +28,7 @@ F 44,32,48
 101010111011111111101
 1N1000001000000000001
 111111111111111111111
-
+101000001000000000001
+111000001000000000001
+111111111111111111111
+111111111111111111111

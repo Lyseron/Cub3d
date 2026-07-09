@@ -6,14 +6,14 @@
 /*   By: mvignes <mvignes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/11 16:57:12 by lyaberge          #+#    #+#             */
-/*   Updated: 2026/07/07 13:44:19 by mvignes          ###   ########.fr       */
+/*   Updated: 2026/07/09 10:57:09 by mvignes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef MLX_WIN_H
 # define MLX_WIN_H
 
-/* =================== MLX_WIN.c =========================== */
+/* ======================= MLX_WIN.c =============================== */
 
 /* ------------------- create_img.c ------------------------ */
 int		init_img(t_game *game);
@@ -24,10 +24,22 @@ bool	is_valid_color(int color);
 int		laod_texture(t_game *game, t_img *tex, char *path);
 int		convert_rgb_to_int(int t, int r, int g, int b);
 
+/* =================== GAMEPLAY.c =========================== */
+
 /* ------------------- key.c ------------------------------- */
 int		keyno(int key, t_game *game);
 int		keywee(int key, t_game *game);
 void	mouse_moove(t_game *game);
+
+/* ------------------- key_utils.c ------------------------------- */
+void	key_moove(t_game *game);
+
+/* ------------------- Gameplay.c -------------------------- */
+int		is_moove_ok(t_game *game, int key_choice);
+int		game_loop(t_game *game);
+
+/* ------------------- Gameplay_utils.c -------------------- */
+bool	is_bordplayer_touch_wall(t_game *game, double next_x, double next_y);
 
 /* =================== MINI_MAP.c =========================== */
 
@@ -51,13 +63,6 @@ int		draw_tiny_square(t_game *game, int color);
 int		draw_tiny_player(t_game *game);
 int		draw_all_tiny_ray(t_game *game);
 int		draw_background(t_game *game);
-
-/* ------------------- Gameplay.c -------------------------- */
-int		is_moove_ok(t_game *game, int key_choice);
-int		game_loop(t_game *game);
-
-/* ------------------- Gameplay_utils.c -------------------- */
-bool	is_bordplayer_touch_wall(t_game *game, double next_x, double next_y);
 
 /* ------------------- Init_mini_player.c ------------------ */
 void	init_mini_player(t_game *game);
@@ -86,6 +91,7 @@ int		convert_x_to_pixel(t_game *game, double x);
 int		convert_y_to_pixel(t_game *game, double y);
 bool	is_ray_stay_in_bound(t_game *game, double ray_pos_x, double ray_pos_y);
 bool	is_ray_pixel_in_bound(t_game *game, int ray_pixel_x, int ray_pixel_y);
+int		draw_frame(t_game *game);
 
 /* =================== RAYCASTING.c =========================== */
 
@@ -114,16 +120,22 @@ double	update_time(t_game *game);
 
 /* =================== ANIMATION.c ========================= */
 
-/* ------------------- Init.c --------------------------==== */
-int		init_img_hand(t_game *game);
-int		init_img_hand2(t_game *game);
-int		init_img_door(t_game *game);
+/* ------------------- Init.c ------------------------------ */
+int		init_img_left_hand(t_game *game);
+int		init_img_right_hand(t_game *game);
+int		init_img_phone(t_game *game);
 
-/* ------------------- Init_ray.c -------------------------- */
+/* ------------------- Init_again.c ------------------------- */
+int		init_mona(t_game *game);
+int		init_munch(t_game *game);
+
+/* ------------------- Moove_anim.c ------------------------ */
 bool	moove_anim(t_anim *anim);
+bool	moove_anim_door(t_anim *anim);
 
-/* ------------------- Draw_hand.c ------------------------- */
+/* ------------------- Draw_anim.c ------------------------- */
 int		draw_left_img(t_game *game, t_img *img);
 int		draw_right_img(t_game *game, t_img *img);
 int		draw_middle_img(t_game *game, t_img *img);
+
 #endif

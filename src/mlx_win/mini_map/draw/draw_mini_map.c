@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   draw_mini_map.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lyaberge <lyaberge@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mvignes <mvignes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/10 18:22:38 by lyaberge          #+#    #+#             */
-/*   Updated: 2026/06/10 18:22:38 by lyaberge         ###   ########.fr       */
+/*   Updated: 2026/07/09 11:02:11 by mvignes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,11 @@ static int	mini_map_conditions(t_game *game, int x, int y)
 	else if (game->map.grid[y][x] == ' ')
 	{
 		if (draw_mini_square(game, x, y, COLOR_BACKGROUND) == ERROR)
+			return (ERROR);
+	}
+	else if (game->map.grid[y][x] == '2' || game->map.grid[y][x] == '3')
+	{
+		if (draw_mini_square(game, x, y, COLOR_DOOR) == ERROR)
 			return (ERROR);
 	}
 	return (OK);

@@ -1,3 +1,15 @@
+<<<<<<< HEAD
+NO ./textures/texture_gall/wall_mona/wall_mona_0.xpm
+SO ./textures/texture_gall/munch/wall_anim_0.xpm
+WE ./textures/texture_gall/wall_multiple_tab.xpm
+EA ./textures/texture_gall/wall_multiple_tab2.xpm
+
+C 206,205,203
+F 176,145,95
+
+111111111111111111111
+1000000000020000000E1
+=======
 NO ./textures/texture_gall/wall_painting_landscape.xpm
 SO ./textures/texture_gall/wall_painting_portrait.xpm
 WE ./textures/texture_gall/wall_cafe.xpm
@@ -8,4 +20,5 @@ F 185,160,120
 
 111111111111111111111
 1000000000000000000E1
+>>>>>>> main
 111111111111111111111

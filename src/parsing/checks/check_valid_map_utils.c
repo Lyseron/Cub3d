@@ -6,7 +6,7 @@
 /*   By: mvignes <mvignes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/09 13:50:07 by lyaberge          #+#    #+#             */
-/*   Updated: 2026/07/07 10:44:44 by mvignes          ###   ########.fr       */
+/*   Updated: 2026/07/09 11:03:19 by mvignes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,10 +28,7 @@ bool	has_good_component(char **map)
 		while (map[y][x])
 		{
 			if (is_valid_component(map[y][x]) == false)
-			{
-				printf("c = %c\n", map[y][x]);
 				return (false);
-			}
 			if (is_player(map[y][x]) == true)
 				nb_of_player++;
 			x++;

@@ -6,30 +6,11 @@
 /*   By: mvignes <mvignes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/09 14:48:41 by mvignes           #+#    #+#             */
-/*   Updated: 2026/07/07 13:14:14 by mvignes          ###   ########.fr       */
+/*   Updated: 2026/07/09 11:03:39 by mvignes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cube.h"
-
-// void	fill_map(t_game *game, char **map_tab)
-// {
-// 	int	y;
-// 	int	i;
-
-// 	y = 0;
-// 	i = 0;
-// 	game->map.grid = malloc(sizeof(char *) * (ft_dba_len(map_tab) + 1));
-// 	if (!game->map.grid)
-// 		return ;
-// 	while (map_tab[y])
-// 	{
-// 		game->map.grid[i] = ft_strdup(map_tab[y]);
-// 		i++;
-// 		y++;
-// 	}
-// 	game->map.grid[i] = NULL;
-// }
 
 int	main(int ac, char **av)
 {
@@ -43,6 +24,7 @@ int	main(int ac, char **av)
 	if (init_img(&game) == ERROR)
 		return (exit_game(&game), ERROR);
 	init_key(&game);
+	game.start_anim_wall = false;
 	if (display_check(&game) == ERROR)
 		return (exit_game(&game), ERROR);
 	mlx_hook(game.win, 2, 1L << 0, ((t_mlx_func)(uintptr_t)keywee), &game);

@@ -6,7 +6,11 @@
 /*   By: mvignes <mvignes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/17 06:46:14 by lyaberge          #+#    #+#             */
+<<<<<<< HEAD
+/*   Updated: 2026/07/09 09:51:46 by mvignes          ###   ########.fr       */
+=======
 /*   Updated: 2026/07/07 13:52:06 by mvignes          ###   ########.fr       */
+>>>>>>> main
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +54,7 @@ bool	is_bordplayer_touch_wall(t_game *game, double next_x, double next_y)
 	return (false);
 }
 
-// en ajoutant la distance depuis le milieu de lcran
+// adding the distance from the middle of the screen
 void	mouse_moove(t_game *game)
 {
 	int	x;

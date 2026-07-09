@@ -6,7 +6,11 @@
 /*   By: mvignes <mvignes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/11 17:34:39 by lyaberge          #+#    #+#             */
+<<<<<<< HEAD
+/*   Updated: 2026/07/09 10:49:16 by mvignes          ###   ########.fr       */
+=======
 /*   Updated: 2026/07/07 13:43:50 by mvignes          ###   ########.fr       */
+>>>>>>> main
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,41 +62,52 @@ int	is_moove_ok(t_game *game, int key_choice)
 		return (ERROR);
 }
 
-void	key_moove(t_game *game)
+void	game_loop_action(t_game *game, bool *has_moved, bool *mona, bool *munch)
 {
-	if (game->bool_key.w && is_moove_ok(game, UP) == OK)
-		game->moved = true;
-	if (game->bool_key.a && is_moove_ok(game, LEFT) == OK)
-		game->moved = true;
-	if (game->bool_key.s && is_moove_ok(game, DOWN) == OK)
-		game->moved = true;
-	if (game->bool_key.d && is_moove_ok(game, RIGHT) == OK)
-		game->moved = true;
-	if (game->bool_key.left)
+	if (game->bool_key.change_hand == true)
 	{
-		game->player.angle += TURN_LEFT * SPEED_CAM;
-		update_dir(game);
-		game->moved = true;
+		*has_moved = moove_anim(&game->phone);
+		if (*has_moved == true
+			&& game->phone.frame_id == game->phone.nb_of_img - 1)
+		{
+			door_open(game);
+			game->bool_key.change_hand = false;
+			game->anim_is_finish = true;
+		}
 	}
-	if (game->bool_key.right)
+	if (game->start_anim_wall == true)
 	{
-		game->player.angle += TURN_RIGTH * SPEED_CAM;
-		update_dir(game);
-		game->moved = true;
+		*mona = moove_anim(&game->mona);
+		*munch = moove_anim(&game->munch);
+		if (*mona == true
+			&& game->mona.frame_id == game->mona.nb_of_img - 1)
+			game->start_anim_wall = false;
+		if (*munch == true
+			&& game->munch.frame_id == game->munch.nb_of_img - 1)
+			game->start_anim_wall = false;
 	}
 }
 
 int	game_loop(t_game *game)
 {
-	bool	hand2_anim_change;
+	bool	has_moved;
+	bool	mona_has_moved;
+	bool	munch_has_moved;
 
 	game->moved = false;
+	game->anim_is_finish = true;
+	has_moved = false;
+	mona_has_moved = false;
 	init_speed(game);
 	key_moove(game);
+	// #ifdef LINUX
 	mouse_moove(game);
-	hand2_anim_change = moove_anim(&game->hand_2);
+	// #endif
+	game_loop_action(game, &has_moved, &mona_has_moved, &munch_has_moved);
 	if (game->moved == true
-		|| hand2_anim_change == true)
+		|| has_moved == true
+		|| mona_has_moved == true
+		|| munch_has_moved == true)
 	{
 		if (display_check(game) == ERROR)
 			return (ERROR);

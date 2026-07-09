@@ -6,7 +6,11 @@
 /*   By: mvignes <mvignes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/08 13:38:07 by lyaberge          #+#    #+#             */
+<<<<<<< HEAD
+/*   Updated: 2026/07/09 10:44:54 by mvignes          ###   ########.fr       */
+=======
 /*   Updated: 2026/07/07 13:39:02 by mvignes          ###   ########.fr       */
+>>>>>>> main
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +28,10 @@
 # include <stdint.h>
 # include <math.h>
 # include <sys/time.h>
+<<<<<<< HEAD
+=======
 # include <X11/keysym.h>
+>>>>>>> main
 
 // Struct
 # include "structs.h"
@@ -78,15 +85,20 @@ typedef int	(*t_mlx_func)();
 // The nb of advancement the player mooves in the window
 # define SPEED_SPRIT 1.5
 
+// How sensitive the mouse is
 # define SENSITIVITY_MOUSE 0.001
 
 # define TURN_RIGTH 1
 # define TURN_LEFT -1
 
 # define DOOR_RANGE 1
-# define DOOR_PATH "./textures/texture_gall/door.xpm"
+# define DOOR_PATH "./textures/texture_gall/door/door_lily.xpm"
 
-# define TIME_FRAME_HAND_2 7000
+// For the animation to define how many loop before a frame change
+# define TIME_FRAME_PHONE 15
+# define TIME_FRAME_HAND 15
+# define TIME_FRAME_MONA 20000
+# define TIME_FRAME_MUNCH 20000
 
 // The color for the mini/tiny maps
 # define COLOR_WALL 0x009999
@@ -95,39 +107,77 @@ typedef int	(*t_mlx_func)();
 # define COLOR_RAY 0xd745ff
 # define COLOR_FRAME 0x009999
 # define COLOR_BACKGROUND 0x202020
+# define COLOR_DOOR 0xa08a06
+
+# define GOOD_NORTH "./textures/texture_gall/munch/wall_anim_0.xpm"
+# define GOOD_SOUTH "./textures/texture_gall/wall_mona/wall_mona_0.xpm"
 
 // Keypress Mac
-// UP = W ; LEFT = A ; RIGHT = D ; DOWN = S
-// # define ESC 53
-// # define UP 13
-// # define LEFT 0
-// # define RIGHT 2
-// # define DOWN 1
-// # define ARROW_UP 126
-// # define ARROW_LEFT 123
-// # define ARROW_RIGHT 124
-// # define ARROW_DOWN 125
-// # define MAP_CHANGE 46
-// # define HAND_CHANGE 31
-// # define SHIFT 257
-// # define MOUSE 
-// # define DOOR 
+# ifdef MAC
 
-// // Keypress Linux
-// // UP = W ; LEFT = A ; RIGHT = D ; DOWN = S
+// ECHAP
+# define ESC 53
+// UP -> W 
+# define UP 13
+// LEFT -> A 
+# define LEFT 0
+// RIGHT -> D
+# define RIGHT 2
+// DOWN -> S
+# define DOWN 1
+
+// ARROWS
+# define ARROW_UP 126
+# define ARROW_LEFT 123
+# define ARROW_RIGHT 124
+# define ARROW_DOWN 125
+
+// MAP_CHANGE  -> M
+# define MAP_CHANGE 46
+// START_ANIM_WALL -> P
+# define START_ANIM_WALL 35
+// HAND_CHANGE && DOOR -> O
+# define HAND_CHANGE 14
+# define DOOR 14
+// SHIFT RIGHT
+# define SHIFT 257
+// CTRL
+# define MOUSE 256
+
+# endif
+
+// Keypress Linux
+# ifdef LINUX
+
+// ECHAP
 # define ESC 65307
+// UP -> W 
 # define UP 119
+// LEFT -> A 
 # define LEFT 97
+// RIGHT -> D
 # define RIGHT 100
+// DOWN -> S
 # define DOWN 115
+
+// ARROWS
 # define ARROW_UP 65362
 # define ARROW_LEFT 65361
 # define ARROW_RIGHT 65363
 # define ARROW_DOWN 65364
+
+// MAP_CHANGE  -> M
 # define MAP_CHANGE 109
+// START_ANIM_WALL -> P
+# define START_ANIM_WALL 112
+// HAND_CHANGE && DOOR -> O
 # define HAND_CHANGE 111
-# define SHIFT 0xffe1
-# define MOUSE 0xffe3
-# define DOOR 0x0065
+# define DOOR 111
+// SHIFT RIGHT
+# define SHIFT 65506
+// CTRL
+# define MOUSE 65508
+
+#endif
 
 #endif

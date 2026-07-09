@@ -6,7 +6,7 @@
 /*   By: mvignes <mvignes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/18 21:50:21 by lyaberge          #+#    #+#             */
-/*   Updated: 2026/07/07 13:51:09 by mvignes          ###   ########.fr       */
+/*   Updated: 2026/07/09 11:03:13 by mvignes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,15 +33,17 @@ static int	hand_choice(t_game *game)
 {
 	if (game->bool_key.change_hand == false)
 	{
-		if (draw_left_img(game, &game->hand) == ERROR)
+		if (draw_left_img(game,
+				&game->left_hand.anim_img[game->left_hand.frame_id]) == ERROR)
 			return (ERROR);
-		if (draw_right_img(game, &game->brush) == ERROR)
+		if (draw_right_img(game,
+				&game->right_hand.anim_img[game->right_hand.frame_id]) == ERROR)
 			return (ERROR);
 	}
 	else
 	{
 		if (draw_middle_img(game,
-				&game->hand_2.anim_img[game->hand_2.frame_id]) == ERROR)
+				&game->phone.anim_img[game->phone.frame_id]) == ERROR)
 			return (ERROR);
 	}
 	return (OK);
