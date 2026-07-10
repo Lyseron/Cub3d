@@ -6,7 +6,7 @@
 /*   By: mvignes <mvignes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/09 16:55:55 by lyaberge          #+#    #+#             */
-/*   Updated: 2026/07/09 11:45:03 by mvignes          ###   ########.fr       */
+/*   Updated: 2026/07/10 11:40:27 by mvignes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 /// @brief properly exits the program
 /// @param game 
 /// @return returns nothing, he use exit fonction
-int	exit_game(t_game *game)
+int	exit_game(t_game *game, int exit_status)
 {
 	free_all_img(game);
 	if (game->win && game->mlx)
@@ -29,7 +29,7 @@ int	exit_game(t_game *game)
 		// #endif
 	}
 	free_data_fd(&game->map);
-	exit(OK);
+	exit(exit_status);
 }
 
 /// @brief Free all mlx image

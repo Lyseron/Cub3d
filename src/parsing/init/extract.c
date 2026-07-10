@@ -6,7 +6,7 @@
 /*   By: mvignes <mvignes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/09 14:48:48 by mvignes           #+#    #+#             */
-/*   Updated: 2026/07/09 15:27:25 by mvignes          ###   ########.fr       */
+/*   Updated: 2026/07/10 11:50:15 by mvignes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ static bool	all_info_grab(t_map *map)
 {
 	if (map->texture.path[IS_NORTH] && map->texture.path[IS_SOUTH]
 		&& map->texture.path[IS_WEAST] && map->texture.path[IS_EAST]
-		&& map->ceiling && map->floor)
+		&& map->extract_ceiling && map->extract_floor)
 		return (true);
 	return (false);
 }

@@ -6,7 +6,7 @@
 /*   By: mvignes <mvignes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/08 17:05:45 by mvignes           #+#    #+#             */
-/*   Updated: 2026/07/09 15:32:06 by mvignes          ###   ########.fr       */
+/*   Updated: 2026/07/10 12:21:37 by mvignes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,12 +21,14 @@ static bool	good_value_not_map(char *line, t_map *map)
 {
 	if (!map->texture.path[IS_NORTH] || !map->texture.path[IS_SOUTH]
 		|| !map->texture.path[IS_WEAST] || !map->texture.path[IS_EAST]
-		|| !map->ceiling || !map->floor || map->error)
+		|| !map->extract_ceiling || !map->extract_floor || map->error)
 	{
-		if (ft_strnstr(line, "01", ft_strlen(line))
+		if (((ft_strnstr(line, "01", ft_strlen(line))
 			|| ft_strnstr(line, "11", ft_strlen(line))
 			||ft_strnstr(line, "00", ft_strlen(line))
-			|| ft_strnstr(line, "10", ft_strlen(line))
+			|| ft_strnstr(line, "10", ft_strlen(line)))
+			&& !(ft_strnstr(line, "F", ft_strlen(line))
+			|| ft_strnstr(line, "C", ft_strlen(line))))
 			|| ft_strnstr(line, "S1", ft_strlen(line))
 			|| ft_strnstr(line, "E1", ft_strlen(line))
 			|| ft_strnstr(line, "N1", ft_strlen(line))
@@ -56,12 +58,16 @@ static int	add_value_or_check_doublon(char *line, t_map *map,
 	char *find, char **texture)
 {
 	char	*tmp;
+	int		i;
 
 	if (*texture)
 		map->error = true;
 	else
 	{
-		tmp = ft_strdup(add_texture(line, find));
+		i = 0;
+		while (line[i] == ' ' || line[i] == '	')
+			i++;
+		tmp = ft_strdup(add_texture(&line[i], find));
 		if (!tmp)
 			return (print_error("Error: Malloc *texture for add_texture crash",
 					map, ERROR));

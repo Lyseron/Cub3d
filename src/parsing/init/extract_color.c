@@ -6,7 +6,7 @@
 /*   By: mvignes <mvignes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/10 15:41:09 by mvignes           #+#    #+#             */
-/*   Updated: 2026/07/07 13:11:18 by mvignes          ###   ########.fr       */
+/*   Updated: 2026/07/10 11:27:20 by mvignes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,10 +95,18 @@ static bool	add_var_color(char *line, t_map *map, char *find, int **color)
 int	sort_color(char *line, t_map *map)
 {
 	if (ft_strnstr(line, "C", ft_strlen(line)))
+	{
 		if (add_var_color(line, map, "C", &map->ceiling))
 			return (ERROR);
+		else
+			map->extract_ceiling = true;
+	}
 	if (ft_strnstr(line, "F", ft_strlen(line)))
+	{
 		if (add_var_color(line, map, "F", &map->floor))
 			return (ERROR);
+		else
+			map->extract_floor = true;
+	}
 	return (OK);
 }

@@ -6,7 +6,7 @@
 /*   By: mvignes <mvignes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/18 14:16:59 by mvignes           #+#    #+#             */
-/*   Updated: 2026/07/09 12:08:54 by mvignes          ###   ########.fr       */
+/*   Updated: 2026/07/10 11:41:21 by mvignes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,7 +98,7 @@ int	display_keywee(int key, t_game *game)
 int	keywee(int key, t_game *game)
 {
 	if (key == ESC)
-		return (exit_game(game), OK);
+		return (exit_game(game, OK));
 	if (key == UP)
 		game->bool_key.w = true;
 	if (key == LEFT)

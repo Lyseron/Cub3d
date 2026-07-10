@@ -6,7 +6,7 @@
 /*   By: mvignes <mvignes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/11 16:09:54 by mvignes           #+#    #+#             */
-/*   Updated: 2026/07/09 15:26:35 by mvignes          ###   ########.fr       */
+/*   Updated: 2026/07/10 11:19:57 by mvignes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,7 +101,7 @@ bool	verif_init_value(t_map *map)
 	i = 0;
 	if (!map->texture.path[IS_NORTH] || !map->texture.path[IS_SOUTH]
 		|| !map->texture.path[IS_WEAST] || !map->texture.path[IS_EAST]
-		|| !map->ceiling || !map->floor
+		|| !map->extract_ceiling || !map->extract_floor
 		|| map->error || verif_name_texture(map))
 		return (false);
 	if (good_len_color(map->ceiling, map->floor))

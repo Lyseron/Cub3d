@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   clean_exit.h                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lyaberge <lyaberge@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mvignes <mvignes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/09 16:56:44 by lyaberge          #+#    #+#             */
-/*   Updated: 2026/06/09 16:56:44 by lyaberge         ###   ########.fr       */
+/*   Updated: 2026/07/10 11:39:31 by mvignes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 # define CLEAN_EXIT_H
 
 /* ------------------- clean_mlx.c ------------- */
-int		exit_game(t_game *game);
+int		exit_game(t_game *game, int exit_status);
 void	free_anim(t_anim *anim, t_game *game);
 
 /* ------------------- free_mlx.c ------------- */

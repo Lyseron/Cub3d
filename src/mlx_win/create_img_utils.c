@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   init_img.c                                         :+:      :+:    :+:   */
+/*   create_img_utils.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lyaberge <lyaberge@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mvignes <mvignes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/05 16:40:25 by lyaberge          #+#    #+#             */
-/*   Updated: 2026/07/05 16:40:25 by lyaberge         ###   ########.fr       */
+/*   Updated: 2026/07/10 11:49:03 by mvignes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int	laod_texture(t_game *game, t_img *tex, char *path)
 			&tex->height);
 	if (!tex->img_ptr)
 	{
-		printf("Erreur : Impossible de charger la texture : %s\n", path);
+		printf("Error : Unable to load texture : %s\n", path);
 		return (ERROR);
 	}
 	tex->img_addr = mlx_get_data_addr(tex->img_ptr, &tex->bits_per_pixel,
