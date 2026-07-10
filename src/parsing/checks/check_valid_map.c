@@ -6,7 +6,7 @@
 /*   By: mvignes <mvignes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/09 13:47:59 by lyaberge          #+#    #+#             */
-/*   Updated: 2026/07/09 11:08:09 by mvignes          ###   ########.fr       */
+/*   Updated: 2026/07/10 15:25:55 by mvignes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ static bool	is_invalid_next_case(char **map, int x, int y)
 	if (x < 0 || y < 0)
 		return (true);
 	if (map[y] == NULL)
+		return (true);
+	if (x >= ft_strlen(map[y]))
 		return (true);
 	if (map[y][x] == '\0')
 		return (true);

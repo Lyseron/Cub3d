@@ -6,7 +6,7 @@
 /*   By: mvignes <mvignes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/11 16:09:54 by mvignes           #+#    #+#             */
-/*   Updated: 2026/07/10 11:19:57 by mvignes          ###   ########.fr       */
+/*   Updated: 2026/07/10 15:37:27 by mvignes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,13 +37,16 @@ static bool	good_caractere(char *line)
 /// @param line 
 /// @param map 
 /// @return return false for it's ok and return true for error
-bool	line_not_parasite(char *line, t_map *map)
+bool	line_not_parasite(char *line, t_map *map, bool finish)
 {
 	int	i;
 
 	i = 0;
-	if (good_caractere(line))
-		return (false);
+	if (finish == false)
+	{
+		if (good_caractere(line))
+			return (false);
+	}
 	if (line[0] != '\n' || line[0] != '\0')
 	{
 		while (ft_iswhitespace(line[i]))

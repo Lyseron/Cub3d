@@ -6,7 +6,7 @@
 /*   By: mvignes <mvignes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/08 13:35:57 by lyaberge          #+#    #+#             */
-/*   Updated: 2026/07/09 10:57:19 by mvignes          ###   ########.fr       */
+/*   Updated: 2026/07/10 15:33:01 by mvignes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int		sort_color(char *line, t_map *map);
 bool	extract_map(char *line, t_map *map);
 
 /* ------------------- verif_extract.c ----------------------- */
-bool	line_not_parasite(char *line, t_map *map);
+bool	line_not_parasite(char *line, t_map *map, bool finish);
 
 /* ------------------- Exctract_texture_and_color.c -------- */
 int		sort_value(char *line, t_map *map);

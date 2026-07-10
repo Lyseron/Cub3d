@@ -6,7 +6,7 @@
 /*   By: mvignes <mvignes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/11 16:48:45 by lyaberge          #+#    #+#             */
-/*   Updated: 2026/07/09 10:57:46 by mvignes          ###   ########.fr       */
+/*   Updated: 2026/07/10 15:52:11 by mvignes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,6 +88,7 @@ typedef struct s_map
 	t_list		*extract;
 	bool		error;
 	bool		door;
+	bool		extract_map;
 }	t_map;
 
 typedef struct s_raycasting
