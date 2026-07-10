@@ -6,12 +6,16 @@
 /*   By: mvignes <mvignes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/09 14:48:05 by mvignes           #+#    #+#             */
-/*   Updated: 2026/07/09 11:03:28 by mvignes          ###   ########.fr       */
+/*   Updated: 2026/07/10 14:33:55 by mvignes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cube.h"
 
+/// @brief Check the data int line for extract map
+/// @param map 
+/// @param line 
+/// @return Return it's for good
 static bool	good_value_map(t_map *map, char *line)
 {
 	if (!line)
@@ -36,6 +40,9 @@ static bool	good_value_map(t_map *map, char *line)
 	return (false);
 }
 
+/// @brief Calcul the dimenssion of the map for malloc the char **
+/// @param map 
+/// @return Return 0 for it's good
 static bool	get_dimenssion(t_map *map)
 {
 	int		i;
@@ -63,6 +70,9 @@ static bool	get_dimenssion(t_map *map)
 	return (OK);
 }
 
+/// @brief Allow the memory in heap which one char **grid
+/// @param map 
+/// @return 
 int	allow_memory_grid(t_map *map)
 {
 	int	i;
@@ -81,6 +91,8 @@ int	allow_memory_grid(t_map *map)
 	return (OK);
 }
 
+/// @brief Write the data for the map extract of fd
+/// @param map 
 void	write_map(t_map *map)
 {
 	int		i;
@@ -110,6 +122,10 @@ void	write_map(t_map *map)
 	map->grid[i] = NULL;
 }
 
+/// @brief Fonction master for extract the map of fd
+/// @param line 
+/// @param map 
+/// @return Return 0 for it's good
 bool	extract_map(char *line, t_map *map)
 {
 	if (read_map(line, map))

@@ -6,12 +6,17 @@
 /*   By: mvignes <mvignes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/21 14:04:47 by mvignes           #+#    #+#             */
-/*   Updated: 2026/06/22 15:34:49 by mvignes          ###   ########.fr       */
+/*   Updated: 2026/07/10 14:16:11 by mvignes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cube.h"
 
+/// @brief Write the good pixel which good color in address image
+/// @param game 
+/// @param x 
+/// @param y 
+/// @param color 
 void	put_pixel(t_game *game, int x, int y, int color)
 {
 	char	*pixel;

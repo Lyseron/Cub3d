@@ -6,7 +6,7 @@
 /*   By: mvignes <mvignes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/18 21:50:21 by lyaberge          #+#    #+#             */
-/*   Updated: 2026/07/09 11:03:13 by mvignes          ###   ########.fr       */
+/*   Updated: 2026/07/10 14:23:36 by mvignes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,6 @@ static int	hand_choice(t_game *game)
 
 int	display(t_game *game)
 {
-	ft_bzero(game->img.img_addr, game->height * game->img.size_line);
 	if (raycasting(game, &game->player) == ERROR)
 		return (ERROR);
 	if (mini_maps_choice(game) == ERROR)

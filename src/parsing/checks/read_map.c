@@ -6,12 +6,16 @@
 /*   By: mvignes <mvignes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/09 19:47:20 by mvignes           #+#    #+#             */
-/*   Updated: 2026/06/29 10:56:34 by mvignes          ###   ########.fr       */
+/*   Updated: 2026/07/10 14:36:40 by mvignes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cube.h"
 
+/// @brief Check is no double in fd
+/// @param line 
+/// @param map 
+/// @return Return true for double in fd (error)
 bool	check_no_double_data(char *line, t_map *map)
 {
 	if (!line || ft_strnstr(line, "NO", ft_strlen(line))
@@ -27,6 +31,10 @@ bool	check_no_double_data(char *line, t_map *map)
 	return (false);
 }
 
+/// @brief Fonction master for read map in fd
+/// @param line 
+/// @param map 
+/// @return Return 0 for it's good
 int	read_map(char *line, t_map *map)
 {
 	t_list	*new;

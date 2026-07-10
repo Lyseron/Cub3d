@@ -6,12 +6,14 @@
 /*   By: mvignes <mvignes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/11 17:34:39 by lyaberge          #+#    #+#             */
-/*   Updated: 2026/07/10 11:59:50 by mvignes          ###   ########.fr       */
+/*   Updated: 2026/07/10 14:19:09 by mvignes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cube.h"
 
+/// @brief Check if the player sprit or no
+/// @param game 
 static void	init_speed(t_game *game)
 {
 	if (game->bool_key.shift)
@@ -20,6 +22,11 @@ static void	init_speed(t_game *game)
 		game->player.speed_player = SPEED * update_time(game);
 }
 
+/// @brief Check it is the next moove player it's correct
+/// @param game 
+/// @param dir_x 
+/// @param dir_y 
+/// @return return 0
 static int	moove_player(t_game *game, double dir_x, double dir_y)
 {
 	double	next_pos_player_x;
@@ -97,9 +104,9 @@ int	game_loop(t_game *game)
 	munch_has_moved = false;
 	init_speed(game);
 	key_moove(game);
-	// #ifdef LINUX
+	#ifdef LINUX
 	mouse_moove(game);
-	// #endif
+	#endif
 	game_loop_action(game, &has_moved, &mona_has_moved, &munch_has_moved);
 	if (game->moved == true
 		|| has_moved == true

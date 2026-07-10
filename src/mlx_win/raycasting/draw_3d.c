@@ -6,12 +6,15 @@
 /*   By: mvignes <mvignes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/18 13:35:41 by mvignes           #+#    #+#             */
-/*   Updated: 2026/07/09 11:39:19 by mvignes          ###   ########.fr       */
+/*   Updated: 2026/07/10 14:15:08 by mvignes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cube.h"
 
+/// @brief Initializes calcul for drawing 3d
+/// @param game 
+/// @param ray 
 void	init_draw_3d(t_game *game, t_ray *ray)
 {
 	ray->line_height = game->height / ray->dist_perp;
@@ -27,6 +30,11 @@ void	init_draw_3d(t_game *game, t_ray *ray)
 			/ 2.0 + ray->line_height / 2.0) * ray->step;
 }
 
+/// @brief Check it's ceiling, floor or wall
+/// @param game 
+/// @param ray 
+/// @param y 
+/// @param i 
 void	draw_3d(t_game *game, t_ray *ray, int y, int i)
 {
 	int		couleur;
@@ -48,6 +56,9 @@ void	draw_3d(t_game *game, t_ray *ray, int y, int i)
 		put_pixel(game, i, y, game->textures.convert_color_f);
 }
 
+/// @brief Selec the good texture for the wall
+/// @param game 
+/// @param ray 
 void	select_texture(t_game *game, t_ray *ray)
 {
 	if (ray->touch == 2)
@@ -72,6 +83,10 @@ void	select_texture(t_game *game, t_ray *ray)
 		ray->tex_projet = &game->map.texture.img[IS_EAST];
 }
 
+/// @brief 
+/// @param game 
+/// @param angle_rayon 
+/// @param i 
 void	draw_line(t_game *game, double angle_rayon, int i)
 {
 	int		y;

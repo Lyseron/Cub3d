@@ -6,7 +6,7 @@
 /*   By: mvignes <mvignes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/08 13:38:07 by lyaberge          #+#    #+#             */
-/*   Updated: 2026/07/09 13:13:08 by mvignes          ###   ########.fr       */
+/*   Updated: 2026/07/10 12:35:16 by mvignes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,7 +88,7 @@ typedef int	(*t_mlx_func)();
 # define DOOR_PATH "./textures/texture_gall/door/door_lily.xpm"
 
 // For the animation to define how many loop before a frame change
-# define TIME_FRAME_PHONE 15
+# define TIME_FRAME_PHONE 20000
 # define TIME_FRAME_HAND 50
 # define TIME_FRAME_MONA 20000
 # define TIME_FRAME_MUNCH 20000

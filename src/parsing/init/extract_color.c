@@ -6,12 +6,15 @@
 /*   By: mvignes <mvignes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/10 15:41:09 by mvignes           #+#    #+#             */
-/*   Updated: 2026/07/10 11:27:20 by mvignes          ###   ########.fr       */
+/*   Updated: 2026/07/10 14:28:32 by mvignes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cube.h"
 
+/// @brief Check is good data for color
+/// @param str 
+/// @return return true for it's good
 static bool	check_digit(char *str)
 {
 	int	i;
@@ -32,6 +35,11 @@ static bool	check_digit(char *str)
 	return (false);
 }
 
+/// @brief Split char * in char ** for color
+/// @param line 
+/// @param find 
+/// @param map 
+/// @return Return char ** or return NULL for error
 static char	**split_color(char *line, char *find, t_map *map)
 {
 	char	**tab_char;
@@ -49,6 +57,11 @@ static char	**split_color(char *line, char *find, t_map *map)
 	return (tab_char);
 }
 
+/// @brief Fonction master for extract color
+/// @param line 
+/// @param find 
+/// @param map 
+/// @return Return int * or return NULL for error
 static int	*add_color(char *line, char *find, t_map *map)
 {
 	char	**tab_char;
@@ -76,6 +89,12 @@ static int	*add_color(char *line, char *find, t_map *map)
 	return (tab_int);
 }
 
+/// @brief Check the color it's no double
+/// @param line 
+/// @param map 
+/// @param find 
+/// @param color 
+/// @return Return 0 for it's good
 static bool	add_var_color(char *line, t_map *map, char *find, int **color)
 {
 	if (*color)
@@ -92,6 +111,10 @@ static bool	add_var_color(char *line, t_map *map, char *find, int **color)
 	return (OK);
 }
 
+/// @brief Select the good color if C for ceiling or F for Floor
+/// @param line 
+/// @param map 
+/// @return return 0 for it's good
 int	sort_color(char *line, t_map *map)
 {
 	if (ft_strnstr(line, "C", ft_strlen(line)))
