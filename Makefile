@@ -65,6 +65,7 @@ MLX_WIN_SRC = \
 	$(MLX_WIN_DIR)/raycasting/door.c \
 	$(MLX_WIN_DIR)/gameplay/gameplay.c \
 	$(MLX_WIN_DIR)/gameplay/key.c \
+	$(MLX_WIN_DIR)/gameplay/view_key_press.c \
 	$(MLX_WIN_DIR)/gameplay/key_utils.c \
 	$(MLX_WIN_DIR)/gameplay/gameplay_utils.c \
 	$(MLX_WIN_DIR)/animation/moove_anim.c \

@@ -6,7 +6,7 @@
 /*   By: mvignes <mvignes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/18 21:50:21 by lyaberge          #+#    #+#             */
-/*   Updated: 2026/07/10 14:23:36 by mvignes          ###   ########.fr       */
+/*   Updated: 2026/07/10 18:29:31 by mvignes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,9 @@ int	display(t_game *game)
 		return (ERROR);
 	if (hand_choice(game) == ERROR)
 		return (ERROR);
+	if (game->bool_key.view_key_press)
+		if (view_key_press(game, &game->bool_key))
+			return (ERROR);
 	mlx_put_image_to_window(game->mlx, game->win, game->img.img_ptr, 0, 0);
 	return (OK);
 }

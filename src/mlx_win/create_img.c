@@ -6,7 +6,7 @@
 /*   By: mvignes <mvignes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/09 17:11:19 by lyaberge          #+#    #+#             */
-/*   Updated: 2026/07/09 11:38:47 by mvignes          ###   ########.fr       */
+/*   Updated: 2026/07/10 18:29:41 by mvignes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,10 @@ static int	init_anim(t_game *game)
 	if (init_mona(game) == ERROR)
 		return (ERROR);
 	if (init_munch(game) == ERROR)
+		return (ERROR);
+	if (init_img_key_press(game, &game->bool_key) == ERROR)
+		return (ERROR);
+	if (init_img_key_release(game, &game->bool_key) == ERROR)
 		return (ERROR);
 	return (OK);
 }

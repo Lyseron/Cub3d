@@ -6,7 +6,7 @@
 /*   By: mvignes <mvignes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/11 16:57:12 by lyaberge          #+#    #+#             */
-/*   Updated: 2026/07/09 10:57:09 by mvignes          ###   ########.fr       */
+/*   Updated: 2026/07/10 18:16:48 by mvignes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,11 @@ void	mouse_moove(t_game *game);
 
 /* ------------------- key_utils.c ------------------------------- */
 void	key_moove(t_game *game);
+
+/* ------------------- view_key_press.c ------------------------------- */
+bool	view_key_press(t_game *game, t_bool_key *b);
+int		init_img_key_press(t_game *game, t_bool_key *b);
+int		init_img_key_release(t_game *game, t_bool_key *b);
 
 /* ------------------- Gameplay.c -------------------------- */
 int		is_moove_ok(t_game *game, int key_choice);

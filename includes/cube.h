@@ -6,7 +6,7 @@
 /*   By: mvignes <mvignes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/08 13:38:07 by lyaberge          #+#    #+#             */
-/*   Updated: 2026/07/10 17:04:07 by mvignes          ###   ########.fr       */
+/*   Updated: 2026/07/10 18:40:46 by mvignes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,6 +106,30 @@ typedef int	(*t_mlx_func)();
 # define GOOD_NORTH "./textures/texture_gall/munch/wall_anim_0.xpm"
 # define GOOD_SOUTH "./textures/texture_gall/wall_mona/wall_mona_0.xpm"
 
+# define W_PRESS "./textures/key/xpm/key_w.xpm"
+# define A_PRESS "./textures/key/xpm/key_a.xpm"
+# define S_PRESS "./textures/key/xpm/key_s.xpm"
+# define D_PRESS "./textures/key/xpm/key_d.xpm"
+# define ARROW_LEFT_PRESS "./textures/key/xpm/key_arrow_left.xpm"
+# define ARROW_RIGHT_PRESS "./textures/key/xpm/key_arrow_right.xpm"
+# define O_PRESS "./textures/key/xpm/key_o.xpm"
+# define P_PRESS "./textures/key/xpm/key_p.xpm"
+# define SHIFT_PRESS "./textures/key/xpm/key_shift.xpm"
+# define CTRL_PRESS "./textures/key/xpm/key_ctrl.xpm"
+# define ALT_PRESS "./textures/key/xpm/key_alt.xpm"
+
+# define W_RELEASE "./textures/key/xpm/key_w_release.xpm"
+# define A_RELEASE "./textures/key/xpm/key_a_release.xpm"
+# define S_RELEASE "./textures/key/xpm/key_s_release.xpm"
+# define D_RELEASE "./textures/key/xpm/key_d_release.xpm"
+# define ARROW_LEFT_RELEASE "./textures/key/xpm/key_arrow_left_release.xpm"
+# define ARROW_RIGHT_RELEASE "./textures/key/xpm/key_arrow_right_release.xpm"
+# define O_RELEASE "./textures/key/xpm/key_o_release.xpm"
+# define P_RELEASE "./textures/key/xpm/key_p_release.xpm"
+# define SHIFT_RELEASE "./textures/key/xpm/key_shift_release.xpm"
+# define CTRL_RELEASE "./textures/key/xpm/key_ctrl_release.xpm"
+# define ALT_RELEASE "./textures/key/xpm/key_alt_release.xpm"
+
 // Keypress Mac
 # ifdef MAC
 
@@ -171,6 +195,8 @@ typedef int	(*t_mlx_func)();
 # define SHIFT XK_Shift_L
 // CTRL
 # define MOUSE XK_Control_L
+// ALT
+# define VIEW_KEY_PRESS XK_Alt_L
 
 #endif
 

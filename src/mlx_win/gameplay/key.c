@@ -6,13 +6,14 @@
 /*   By: mvignes <mvignes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/18 14:16:59 by mvignes           #+#    #+#             */
-/*   Updated: 2026/07/10 11:41:21 by mvignes          ###   ########.fr       */
+/*   Updated: 2026/07/10 18:04:06 by mvignes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cube.h"
 
-/// @brief It’s a relasse key function, in the relache key by the user, the bool becomes NULL.
+/// @brief It’s a relasse key function, in the release key by the user,
+/// @brief the bool becomes NULL.
 /// @param key 
 /// @param game 
 /// @return Null value for while mlx in main
@@ -34,6 +35,8 @@ int	keyno(int key, t_game *game)
 		game->bool_key.shift = false;
 	if (key == DOOR)
 		game->bool_key.door = false;
+	if (key == VIEW_KEY_PRESS)
+		game->bool_key.view_key_press = true;
 	return (OK);
 }
 
@@ -71,11 +74,9 @@ int	display_keywee(int key, t_game *game)
 			return (ERROR);
 	}
 	if (key == HAND_CHANGE && game->close_door == true
-		&& game->bool_key.change_hand == false
-		&& game->anim_is_finish)
+		&& game->bool_key.change_hand == false && game->anim_is_finish)
 	{
-		toggle(&game->bool_key.change_hand);
-		game->anim_is_finish = false;
+		(toggle(&game->bool_key.change_hand), game->anim_is_finish = false);
 		game->phone.frame_id = 0;
 		game->phone.nb_of_loop = 0;
 		if (display_check(game) == ERROR)
@@ -87,11 +88,14 @@ int	display_keywee(int key, t_game *game)
 		if (display_check(game) == ERROR)
 			return (ERROR);
 	}
+	if (key == VIEW_KEY_PRESS)
+		game->bool_key.view_key_press = true;
 	wall_anim(key, game);
 	return (OK);
 }
 
-/// @brief It’s a relasse key function, in the press key by the user, the bool becomes true.
+/// @brief It’s a relasse key function, in the press key by the user,
+/// @brief the bool becomes true.
 /// @param key 
 /// @param game 
 /// @return Null value for while mlx in main
