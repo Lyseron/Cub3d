@@ -6,7 +6,7 @@
 /*   By: mvignes <mvignes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/10 15:41:09 by mvignes           #+#    #+#             */
-/*   Updated: 2026/07/10 14:28:32 by mvignes          ###   ########.fr       */
+/*   Updated: 2026/07/10 14:43:54 by mvignes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ static char	**split_color(char *line, char *find, t_map *map)
 	return (tab_char);
 }
 
-/// @brief Fonction master for extract color
+/// @brief Function master for extract color
 /// @param line 
 /// @param find 
 /// @param map 

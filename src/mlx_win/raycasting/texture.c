@@ -6,7 +6,7 @@
 /*   By: mvignes <mvignes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/22 18:02:20 by mvignes           #+#    #+#             */
-/*   Updated: 2026/06/29 10:49:39 by mvignes          ###   ########.fr       */
+/*   Updated: 2026/07/10 14:47:06 by mvignes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,11 @@ void	direction_wall_for_add_texture(t_game *game, t_ray *ray,
 	}
 }
 
+/// @brief calculating the pixel in relation to the size of the wall
+/// @param game 
+/// @param ray 
+/// @param tex_width 
+/// @return return the pos of the pixel
 int	calcul_pos_texture(t_game *game, t_ray *ray, int tex_width)
 {
 	double	wall_x;

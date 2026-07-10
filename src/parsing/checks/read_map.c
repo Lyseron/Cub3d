@@ -6,7 +6,7 @@
 /*   By: mvignes <mvignes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/09 19:47:20 by mvignes           #+#    #+#             */
-/*   Updated: 2026/07/10 14:36:40 by mvignes          ###   ########.fr       */
+/*   Updated: 2026/07/10 14:43:53 by mvignes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ bool	check_no_double_data(char *line, t_map *map)
 	return (false);
 }
 
-/// @brief Fonction master for read map in fd
+/// @brief Function master for read map in fd
 /// @param line 
 /// @param map 
 /// @return Return 0 for it's good

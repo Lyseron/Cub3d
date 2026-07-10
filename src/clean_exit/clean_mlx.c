@@ -6,7 +6,7 @@
 /*   By: mvignes <mvignes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/09 16:55:55 by lyaberge          #+#    #+#             */
-/*   Updated: 2026/07/10 14:16:34 by mvignes          ###   ########.fr       */
+/*   Updated: 2026/07/10 14:43:50 by mvignes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 /// @brief properly exits the program
 /// @param game 
-/// @return returns nothing, he use exit fonction
+/// @return returns nothing, he use exit Function
 int	exit_game(t_game *game, int exit_status)
 {
 	free_all_img(game);

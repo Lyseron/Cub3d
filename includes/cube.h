@@ -6,14 +6,14 @@
 /*   By: mvignes <mvignes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/08 13:38:07 by lyaberge          #+#    #+#             */
-/*   Updated: 2026/07/10 12:35:16 by mvignes          ###   ########.fr       */
+/*   Updated: 2026/07/10 14:43:47 by mvignes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CUBE_H
 # define CUBE_H
 
-// Fonction include
+// Function include
 # include "libft.h"
 # include "mlx.h"
 # include <unistd.h>

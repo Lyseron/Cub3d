@@ -6,12 +6,17 @@
 /*   By: mvignes <mvignes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/19 13:27:14 by mvignes           #+#    #+#             */
-/*   Updated: 2026/06/22 15:34:59 by mvignes          ###   ########.fr       */
+/*   Updated: 2026/07/10 14:44:28 by mvignes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cube.h"
 
+/// @brief Draw square player for the comprehension of raycasting in 2D
+/// @param x 
+/// @param y 
+/// @param color 
+/// @param game 
 void	draw_square_player(int x, int y, int color, t_game *game)
 {
 	int	i;
@@ -30,6 +35,11 @@ void	draw_square_player(int x, int y, int color, t_game *game)
 		put_pixel(game, x + i, y + 5, color);
 }
 
+/// @brief  Draw square for the comprehension of raycasting in 2D
+/// @param x 
+/// @param y 
+/// @param color 
+/// @param game 
 void	draw_square(int x, int y, int color, t_game *game)
 {
 	int	i;
@@ -48,6 +58,8 @@ void	draw_square(int x, int y, int color, t_game *game)
 		put_pixel(game, x + i, y + SIZE_SQUARE, color);
 }
 
+/// @brief Draw the ninimap for the comprehension of raycasting in 2D
+/// @param game 
 void	draw_map(t_game *game)
 {
 	char	**map;
@@ -70,6 +82,11 @@ void	draw_map(t_game *game)
 	}
 }
 
+/// @brief Check if the ray in touch the wall
+/// @param px 
+/// @param py 
+/// @param game 
+/// @return 
 static bool	touch(double px, double py, t_game *game)
 {
 	int	x;
@@ -84,6 +101,11 @@ static bool	touch(double px, double py, t_game *game)
 	return (false);
 }
 
+/// @brief Function master for draw and the comprehension of raycasting in 2D
+/// @param player 
+/// @param game 
+/// @param start_x 
+/// @param i 
 void	draw_line_2d(t_player *player, t_game *game, double start_x, int i)
 {
 	double	cos_a;

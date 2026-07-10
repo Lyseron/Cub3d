@@ -6,7 +6,7 @@
 /*   By: mvignes <mvignes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/21 13:32:41 by mvignes           #+#    #+#             */
-/*   Updated: 2026/07/09 11:58:17 by mvignes          ###   ########.fr       */
+/*   Updated: 2026/07/10 14:39:44 by mvignes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,9 @@ void	calcul_direct_wall(t_player *p, t_ray *ray)
 	}
 }
 
+/// @brief Calcul in the pixel in the intersection between wall and C or F
+/// @param game 
+/// @param ray 
 void	calcul_horizontal_intersection(t_game *game, t_ray *ray)
 {
 	ray->touch = false;

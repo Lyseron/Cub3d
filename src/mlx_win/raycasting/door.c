@@ -6,7 +6,7 @@
 /*   By: mvignes <mvignes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/21 14:04:47 by mvignes           #+#    #+#             */
-/*   Updated: 2026/07/09 11:09:18 by mvignes          ###   ########.fr       */
+/*   Updated: 2026/07/10 14:40:52 by mvignes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,11 @@ static bool	get_door_target(t_game *game, int *tx, int *ty)
 	return (false);
 }
 
+/// @brief See that the player is not on a door
+/// @param game 
+/// @param x 
+/// @param y 
+/// @return 
 static bool	is_bordplayer_touch_door(t_game *game, double x, double y)
 {
 	double	door_right;

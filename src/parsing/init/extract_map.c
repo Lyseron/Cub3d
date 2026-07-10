@@ -6,7 +6,7 @@
 /*   By: mvignes <mvignes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/09 14:48:05 by mvignes           #+#    #+#             */
-/*   Updated: 2026/07/10 14:33:55 by mvignes          ###   ########.fr       */
+/*   Updated: 2026/07/10 14:43:55 by mvignes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -122,7 +122,7 @@ void	write_map(t_map *map)
 	map->grid[i] = NULL;
 }
 
-/// @brief Fonction master for extract the map of fd
+/// @brief Function master for extract the map of fd
 /// @param line 
 /// @param map 
 /// @return Return 0 for it's good
