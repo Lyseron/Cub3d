@@ -6,7 +6,7 @@
 /*   By: mvignes <mvignes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/09 19:47:20 by mvignes           #+#    #+#             */
-/*   Updated: 2026/07/10 15:54:14 by mvignes          ###   ########.fr       */
+/*   Updated: 2026/07/10 15:58:44 by mvignes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,6 @@ bool	data_after_map(t_map *map, char *line)
 			free_line_and_gnl(line);
 			return (true);
 		}
-		printf("line = %s\n", line);
 		free(line);
 	}
 	return (false);
