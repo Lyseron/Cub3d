@@ -6,7 +6,7 @@
 /*   By: mvignes <mvignes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/08 13:38:07 by lyaberge          #+#    #+#             */
-/*   Updated: 2026/07/10 18:40:46 by mvignes          ###   ########.fr       */
+/*   Updated: 2026/07/10 19:03:25 by mvignes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -161,6 +161,8 @@ typedef int	(*t_mlx_func)();
 # define SHIFT 257
 // CTRL
 # define MOUSE 256
+// ALT
+# define ALT 261
 
 # endif
 
