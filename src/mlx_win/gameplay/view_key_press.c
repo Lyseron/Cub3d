@@ -3,39 +3,31 @@
 /*                                                        :::      ::::::::   */
 /*   view_key_press.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mvignes <mvignes@student.42.fr>            +#+  +:+       +#+        */
+/*   By: vignesmattheu <vignesmattheu@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/10 17:47:33 by mvignes           #+#    #+#             */
-/*   Updated: 2026/07/10 19:00:04 by mvignes          ###   ########.fr       */
+/*   Updated: 2026/07/11 00:05:12 by vignesmatth      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cube.h"
 
-int	draw_img_key(t_game *game, t_img *img)
+int	draw_img_key(t_game *game, t_img *img, int offset_x, int offset_y)
 {
 	int	x;
 	int	y;
-	int	pixel_y;
-	int	pixel_x;
 	int	color_pixel;
 
-	pixel_x = 90;
-	pixel_y = game->height - img->height;
 	y = 0;
 	while (y < img->height)
 	{
 		x = 0;
 		while (x < img->width)
 		{
-			int	dest_x = pixel_x + x;
-			int	dest_y = pixel_y + y;
 			color_pixel = get_pixel_from_texture(img, x, y);
-			if (dest_x >= 0 && dest_x < game->width && dest_y >= 0 && dest_y < game->height)
-			{
-				if (color_pixel != 0xffffff)
-					put_pixel(game, dest_x, dest_y, color_pixel);
-			}
+			if (offset_x + x >= 0 && offset_x + x < game->width
+				&& offset_y + y >= 0 && offset_y + y < game->height)
+				put_pixel(game, offset_x + x, offset_y + y, color_pixel);
 			x++;
 		}
 		y++;
@@ -43,69 +35,67 @@ int	draw_img_key(t_game *game, t_img *img)
 	return (OK);
 }
 
-static void	display_key(t_game *game, void *img, int x, int y)
+static void	display_key(t_game *game, t_img *img, int x, int y)
 {
-	(void)x;
-	(void)y;
-	draw_img_key(game, img);
-	// mlx_put_image_to_window(game->mlx, game->win, img, x, y);
+	draw_img_key(game, img, x, y);
 }
 
 static void	view_key_press_wasdlr(t_game *game, t_bool_key *b)
 {
-	if (b->w)
-		display_key(game, b->key_press[0].img_addr, 0, 0);
-	else
-		display_key(game, b->key_release[0].img_addr, 0, 0);
-	if (b->a)
-		display_key(game, b->key_press[1].img_addr, 10, 10);
-	else
-		display_key(game, b->key_release[1].img_addr, 10, 10);
-	if (b->s)
-		display_key(game, b->key_press[2].img_addr, 20, 20);
-	else
-		display_key(game, b->key_release[2].img_addr, 20, 20);
-	if (b->d)
-		display_key(game, b->key_press[3].img_addr, 30, 30);
-	else
-		display_key(game, b->key_release[3].img_addr, 30, 30);
 	if (b->left)
-		display_key(game, b->key_press[4].img_addr, 40, 40);
+		display_key(game, &b->key_press[4], game->width - 340, game->height / 40);
 	else
-		display_key(game, b->key_release[4].img_addr, 40, 40);
+		display_key(game, &b->key_release[4], game->width - 340, game->height / 40);
+	if (b->w)
+		display_key(game, &b->key_press[0], game->width - 230, game->height / 40);
+	else
+		display_key(game, &b->key_release[0], game->width - 230, game->height / 40);
 	if (b->right)
-		display_key(game, b->key_press[5].img_addr, 50, 50);
+		display_key(game, &b->key_press[5], game->width - 120, game->height / 40);
 	else
-		display_key(game, b->key_release[5].img_addr, 50, 50);
+		display_key(game, &b->key_release[5], game->width - 120, game->height / 40);
+	if (b->a)
+		display_key(game, &b->key_press[1], game->width - 340, game->height / 40 + 107);
+	else
+		display_key(game, &b->key_release[1], game->width - 340, game->height / 40 + 107);
+	if (b->s)
+		display_key(game, &b->key_press[2], game->width - 230, game->height / 40 + 107);
+	else
+		display_key(game, &b->key_release[2], game->width - 230, game->height / 40 + 107);
+	if (b->d)
+		display_key(game, &b->key_press[3], game->width - 120, game->height / 40 + 107);
+	else
+		display_key(game, &b->key_release[3], game->width - 120, game->height / 40 + 107);
 }
 
 static void	view_key_press_other(t_game *game, t_bool_key *b)
 {
 	if (b->door)
-		display_key(game, b->key_press[6].img_addr, 0, 0);
+		display_key(game, &b->key_press[6], game->width - 387, game->height / 40 + 214);
 	else
-		display_key(game, b->key_release[6].img_addr, 0, 0);
-	if (game->start_anim_wall)
-		display_key(game, b->key_press[7].img_addr, 10, 10);
-	else
-		display_key(game, b->key_release[7].img_addr, 10, 10);
-	if (b->shift)
-		display_key(game, b->key_press[8].img_addr, 20, 20);
-	else
-		display_key(game, b->key_release[8].img_addr, 20, 20);
-	if (b->mouse)
-		display_key(game, b->key_press[9].img_addr, 30, 30);
-	else
-		display_key(game, b->key_release[9].img_addr, 30, 30);
+		display_key(game, &b->key_release[6], game->width - 387, game->height / 40 + 214);
 	if (b->view_key_press)
-		display_key(game, b->key_press[10].img_addr, 40, 40);
+		display_key(game, &b->key_press[10], game->width - 275, game->height / 40 + 214);
 	else
-		display_key(game, b->key_release[10].img_addr, 40, 40);
+		display_key(game, &b->key_release[10], game->width - 275, game->height / 40 + 214);
+	if (game->start_anim_wall)
+		display_key(game, &b->key_press[7], game->width - 122, game->height / 40 + 214);
+	else
+		display_key(game, &b->key_release[7], game->width - 122, game->height / 40 + 214);
+	if (b->shift)
+		display_key(game, &b->key_press[8], game->width - 376, game->height / 40 + 324);
+	else
+		display_key(game, &b->key_release[8], game->width - 376, game->height / 40 + 324);
+	if (b->mouse)
+		display_key(game, &b->key_press[9], game->width - 163, game->height / 40 + 324);
+	else
+		display_key(game, &b->key_release[9], game->width - 163, game->height / 40 + 324);
 }
 
 bool	view_key_press(t_game *game, t_bool_key *b)
 {
 	view_key_press_wasdlr(game, b);
+	view_key_press_other(game, b);
 	return (false);
 }
 

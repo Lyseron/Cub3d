@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cube.h                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mvignes <mvignes@student.42.fr>            +#+  +:+       +#+        */
+/*   By: vignesmattheu <vignesmattheu@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/08 13:38:07 by lyaberge          #+#    #+#             */
-/*   Updated: 2026/07/10 19:03:25 by mvignes          ###   ########.fr       */
+/*   Updated: 2026/07/10 22:24:11 by vignesmatth      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@
 # include <math.h>
 # include <sys/time.h>
 # include <termios.h>
-# include <X11/keysym.h>
+// # include <X11/keysym.h>
 
 // Struct
 # include "structs.h"
@@ -162,7 +162,7 @@ typedef int	(*t_mlx_func)();
 // CTRL
 # define MOUSE 256
 // ALT
-# define ALT 261
+# define VIEW_KEY_PRESS 261
 
 # endif
 

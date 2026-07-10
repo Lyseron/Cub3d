@@ -282,6 +282,190 @@ The movement is only applied if none of the future player square borders collide
 
 ## Raycasting
 
+### Qu'es ce que le raycasting ? A ne pas confondre avec le raytracing.
+* Le raycasting simule une vue 3D à partir d'une map 2D. Le principe : pour chaque colonne de pixels de l'écran, on lance un rayon depuis la position du joueur. Quand ce rayon touche un mur, on calcule la hauteur que doit avoir ce mur à l'écran (les murs proches sont grands, les murs lointains sont petits), et on affiche la colonne correspondante de la texture.
+* Alors que le raytracing est une méthode de calcul qui lancer des rayons, qui représente le comportement de la lumière lorsqu'elle interagit avec un objet.
+
+### La boucle principal (raycasting.c)
+
+```
+fraction = (PI / 3) / screen_width   ← angle entre chaque rayon (FOV 60° divisé en width colonnes)
+start_x  = player.angle - PI/6       ← angle du rayon le plus à gauche
+```
+
+Pour chaque colonne `i` (de 0 à `game->width - 1`) :
+- On appelle `draw_line(game, start_x + i * fraction, i)`
+- L'angle du rayon courant = `start_x + i * fraction`
+- La colonne du milieu a l'angle exactement égal à `player.angle` (droit devant)
+
+```
+Écran de 1200 colonnes :
+col 0		col 600		col 1199
+  |			|				|
+angle		angle			angle
+plane-30°	plane			plane+30°
+```
+
+Le FOV (champ de vision) est de **60°** (PI/3).
+
+### Initialisation du rayon (init_dda dans draw_line)
+
+Pour chaque rayon d'angle `θ` :
+
+```c
+ray->cos_p = cos(θ)					// composante X de la direction du rayon
+ray->sin_p = sin(θ)					// composante Y de la direction du rayon
+ray->map_x = (int)player.pos_x		// case de la map où est le joueur (X)
+ray->map_y = (int)player.pos_y		// case de la map où est le joueur (Y)
+```
+
+#### Le DDA (Digital Differential Analyzer) avance dans la map case par case.
+Il a besoin de savoir : "si je regarde dans cette direction, quelle distance le rayon doit parcourir pour passer d'une ligne verticale à la suivante ?" et pareil pour les lignes horizontales.
+
+```c
+delta_dist_x = |1 / cos_p|			// ← distance pour traverser une case en X
+delta_dist_y = |1 / sin_p|			// ← distance pour traverser une case en Y
+```
+
+**Pourquoi 1/cos_p ?**  
+Le rayon avance d'un pas de 1 en X. En se déplaçant de 1 en X, il parcourt une distance totale de `1/cos_p` (par Pythagore, si cos est la composante X, il faut diviser 1 par cos pour avoir la distance réelle le long du rayon).
+
+### Sens et distances initiales
+
+On détermine le sens du rayon (Est/Ouest et Nord/Sud) et la distance jusqu'à
+la première intersection de grille.
+
+```c
+if (cos_p < 0) {
+	step_x = -1											// rayon va à l'Ouest
+	side_dist_x = (pos_x - map_x) * delta_dist_x		// distance jusqu'au bord gauche de la case
+} else {
+	step_x = +1											// rayon va à l'Est
+	side_dist_x = (map_x + 1 - pos_x) * delta_dist_x	// distance jusqu'au bord droit
+}
+```
+
+Idem pour Y (sin_p < 0 → Nord, sin_p > 0 → Sud)
+
+
+### Boucle DDA
+
+On avance rayon par rayon jusqu'à toucher un mur ou une porte fermé ('1' ou '2' dans la grille).
+
+À chaque itération, on choisit d'avancer en X ou en Y selon quelle intersection
+arrive en premier :
+
+```c
+while (pas touché de mur) {
+	if (side_dist_x < side_dist_y) {
+		side_dist_x += delta_dist_x		// on avance d'une case en X
+		map_x += step_x
+		wall_touch = 0					// on a traversé une ligne verticale
+	} else {
+		side_dist_y += delta_dist_y		// on avance d'une case en Y
+		map_y += step_y
+		wall_touch = 1					// on a traversé une ligne horizontale
+	}
+	if (grid[map_y][map_x] == '1' || grid[map_y][map_x] == '2')
+		touch = true
+}
+```
+#### exemple
+
+```
+		 Y=3
+		  |
+Y=2  +----+----+----+
+	 |	|	| M  |	M = mur
+Y=1  +----+----+----+
+	 |	| J  |	|	J = joueur
+Y=0  +----+----+----+
+	 X=0  X=1  X=2  X=3
+
+Rayon du joueur vers le NE (cos>0, sin<0) :
+Étape 1 : side_dist_x < side_dist_y → avance en X → map_x=2
+Étape 2 : side_dist_y < side_dist_x → avance en Y → map_y=2
+Étape 3 : side_dist_x < side_dist_y → avance en X → map_x=3 → MUUR !
+```
+
+À la fin, map_x et map_y pointent sur la case du mur touché, et
+wall_touch vaut 0 (mur vertical / face E ou O) ou 1 (mur horizontal / face N ou S).
+
+
+### Correction du fisheye
+
+Sans correction, les murs sur les côtés de l'écran paraissent plus proches qu'ils ne le sont (effet "oeil de poisson", c'est murs arrondi). On multiplie par cos(angle_diff) pour corriger :
+
+```c
+angle_correctif = angle_rayon - player.plane	// écart angulaire par rapport au centre
+dist_perp *= cos(angle_correctif)
+```
+
+### Select direction du mur
+
+On selectionne le wall_touch (0 ou 1) en la vraie face touchée (1, 2, 3, ou 4) :
+
+```c
+if (ray->wall_touch == 0)
+{										// rayon a traversé une ligne verticale
+	if (step_x > 0)
+		ray->wall_touch = 3 (IS_EAST)		// rayon allait Est → face Ouest du mur
+	else
+		ray->wall_touch = 4 (IS_WEAST)		// rayon allait Ouest → face Est du mur
+}
+else
+{										// rayon a traversé une ligne horizontale
+	if (step_y > 0)
+		ray->wall_touch = 1 (IS_SOUTH)		// rayon allait Sud → face Nord du mur
+	else
+		ray->wall_touch = 2 (IS_NORTH)		// rayon allait Nord → face Sud du mur
+}
+```
+
+### Dessiné le mur
+
+Plus le mur est loin, plus il est petit à l'écran :
+
+```c
+line_height	= screen_height / dist_perp						// hauteur en pixels du mur
+start_y		= (screen_height / 2) - (line_height / 2)		// pixel du haut du mur
+end			= (screen_height / 2) + (line_height / 2)		// pixel du bas du mur
+```
+
+Et il faut recalculé la disctense du mur, la distance brute
+de la vraie position Y (ou X) d'impact :
+
+```c
+// Pour un mur Est/Ouest (face verticale) :
+dist_brute = (map_x - pos_x + (1 - step_x) / 2.0) / cos_p
+wall_x = pos_y + dist_brute * sin_p							// coordonnée Y de l'impact
+
+// Pour un mur Nord/Sud (face horizontale) :
+dist_brute = (map_y - pos_y + (1 - step_y) / 2.0) / sin_p
+wall_x = pos_x + dist_brute * cos_p							// coordonnée X de l'impact
+```
+
+### Dessin pixel par pixel
+
+Pour chaque pixel y de la colonne i :
+
+```c
+// Plafond
+if (y < start_y)
+	put_pixel(game, i, y, couleur_plafond)
+
+// Mur
+else if (y >= start_y && y <= end) {
+	pos_tex_y = (int)pos_tex & (tex_height - 1)
+	pos_tex += step
+	couleur = get_pixel_from_texture(tex, pos_tex_x, pos_tex_y)
+	put_pixel(game, i, y, couleur)
+}
+
+// Sol
+else
+	put_pixel(game, i, y, couleur_sol)
+```
 
 ---
 

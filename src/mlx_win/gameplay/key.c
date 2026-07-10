@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   key.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mvignes <mvignes@student.42.fr>            +#+  +:+       +#+        */
+/*   By: vignesmattheu <vignesmattheu@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/18 14:16:59 by mvignes           #+#    #+#             */
-/*   Updated: 2026/07/10 18:04:06 by mvignes          ###   ########.fr       */
+/*   Updated: 2026/07/10 22:31:39 by vignesmatth      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,8 +35,7 @@ int	keyno(int key, t_game *game)
 		game->bool_key.shift = false;
 	if (key == DOOR)
 		game->bool_key.door = false;
-	if (key == VIEW_KEY_PRESS)
-		game->bool_key.view_key_press = true;
+		
 	return (OK);
 }
 
@@ -89,7 +88,7 @@ int	display_keywee(int key, t_game *game)
 			return (ERROR);
 	}
 	if (key == VIEW_KEY_PRESS)
-		game->bool_key.view_key_press = true;
+		toggle(&game->bool_key.view_key_press);
 	wall_anim(key, game);
 	return (OK);
 }
