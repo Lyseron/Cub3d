@@ -6,7 +6,7 @@
 /*   By: mvignes <mvignes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/09 18:23:50 by mvignes           #+#    #+#             */
-/*   Updated: 2026/07/09 11:48:59 by mvignes          ###   ########.fr       */
+/*   Updated: 2026/07/10 17:07:39 by mvignes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,8 +62,11 @@ void	free_anim(t_anim *anim, t_game *game)
 /// @param map 
 void	free_data_fd(t_map *map)
 {
-	if (map->map_fd)
+	if (map->map_fd >= 0)
+	{
 		close(map->map_fd);
+		map->map_fd = -1;
+	}
 	if (map->texture.path[IS_NORTH])
 		free_and_null((void *)&map->texture.path[IS_NORTH]);
 	if (map->texture.path[IS_SOUTH])

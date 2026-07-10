@@ -6,7 +6,7 @@
 /*   By: mvignes <mvignes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/09 14:48:05 by mvignes           #+#    #+#             */
-/*   Updated: 2026/07/10 14:43:55 by mvignes          ###   ########.fr       */
+/*   Updated: 2026/07/10 17:10:41 by mvignes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -133,9 +133,6 @@ bool	extract_map(char *line, t_map *map)
 		get_next_line(-1);
 		return (ft_putendl_fd("Error donblon data", 2), ERROR);
 	}
-	map->map_fd = open(map->map_name, O_RDONLY);
-	if (map->map_fd == -1)
-		return (ft_putendl_fd("Error open map", 2), ERROR);
 	if (get_dimenssion(map))
 		return (ft_putendl_fd("void map in fd", 2), ERROR);
 	if (allow_memory_grid(map) == ERROR)
