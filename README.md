@@ -282,6 +282,194 @@ The movement is only applied if none of the future player square borders collide
 
 ## Raycasting
 
+### What is raycasting? Not to be confused with raytracing.
+* Raycasting simulates a 3D view from a 2D map. The principle: for each column of pixels on the screen, a ray is cast from the player's position. When this ray hits a wall, we calculate the height the wall should have on the screen (close walls are large, distant walls are small), and we display the corresponding column of the texture.
+* Whereas raytracing is a computation method that casts rays representing the behavior of light as it interacts with an object.
+
+### The main loop (raycasting.c)
+
+```
+fraction	= (PI / 3) / screen_width	← angle between each ray (60° FOV divided into width columns)
+start_x		= player.angle - PI/6		← angle of the leftmost ray
+```
+
+For each column i (from 0 to game->width - 1):
+- We call `draw_line(game, start_x + i * fraction, i)`
+- The angle of the current ray = `start_x + i * fraction`
+- The middle column has an angle exactly equal to `player.angle` (straight ahead)
+
+```
+1200-column screen:
+col 0		col 600		col 1199
+	|			|			|
+angle		angle			angle
+plane-30°	plane			plane+30°
+```
+
+The FOV (Field of View) is **60°** (PI/3).
+
+### Ray initialization (init_dda in draw_line)
+
+For each ray of angle `0`:
+
+```c
+ray->cos_p = cos(θ)					// component of the ray direction
+ray->sin_p = sin(θ)					// component of the ray direction
+ray->map_x = (int)player.pos_x		// map cell where the player is (X)
+ray->map_y = (int)player.pos_y		// map cell where the player is (Y)
+```
+
+#### The DDA (Digital Differential Analyzer) steps through the map cell by cell.
+It needs to know: "if I look in this direction, what distance does the ray have to travel to move from one vertical grid line to the next?" and the same for horizontal lines.
+
+```c
+delta_dist_x = |1 / cos_p|			// ← distance to cross one cell in X
+delta_dist_y = |1 / sin_p|			// ← distance to cross one cell in Y
+```
+
+**Why 1/cos_p ?**  
+The ray moves forward by a step of 1 in X. Moving by 1 in X, it travels a total distance of `1/cos_p` (by Pythagoras, if cos is the X component, you must divide 1 by cos to get the actual distance along the ray).
+
+### Initial direction and distances
+
+We determine the ray direction (East/West and North/Sud) and the distance to
+the first grid intersection.
+
+```c
+if (cos_p < 0)
+{
+	step_x = -1											// ray goes West
+	side_dist_x = (pos_x - map_x) * delta_dist_x		// distance to the left edge of the cell
+}
+else
+{
+	step_x = +1											// ray goes East
+	side_dist_x = (map_x + 1 - pos_x) * delta_dist_x	// distance to the right edge
+}
+```
+
+Same for Y (sin_p < 0 → North, sin_p > 0 → South)
+
+
+### DDA Loop
+
+We move forward ray by ray until we hit a wall or a closed door ('1' or '2' in the grid).
+
+At each iteration, we choose to advance in X or in Y depending on which intersection
+comes first:
+
+```c
+while (pas touché de mur) {
+	if (side_dist_x < side_dist_y) {
+		side_dist_x += delta_dist_x		// we advance by one cell in X
+		map_x += step_x
+		wall_touch = 0					// we crossed a vertical line
+	} else {
+		side_dist_y += delta_dist_y		// we advance by one cell in Y
+		map_y += step_y
+		wall_touch = 1					// we crossed a horizontal line
+	}
+	if (grid[map_y][map_x] == '1' || grid[map_y][map_x] == '2')
+		touch = true
+}
+```
+#### exemple
+
+```
+		 Y=3
+		  |
+Y=2  +----+----+----+
+	 |	|	| M  |	M = mur
+Y=1  +----+----+----+
+	 |	| J  |	|	J = joueur
+Y=0  +----+----+----+
+	 X=0  X=1  X=2  X=3
+
+Ray from the player towards NE (cos>0, sin<0):
+Step 1 : side_dist_x < side_dist_y → advance in X → map_x=2
+Step 2 : side_dist_y < side_dist_x → advance in Y → map_y=2
+Step 3 : side_dist_x < side_dist_y → advance in X → map_x=3 → WAALL !
+```
+
+At the end, map_x and map_y point to the hit wall cell, and
+wall_touch is either 0 (vertical wall / E or W face) or 1 (horizontal wall / N or S face).
+
+
+### Fisheye correction
+
+Without correction, the walls on the sides of the screen appear closer than they actually are (the "fisheye" effect, making walls look rounded). We multiply by cos(angle_diff) to correct this:
+
+```c
+angle_correctif = angle_rayon - player.plane	// angular deviation from the center
+dist_perp *= cos(angle_correctif)
+```
+
+### Select wall direction
+
+We map the wall_touch (0 or 1) into the actual hit face (1, 2, 3, or 4):
+
+```c
+if (ray->wall_touch == 0)
+{										// ray crossed a vertical line
+	if (step_x > 0)
+		ray->wall_touch = 3 (IS_EAST)		// ray was going East → West face of the wall
+	else
+		ray->wall_touch = 4 (IS_WEAST)		// ray was going West → East face of the wall
+}
+else
+{										// ray crossed a horizontal line
+	if (step_y > 0)
+		ray->wall_touch = 1 (IS_SOUTH)		// ray was going South → North face of the wall
+	else
+		ray->wall_touch = 2 (IS_NORTH)		// ray was going North → South face of the wall
+}
+```
+
+### Drawing the wall
+
+The further the wall is, the smaller it appears on the screen:
+
+```c
+line_height	= screen_height / dist_perp						// height in pixels of the wall
+start_y		= (screen_height / 2) - (line_height / 2)		// top pixel of the wall
+end			= (screen_height / 2) + (line_height / 2)		// bottom pixel of the wall
+```
+
+And we must recalculate the wall distance, the raw distance
+from the actual impact Y (or X) position:
+
+```c
+// For an East/West wall (vertical face):
+dist_brute = (map_x - pos_x + (1 - step_x) / 2.0) / cos_p
+wall_x = pos_y + dist_brute * sin_p							// Y coordinate of the impact
+
+// For a North/South wall (horizontal face):
+dist_brute = (map_y - pos_y + (1 - step_y) / 2.0) / sin_p
+wall_x = pos_x + dist_brute * cos_p							// X coordinate of the impact
+```
+
+### Pixel-by-pixel drawing
+
+For each pixel y of column i:
+
+```c
+// Ceiling
+if (y < start_y)
+	put_pixel(game, i, y, color_ceiling)
+
+// Wall
+else if (y >= start_y && y <= end)
+{
+	pos_tex_y = (int)pos_tex & (tex_height - 1)
+	pos_tex += step
+	color = get_pixel_from_texture(tex, pos_tex_x, pos_tex_y)
+	put_pixel(game, i, y, color)
+}
+
+// Floor
+else
+	put_pixel(game, i, y, color_floor)
+```
 
 ---
 
@@ -426,6 +614,12 @@ MiniLibX documentation and tutorial:
 Pixel drawing with MiniLibX:
 
 * https://aurelienbrabant.fr/blog/pixel-drawing-with-the-minilibx
+
+For the ray in 3D
+* [medium ismailassil](https://ismailassil.medium.com/ray-casting-c-8bfae2c2fc13)
+* [doc 1](https://lodev.org/cgtutor/raycasting.html)
+* [doc 2](https://ibon-ira-cub3d.mintlify.app/)
+* [doc 3](https://permadi.com/1996/05/ray-casting-tutorial-table-of-contents/)
 
 Collision logic:
 
