@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   draw_anim.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lyaberge <lyaberge@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mvignes <mvignes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/04 00:41:42 by lyaberge          #+#    #+#             */
-/*   Updated: 2026/07/04 00:41:42 by lyaberge         ###   ########.fr       */
+/*   Updated: 2026/07/11 08:59:50 by mvignes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ int	draw_left_img(t_game *game, t_img *img)
 		{
 			color_pixel = get_pixel_from_texture(img, x, y);
 			if (color_pixel != 0xffffff)
-				draw_pixel(game, pixel_x + x, pixel_y + y, color_pixel);
+				put_pixel(game, pixel_x + x, pixel_y + y, color_pixel);
 			x++;
 		}
 		y++;
@@ -56,7 +56,7 @@ int	draw_right_img(t_game *game, t_img *img)
 		{
 			color_pixel = get_pixel_from_texture(img, x, y);
 			if (color_pixel != 0xffffff)
-				draw_pixel(game, pixel_x + x, pixel_y + y, color_pixel);
+				put_pixel(game, pixel_x + x, pixel_y + y, color_pixel);
 			x++;
 		}
 		y++;
@@ -82,7 +82,7 @@ int	draw_middle_img(t_game *game, t_img *img)
 		{
 			color_pixel = get_pixel_from_texture(img, x, y);
 			if (color_pixel != 0xffffff)
-				draw_pixel(game, pixel_x + x, pixel_y + y, color_pixel);
+				put_pixel(game, pixel_x + x, pixel_y + y, color_pixel);
 			x++;
 		}
 		y++;

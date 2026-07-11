@@ -6,7 +6,7 @@
 /*   By: mvignes <mvignes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/11 17:34:39 by lyaberge          #+#    #+#             */
-/*   Updated: 2026/07/10 14:19:09 by mvignes          ###   ########.fr       */
+/*   Updated: 2026/07/11 09:04:40 by mvignes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,11 +56,11 @@ int	is_moove_ok(t_game *game, int key_choice)
 	if (key_choice == UP)
 		return (moove_player(game, game->player.dir_x, game->player.dir_y));
 	else if (key_choice == LEFT)
-		return (moove_player(game, game->player.dir_y, -game->player.dir_x));
+		return (moove_player(game, game->player.dir_y, game->player.dir_x * -1));
 	else if (key_choice == RIGHT)
-		return (moove_player(game, -game->player.dir_y, game->player.dir_x));
+		return (moove_player(game, game->player.dir_y * -1, game->player.dir_x));
 	else if (key_choice == DOWN)
-		return (moove_player(game, -game->player.dir_x, -game->player.dir_y));
+		return (moove_player(game, game->player.dir_x * -1, game->player.dir_y * -1));
 	else
 		return (ERROR);
 }
@@ -104,9 +104,7 @@ int	game_loop(t_game *game)
 	munch_has_moved = false;
 	init_speed(game);
 	key_moove(game);
-	#ifdef LINUX
 	mouse_moove(game);
-	#endif
 	game_loop_action(game, &has_moved, &mona_has_moved, &munch_has_moved);
 	if (game->moved == true
 		|| has_moved == true

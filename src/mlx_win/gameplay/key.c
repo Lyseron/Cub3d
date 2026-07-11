@@ -6,13 +6,14 @@
 /*   By: mvignes <mvignes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/18 14:16:59 by mvignes           #+#    #+#             */
-/*   Updated: 2026/07/10 11:41:21 by mvignes          ###   ########.fr       */
+/*   Updated: 2026/07/11 08:54:29 by mvignes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cube.h"
 
-/// @brief It’s a relasse key function, in the relache key by the user, the bool becomes NULL.
+/// @brief It’s a relasse key function, in the relache key by the user,
+/// @brief the bool becomes NULL.
 /// @param key 
 /// @param game 
 /// @return Null value for while mlx in main
@@ -91,7 +92,8 @@ int	display_keywee(int key, t_game *game)
 	return (OK);
 }
 
-/// @brief It’s a relasse key function, in the press key by the user, the bool becomes true.
+/// @brief It’s a relasse key function, in the press key by the user,
+/// @brief the bool becomes true.
 /// @param key 
 /// @param game 
 /// @return Null value for while mlx in main

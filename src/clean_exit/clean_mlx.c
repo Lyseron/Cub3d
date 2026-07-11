@@ -6,7 +6,7 @@
 /*   By: mvignes <mvignes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/09 16:55:55 by lyaberge          #+#    #+#             */
-/*   Updated: 2026/07/10 14:43:50 by mvignes          ###   ########.fr       */
+/*   Updated: 2026/07/11 08:51:10 by mvignes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,11 +22,9 @@ int	exit_game(t_game *game, int exit_status)
 		mlx_destroy_window(game->mlx, game->win);
 	if (game->mlx)
 	{
-		#ifdef LINUX
 		if (game->mlx)
 			mlx_destroy_display(game->mlx);
 		free(game->mlx);
-		#endif
 	}
 	free_data_fd(&game->map);
 	exit(exit_status);

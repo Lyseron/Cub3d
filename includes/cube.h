@@ -6,7 +6,7 @@
 /*   By: mvignes <mvignes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/08 13:38:07 by lyaberge          #+#    #+#             */
-/*   Updated: 2026/07/10 17:04:07 by mvignes          ###   ########.fr       */
+/*   Updated: 2026/07/11 08:58:35 by mvignes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,10 +89,10 @@ typedef int	(*t_mlx_func)();
 # define DOOR_PATH "./textures/texture_gall/door/door_lily.xpm"
 
 // For the animation to define how many loop before a frame change
-# define TIME_FRAME_PHONE 20000
-# define TIME_FRAME_HAND 50
-# define TIME_FRAME_MONA 20000
-# define TIME_FRAME_MUNCH 20000
+# define TIME_FRAME_PHONE 10000
+# define TIME_FRAME_HAND 20
+# define TIME_FRAME_MONA 10000
+# define TIME_FRAME_MUNCH 10000
 
 // The color for the mini/tiny maps
 # define COLOR_WALL 0x009999
@@ -105,43 +105,6 @@ typedef int	(*t_mlx_func)();
 
 # define GOOD_NORTH "./textures/texture_gall/munch/wall_anim_0.xpm"
 # define GOOD_SOUTH "./textures/texture_gall/wall_mona/wall_mona_0.xpm"
-
-// Keypress Mac
-# ifdef MAC
-
-// ECHAP
-# define ESC 53
-// UP -> W 
-# define UP 13
-// LEFT -> A 
-# define LEFT 0
-// RIGHT -> D
-# define RIGHT 2
-// DOWN -> S
-# define DOWN 1
-
-// ARROWS
-# define ARROW_UP 126
-# define ARROW_LEFT 123
-# define ARROW_RIGHT 124
-# define ARROW_DOWN 125
-
-// MAP_CHANGE  -> M
-# define MAP_CHANGE 46
-// START_ANIM_WALL -> P
-# define START_ANIM_WALL 35
-// HAND_CHANGE && DOOR -> O
-# define HAND_CHANGE 14
-# define DOOR 14
-// SHIFT RIGHT
-# define SHIFT 257
-// CTRL
-# define MOUSE 256
-
-# endif
-
-// Keypress Linux
-# ifdef LINUX
 
 // ECHAP
 # define ESC 65307
@@ -171,7 +134,5 @@ typedef int	(*t_mlx_func)();
 # define SHIFT XK_Shift_L
 // CTRL
 # define MOUSE XK_Control_L
-
-#endif
 
 #endif

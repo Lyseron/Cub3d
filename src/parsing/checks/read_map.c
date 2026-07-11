@@ -6,7 +6,7 @@
 /*   By: mvignes <mvignes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/09 19:47:20 by mvignes           #+#    #+#             */
-/*   Updated: 2026/07/10 15:58:44 by mvignes          ###   ########.fr       */
+/*   Updated: 2026/07/11 08:54:00 by mvignes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,6 @@ bool	data_after_map(t_map *map, char *line)
 	return (false);
 }
 
-	
 /// @brief Function master for read map in fd
 /// @param line 
 /// @param map 

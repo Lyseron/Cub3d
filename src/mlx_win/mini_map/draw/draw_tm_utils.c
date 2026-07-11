@@ -6,7 +6,7 @@
 /*   By: mvignes <mvignes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/02 19:30:00 by lyaberge          #+#    #+#             */
-/*   Updated: 2026/07/09 11:02:59 by mvignes          ###   ########.fr       */
+/*   Updated: 2026/07/11 09:02:55 by mvignes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,8 +69,7 @@ int	draw_frame(t_game *game)
 		x = game->tiny_map.min_x - FRAME_SIZE;
 		while (x < game->tiny_map.max_x + FRAME_SIZE)
 		{
-			if (draw_pixel(game, x, y, COLOR_FRAME) == ERROR)
-				return (ERROR);
+			put_pixel(game, x, y, COLOR_FRAME);
 			x++;
 		}
 		y++;

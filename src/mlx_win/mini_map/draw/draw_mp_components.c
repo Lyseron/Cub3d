@@ -6,32 +6,11 @@
 /*   By: mvignes <mvignes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/18 03:29:33 by lyaberge          #+#    #+#             */
-/*   Updated: 2026/07/09 11:02:17 by mvignes          ###   ########.fr       */
+/*   Updated: 2026/07/11 09:03:49 by mvignes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cube.h"
-
-int	draw_pixel(t_game *game, int x, int y, unsigned int color)
-{
-	int		pos_pixel;
-	char	*pixel;
-
-	if (!game || !game->img.img_addr)
-		return (ERROR);
-	if (x < 0 || x >= game->width || y < 0 || y >= game->height)
-		return (ERROR);
-	if (game->img.size_line <= 0 || game->img.bits_per_pixel <= 0)
-		return (ERROR);
-	pos_pixel = (y * game->img.size_line + x * (game->img.bits_per_pixel / 8));
-	if (pos_pixel < 0)
-		return (ERROR);
-	pixel = game->img.img_addr + pos_pixel;
-	if (pixel == NULL)
-		return (ERROR);
-	*(unsigned int *)pixel = color;
-	return (OK);
-}
 
 int	draw_mini_square(t_game *game, int map_x, int map_y, int color)
 {
@@ -47,8 +26,7 @@ int	draw_mini_square(t_game *game, int map_x, int map_y, int color)
 		x = game->mini_map.start_x;
 		while (x < game->mini_map.end_x)
 		{
-			if (draw_pixel(game, x, y, color) == ERROR)
-				return (ERROR);
+			put_pixel(game, x, y, color);
 			x++;
 		}
 		y++;
@@ -68,8 +46,7 @@ int	draw_player(t_game *game)
 		x = game->mini_player.start_x;
 		while (x < game->mini_player.end_x)
 		{
-			if (draw_pixel(game, x, y, COLOR_PLAYER) == ERROR)
-				return (ERROR);
+			put_pixel(game, x, y, COLOR_PLAYER);
 			x++;
 		}
 		y++;
@@ -95,8 +72,7 @@ static int	draw_ray(t_game *game, double ray_dir_x, double ray_dir_y)
 	{
 		x = MARGE + ray_pos_x * SIZE_SQUARE;
 		y = MARGE + ray_pos_y * SIZE_SQUARE;
-		if (draw_pixel(game, x, y, COLOR_RAY) == ERROR)
-			return (ERROR);
+		put_pixel(game, x, y, COLOR_RAY);
 		ray_pos_x = ray_pos_x + ray_dir_x * RAY_STEP_SIZE;
 		ray_pos_y = ray_pos_y + ray_dir_y * RAY_STEP_SIZE;
 	}

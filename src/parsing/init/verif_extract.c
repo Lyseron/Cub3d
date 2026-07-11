@@ -6,7 +6,7 @@
 /*   By: mvignes <mvignes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/11 16:09:54 by mvignes           #+#    #+#             */
-/*   Updated: 2026/07/10 15:37:27 by mvignes          ###   ########.fr       */
+/*   Updated: 2026/07/11 08:52:13 by mvignes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,8 @@ static bool	good_caractere(char *line)
 	return (false);
 }
 
-/// @brief Check if the line of contents does not contain any parasitic containers
+/// @brief Check if the line of contents does not contain
+/// @brief any parasitic containers
 /// @param line 
 /// @param map 
 /// @return return false for it's ok and return true for error

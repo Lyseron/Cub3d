@@ -6,13 +6,14 @@
 /*   By: mvignes <mvignes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/09 18:23:50 by mvignes           #+#    #+#             */
-/*   Updated: 2026/07/10 17:07:39 by mvignes          ###   ########.fr       */
+/*   Updated: 2026/07/11 08:54:56 by mvignes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cube.h"
 
-/// @brief Allows you to write a message and to quit the program properly as soon as the parsing is done
+/// @brief Allows you to write a message and to quit
+/// @brief the program properly as soon as the parsing is done
 /// @param str 
 /// @param map 
 /// @param r 

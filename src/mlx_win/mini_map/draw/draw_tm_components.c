@@ -6,7 +6,7 @@
 /*   By: mvignes <mvignes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/18 04:46:03 by lyaberge          #+#    #+#             */
-/*   Updated: 2026/07/07 11:36:23 by mvignes          ###   ########.fr       */
+/*   Updated: 2026/07/11 09:03:14 by mvignes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,10 +28,7 @@ int	draw_tiny_square(t_game *game, int color)
 		{
 			if (x >= game->tiny_map.min_x && x < game->tiny_map.max_x
 				&& y >= game->tiny_map.min_y && y < game->tiny_map.max_y)
-			{
-				if (draw_pixel(game, x, y, color) == ERROR)
-					return (ERROR);
-			}
+				put_pixel(game, x, y, color);
 			x++;
 		}
 		y++;
@@ -51,8 +48,7 @@ int	draw_tiny_player(t_game *game)
 		x = game->mini_player.start_x;
 		while (x < game->mini_player.end_x)
 		{
-			if (draw_pixel(game, x, y, COLOR_PLAYER) == ERROR)
-				return (ERROR);
+			put_pixel(game, x, y, COLOR_PLAYER);
 			x++;
 		}
 		y++;
@@ -75,8 +71,7 @@ static int	draw_tiny_ray(t_game *game, double dir_x, double dir_y)
 		ray_pixel_y = convert_y_to_pixel(game, y);
 		if (is_ray_pixel_in_bound(game, ray_pixel_x, ray_pixel_y) == false)
 			break ;
-		if (draw_pixel(game, ray_pixel_x, ray_pixel_y, COLOR_RAY) == ERROR)
-			return (ERROR);
+		put_pixel(game, ray_pixel_x, ray_pixel_y, COLOR_RAY);
 		x = x + dir_x * RAY_STEP_SIZE;
 		y = y + dir_y * RAY_STEP_SIZE;
 	}
@@ -114,8 +109,7 @@ int	draw_background(t_game *game)
 		x = game->tiny_map.min_x;
 		while (x < game->tiny_map.max_x)
 		{
-			if (draw_pixel(game, x, y, COLOR_BACKGROUND) == ERROR)
-				return (ERROR);
+			put_pixel(game, x, y, COLOR_BACKGROUND);
 			x++;
 		}
 		y++;

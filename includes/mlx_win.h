@@ -6,7 +6,7 @@
 /*   By: mvignes <mvignes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/11 16:57:12 by lyaberge          #+#    #+#             */
-/*   Updated: 2026/07/09 10:57:09 by mvignes          ###   ########.fr       */
+/*   Updated: 2026/07/11 08:59:11 by mvignes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,6 @@ int		draw_mini_map(t_game *game);
 int		draw_all_ray(t_game *game);
 int		draw_player(t_game *game);
 int		draw_mini_square(t_game *game, int map_x, int map_y, int color);
-int		draw_pixel(t_game *game, int x, int y, unsigned int color);
 
 /* ------------------- Draw_tiny_map.c --------------------- */
 int		draw_tiny_map(t_game *game);

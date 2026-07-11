@@ -6,7 +6,7 @@
 /*   By: mvignes <mvignes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/08 17:05:45 by mvignes           #+#    #+#             */
-/*   Updated: 2026/07/10 12:21:37 by mvignes          ###   ########.fr       */
+/*   Updated: 2026/07/11 08:53:49 by mvignes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,11 +24,11 @@ static bool	good_value_not_map(char *line, t_map *map)
 		|| !map->extract_ceiling || !map->extract_floor || map->error)
 	{
 		if (((ft_strnstr(line, "01", ft_strlen(line))
-			|| ft_strnstr(line, "11", ft_strlen(line))
-			||ft_strnstr(line, "00", ft_strlen(line))
-			|| ft_strnstr(line, "10", ft_strlen(line)))
-			&& !(ft_strnstr(line, "F", ft_strlen(line))
-			|| ft_strnstr(line, "C", ft_strlen(line))))
+					|| ft_strnstr(line, "11", ft_strlen(line))
+					||ft_strnstr(line, "00", ft_strlen(line))
+					|| ft_strnstr(line, "10", ft_strlen(line)))
+				&& !(ft_strnstr(line, "F", ft_strlen(line))
+					|| ft_strnstr(line, "C", ft_strlen(line))))
 			|| ft_strnstr(line, "S1", ft_strlen(line))
 			|| ft_strnstr(line, "E1", ft_strlen(line))
 			|| ft_strnstr(line, "N1", ft_strlen(line))
