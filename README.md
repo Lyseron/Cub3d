@@ -45,3 +45,4 @@ Thank you.
 
 note pour moi meme
 regler le probleme d'escalier sur la map 3d, venant surement du draw_line (changer et faire le dda)
+
