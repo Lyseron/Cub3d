@@ -6,7 +6,7 @@
 /*   By: mvignes <mvignes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/09 19:47:20 by mvignes           #+#    #+#             */
-/*   Updated: 2026/07/11 08:54:00 by mvignes          ###   ########.fr       */
+/*   Updated: 2026/07/11 12:05:08 by mvignes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,6 +74,7 @@ int	read_map(char *line, t_map *map)
 	if (data_after_map(map, line))
 		map->error = true;
 	close(map->map_fd);
+	map->map_fd = -1;
 	if (map->error)
 		return (free(line), print_error("Error: Data doublon in fd",
 				map, ERROR));
