@@ -6,7 +6,7 @@
 /*   By: vignesmattheu <vignesmattheu@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/08 13:38:07 by lyaberge          #+#    #+#             */
-/*   Updated: 2026/07/10 22:24:11 by vignesmatth      ###   ########.fr       */
+/*   Updated: 2026/07/13 09:08:47 by vignesmatth      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,14 +85,20 @@ typedef int	(*t_mlx_func)();
 # define TURN_LEFT -1
 
 // Information about the door
-# define DOOR_RANGE 1
+# define DOOR_RANGE 3
 # define DOOR_PATH "./textures/texture_gall/door/door_lily.xpm"
 
 // For the animation to define how many loop before a frame change
-# define TIME_FRAME_PHONE 20000
+// For Linux
+// # define TIME_FRAME_PHONE 20000
+// # define TIME_FRAME_HAND 50
+// # define TIME_FRAME_MONA 20000
+// # define TIME_FRAME_MUNCH 20000
+// For Macos
+# define TIME_FRAME_PHONE 450
 # define TIME_FRAME_HAND 50
-# define TIME_FRAME_MONA 20000
-# define TIME_FRAME_MUNCH 20000
+# define TIME_FRAME_MONA 450
+# define TIME_FRAME_MUNCH 450
 
 // The color for the mini/tiny maps
 # define COLOR_WALL 0x009999
@@ -106,25 +112,25 @@ typedef int	(*t_mlx_func)();
 # define GOOD_NORTH "./textures/texture_gall/munch/wall_anim_0.xpm"
 # define GOOD_SOUTH "./textures/texture_gall/wall_mona/wall_mona_0.xpm"
 
-# define W_PRESS "./textures/key/xpm/key_w.xpm"
-# define A_PRESS "./textures/key/xpm/key_a.xpm"
-# define S_PRESS "./textures/key/xpm/key_s.xpm"
-# define D_PRESS "./textures/key/xpm/key_d.xpm"
-# define ARROW_LEFT_PRESS "./textures/key/xpm/key_arrow_left.xpm"
-# define ARROW_RIGHT_PRESS "./textures/key/xpm/key_arrow_right.xpm"
-# define O_PRESS "./textures/key/xpm/key_o.xpm"
-# define P_PRESS "./textures/key/xpm/key_p.xpm"
-# define SHIFT_PRESS "./textures/key/xpm/key_shift.xpm"
-# define CTRL_PRESS "./textures/key/xpm/key_ctrl.xpm"
-# define ALT_PRESS "./textures/key/xpm/key_alt.xpm"
+# define W_PRESS "./textures/key/xpm/key_w_press.xpm"
+# define A_PRESS "./textures/key/xpm/key_a_press.xpm"
+# define S_PRESS "./textures/key/xpm/key_s_press.xpm"
+# define D_PRESS "./textures/key/xpm/key_d_press.xpm"
+# define ARROW_LEFT_PRESS "./textures/key/xpm/key_left_press.xpm"
+# define ARROW_RIGHT_PRESS "./textures/key/xpm/key_right_press.xpm"
+# define O_PRESS "./textures/key/xpm/key_e_press.xpm"
+# define P_PRESS "./textures/key/xpm/key_p_press.xpm"
+# define SHIFT_PRESS "./textures/key/xpm/key_shift_press.xpm"
+# define CTRL_PRESS "./textures/key/xpm/key_ctrl_press.xpm"
+# define ALT_PRESS "./textures/key/xpm/key_alt_press.xpm"
 
 # define W_RELEASE "./textures/key/xpm/key_w_release.xpm"
 # define A_RELEASE "./textures/key/xpm/key_a_release.xpm"
 # define S_RELEASE "./textures/key/xpm/key_s_release.xpm"
 # define D_RELEASE "./textures/key/xpm/key_d_release.xpm"
-# define ARROW_LEFT_RELEASE "./textures/key/xpm/key_arrow_left_release.xpm"
-# define ARROW_RIGHT_RELEASE "./textures/key/xpm/key_arrow_right_release.xpm"
-# define O_RELEASE "./textures/key/xpm/key_o_release.xpm"
+# define ARROW_LEFT_RELEASE "./textures/key/xpm/key_left_release.xpm"
+# define ARROW_RIGHT_RELEASE "./textures/key/xpm/key_right_release.xpm"
+# define O_RELEASE "./textures/key/xpm/key_e_release.xpm"
 # define P_RELEASE "./textures/key/xpm/key_p_release.xpm"
 # define SHIFT_RELEASE "./textures/key/xpm/key_shift_release.xpm"
 # define CTRL_RELEASE "./textures/key/xpm/key_ctrl_release.xpm"

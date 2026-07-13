@@ -6,11 +6,23 @@
 /*   By: vignesmattheu <vignesmattheu@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/18 21:50:21 by lyaberge          #+#    #+#             */
-/*   Updated: 2026/07/10 22:51:37 by vignesmatth      ###   ########.fr       */
+/*   Updated: 2026/07/13 09:11:43 by vignesmatth      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cube.h"
+
+static int	draw_line_test(t_game *game)
+{
+	int	i = 0;
+
+	while (i < 64)
+	{
+		put_pixel(game, game->width / 2 + i, game->height / 2, 0x0000FF);
+		i++;
+	}
+	return (false);
+}
 
 static int	mini_maps_choice(t_game *game)
 {
@@ -58,8 +70,14 @@ int	display(t_game *game)
 	if (hand_choice(game) == ERROR)
 		return (ERROR);
 	if (game->bool_key.view_key_press)
+	{
+		// printf("Bool activé\n");
 		if (view_key_press(game, &game->bool_key))
+		{
+			// printf("Error view key press\n");
 			return (ERROR);
+		}
+	}
 	mlx_put_image_to_window(game->mlx, game->win, game->img.img_ptr, 0, 0);
 	return (OK);
 }

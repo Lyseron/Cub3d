@@ -6,7 +6,7 @@
 /*   By: vignesmattheu <vignesmattheu@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/11 17:34:39 by lyaberge          #+#    #+#             */
-/*   Updated: 2026/07/10 22:51:32 by vignesmatth      ###   ########.fr       */
+/*   Updated: 2026/07/13 08:06:14 by vignesmatth      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,10 +108,8 @@ int	game_loop(t_game *game)
 	//mouse_moove(game);
 	#endif
 	game_loop_action(game, &has_moved, &mona_has_moved, &munch_has_moved);
-	if (game->moved == true
-		|| has_moved == true
-		|| mona_has_moved == true
-		|| munch_has_moved == true)
+	if (game->moved || has_moved || game->bool_key.view_key_press
+		|| mona_has_moved || munch_has_moved)
 	{
 		if (display_check(game) == ERROR)
 			return (ERROR);

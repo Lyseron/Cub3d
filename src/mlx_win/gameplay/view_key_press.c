@@ -6,7 +6,7 @@
 /*   By: vignesmattheu <vignesmattheu@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/10 17:47:33 by mvignes           #+#    #+#             */
-/*   Updated: 2026/07/11 00:05:12 by vignesmatth      ###   ########.fr       */
+/*   Updated: 2026/07/13 09:11:24 by vignesmatth      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,53 +43,53 @@ static void	display_key(t_game *game, t_img *img, int x, int y)
 static void	view_key_press_wasdlr(t_game *game, t_bool_key *b)
 {
 	if (b->left)
-		display_key(game, &b->key_press[4], game->width - 340, game->height / 40);
+		display_key(game, &b->key_press[4], game->width - 280, game->height / 40);
 	else
-		display_key(game, &b->key_release[4], game->width - 340, game->height / 40);
+		display_key(game, &b->key_release[4], game->width - 260, game->height / 40);
 	if (b->w)
-		display_key(game, &b->key_press[0], game->width - 230, game->height / 40);
+		display_key(game, &b->key_press[0], game->width - 190, game->height / 100);
 	else
-		display_key(game, &b->key_release[0], game->width - 230, game->height / 40);
+		display_key(game, &b->key_release[0], game->width - 190, game->height / 40);
 	if (b->right)
-		display_key(game, &b->key_press[5], game->width - 120, game->height / 40);
+		display_key(game, &b->key_press[5], game->width - 100, game->height / 40);
 	else
 		display_key(game, &b->key_release[5], game->width - 120, game->height / 40);
 	if (b->a)
-		display_key(game, &b->key_press[1], game->width - 340, game->height / 40 + 107);
+		display_key(game, &b->key_press[1], game->width - 280, game->height / 40 + 70);
 	else
-		display_key(game, &b->key_release[1], game->width - 340, game->height / 40 + 107);
+		display_key(game, &b->key_release[1], game->width - 260, game->height / 40 + 70);
 	if (b->s)
-		display_key(game, &b->key_press[2], game->width - 230, game->height / 40 + 107);
+		display_key(game, &b->key_press[2], game->width - 190, game->height / 40 + 80);
 	else
-		display_key(game, &b->key_release[2], game->width - 230, game->height / 40 + 107);
+		display_key(game, &b->key_release[2], game->width - 190, game->height / 40 + 70);
 	if (b->d)
-		display_key(game, &b->key_press[3], game->width - 120, game->height / 40 + 107);
+		display_key(game, &b->key_press[3], game->width - 100, game->height / 40 + 70);
 	else
-		display_key(game, &b->key_release[3], game->width - 120, game->height / 40 + 107);
+		display_key(game, &b->key_release[3], game->width - 120, game->height / 40 + 70);
 }
 
 static void	view_key_press_other(t_game *game, t_bool_key *b)
 {
 	if (b->door)
-		display_key(game, &b->key_press[6], game->width - 387, game->height / 40 + 214);
+		display_key(game, &b->key_press[6], game->width - 260, game->height / 40 + 180);
 	else
-		display_key(game, &b->key_release[6], game->width - 387, game->height / 40 + 214);
+		display_key(game, &b->key_release[6], game->width - 260, game->height / 40 + 180);
 	if (b->view_key_press)
-		display_key(game, &b->key_press[10], game->width - 275, game->height / 40 + 214);
+		display_key(game, &b->key_press[10], game->width - 190, game->height / 40 + 180);
 	else
-		display_key(game, &b->key_release[10], game->width - 275, game->height / 40 + 214);
+		display_key(game, &b->key_release[10], game->width - 190, game->height / 40 + 180);
 	if (game->start_anim_wall)
-		display_key(game, &b->key_press[7], game->width - 122, game->height / 40 + 214);
+		display_key(game, &b->key_press[7], game->width - 120, game->height / 40 + 180);
 	else
-		display_key(game, &b->key_release[7], game->width - 122, game->height / 40 + 214);
+		display_key(game, &b->key_release[7], game->width - 120, game->height / 40 + 180);
 	if (b->shift)
-		display_key(game, &b->key_press[8], game->width - 376, game->height / 40 + 324);
+		display_key(game, &b->key_press[8], game->width - 225, game->height / 40 + 250);
 	else
-		display_key(game, &b->key_release[8], game->width - 376, game->height / 40 + 324);
+		display_key(game, &b->key_release[8], game->width - 225, game->height / 40 + 250);
 	if (b->mouse)
-		display_key(game, &b->key_press[9], game->width - 163, game->height / 40 + 324);
+		display_key(game, &b->key_press[9], game->width - 155, game->height / 40 + 250);
 	else
-		display_key(game, &b->key_release[9], game->width - 163, game->height / 40 + 324);
+		display_key(game, &b->key_release[9], game->width - 155, game->height / 40 + 250);
 }
 
 bool	view_key_press(t_game *game, t_bool_key *b)
