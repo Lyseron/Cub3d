@@ -1,6 +1,6 @@
 *This project was created as part of the 42 curriculum by [lyaberge] and [mvignes].*
 
-# cub3D
+# Gallery Exporer
 
 ## Description
 
