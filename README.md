@@ -55,7 +55,6 @@ Accepted characters are:
 * `1` for walls
 * `0` for empty floor
 * `2` for doors
-* `M` for enemies
 * spaces for empty areas outside the playable map
 
 The parser checks that:
@@ -100,7 +99,6 @@ The minimap displays:
 * the player position
 * the player direction
 * doors
-* enemies
 
 The full minimap is displayed when the window is large enough.
 If the map is too large for the screen, or if the player wants a smaller display, the tiny minimap is used instead.
